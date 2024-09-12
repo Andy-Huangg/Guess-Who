@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
    <children>
-      <ImageView cache="true" cacheHint="SCALE_AND_ROTATE" fitHeight="522.0" fitWidth="638.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="479.0" fitWidth="673.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/study.png" />
          </image>

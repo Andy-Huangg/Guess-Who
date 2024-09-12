@@ -12,7 +12,7 @@
    <bottom>
       <AnchorPane prefHeight="53.0" prefWidth="646.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="74.0" layoutY="12.0" mnemonicParsing="false" text="Garden">
+            <Button fx:id="buttonGarden" layoutX="74.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden">
                <font>
                   <Font size="15.0" />
                </font>

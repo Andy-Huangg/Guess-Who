@@ -3,12 +3,13 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -39,15 +40,23 @@ public class RoomController {
 
   @FXML
   private void loadCrimeScene() {
-    AnchorPane crimeScene;
-    try {
-      crimeScene = (AnchorPane) App.loadFxml("crimescene");
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-      crimeScene = new AnchorPane();
-    }
+    AnchorPane crimeScene = loadFXML("crimescene");
     centrePane.getChildren().setAll(crimeScene);
+  }
+
+  @FXML
+  public void loadGarden() {
+    Pane suspectRoom1 = loadFXML("garden");
+    centrePane.getChildren().setAll(suspectRoom1);
+  }
+
+  private AnchorPane loadFXML(String fxmlFile) {
+    try {
+      return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return new AnchorPane();
   }
 
   /**
