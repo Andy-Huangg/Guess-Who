@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="417.0" fitWidth="541.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/study.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectSafe" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="128.0" layoutX="421.0" layoutY="233.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="112.0" />
+      <Rectangle fx:id="rectGuestList" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="86.0" layoutX="227.0" layoutY="295.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
+      <Rectangle fx:id="rectGlass" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="78.0" layoutX="109.0" layoutY="295.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+   </children>
+</AnchorPane>
