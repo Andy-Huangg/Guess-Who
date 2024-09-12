@@ -3,11 +3,12 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -17,13 +18,8 @@ import nz.ac.auckland.se206.speech.TextToSpeech;
  */
 public class RoomController {
 
-  @FXML private Rectangle rectCashier;
-  @FXML private Rectangle rectPerson1;
-  @FXML private Rectangle rectPerson2;
-  @FXML private Rectangle rectPerson3;
-  @FXML private Rectangle rectWaitress;
-  @FXML private Label lblProfession;
-  @FXML private Button btnGuess;
+  @FXML private Label timerLabel; // Label for the countdown timer
+  @FXML private AnchorPane centrePane; // Pane for loading different rooms
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -35,12 +31,23 @@ public class RoomController {
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {
-      TextToSpeech.speak(
-          "Chat with the three customers, and guess who is the "
-              + context.getProfessionToGuess());
+      TextToSpeech.speak("Chat with the three customers, and guess who is the");
       isFirstTimeInit = false;
     }
-    lblProfession.setText(context.getProfessionToGuess());
+    loadCrimeScene();
+  }
+
+  @FXML
+  private void loadCrimeScene() {
+    AnchorPane crimeScene;
+    try {
+      crimeScene = (AnchorPane) App.loadFxml("crimescene");
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+      crimeScene = new AnchorPane();
+    }
+    centrePane.getChildren().setAll(crimeScene);
   }
 
   /**

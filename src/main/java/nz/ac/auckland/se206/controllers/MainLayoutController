@@ -1,89 +1,39 @@
-import java.io.IOException;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.util.Duration;
+// import java.io.IOException;
+// import javafx.animation.Timeline;
+// import javafx.fxml.FXML;
+// import javafx.fxml.FXMLLoader;
+// import javafx.scene.control.Label;
+// import javafx.scene.layout.AnchorPane;
+// import javafx.scene.layout.BorderPane;
 
-public class MainController {
+// public class MainController {
 
-  @FXML private Label timerLabel; // Label for the countdown timer
+//   @FXML private Label timerLabel; // Label for the countdown timer
 
-  @FXML private BorderPane rootLayout; // Main BorderPane layout
+//   @FXML private BorderPane rootLayout; // Main BorderPane layout
 
-  private int timeRemaining = 300; // 5 minutes = 300 seconds
-  private Timeline countdown;
+//   private int timeRemaining = 300; // 5 minutes = 300 seconds
+//   private Timeline countdown;
 
-  @FXML
-  public void initialize() {
-    startTimer();
-    loadCrimeScene(); // Start with the crime scene by default
-  }
+//   @FXML
+//   public void initialize() {
+//     loadCrimeScene(); // Start with the crime scene by default
+//   }
 
-  // Method to start the countdown timer
-  private void startTimer() {
-    countdown =
-        new Timeline(
-            new KeyFrame(
-                Duration.seconds(1),
-                event -> {
-                  timeRemaining--;
-                  int minutes = timeRemaining / 60;
-                  int seconds = timeRemaining % 60;
-                  timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+//   // Method to load the crime scene (using AnchorPane)
+//   @FXML
+//   private void loadCrimeScene() {
+//     AnchorPane crimeScene = loadFXML("CrimeScene.fxml");
+//     rootLayout.setCenter(crimeScene);
+//   }
 
-                  if (timeRemaining <= 0) {
-                    endInteractionPhase(); // End interactions when the timer reaches zero
-                  }
-                }));
-    countdown.setCycleCount(Timeline.INDEFINITE);
-    countdown.play();
-  }
-
-  // Disable interactions when the timer runs out
-  private void endInteractionPhase() {
-    timerLabel.setText("Time's up! Make your guess.");
-    rootLayout.setDisable(true); // Disable interaction with the scene
-  }
-
-  // Method to load the crime scene (using AnchorPane)
-  @FXML
-  private void loadCrimeScene() {
-    AnchorPane crimeScene = loadFXML("CrimeScene.fxml");
-    rootLayout.setCenter(crimeScene);
-  }
-
-  // Method to load Suspect Room 1 (using AnchorPane)
-  @FXML
-  private void loadSuspectRoom1() {
-    AnchorPane suspectRoom1 = loadFXML("SuspectRoom1.fxml");
-    rootLayout.setCenter(suspectRoom1);
-  }
-
-  // Method to load Suspect Room 2 (using AnchorPane)
-  @FXML
-  private void loadSuspectRoom2() {
-    AnchorPane suspectRoom2 = loadFXML("SuspectRoom2.fxml");
-    rootLayout.setCenter(suspectRoom2);
-  }
-
-  // Method to load Suspect Room 3 (using AnchorPane)
-  @FXML
-  private void loadSuspectRoom3() {
-    AnchorPane suspectRoom3 = loadFXML("SuspectRoom3.fxml");
-    rootLayout.setCenter(suspectRoom3);
-  }
-
-  // Helper method to load FXML files as AnchorPane
-  private AnchorPane loadFXML(String fxmlFile) {
-    try {
-      return FXMLLoader.load(getClass().getResource(fxmlFile));
-    } catch (IOException e) {
-      e.printStackTrace();
-      return new AnchorPane(); // Return empty pane in case of error
-    }
-  }
-}
+//   // Helper method to load FXML files as AnchorPane
+//   private AnchorPane loadFXML(String fxmlFile) {
+//     try {
+//       return FXMLLoader.load(getClass().getResource(fxmlFile));
+//     } catch (IOException e) {
+//       e.printStackTrace();
+//       return new AnchorPane(); // Return empty pane in case of error
+//     }
+//   }
+// }
