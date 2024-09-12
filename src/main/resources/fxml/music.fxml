@@ -55,10 +55,10 @@
       </SplitPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
-            <Button layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
-            <Button layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
-            <Button disable="true" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
+            <Button id="study" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
+            <Button id="living" layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
+            <Button id="garden" layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
+            <Button id="music" disable="true" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
          </children></AnchorPane>
   </items>
 </SplitPane>

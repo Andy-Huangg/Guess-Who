@@ -18,7 +18,7 @@
                <children>
                   <ImageView fitHeight="365.0" fitWidth="486.0" layoutX="-2.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/piano.jpg" />
+                        <Image url="@../images/garden.jpg" />
                      </image>
                   </ImageView>
                   <Label layoutX="14.0" layoutY="412.0" prefHeight="28.0" prefWidth="111.0" text="Time: 5:00">
@@ -27,7 +27,7 @@
                      </font>
                   </Label>
                   <Button layoutX="332.0" layoutY="412.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="139.0" text="Start guessing now" />
-                  <Label layoutX="159.0" text="Music Room">
+                  <Label layoutX="190.0" layoutY="-5.0" text="Garden">
                      <font>
                         <Font name="Century" size="29.0" />
                      </font>
@@ -38,10 +38,10 @@
                <children>
                   <ImageView fitHeight="100.0" fitWidth="104.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Alfred.jpg" />
+                        <Image url="@../images/Bruce.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="88.0" layoutY="114.0" text="Alfred">
+                  <Label layoutX="88.0" layoutY="114.0" text="Bruce">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -55,10 +55,10 @@
       </SplitPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
-            <Button layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
-            <Button layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
-            <Button disable="true" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
+            <Button id="study" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
+            <Button id="living" layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
+            <Button id="garden" disable="true" layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
+            <Button id="music" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
          </children></AnchorPane>
   </items>
 </SplitPane>

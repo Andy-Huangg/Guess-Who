@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,11 +12,11 @@
   <items>
       <SplitPane dividerPositions="0.65" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="709.0">
          <items>
-            <AnchorPane prefHeight="398.0" prefWidth="422.0">
+            <AnchorPane prefHeight="446.0" prefWidth="597.0">
                <children>
-                  <ImageView fitHeight="365.0" fitWidth="486.0" layoutX="-2.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="365.0" fitWidth="486.0" layoutX="-3.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/piano.jpg" />
+                        <Image url="@../images/study.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="14.0" layoutY="412.0" prefHeight="28.0" prefWidth="111.0" text="Time: 5:00">
@@ -27,38 +25,37 @@
                      </font>
                   </Label>
                   <Button layoutX="332.0" layoutY="412.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="139.0" text="Start guessing now" />
-                  <Label layoutX="159.0" text="Music Room">
+                  <Label layoutX="158.0" layoutY="14.0" text="Study Room">
                      <font>
                         <Font name="Century" size="29.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="446.0" prefWidth="165.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="104.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <Button layoutX="31.0" layoutY="384.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="155.0" text="Interactions" />
+                  <ImageView fitHeight="114.0" fitWidth="155.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Alfred.jpg" />
+                        <Image url="@../images/newspaper.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="88.0" layoutY="114.0" text="Alfred">
+                  <Label layoutX="9.0" layoutY="165.0" prefHeight="198.0" prefWidth="201.0" text="Interact text" wrapText="true">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
-                  <TextArea layoutX="8.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" />
-                  <TextField layoutX="8.0" layoutY="345.0" prefHeight="23.0" prefWidth="200.0" />
-                  <Button layoutX="31.0" layoutY="384.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="155.0" text="Talk (or via Enter Key)" />
+                  <Label layoutX="59.0" layoutY="137.0" text="Iterm Description" />
                </children>
             </AnchorPane>
          </items>
       </SplitPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
-            <Button layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
-            <Button layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
-            <Button disable="true" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
+            <Button id="study" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Study room" />
+            <Button id="living" layoutX="204.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Living room" />
+            <Button id="garden" disable="true" layoutX="398.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To the Garden" />
+            <Button id="music" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="119.0" text="To Music room" />
          </children></AnchorPane>
   </items>
 </SplitPane>
