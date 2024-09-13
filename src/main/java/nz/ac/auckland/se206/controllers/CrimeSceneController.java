@@ -56,7 +56,15 @@ public class CrimeSceneController {
 
   @FXML
   private void closeNewsPaper() {
-    newsPaperClicked = false;
+
+    if (newsPaperClicked == true) {
+      newsPaperClicked = false;
+      TranslateTransition translate = new TranslateTransition();
+      translate.setNode(newsPaperPane);
+      translate.setDuration(Duration.millis(500));
+      translate.setByY(500);
+      translate.play();
+    }
     newsPaperPane.setVisible(false);
   }
 }
