@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
+   <children>
+      <ImageView fitHeight="708.0" fitWidth="680.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="21.3782958984375" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="22.0">
+         <image>
+            <Image url="@../images/crimescene.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectSafe" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="193.0" layoutX="529.0" layoutY="287.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
+      <Rectangle fx:id="rectGuestList" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="124.0" layoutX="281.0" layoutY="382.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Rectangle fx:id="rectGlass" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="107.0" layoutX="132.0" layoutY="389.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
+   </children>
+</AnchorPane>
