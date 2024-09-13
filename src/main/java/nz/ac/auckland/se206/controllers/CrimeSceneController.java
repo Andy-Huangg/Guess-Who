@@ -2,11 +2,13 @@ package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectSafe, rectGuestList, rectGlass;
+  @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
+  @FXML private Pane newsPaperPane;
 
   public void initialize() {}
 
@@ -19,6 +21,8 @@ public class CrimeSceneController {
       handleClue2Interaction();
     } else if (clickedRectangle == rectGlass) {
       handleClue3Interaction();
+    } else if (clickedRectangle == rectNewsPaper) {
+      handleClue4Interaction();
     }
   }
 
@@ -32,5 +36,11 @@ public class CrimeSceneController {
 
   private void handleClue3Interaction() {
     // Handle interaction with the broken glass
+  }
+
+  private void handleClue4Interaction() {
+    // Handle interaction with the broken glass
+    System.out.println(newsPaperPane.visibleProperty());
+    newsPaperPane.setVisible(true);
   }
 }
