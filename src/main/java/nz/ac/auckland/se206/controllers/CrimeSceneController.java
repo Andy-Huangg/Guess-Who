@@ -12,6 +12,7 @@ public class CrimeSceneController {
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
   private boolean newsPaperClicked = false;
+  private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   public void initialize() {}
 
@@ -40,16 +41,28 @@ public class CrimeSceneController {
 
   private void handleGuestListInteraction() {
     // Handle interaction with the guest list
+    if (!clueArray[0]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[0] = true;
+    }
   }
 
   private void handleGlassInteraction() {
     // Handle interaction with the broken glass
+    if (!clueArray[1]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[1] = true;
+    }
   }
 
   private void handleNewsInteraction() {
     // Handle interaction with the broken glass
-    newsPaperPane.setVisible(true);
+    if (!clueArray[2]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[2] = true;
+    }
     if (newsPaperClicked == false) {
+      newsPaperPane.setVisible(true);
       newsPaperClicked = true;
       TranslateTransition translate = new TranslateTransition();
       translate.setNode(newsPaperPane);

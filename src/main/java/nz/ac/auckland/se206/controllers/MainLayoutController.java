@@ -27,7 +27,7 @@ public class MainLayoutController {
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private Timeline countdown;
 
-  private int clueCount = 0;
+  private static int clueCount = 0;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -79,7 +79,7 @@ public class MainLayoutController {
     return new AnchorPane();
   }
 
-  public void incrementClueCount() {
+  public static void incrementClueCount() {
     clueCount++;
   }
 

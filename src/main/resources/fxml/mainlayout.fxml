@@ -12,11 +12,6 @@
    <bottom>
       <AnchorPane prefHeight="50.0" prefWidth="680.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonGarden" layoutX="226.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="11.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
             <Button fx:id="buttonLivingRoom" layoutX="365.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadLivingRoom" text="Living Room" AnchorPane.topAnchor="12.0">
                <font>
                   <Font size="15.0" />
@@ -28,6 +23,11 @@
                </font>
             </Button>
             <Button fx:id="buttonStudy" layoutX="40.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadStudy" text="Study Room">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonGarden" layoutX="224.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="12.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -53,6 +53,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Button layoutX="80.0" layoutY="11.0" mnemonicParsing="false" text="Make a guess now" />
          </children>
       </AnchorPane>
    </top>
