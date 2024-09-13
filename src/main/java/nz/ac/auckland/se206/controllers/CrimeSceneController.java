@@ -18,30 +18,35 @@ public class CrimeSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
-    if (clickedRectangle == rectSafe) {
-      handleClue1Interaction();
-    } else if (clickedRectangle == rectGuestList) {
-      handleClue2Interaction();
-    } else if (clickedRectangle == rectGlass) {
-      handleClue3Interaction();
-    } else if (clickedRectangle == rectNewsPaper) {
-      handleClue4Interaction();
+    switch (clickedRectangle.getId()) {
+      case "safe":
+        handleSafeInteraction();
+        break;
+      case "guestList":
+        handleGuestListInteraction();
+        break;
+      case "glass":
+        handleGlassInteraction();
+        break;
+      default:
+        handleNewsInteraction();
+        break;
     }
   }
 
-  private void handleClue1Interaction() {
+  private void handleSafeInteraction() {
     // Handle interaction with the safe
   }
 
-  private void handleClue2Interaction() {
+  private void handleGuestListInteraction() {
     // Handle interaction with the guest list
   }
 
-  private void handleClue3Interaction() {
+  private void handleGlassInteraction() {
     // Handle interaction with the broken glass
   }
 
-  private void handleClue4Interaction() {
+  private void handleNewsInteraction() {
     // Handle interaction with the broken glass
     newsPaperPane.setVisible(true);
     if (newsPaperClicked == false) {
