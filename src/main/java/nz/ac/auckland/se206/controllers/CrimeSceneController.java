@@ -1,14 +1,17 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
+  private boolean newsPaperClicked = false;
 
   public void initialize() {}
 
@@ -40,7 +43,13 @@ public class CrimeSceneController {
 
   private void handleClue4Interaction() {
     // Handle interaction with the broken glass
-    System.out.println(newsPaperPane.visibleProperty());
     newsPaperPane.setVisible(true);
+    if (newsPaperClicked == false) {
+      TranslateTransition translate = new TranslateTransition();
+      translate.setNode(newsPaperPane);
+      translate.setDuration(Duration.millis(750));
+      translate.setByY(-500);
+      translate.play();
+    }
   }
 }
