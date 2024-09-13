@@ -35,19 +35,25 @@ public class RoomController {
       TextToSpeech.speak("Chat with the three customers, and guess who is the");
       isFirstTimeInit = false;
     }
-    loadCrimeScene();
+    loadStudy();
   }
 
   @FXML
-  private void loadCrimeScene() {
+  private void loadStudy() {
     AnchorPane crimeScene = loadFXML("crimescene");
     centrePane.getChildren().setAll(crimeScene);
   }
 
   @FXML
   public void loadGarden() {
-    Pane suspectRoom1 = loadFXML("garden");
-    centrePane.getChildren().setAll(suspectRoom1);
+    Pane garden = loadFXML("garden");
+    centrePane.getChildren().setAll(garden);
+  }
+
+  @FXML
+  public void loadLivingRoom() {
+    Pane livingroom = loadFXML("livingroom");
+    centrePane.getChildren().setAll(livingroom);
   }
 
   private AnchorPane loadFXML(String fxmlFile) {

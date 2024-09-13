@@ -8,21 +8,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RoomController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
    <bottom>
       <AnchorPane prefHeight="53.0" prefWidth="646.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonGarden" layoutX="74.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="20.0">
+            <Button fx:id="buttonGarden" layoutX="201.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="11.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="267.0" layoutY="12.0" mnemonicParsing="false" text="Living Room" AnchorPane.topAnchor="20.0">
+            <Button fx:id="buttonLivingRoom" layoutX="317.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadLivingRoom" text="Living Room" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="481.0" layoutY="12.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="108.0" text="Music Room" AnchorPane.topAnchor="20.0">
+            <Button layoutX="496.0" layoutY="11.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="108.0" text="Music Room" AnchorPane.topAnchor="11.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonStudy" layoutX="77.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadStudy" text="Study">
                <font>
                   <Font size="15.0" />
                </font>
