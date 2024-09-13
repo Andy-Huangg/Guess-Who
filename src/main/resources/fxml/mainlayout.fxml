@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RoomController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RoomController">
    <bottom>
       <AnchorPane prefHeight="53.0" prefWidth="646.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,14 +34,14 @@
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane fx:id="centrePane" prefHeight="752.0" prefWidth="1062.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="centrePane" prefHeight="500.0" prefWidth="680.0" BorderPane.alignment="CENTER">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </AnchorPane>
    </center>
    <top>
-      <AnchorPane prefHeight="44.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="timerLabel" layoutX="287.0" layoutY="9.0" text="Timer">
                <font>
