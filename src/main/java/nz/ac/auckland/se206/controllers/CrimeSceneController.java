@@ -45,11 +45,18 @@ public class CrimeSceneController {
     // Handle interaction with the broken glass
     newsPaperPane.setVisible(true);
     if (newsPaperClicked == false) {
+      newsPaperClicked = true;
       TranslateTransition translate = new TranslateTransition();
       translate.setNode(newsPaperPane);
-      translate.setDuration(Duration.millis(750));
+      translate.setDuration(Duration.millis(500));
       translate.setByY(-500);
       translate.play();
     }
+  }
+
+  @FXML
+  private void closeNewsPaper() {
+    newsPaperClicked = false;
+    newsPaperPane.setVisible(false);
   }
 }
