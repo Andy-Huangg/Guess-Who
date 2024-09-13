@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -21,6 +24,9 @@ public class MainLayoutController {
 
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
+
+  private int timeRemaining = 300; // 5 minutes = 300 seconds
+  private Timeline countdown;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -35,6 +41,7 @@ public class MainLayoutController {
       TextToSpeech.speak("Chat with the three customers, and guess who is the");
       isFirstTimeInit = false;
     }
+    startTimer();
     loadStudy();
   }
 
@@ -112,5 +119,29 @@ public class MainLayoutController {
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
+  }
+
+  // Method to start the countdown timer
+  private void startTimer() {
+    countdown =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(1),
+                event -> {
+                  timeRemaining--;
+                  int minutes = timeRemaining / 60;
+                  int seconds = timeRemaining % 60;
+                  timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+
+                  if (timeRemaining <= 0) {
+                    endInteractionPhase(); // End interactions when the timer reaches zero
+                  }
+                }));
+    countdown.setCycleCount(Timeline.INDEFINITE);
+    countdown.play();
+  }
+
+  private void endInteractionPhase() {
+    timerLabel.setText("Time's up! Make your guess.");
   }
 }
