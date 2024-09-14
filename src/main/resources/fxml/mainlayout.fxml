@@ -10,24 +10,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
    <bottom>
-      <AnchorPane prefHeight="53.0" prefWidth="646.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="50.0" prefWidth="680.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonGarden" layoutX="201.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="11.0">
+            <Button fx:id="buttonLivingRoom" layoutX="365.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadLivingRoom" text="Living Room" AnchorPane.topAnchor="12.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="buttonLivingRoom" layoutX="317.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadLivingRoom" text="Living Room" AnchorPane.topAnchor="10.0">
+            <Button fx:id="buttonMusicRoom" layoutX="518.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadMusicRoom" prefHeight="30.0" prefWidth="122.0" text="Music Room" AnchorPane.topAnchor="11.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="buttonMusicRoom" layoutX="496.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadMusicRoom" prefHeight="0.0" prefWidth="108.0" text="Music Room" AnchorPane.topAnchor="11.0">
+            <Button fx:id="buttonStudy" layoutX="40.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadStudy" text="Study Room">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="buttonStudy" layoutX="77.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadStudy" text="Study">
+            <Button fx:id="buttonGarden" layoutX="224.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden" AnchorPane.topAnchor="12.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -53,6 +53,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Button layoutX="80.0" layoutY="11.0" mnemonicParsing="false" text="Make a guess now" />
          </children>
       </AnchorPane>
    </top>

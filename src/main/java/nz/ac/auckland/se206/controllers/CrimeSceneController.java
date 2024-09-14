@@ -12,39 +12,57 @@ public class CrimeSceneController {
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
   private boolean newsPaperClicked = false;
+  private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   public void initialize() {}
 
   @FXML
   private void handleRectangleClick(MouseEvent event) {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
-    if (clickedRectangle == rectSafe) {
-      handleClue1Interaction();
-    } else if (clickedRectangle == rectGuestList) {
-      handleClue2Interaction();
-    } else if (clickedRectangle == rectGlass) {
-      handleClue3Interaction();
-    } else if (clickedRectangle == rectNewsPaper) {
-      handleClue4Interaction();
+    switch (clickedRectangle.getId()) {
+      case "safe":
+        handleSafeInteraction();
+        break;
+      case "guestList":
+        handleGuestListInteraction();
+        break;
+      case "glass":
+        handleGlassInteraction();
+        break;
+      default:
+        handleNewsInteraction();
+        break;
     }
   }
 
-  private void handleClue1Interaction() {
+  private void handleSafeInteraction() {
     // Handle interaction with the safe
   }
 
-  private void handleClue2Interaction() {
+  private void handleGuestListInteraction() {
     // Handle interaction with the guest list
+    if (!clueArray[0]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[0] = true;
+    }
   }
 
-  private void handleClue3Interaction() {
+  private void handleGlassInteraction() {
     // Handle interaction with the broken glass
+    if (!clueArray[1]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[1] = true;
+    }
   }
 
-  private void handleClue4Interaction() {
+  private void handleNewsInteraction() {
     // Handle interaction with the broken glass
-    newsPaperPane.setVisible(true);
+    if (!clueArray[2]) { // if first time clicked
+      MainLayoutController.incrementClueCount();
+      clueArray[2] = true;
+    }
     if (newsPaperClicked == false) {
+      newsPaperPane.setVisible(true);
       newsPaperClicked = true;
       TranslateTransition translate = new TranslateTransition();
       translate.setNode(newsPaperPane);

@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -27,6 +26,8 @@ public class MainLayoutController {
 
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private Timeline countdown;
+
+  private static int clueCount = 0;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -78,24 +79,8 @@ public class MainLayoutController {
     return new AnchorPane();
   }
 
-  /**
-   * Handles the key pressed event.
-   *
-   * @param event the key event
-   */
-  @FXML
-  public void onKeyPressed(KeyEvent event) {
-    System.out.println("Key " + event.getCode() + " pressed");
-  }
-
-  /**
-   * Handles the key released event.
-   *
-   * @param event the key event
-   */
-  @FXML
-  public void onKeyReleased(KeyEvent event) {
-    System.out.println("Key " + event.getCode() + " released");
+  public static void incrementClueCount() {
+    clueCount++;
   }
 
   /**
@@ -118,7 +103,11 @@ public class MainLayoutController {
    */
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
-    context.handleGuessClick();
+    if (clueCount < 3) {
+      // TODO notify user must interact with all clue before continue;
+      return;
+    }
+    // TODO allow player to guess
   }
 
   // Method to start the countdown timer
