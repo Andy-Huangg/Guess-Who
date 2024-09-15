@@ -16,11 +16,8 @@ public class GardenController {
   public void initialize() {}
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
-    Rectangle clickedRectangle = (Rectangle) event.getSource();
-    if (clickedRectangle == rectBruce) {
-      handleBruceInteraction();
-    }
+  private void handleBruceInteraction(MouseEvent event) {
+    enableChat();
   }
 
   @FXML
@@ -35,11 +32,5 @@ public class GardenController {
     txtChat.setVisible(false);
     txtInput.setVisible(false);
     btnSend.setVisible(false);
-  }
-
-  private void handleBruceInteraction() {
-    enableChat();
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'handleBruceInteraction'");
   }
 }
