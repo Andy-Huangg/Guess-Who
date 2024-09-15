@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.ChatHandler;
 
 public class MusicRoomController {
   @FXML private Rectangle rectAlfred;
@@ -18,6 +19,7 @@ public class MusicRoomController {
   @FXML
   private void handleAlfredInteraction(MouseEvent event) {
     enableChat();
+    txtChat.appendText(ChatHandler.setCharacter("alfred"));
   }
 
   @FXML

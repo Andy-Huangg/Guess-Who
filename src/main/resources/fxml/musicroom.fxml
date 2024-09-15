@@ -17,7 +17,7 @@
          </image>
       </ImageView>
       <Rectangle fx:id="rectAlfred" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="230.0" layoutX="122.0" layoutY="229.0" onMouseClicked="#handleAlfredInteraction" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
-      <TextArea fx:id="txtChat" editable="false" layoutX="28.0" layoutY="404.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" visible="false" wrapText="true">
+      <TextArea fx:id="txtChat" editable="false" layoutX="17.0" layoutY="405.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" visible="false" wrapText="true">
          <font>
             <Font size="10.0" />
          </font>
