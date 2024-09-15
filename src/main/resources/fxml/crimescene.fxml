@@ -18,14 +18,14 @@
       <Rectangle id="guestList" fx:id="rectGuestList" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="124.0" layoutX="281.0" layoutY="382.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
       <Rectangle id="glass" fx:id="rectGlass" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="107.0" layoutX="132.0" layoutY="389.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
       <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="66.0" layoutX="230.0" layoutY="308.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
-      <Pane fx:id="newsPaperPane" layoutX="27.0" layoutY="528.0" prefHeight="436.0" prefWidth="626.0" visible="false">
+      <Pane fx:id="newsPaperPane" layoutX="23.0" layoutY="27.0" prefHeight="473.0" prefWidth="757.0" visible="false">
          <children>
-            <ImageView disable="true" fitHeight="434.0" fitWidth="622.0" layoutX="2.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="525.0" fitWidth="686.0" layoutX="-23.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/newsPaperClue.PNG" />
+                  <Image url="@../images/newspapercloseup.png" />
                </image>
             </ImageView>
-            <Button layoutX="224.0" layoutY="421.0" mnemonicParsing="false" onAction="#closeNewsPaper" prefHeight="33.0" prefWidth="179.0" text="Close newspaper" />
+            <Button layoutX="218.0" layoutY="443.0" mnemonicParsing="false" onAction="#closeNewsPaper" prefHeight="33.0" prefWidth="179.0" text="Close newspaper" />
          </children>
       </Pane>
    </children>

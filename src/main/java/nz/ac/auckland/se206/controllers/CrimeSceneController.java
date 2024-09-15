@@ -1,17 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
-  private boolean newsPaperClicked = false;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   public void initialize() {}
@@ -61,28 +58,13 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[2] = true;
     }
-    if (newsPaperClicked == false) {
-      newsPaperPane.setVisible(true);
-      newsPaperClicked = true;
-      TranslateTransition translate = new TranslateTransition();
-      translate.setNode(newsPaperPane);
-      translate.setDuration(Duration.millis(500));
-      translate.setByY(-500);
-      translate.play();
-    }
+
+    newsPaperPane.setVisible(true);
   }
 
   @FXML
   private void closeNewsPaper() {
 
-    if (newsPaperClicked == true) {
-      newsPaperClicked = false;
-      TranslateTransition translate = new TranslateTransition();
-      translate.setNode(newsPaperPane);
-      translate.setDuration(Duration.millis(500));
-      translate.setByY(500);
-      translate.play();
-    }
     newsPaperPane.setVisible(false);
   }
 }
