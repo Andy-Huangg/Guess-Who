@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class MusicRoomController {
-  @FXML private Rectangle rectSaul;
+  @FXML private Rectangle rectAlfred;
   @FXML private TextArea txtChat;
   @FXML private TextField txtInput;
   @FXML private Button btnSend;
@@ -16,7 +16,7 @@ public class MusicRoomController {
   public void initialize() {}
 
   @FXML
-  private void handleSaulInteraction(MouseEvent event) {
+  private void handleAlfredInteraction(MouseEvent event) {
     enableChat();
   }
 

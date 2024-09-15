@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class LivingRoomController {
-  @FXML private Rectangle rectAlfred;
+  @FXML private Rectangle rectSaul;
   @FXML private TextArea txtChat;
   @FXML private TextField txtInput;
   @FXML private Button btnSend;
@@ -16,7 +16,7 @@ public class LivingRoomController {
   public void initialize() {}
 
   @FXML
-  private void handleAlfredInteraction(MouseEvent event) {
+  private void handleSaulInteraction(MouseEvent event) {
     enableChat();
   }
 
