@@ -9,6 +9,9 @@ public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
+  @FXML private Pane wineCluePane;
+  @FXML private Pane notepadPane;
+  @FXML private Rectangle rectFingerPrint1;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   public void initialize() {}
@@ -50,6 +53,7 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[1] = true;
     }
+    wineCluePane.setVisible(true);
   }
 
   private void handleNewsInteraction() {
@@ -66,5 +70,11 @@ public class CrimeSceneController {
   private void closeNewsPaper() {
 
     newsPaperPane.setVisible(false);
+  }
+
+  @FXML
+  private void closeWineClue() {
+
+    wineCluePane.setVisible(false);
   }
 }
