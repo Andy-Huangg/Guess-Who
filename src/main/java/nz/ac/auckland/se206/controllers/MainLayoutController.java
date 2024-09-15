@@ -23,6 +23,7 @@ public class MainLayoutController {
 
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
+  @FXML private static AnchorPane navBar; // Pane for the navigation bar
 
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private Timeline countdown;
@@ -70,6 +71,13 @@ public class MainLayoutController {
     centrePane.getChildren().setAll(musicroom);
   }
 
+  @FXML
+  public static void enoughClues() {
+    if (clueCount == 1 && navBar != null) {
+      navBar.setVisible(true);
+    }
+  }
+
   private AnchorPane loadFXML(String fxmlFile) {
     try {
       return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
@@ -81,6 +89,7 @@ public class MainLayoutController {
 
   public static void incrementClueCount() {
     clueCount++;
+    enoughClues();
   }
 
   /**
