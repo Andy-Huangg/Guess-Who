@@ -8,12 +8,20 @@ import javafx.scene.shape.Rectangle;
 
 public class CrimeSceneController {
 
+  private static boolean hasClickedFingerPrint1 = false;
+  private static boolean hasClickedFingerPrint2 = false;
+  private static boolean foundBruceFingerPrint = false;
+  private static boolean foundSaulFingerPrint = false;
+  private static boolean foundAlfredFingerPrint = false;
   @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
-  @FXML private Pane newsPaperPane;
-  @FXML private Pane wineCluePane;
-  @FXML private Pane notepadPane;
-  @FXML private Rectangle rectFingerPrint1;
-  @FXML private ImageView fingerprint1, fingerprint2;
+  @FXML private Pane newsPaperPane, wineCluePane, notepadPane;
+  @FXML private Rectangle rectFingerPrint1, rectFingerPrint2;
+  @FXML
+  private ImageView fingerprint1,
+      fingerprint2,
+      brucefingerprint,
+      saulfingerprint,
+      alfredfingerprint;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   public void initialize() {}
@@ -66,6 +74,7 @@ public class CrimeSceneController {
     wineCluePane.setVisible(true);
     if (hasClickedFingerPrint == true) {
       notepadPane.setVisible(true);
+      updateFingerPrints();
     }
   }
 
@@ -91,21 +100,52 @@ public class CrimeSceneController {
     wineCluePane.setVisible(false);
   }
 
-  private boolean hasClickedFingerPrint1 = false;
-  private boolean hasClickedFingerPrint2 = false;
-
+  // Deals with clicking on the wine glass clue.
   private void handleFingerPrintInteraction(int number) {
     hasClickedFingerPrint = true;
     notepadPane.setVisible(true);
 
     if (number == 1) {
       hasClickedFingerPrint1 = true;
-      fingerprint1.setVisible(true);
     }
     if (number == 2) {
+      hasClickedFingerPrint2 = true;
+    }
+    updateFingerPrints();
+  }
+
+  // shows the fingerprints that have been interacted with.
+  private void updateFingerPrints() {
+    if (hasClickedFingerPrint1) {
+      fingerprint1.setVisible(true);
+    }
+    if (hasClickedFingerPrint2) {
       fingerprint2.setVisible(true);
+    }
+    if (foundBruceFingerPrint) {
+      brucefingerprint.setVisible(true);
+    }
+    if (foundSaulFingerPrint) {
+      saulfingerprint.setVisible(true);
+    }
+    if (foundAlfredFingerPrint) {
+      alfredfingerprint.setVisible(true);
     }
   }
 
-  private void updateFingerPrint(int number) {}
+  private void setFingerPrintsFound(String name) {
+    switch (name) {
+      case "Bruce":
+        foundBruceFingerPrint = true;
+        break;
+      case "Saul":
+        foundSaulFingerPrint = true;
+        break;
+      case "Alfred":
+        foundAlfredFingerPrint = true;
+        break;
+      default:
+        break;
+    }
+  }
 }
