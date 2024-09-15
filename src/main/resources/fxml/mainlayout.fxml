@@ -29,29 +29,29 @@
       </AnchorPane>
    </top>
    <right>
-      <AnchorPane fx:id="navBar" prefHeight="506.0" prefWidth="120.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+      <VBox alignment="BOTTOM_CENTER" prefHeight="262.0" prefWidth="123.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonLivingRoom" layoutX="26.0" layoutY="94.0" mnemonicParsing="false" onAction="#loadLivingRoom" text="Living Room">
+            <Button fx:id="buttonLivingRoom" mnemonicParsing="false" onAction="#loadLivingRoom" prefHeight="132.0" prefWidth="123.0" text="Living Room">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonMusicRoom" layoutX="9.0" layoutY="198.0" mnemonicParsing="false" onAction="#loadMusicRoom" prefHeight="30.0" prefWidth="122.0" text="Music Room">
+            <Button fx:id="buttonMusicRoom" mnemonicParsing="false" onAction="#loadMusicRoom" prefHeight="133.0" prefWidth="122.0" text="Music Room">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonStudy" layoutX="24.0" layoutY="325.0" mnemonicParsing="false" onAction="#loadStudy" text="Study Room">
+            <Button fx:id="buttonStudy" mnemonicParsing="false" onAction="#loadStudy" prefHeight="129.0" prefWidth="122.0" text="Study Room">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonGarden" layoutX="39.0" layoutY="403.0" mnemonicParsing="false" onAction="#loadGarden" text="Garden">
+            <Button fx:id="buttonGarden" mnemonicParsing="false" onAction="#loadGarden" prefHeight="118.0" prefWidth="122.0" text="Garden">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
                </font>
             </Button>
          </children>
-      </AnchorPane>
+      </VBox>
    </right>
 </BorderPane>
