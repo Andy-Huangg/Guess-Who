@@ -12,8 +12,11 @@ public class ChatHandler {
 
   private static ChatCompletionRequest chatCompletionRequest;
 
-  ChatHandler() {}
-
+  /**
+   * Sets the character for the chat context and initializes the ChatCompletionRequest.
+   *
+   * @param characterID the charcter to set
+   */
   public static String setCharacter(String characterID) {
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
