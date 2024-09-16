@@ -32,7 +32,7 @@ public class GameStarted implements GameState {
    */
   @Override
   public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    App.openChat(event, context.getProfession(rectangleId));
+    App.openChat(event, context.getPerson(rectangleId));
   }
 
   /**

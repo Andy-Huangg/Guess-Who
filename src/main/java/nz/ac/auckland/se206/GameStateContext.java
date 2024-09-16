@@ -164,7 +164,7 @@ public class GameStateContext {
    * @param rectangleId the rectangle ID
    * @return the profession associated with the rectangle ID
    */
-  public String getProfession(String rectangleId) {
+  public String getPerson(String rectangleId) {
     return characterStories.get(rectangleId);
   }
 
