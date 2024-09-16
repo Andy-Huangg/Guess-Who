@@ -1,12 +1,12 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.se206.ChatHandler;
 
 public class GardenController {
   @FXML private Rectangle rectBruce;
@@ -17,9 +17,11 @@ public class GardenController {
   public void initialize() {}
 
   @FXML
-  private void handleBruceInteraction(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) throws IOException {
     enableChat();
-    txtChat.appendText(ChatHandler.setCharacter("bruce"));
+    Rectangle clickedRectangle = (Rectangle) event.getSource();
+    MainLayoutController.getContext().handleRectangleClick(event, clickedRectangle.getId());
+    // txtChat.appendText(ChatHandler.setCharacter("bruce"));
   }
 
   @FXML

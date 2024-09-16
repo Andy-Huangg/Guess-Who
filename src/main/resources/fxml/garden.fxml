@@ -16,7 +16,7 @@
             <Image url="@../images/garden.jpg" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rectBruce" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="317.0" layoutX="371.0" layoutY="30.0" onMouseClicked="#handleBruceInteraction" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
+      <Rectangle fx:id="rectBruce" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="317.0" layoutX="371.0" layoutY="30.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
       <TextArea fx:id="txtChat" editable="false" layoutX="16.0" layoutY="406.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" visible="false" wrapText="true">
          <font>
             <Font size="10.0" />

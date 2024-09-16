@@ -90,6 +90,10 @@ public class MainLayoutController {
     enoughClues();
   }
 
+  public static GameStateContext getContext() {
+    return context;
+  }
+
   /**
    * Handles mouse clicks on rectangles representing people in the room.
    *
