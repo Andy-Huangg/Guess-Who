@@ -8,23 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="TOP_CENTER" layoutY="320.0" prefHeight="26.0" prefWidth="600.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <ImageView fitHeight="322.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="323.0" fitWidth="674.0" layoutX="-3.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/owner.jpg" />
          </image>
       </ImageView>
-      <Label alignment="TOP_CENTER" layoutY="293.0" prefHeight="26.0" prefWidth="600.0" text="You have $ seconds remaining" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="timeLabel" layoutX="192.0" layoutY="298.0" text="You have $ seconds remaning" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextArea accessibleText="input your answer here" layoutX="1.0" layoutY="341.0" prefHeight="70.0" prefWidth="600.0" />
-      <Button layoutX="218.0" layoutY="414.0" mnemonicParsing="false" text="I have decided my answer" />
+      <Label alignment="CENTER" layoutY="318.0" prefHeight="15.0" prefWidth="600.0" text="It's the moment of truth, detective. Tell me, who stole the jewllerly?">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="answerText" layoutY="336.0" prefHeight="68.0" prefWidth="600.0" />
+      <Button fx:id="submitBtn" layoutX="218.0" layoutY="404.0" mnemonicParsing="false" text="I have decided my answer" />
    </children>
 </AnchorPane>
