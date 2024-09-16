@@ -35,6 +35,21 @@ public class PromptEngineering {
     }
   }
 
+  public static String getPrompt(String promptId) {
+    try {
+      // Load the prompt template file from resources
+      URL resourceUrl =
+          PromptEngineering.class.getClassLoader().getResource("prompts/" + promptId + ".txt");
+      // change the profession to the given one.
+      String template = loadTemplate(resourceUrl.toURI());
+      // Fill the template with the provided data
+      return template;
+    } catch (IOException | URISyntaxException e) {
+      e.printStackTrace();
+      throw new IllegalArgumentException("Error loading or filling the prompt template.", e);
+    }
+  }
+
   /**
    * Loads the content of a template file from the specified file path.
    *
