@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.scene.Node;
+import javafx.scene.robot.Robot;
 
 public class DraggableMaker {
 
@@ -19,7 +20,14 @@ public class DraggableMaker {
         mouseEvent -> {
           node.setLayoutX(mouseEvent.getSceneX() - mouseAnchorX);
           node.setLayoutY(mouseEvent.getSceneY() - mouseAnchorY);
-          System.out.println(mouseEvent.getSceneX());
+          // System.out.println(new Robot().getMouseY());
+          System.out.println(mouseEvent.getSceneY());
+          if (mouseEvent.getSceneX() > 680
+              || mouseEvent.getSceneX() < -10
+              || mouseEvent.getSceneY() < -10
+              || mouseEvent.getSceneY() > 550) {
+            new Robot().mouseMove(850, 400);
+          }
         });
   }
 }
