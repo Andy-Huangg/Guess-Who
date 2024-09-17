@@ -2,12 +2,10 @@ package nz.ac.auckland.se206;
 
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -51,21 +49,6 @@ public class App extends Application {
    */
   public static Parent loadFxml(final String fxml) throws IOException {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
-  }
-
-  public static void switchRoom(ActionEvent event, int timeRemain) throws IOException {
-    Button temp = (Button) event.getSource();
-    String roomId = temp.getId(); // store the room ID  to be switched in the button.
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/" + roomId + ".fxml"));
-    Parent root = loader.load();
-
-    // mayber a call a function inside the controller to start timer?
-    // TODO implement after room controller
-
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show();
   }
 
   /**
