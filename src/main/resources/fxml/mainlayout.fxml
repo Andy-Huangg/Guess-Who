@@ -24,7 +24,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button layoutX="693.0" layoutY="9.0" mnemonicParsing="false" text="Make a guess now" />
+            <Button layoutX="693.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleGuessClick" text="Make a guess now" />
          </children>
       </AnchorPane>
    </top>

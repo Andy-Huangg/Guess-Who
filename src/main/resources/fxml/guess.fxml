@@ -10,73 +10,91 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
+<VBox prefHeight="545.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="698.0">
          <children>
-            <ImageView fitHeight="323.0" fitWidth="674.0" layoutX="-3.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="376.0" fitWidth="712.0" layoutX="-2.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/owner.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="timeLabel" layoutX="190.0" layoutY="287.0" text="You have $ seconds remaining" textFill="WHITE">
+            <Label fx:id="timeLabel" alignment="TOP_CENTER" layoutY="333.0" prefHeight="20.0" prefWidth="698.0" text="You have $ seconds remaining" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font size="19.0" />
                </font>
             </Label>
-            <Pane fx:id="resultPane" layoutX="153.0" layoutY="107.0" prefHeight="190.0" prefWidth="307.0" style="-fx-background-color: #d3e6df;" visible="false">
+            <Pane fx:id="resultPane" layoutX="152.0" layoutY="161.0" prefHeight="252.0" prefWidth="394.0" style="-fx-background-color: #d3e6df;" visible="false">
                <children>
-                  <Label layoutX="104.0" layoutY="4.0" text="Your guess is:">
+                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="20.0" prefWidth="394.0" text="Your guess is:">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutY="24.0" prefHeight="25.0" prefWidth="307.0" text="result text" wrapText="true">
+                  <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutY="24.0" prefHeight="25.0" prefWidth="394.0" text="result text" wrapText="true">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="explanLabel" layoutX="3.0" layoutY="56.0" prefHeight="101.0" prefWidth="301.0" text="explanation text goes here." wrapText="true" />
-                  <Button layoutX="114.0" layoutY="165.0" mnemonicParsing="false" onAction="#onRestart" text="Play again!" />
+                  <Label fx:id="explanLabel" layoutX="3.0" layoutY="56.0" prefHeight="138.0" prefWidth="394.0" text="explanation text goes here." wrapText="true" />
+                  <Button layoutX="157.0" layoutY="202.0" mnemonicParsing="false" onAction="#onRestart" text="Play again!" />
                </children>
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="137.0" prefWidth="600.0">
+      <AnchorPane prefHeight="182.0" prefWidth="698.0">
          <children>
-            <Label alignment="CENTER" prefHeight="15.0" prefWidth="600.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <ImageView id="Bruce" fitHeight="91.0" fitWidth="120.0" layoutX="85.0" layoutY="23.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Bruce" fitHeight="114.0" fitWidth="117.0" layoutX="94.0" layoutY="38.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Bruce.jpg" />
                </image>
             </ImageView>
-            <ImageView id="Saul" fitHeight="91.0" fitWidth="120.0" layoutX="428.0" layoutY="23.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Saul" fitHeight="129.0" fitWidth="114.0" layoutX="490.0" layoutY="38.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Saul.jpg" />
                </image>
             </ImageView>
-            <ImageView id="Alfred" fitHeight="91.0" fitWidth="91.0" layoutX="255.0" layoutY="24.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Alfred" fitHeight="114.0" fitWidth="114.0" layoutX="296.0" layoutY="38.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Alfred.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="114.0" layoutY="116.0" text="Bruce" />
-            <Label layoutX="282.0" layoutY="119.0" text="Alfred" />
-            <Label layoutX="461.0" layoutY="116.0" text="Saul" />
-            <Pane fx:id="suspectSelectedPane" layoutY="-1.0" prefHeight="138.0" prefWidth="600.0" style="-fx-background-color: white;" visible="false">
+            <Label layoutX="129.0" layoutY="159.0" text="Bruce">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="329.0" layoutY="159.0" text="Alfred">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="531.0" layoutY="159.0" text="Saul">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="suspectSelectedLabel1" alignment="CENTER" layoutX="4.0" prefHeight="34.0" prefWidth="698.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Pane fx:id="suspectSelectedPane" layoutY="-1.0" prefHeight="182.0" prefWidth="698.0" style="-fx-background-color: white;" visible="false">
                <children>
-                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" prefHeight="20.0" prefWidth="600.0" text="Well done... Why do you think &lt;sus name&gt; is the theif?">
+                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" layoutY="1.0" prefHeight="34.0" prefWidth="698.0" text="Well done... Why do you think &lt;sus name&gt; is the thief?">
                      <font>
-                        <Font size="13.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="answerText" layoutY="19.0" prefHeight="79.0" prefWidth="600.0" />
-                  <Button fx:id="submitButton" layoutX="218.0" layoutY="104.0" mnemonicParsing="false" onAction="#onSubmit" text="I have decided my answer" />
-                  <Button fx:id="backButton" layoutX="8.0" layoutY="104.0" mnemonicParsing="false" onAction="#onBack" text="Go Back" />
+                  <TextArea fx:id="answerText" layoutY="36.0" prefHeight="79.0" prefWidth="698.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextArea>
+                  <Button fx:id="submitButton" layoutX="250.0" layoutY="127.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="199.0" text="I have decided my answer">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="backButton" layoutX="14.0" layoutY="131.0" mnemonicParsing="false" onAction="#onBack" prefHeight="34.0" prefWidth="78.0" text="Go Back">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
             </Pane>
          </children>
