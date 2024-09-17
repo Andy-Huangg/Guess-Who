@@ -44,4 +44,10 @@ public class GuessController {
   private void onBack() {
     suspectSelectedPane.setVisible(false);
   }
+
+  @FXML
+  private void onSumbit() {}
+
+  @FXML
+  private void onRestart() {}
 }
