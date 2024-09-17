@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,12 +12,13 @@ import nz.ac.auckland.se206.ChatHandler;
 
 public class GuessController {
 
-  @FXML Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel;
-  @FXML TextArea answerText;
-  @FXML Button SubmitBtn;
-  @FXML Pane suspectSelectedPane;
+  @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel;
+  @FXML private TextArea answerText;
+  @FXML private Button SubmitBtn;
+  @FXML private Pane suspectSelectedPane;
 
-  String suspectSelected;
+  private String suspectSelected;
+  private int timeCount = 60;
 
   public void initialize() {
     // load the prompt at the start;
@@ -26,6 +28,25 @@ public class GuessController {
               ChatHandler.setCharacter("owner");
             });
     loadingPrompt.start();
+    Thread timer = // very ugly looking but will work as a timer
+        new Thread(
+            () -> {
+              while (timeCount >= 0) {
+                Platform.runLater(
+                    () -> {
+                      timeLabel.setText("You have " + timeCount + " seconds remaining");
+                    });
+                timeCount--;
+                try {
+                  Thread.currentThread().sleep(1000);
+                } catch (InterruptedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              }
+              onSumbit();
+            });
+    timer.start();
   }
 
   @FXML
