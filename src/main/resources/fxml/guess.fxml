@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="545.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
@@ -40,6 +41,8 @@
                   <Button layoutX="157.0" layoutY="202.0" mnemonicParsing="false" onAction="#onRestart" text="Play again!" />
                </children>
             </Pane>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="121.0" layoutX="283.0" onMouseClicked="#handleOwnerClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="132.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="203.0" layoutX="144.0" layoutY="133.0" onMouseClicked="#handleOwnerClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="182.0" prefWidth="698.0">
@@ -71,7 +74,7 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label fx:id="suspectSelectedLabel1" alignment="CENTER" layoutX="4.0" prefHeight="34.0" prefWidth="698.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?">
+            <Label fx:id="ownerLabel" alignment="CENTER" layoutX="4.0" prefHeight="34.0" prefWidth="698.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?">
                <font>
                   <Font size="18.0" />
                </font>
