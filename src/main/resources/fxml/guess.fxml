@@ -7,41 +7,79 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessController">
    <children>
-      <ImageView fitHeight="323.0" fitWidth="674.0" layoutX="-3.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/owner.jpg" />
-         </image>
-      </ImageView>
-      <Label fx:id="timeLabel" layoutX="192.0" layoutY="298.0" text="You have $ seconds remaning" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutY="318.0" prefHeight="15.0" prefWidth="600.0" text="It's the moment of truth, detective. Tell me, who stole the jewllerly?">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="answerText" layoutY="336.0" prefHeight="68.0" prefWidth="600.0" />
-      <Button fx:id="submitBtn" layoutX="218.0" layoutY="404.0" mnemonicParsing="false" text="I have decided my answer" />
-      <Pane fx:id="resultPane" layoutX="150.0" layoutY="108.0" prefHeight="190.0" prefWidth="307.0" style="-fx-background-color: #d3e6df;" visible="false">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="600.0">
          <children>
-            <Label layoutX="104.0" layoutY="4.0" text="Your guess is:">
+            <ImageView fitHeight="323.0" fitWidth="674.0" layoutX="-3.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/owner.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="timeLabel" layoutX="190.0" layoutY="287.0" text="You have $ seconds remaining" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutY="24.0" prefHeight="25.0" prefWidth="307.0" text="result text" wrapText="true">
+            <Pane fx:id="resultPane" layoutX="153.0" layoutY="107.0" prefHeight="190.0" prefWidth="307.0" style="-fx-background-color: #d3e6df;" visible="false">
+               <children>
+                  <Label layoutX="104.0" layoutY="4.0" text="Your guess is:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutY="24.0" prefHeight="25.0" prefWidth="307.0" text="result text" wrapText="true">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="explanLabel" layoutX="3.0" layoutY="56.0" prefHeight="101.0" prefWidth="301.0" text="explanation text goes here." wrapText="true" />
+                  <Button layoutX="114.0" layoutY="165.0" mnemonicParsing="false" text="Play again!" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="137.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="15.0" prefWidth="600.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?">
                <font>
-                  <Font size="19.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="explanLabel" layoutX="3.0" layoutY="56.0" prefHeight="101.0" prefWidth="301.0" text="explanation text goes here." wrapText="true" />
-            <Button layoutX="114.0" layoutY="165.0" mnemonicParsing="false" text="Play again!" />
-         </children></Pane>
+            <ImageView id="Bruce" fitHeight="91.0" fitWidth="120.0" layoutX="85.0" layoutY="23.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Bruce.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="Saul" fitHeight="91.0" fitWidth="120.0" layoutX="428.0" layoutY="23.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Saul.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="Alfred" fitHeight="91.0" fitWidth="91.0" layoutX="255.0" layoutY="24.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Alfred.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="114.0" layoutY="116.0" text="Bruce" />
+            <Label layoutX="282.0" layoutY="119.0" text="Alfred" />
+            <Label layoutX="461.0" layoutY="116.0" text="Saul" />
+            <Pane fx:id="suspectSelectedPane" layoutY="-1.0" prefHeight="138.0" prefWidth="600.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" prefHeight="20.0" prefWidth="600.0" text="Well done... Why do you think &lt;sus name&gt; is the theif?">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="answerText" layoutY="19.0" prefHeight="79.0" prefWidth="600.0" />
+                  <Button fx:id="submitButton" layoutX="218.0" layoutY="104.0" mnemonicParsing="false" text="I have decided my answer" />
+                  <Button fx:id="backButton" layoutX="8.0" layoutY="104.0" mnemonicParsing="false" onAction="#onBack" text="Go Back" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</VBox>

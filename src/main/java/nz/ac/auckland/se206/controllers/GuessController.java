@@ -39,4 +39,9 @@ public class GuessController {
     suspectSelected = id;
     suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the theif?");
   }
+
+  @FXML
+  private void onBack() {
+    suspectSelectedPane.setVisible(false);
+  }
 }
