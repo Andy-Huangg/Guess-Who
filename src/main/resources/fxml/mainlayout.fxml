@@ -8,93 +8,98 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
    <bottom>
-      <AnchorPane prefHeight="140.0" prefWidth="680.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="117.0" prefWidth="680.0" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
          <children>
-            <ImageView fitHeight="110.0" fitWidth="102.0" layoutX="578.0" layoutY="7.0">
+            <ImageView fitHeight="125.0" fitWidth="102.0" layoutX="592.0" layoutY="85.0">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Button layoutX="588.0" layoutY="32.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
-            <ImageView fx:id="studyImage" fitHeight="111.0" fitWidth="133.0" layoutX="11.0" layoutY="6.0" onMouseClicked="#loadStudy" pickOnBounds="true">
+            <Button layoutX="595.0" layoutY="119.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
+            <ImageView fx:id="studyImage" fitHeight="111.0" fitWidth="138.0" layoutX="20.0" layoutY="93.0" onMouseClicked="#loadStudy" pickOnBounds="true">
                <image>
                   <Image url="@../images/study.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="156.0" layoutY="-1.0">
+            <ImageView fitHeight="124.0" fitWidth="164.0" layoutX="7.0" layoutY="86.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="gardenImage" fitHeight="111.0" fitWidth="130.0" layoutX="156.0" layoutY="6.0" onMouseClicked="#loadGarden" pickOnBounds="true">
+            <ImageView fx:id="gardenImage" fitHeight="111.0" fitWidth="130.0" layoutX="170.0" layoutY="93.0" onMouseClicked="#loadGarden" pickOnBounds="true">
                <image>
                   <Image url="@../images/garden.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="144.0" layoutY="-1.0">
+            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="158.0" layoutY="86.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="livingroomImage" fitHeight="111.0" fitWidth="130.0" layoutX="296.0" layoutY="6.0" onMouseClicked="#loadLivingRoom" pickOnBounds="true">
+            <ImageView fx:id="livingroomImage" fitHeight="111.0" fitWidth="130.0" layoutX="310.0" layoutY="93.0" onMouseClicked="#loadLivingRoom" pickOnBounds="true">
                <image>
                   <Image url="@../images/living_room.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="285.0" y="-1.0">
+            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="299.0" layoutY="87.0" y="-1.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="musicroomImage" fitHeight="111.0" fitWidth="130.0" layoutX="437.0" layoutY="6.0" onMouseClicked="#loadMusicRoom" pickOnBounds="true">
+            <ImageView fx:id="musicroomImage" fitHeight="111.0" fitWidth="130.0" layoutX="451.0" layoutY="93.0" onMouseClicked="#loadMusicRoom" pickOnBounds="true">
                <image>
                   <Image url="@../images/piano.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="426.0" y="-1.0">
+            <ImageView fitHeight="124.0" fitWidth="152.0" layoutX="440.0" layoutY="87.0" y="-1.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="31.0" fitWidth="680.0" layoutY="117.0">
+            <Rectangle arcHeight="5.0" arcWidth="10.0" fill="#000000da" height="16.0" layoutX="47.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
+            <Text fill="WHITE" layoutX="38.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="124.0" fitWidth="106.0" layoutX="584.0" layoutY="87.0" y="-1.0">
+               <image>
+                  <Image url="@../images/frame.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="680.0" layoutY="74.0" x="7.0">
                <image>
                   <Image url="@../images/frameTexture.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="23.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="190.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
+            <Text fill="WHITE" layoutX="181.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="166.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="323.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
+            <Text fill="WHITE" layoutX="323.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Living room" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="307.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Living Room" textAlignment="CENTER" wrappingWidth="108.13671875">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="462.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
+            <Text fill="WHITE" layoutX="462.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Music Room" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="448.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Music Room" textAlignment="CENTER" wrappingWidth="108.13671875">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="19.0" fitWidth="680.0" layoutY="-12.0">
-               <image>
-                  <Image url="@../images/frameTexture.png" />
-               </image>
-            </ImageView>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </AnchorPane>
    </bottom>
    <top>
