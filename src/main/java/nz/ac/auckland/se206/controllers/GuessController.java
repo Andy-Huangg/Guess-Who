@@ -10,14 +10,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.ChatHandler;
 
-public class GuessController {
+public class GuessController implements ChatSceneController {
 
   @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel, ownerLabel;
   @FXML private TextArea answerText;
   @FXML private Button SubmitBtn;
-  @FXML private Pane suspectSelectedPane;
+  @FXML private Pane suspectSelectedPane, resultPane;
 
   private String suspectSelected;
   private int timeCount = 61;
@@ -46,7 +49,12 @@ public class GuessController {
                   e.printStackTrace();
                 }
               }
-              onSubmit(null);
+              try {
+                onSubmit(null);
+              } catch (ApiProxyException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
             });
     timer.start();
 
@@ -81,7 +89,20 @@ public class GuessController {
   }
 
   @FXML
-  private void onSubmit(ActionEvent event) {}
+  private void onSubmit(ActionEvent event) throws ApiProxyException {
+    resultPane.setVisible(true);
+    if (suspectSelected.equals("Bruce")) {
+      resultLabel.setText("CORRECT!");
+      resultLabel.setTextFill(Color.GREEN);
+    } else {
+      resultLabel.setText("INCORRECT!");
+      resultLabel.setTextFill(Color.RED);
+    }
+    String userInput = answerText.getText().strip();
+    if (!userInput.equals("")) {
+      chatHandler.sendMessage(userInput, this);
+    }
+  }
 
   @FXML
   private void onRestart(ActionEvent event) {}
@@ -90,5 +111,10 @@ public class GuessController {
   private void handleOwnerClick() {
     int rnd = new Random().nextInt(4);
     ownerLabel.setText(responseList[rnd]);
+  }
+
+  @Override
+  public void appendChatMessage(ChatMessage msg) {
+    Platform.runLater(() -> explainLabel.setText(msg.getContent()));
   }
 }
