@@ -1,25 +1,45 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.ChatHandler;
 
-public class LivingRoomController {
+public class LivingRoomController implements ChatSceneController {
   @FXML private Rectangle rectSaul;
   @FXML private TextArea txtChat;
   @FXML private TextField txtInput;
   @FXML private Button btnSend;
 
-  public void initialize() {}
+  private ChatHandler chatHandler;
+
+  public void initialize() {
+    chatHandler = new ChatHandler("Saul");
+  }
 
   @FXML
-  private void handleSaulInteraction(MouseEvent event) {
+  public void onSendMessage(ActionEvent event) throws ApiProxyException {
+    String message = txtInput.getText().trim();
+    if (message.isEmpty()) {
+      return;
+    }
+    chatHandler.sendMessage(message, this);
+    txtChat.clear();
+    txtInput.clear();
+  }
+
+  @FXML
+  private void handleRectangleClick(MouseEvent event) throws IOException, InterruptedException {
     enableChat();
-    // below line should be only for testing purpose, need to be removed in future
-    // txtChat.appendText(ChatHandler.setCharacter("saul"));
+    chatHandler.setCharacter("saul");
   }
 
   @FXML
@@ -34,5 +54,10 @@ public class LivingRoomController {
     txtChat.setVisible(false);
     txtInput.setVisible(false);
     btnSend.setVisible(false);
+  }
+
+  @Override
+  public void appendChatMessage(ChatMessage msg) {
+    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
   }
 }

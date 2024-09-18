@@ -32,12 +32,8 @@ public class GardenController implements ChatSceneController {
       return;
     }
     chatHandler.sendMessage(message, this);
+    txtChat.clear();
     txtInput.clear();
-  }
-
-  @Override
-  public void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
   }
 
   @FXML
@@ -58,5 +54,10 @@ public class GardenController implements ChatSceneController {
     txtChat.setVisible(false);
     txtInput.setVisible(false);
     btnSend.setVisible(false);
+  }
+
+  @Override
+  public void appendChatMessage(ChatMessage msg) {
+    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
   }
 }
