@@ -27,6 +27,7 @@ public class GuessController {
     "Don't look at me, there is no answer on my face!",
     "I think I have given you too much time to muck around...",
   };
+  private ChatHandler chatHandler;
 
   public void initialize() {
     Thread timer = // very ugly looking but will work as a timer
@@ -53,7 +54,11 @@ public class GuessController {
     Thread loadingPrompt =
         new Thread(
             () -> {
-              ChatHandler.setCharacter("owner");
+              try {
+                chatHandler.setCharacter("owner");
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
             });
     loadingPrompt.start();
   }
