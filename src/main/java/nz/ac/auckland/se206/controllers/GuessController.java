@@ -31,6 +31,7 @@ public class GuessController implements ChatSceneController {
     "I think I have given you too much time to muck around...",
   };
   private ChatHandler chatHandler = new ChatHandler("owner");
+  private ChatMessage feedbackMsg;
 
   public void initialize() {
     Thread timer = // very ugly looking but will work as a timer
@@ -94,13 +95,14 @@ public class GuessController implements ChatSceneController {
     if (suspectSelected.equals("Bruce")) {
       resultLabel.setText("CORRECT!");
       resultLabel.setTextFill(Color.GREEN);
+      String userInput = answerText.getText().strip();
+      if (!userInput.equals("")) {
+        chatHandler.sendMessage(userInput, this);
+      }
     } else {
       resultLabel.setText("INCORRECT!");
       resultLabel.setTextFill(Color.RED);
-    }
-    String userInput = answerText.getText().strip();
-    if (!userInput.equals("")) {
-      chatHandler.sendMessage(userInput, this);
+      appendChatMessage(new ChatMessage(null, "No explanation avaliable."));
     }
   }
 
@@ -115,6 +117,7 @@ public class GuessController implements ChatSceneController {
 
   @Override
   public void appendChatMessage(ChatMessage msg) {
+    feedbackMsg = msg; // store the feedback locally
     Platform.runLater(() -> explainLabel.setText(msg.getContent()));
   }
 }
