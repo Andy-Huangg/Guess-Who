@@ -152,7 +152,12 @@ public class MainLayoutController {
 
                       // End interactions if time runs out
                       if (timeRemaining <= 0) {
-                        endInteractionPhase();
+                        try {
+                          stopTimer();
+                          App.openGuessWindow(timerLabel);
+                        } catch (IOException e) {
+                          e.printStackTrace();
+                        }
                       }
                     });
               }
@@ -164,9 +169,5 @@ public class MainLayoutController {
   // Call this method to stop the timer if needed
   private void stopTimer() {
     stopTimer = true;
-  }
-
-  private void endInteractionPhase() {
-    timerLabel.setText("Time's up! Make your guess.");
   }
 }
