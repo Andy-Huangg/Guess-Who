@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectSafe, rectGuestList, rectGlass, rectNewsPaper;
+  @FXML private Rectangle rectSafe, rectDocuments, rectGlass, rectNewsPaper;
   @FXML private Pane newsPaperPane;
   @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
@@ -28,8 +28,8 @@ public class CrimeSceneController {
       case "safe":
         handleSafeInteraction();
         break;
-      case "guestList":
-        handleGuestListInteraction();
+      case "documents":
+        handleDocumentsInteraction();
         break;
       case "glass":
         handleGlassInteraction();
@@ -44,7 +44,7 @@ public class CrimeSceneController {
     // Handle interaction with the safe
   }
 
-  private void handleGuestListInteraction() {
+  private void handleDocumentsInteraction() {
     // Handle interaction with the guest list
     if (!clueArray[0]) { // if first time clicked
       MainLayoutController.incrementClueCount();

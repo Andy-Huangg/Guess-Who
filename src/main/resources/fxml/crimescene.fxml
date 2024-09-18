@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <Rectangle id="safe" fx:id="rectSafe" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="193.0" layoutX="529.0" layoutY="287.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
-      <Rectangle id="guestList" fx:id="rectGuestList" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="124.0" layoutX="281.0" layoutY="382.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="124.0" layoutX="281.0" layoutY="382.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
       <Rectangle id="glass" fx:id="rectGlass" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="107.0" layoutX="132.0" layoutY="389.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
       <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="66.0" layoutX="230.0" layoutY="308.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
       <Pane fx:id="newsPaperPane" layoutX="-8.0" layoutY="-9.0" prefHeight="499.0" prefWidth="662.0" visible="false">
@@ -58,6 +58,34 @@
                   <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-55.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
                      <image>
                         <Image url="@../images/newsPiece1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0">
+         <children>
+            <ImageView fitHeight="529.0" fitWidth="686.0" layoutX="-6.0" layoutY="-12.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/woodtexture.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="251.0" layoutY="466.0" mnemonicParsing="false" onAction="#closeNewsPaper" prefHeight="33.0" prefWidth="179.0" text="Close documents" />
+            <Pane fx:id="newsPaperPiece41" layoutX="-124.0" layoutY="-118.0" prefHeight="413.0" prefWidth="375.0">
+               <children>
+                  <ImageView disable="true" fitHeight="479.0" fitWidth="433.0" layoutX="-29.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
+                     <image>
+                        <Image url="@../images/guestListClue.PNG" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="newsPaperPiece411" layoutX="305.0" layoutY="121.0" prefHeight="421.0" prefWidth="375.0">
+               <children>
+                  <ImageView disable="true" fitHeight="513.0" fitWidth="449.0" layoutX="-145.0" layoutY="-100.0" pickOnBounds="true" preserveRatio="true" rotate="-11.3" scaleX="0.9" scaleY="0.9">
+                     <image>
+                        <Image url="@../images/Document1.png" />
                      </image>
                   </ImageView>
                </children>
