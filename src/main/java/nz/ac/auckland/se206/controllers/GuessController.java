@@ -17,13 +17,18 @@ public class GuessController {
   @FXML Pane suspectSelectedPane;
 
   String suspectSelected;
+  ChatHandler chatHandler;
 
   public void initialize() {
     // load the prompt at the start;
     Thread loadingPrompt =
         new Thread(
             () -> {
-              ChatHandler.setCharacter("owner");
+              try {
+                chatHandler.setCharacter("owner");
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
             });
     loadingPrompt.start();
   }
