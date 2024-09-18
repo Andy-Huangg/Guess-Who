@@ -17,14 +17,14 @@
          </image>
       </ImageView>
       <Rectangle id="saul" fx:id="rectSaul" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="254.0" layoutX="79.0" layoutY="198.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="294.0" />
-      <TextArea fx:id="txtChat" editable="false" layoutX="18.0" layoutY="394.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" wrapText="true">
+      <TextArea fx:id="txtChat" editable="false" layoutX="18.0" layoutY="394.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" visible="false" wrapText="true">
          <font>
             <Font size="15.0" />
          </font></TextArea>
-      <TextField fx:id="txtInput" layoutX="18.0" layoutY="469.0" opacity="0.9" prefHeight="26.0" prefWidth="562.0">
+      <TextField fx:id="txtInput" layoutX="18.0" layoutY="469.0" opacity="0.9" prefHeight="26.0" prefWidth="562.0" visible="false">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="btnSend" layoutX="589.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="26.0" prefWidth="74.0" text="Send" />
+      <Button fx:id="btnSend" layoutX="589.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="26.0" prefWidth="74.0" text="Send" visible="false" />
    </children>
 </AnchorPane>
