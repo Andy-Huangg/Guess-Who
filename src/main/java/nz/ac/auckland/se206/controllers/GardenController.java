@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,10 +9,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.se206.ChatHandler;
 
-public class GardenController {
+public class GardenController implements ChatSceneController {
   @FXML private Rectangle rectBruce;
   @FXML private TextArea txtChat;
   @FXML private TextField txtInput;
@@ -20,20 +21,28 @@ public class GardenController {
   private ChatHandler chatHandler;
 
   public void initialize() {
-    chatHandler = new ChatHandler(txtChat);
+    chatHandler = new ChatHandler("Bruce");
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException {
+  public void onSendMessage(ActionEvent event) {
+    String message = txtInput.getText().trim();
+    if (message.isEmpty()) {
+      return;
+    }
+    chatHandler.sendMessage(message, this);
+    txtInput.clear();
+  }
+
+  @Override
+  public void appendChatMessage(ChatMessage msg) {
+    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
+  }
+
+  @FXML
+  private void handleRectangleClick(MouseEvent event) throws IOException, InterruptedException {
     enableChat();
-    // txtChat.appendText(ChatHandler.setCharacter("bruce"));
-  }
-
-  @FXML
-  private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
-    String userMessage = txtInput.getText().trim();
-    txtInput.clear(); // Clear input after sending the message
-    chatHandler.onSendMessage(userMessage); // Delegate to ChatHandler
+    chatHandler.setCharacter("Bruce");
   }
 
   @FXML

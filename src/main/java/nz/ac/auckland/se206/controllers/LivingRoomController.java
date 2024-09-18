@@ -6,7 +6,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.se206.ChatHandler;
 
 public class LivingRoomController {
   @FXML private Rectangle rectSaul;
@@ -20,7 +19,7 @@ public class LivingRoomController {
   private void handleSaulInteraction(MouseEvent event) {
     enableChat();
     // below line should be only for testing purpose, need to be removed in future
-    txtChat.appendText(ChatHandler.setCharacter("saul"));
+    // txtChat.appendText(ChatHandler.setCharacter("saul"));
   }
 
   @FXML
