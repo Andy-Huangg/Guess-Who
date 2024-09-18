@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -47,26 +44,22 @@ public class MainLayoutController {
 
   @FXML
   private void loadStudy() {
-    AnchorPane crimeScene = loadFXML("crimescene");
-    centrePane.getChildren().setAll(crimeScene);
+    loadFXML("crimescene");
   }
 
   @FXML
   public void loadGarden() {
-    Pane garden = loadFXML("garden");
-    centrePane.getChildren().setAll(garden);
+    loadFXML("garden");
   }
 
   @FXML
   public void loadLivingRoom() {
-    Pane livingroom = loadFXML("livingroom");
-    centrePane.getChildren().setAll(livingroom);
+    loadFXML("livingroom");
   }
 
   @FXML
   public void loadMusicRoom() {
-    Pane musicroom = loadFXML("musicroom");
-    centrePane.getChildren().setAll(musicroom);
+    loadFXML("musicroom");
   }
 
   @FXML
@@ -76,13 +69,34 @@ public class MainLayoutController {
     }
   }
 
-  private AnchorPane loadFXML(String fxmlFile) {
-    try {
-      return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return new AnchorPane();
+  // private AnchorPane loadFXML(String fxmlFile) {
+  //   try {
+  //     return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+  //   } catch (IOException e) {
+  //     e.printStackTrace();
+  //   }
+  //   return new AnchorPane();
+  // }
+
+  private void loadFXML(String fxmlFile) {
+    // Create a new background thread to load the FXML file
+    Thread fxmlLoaderThread =
+        new Thread(
+            () -> {
+              try {
+                AnchorPane loadedPane =
+                    FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+                Platform.runLater(
+                    () -> {
+                      centrePane.getChildren().setAll(loadedPane);
+                    });
+              } catch (IOException e) {
+                e.printStackTrace();
+              }
+            });
+
+    fxmlLoaderThread.setDaemon(true); // Ensure the thread is terminated when the application exits
+    fxmlLoaderThread.start();
   }
 
   public static void incrementClueCount() {
@@ -92,18 +106,6 @@ public class MainLayoutController {
 
   public static GameStateContext getContext() {
     return context;
-  }
-
-  /**
-   * Handles mouse clicks on rectangles representing people in the room.
-   *
-   * @param event the mouse event triggered by clicking a rectangle
-   * @throws IOException if there is an I/O error
-   */
-  @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException {
-    Rectangle clickedRectangle = (Rectangle) event.getSource();
-    context.handleRectangleClick(event, clickedRectangle.getId());
   }
 
   /**

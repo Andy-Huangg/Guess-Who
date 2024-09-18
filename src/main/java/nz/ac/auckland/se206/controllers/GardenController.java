@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.ChatHandler;
 
 public class GardenController implements ChatSceneController {
@@ -25,7 +26,7 @@ public class GardenController implements ChatSceneController {
   }
 
   @FXML
-  public void onSendMessage(ActionEvent event) {
+  public void onSendMessage(ActionEvent event) throws ApiProxyException {
     String message = txtInput.getText().trim();
     if (message.isEmpty()) {
       return;
