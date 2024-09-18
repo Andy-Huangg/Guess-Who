@@ -64,7 +64,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0">
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0" visible="false">
          <children>
             <ImageView fitHeight="529.0" fitWidth="686.0" layoutX="-6.0" layoutY="-12.0" pickOnBounds="true">
                <image>
