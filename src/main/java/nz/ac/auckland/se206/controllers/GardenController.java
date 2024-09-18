@@ -19,7 +19,9 @@ public class GardenController {
 
   private ChatHandler chatHandler;
 
-  public void initialize() {}
+  public void initialize() {
+    chatHandler = new ChatHandler(txtChat);
+  }
 
   @FXML
   private void handleRectangleClick(MouseEvent event) throws IOException {
