@@ -27,7 +27,7 @@ public class GuessController {
     "Don't look at me, there is no answer on my face!",
     "I think I have given you too much time to muck around...",
   };
-  private ChatHandler chatHandler;
+  private ChatHandler chatHandler = new ChatHandler("owner");
 
   public void initialize() {
     Thread timer = // very ugly looking but will work as a timer
