@@ -37,7 +37,7 @@ public class Guessing implements GameState {
       return;
     }
 
-    String clickedProfession = context.getProfession(rectangleId);
+    String clickedProfession = context.getPerson(rectangleId);
     if (rectangleId.equals(context.getRectIdToGuess())) {
       TextToSpeech.speak("Correct! You won! This is the " + clickedProfession);
     } else {

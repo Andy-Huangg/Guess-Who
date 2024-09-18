@@ -1,18 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -27,7 +23,7 @@ public class MainLayoutController {
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
   @FXML private ImageView gardenImage, livingroomImage, studyImage, musicroomImage;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
-  private Timeline countdown;
+  private boolean stopTimer = false;
 
   private static int clueCount = 0;
 
@@ -50,34 +46,30 @@ public class MainLayoutController {
 
   @FXML
   private void loadStudy() {
-    AnchorPane crimeScene = loadFXML("crimescene");
+    loadFXML("crimescene");
     clearImageOpacity();
     studyImage.setOpacity(0.7);
-    centrePane.getChildren().setAll(crimeScene);
   }
 
   @FXML
   public void loadGarden() {
-    Pane garden = loadFXML("garden");
+    loadFXML("garden");
     clearImageOpacity();
     gardenImage.setOpacity(0.7);
-    centrePane.getChildren().setAll(garden);
   }
 
   @FXML
   public void loadLivingRoom() {
-    Pane livingroom = loadFXML("livingroom");
+    loadFXML("livingroom");
     clearImageOpacity();
     livingroomImage.setOpacity(0.7);
-    centrePane.getChildren().setAll(livingroom);
   }
 
   @FXML
   public void loadMusicRoom() {
-    Pane musicroom = loadFXML("musicroom");
+    loadFXML("musicroom");
     clearImageOpacity();
     musicroomImage.setOpacity(0.7);
-    centrePane.getChildren().setAll(musicroom);
   }
 
   private void clearImageOpacity() {
@@ -94,13 +86,34 @@ public class MainLayoutController {
     }
   }
 
-  private AnchorPane loadFXML(String fxmlFile) {
-    try {
-      return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return new AnchorPane();
+  // private AnchorPane loadFXML(String fxmlFile) {
+  //   try {
+  //     return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+  //   } catch (IOException e) {
+  //     e.printStackTrace();
+  //   }
+  //   return new AnchorPane();
+  // }
+
+  private void loadFXML(String fxmlFile) {
+    // Create a new background thread to load the FXML file
+    Thread fxmlLoaderThread =
+        new Thread(
+            () -> {
+              try {
+                AnchorPane loadedPane =
+                    FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+                Platform.runLater(
+                    () -> {
+                      centrePane.getChildren().setAll(loadedPane);
+                    });
+              } catch (IOException e) {
+                e.printStackTrace();
+              }
+            });
+
+    fxmlLoaderThread.setDaemon(true); // Ensure the thread is terminated when the application exits
+    fxmlLoaderThread.start();
   }
 
   public static void incrementClueCount() {
@@ -108,16 +121,8 @@ public class MainLayoutController {
     enoughClues();
   }
 
-  /**
-   * Handles mouse clicks on rectangles representing people in the room.
-   *
-   * @param event the mouse event triggered by clicking a rectangle
-   * @throws IOException if there is an I/O error
-   */
-  @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException {
-    Rectangle clickedRectangle = (Rectangle) event.getSource();
-    context.handleRectangleClick(event, clickedRectangle.getId());
+  public static GameStateContext getContext() {
+    return context;
   }
 
   /**
@@ -130,29 +135,51 @@ public class MainLayoutController {
   private void handleGuessClick(ActionEvent event) throws IOException {
     if (clueCount < 3) {
       // TODO notify user must interact with all clue before continue;
+      App.openGuessWindow(
+          timerLabel); // need to pass some kinds of components for it to get the root window
       return;
     }
-    // TODO allow player to guess
+    App.openGuessWindow(timerLabel);
   }
 
   // Method to start the countdown timer
   private void startTimer() {
-    countdown =
-        new Timeline(
-            new KeyFrame(
-                Duration.seconds(1),
-                event -> {
-                  timeRemaining--;
-                  int minutes = timeRemaining / 60;
-                  int seconds = timeRemaining % 60;
-                  timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+    // Create a new background thread for the timer
+    Thread timerThread =
+        new Thread(
+            () -> {
+              while (timeRemaining > 0 && !stopTimer) {
+                try {
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
 
-                  if (timeRemaining <= 0) {
-                    endInteractionPhase(); // End interactions when the timer reaches zero
-                  }
-                }));
-    countdown.setCycleCount(Timeline.INDEFINITE);
-    countdown.play();
+                // Decrease the remaining time
+                timeRemaining--;
+
+                // Update the timerLabel on the JavaFX Application Thread
+                Platform.runLater(
+                    () -> {
+                      int minutes = timeRemaining / 60;
+                      int seconds = timeRemaining % 60;
+                      timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+
+                      // End interactions if time runs out
+                      if (timeRemaining <= 0) {
+                        endInteractionPhase();
+                      }
+                    });
+              }
+            });
+    timerThread.setDaemon(true); // Ensures thread is closed when the application exits
+    timerThread.start(); // Start the background thread
+  }
+
+  // Call this method to stop the timer if needed
+  private void stopTimer() {
+    stopTimer = true;
   }
 
   private void endInteractionPhase() {
