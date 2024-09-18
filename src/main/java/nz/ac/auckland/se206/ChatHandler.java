@@ -1,7 +1,5 @@
 package nz.ac.auckland.se206;
 
-import java.util.HashMap;
-import java.util.Map;
 import javafx.scene.control.TextArea;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
@@ -25,21 +23,7 @@ public class ChatHandler {
   // Set the profession and initialize ChatCompletionRequest
   public void setCharacter(String character) throws InterruptedException {
 
-    switch (character) {
-      case "Bruce":
-        this.character = "Bruce";
-        break;
-      case "Saul":
-        this.character = "Saul";
-        break;
-      case "Alfred":
-        this.character = "Alfred";
-        break;
-      default:
-        throw new IllegalArgumentException("Unknown suspect");
-    }
-
-    chatTextArea.clear();
+    this.character = character;
 
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
@@ -57,9 +41,7 @@ public class ChatHandler {
   }
 
   private String getSystemPrompt() {
-    Map<String, String> map = new HashMap<>();
-    map.put("profession", character);
-    return PromptEngineering.getPrompt("chat.txt", map);
+    return PromptEngineering.getPrompt(character);
   }
 
   public void sendMessage(String message, ChatSceneController controller) {

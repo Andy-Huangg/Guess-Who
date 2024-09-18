@@ -42,7 +42,7 @@ public class GardenController implements ChatSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) throws IOException, InterruptedException {
     enableChat();
-    chatHandler.setCharacter("Bruce");
+    chatHandler.setCharacter("bruce");
   }
 
   @FXML

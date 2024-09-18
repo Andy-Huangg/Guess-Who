@@ -40,9 +40,9 @@ public class GameStateContext {
 
     // Store the stories in a map for each character
     characterStories = new HashMap<>();
-    characterStories.put("rectAlfred", storyAlfred);
-    characterStories.put("rectBruce", storyBruce);
-    characterStories.put("rectSaul", storySaul);
+    characterStories.put("Alfred", storyAlfred);
+    characterStories.put("Bruce", storyBruce);
+    characterStories.put("Saul", storySaul);
   }
 
   // Utility method to load the entire contents of a file as a String
