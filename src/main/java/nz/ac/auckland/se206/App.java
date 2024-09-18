@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
@@ -47,6 +48,23 @@ public class App extends Application {
    */
   public static Parent loadFxml(final String fxml) throws IOException {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
+  }
+
+  /**
+   * Opens the chat view and sets the profession in the chat controller.
+   *
+   * @param event the mouse event that triggered the method
+   * @param profession the profession to set in the chat controller
+   * @throws IOException if the FXML file is not found
+   */
+  public static void openGuessWindow(Label event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
+    Parent root = loader.load();
+
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
   }
 
   /**

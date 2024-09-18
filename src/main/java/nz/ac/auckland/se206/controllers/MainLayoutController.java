@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
@@ -118,9 +119,11 @@ public class MainLayoutController {
   private void handleGuessClick(ActionEvent event) throws IOException {
     if (clueCount < 3) {
       // TODO notify user must interact with all clue before continue;
+      App.openGuessWindow(
+          timerLabel); // need to pass some kinds of components for it to get the root window
       return;
     }
-    // TODO allow player to guess
+    App.openGuessWindow(timerLabel);
   }
 
   // Method to start the countdown timer
