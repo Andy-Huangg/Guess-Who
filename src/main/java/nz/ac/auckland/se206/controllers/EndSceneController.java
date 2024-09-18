@@ -20,8 +20,12 @@ public class EndSceneController {
   /** Initializes the end scene view. It will display the end message and the score. */
   @FXML
   public void initialize() {
-    labelResult.setText("Congratulations! You have completed the game!");
-    labelReason.setText("Your score is: " + score);
+    if (App.isWinner()) {
+      labelResult.setText("Correct! You Won!");
+    } else {
+      labelResult.setText("Wrong! You Lost!");
+    }
+    labelReason.setText("You got this right because blah blah blah");
   }
 
   @FXML

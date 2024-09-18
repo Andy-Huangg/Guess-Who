@@ -17,7 +17,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
-  private static FXMLLoader loader;
+  private static boolean isWinner;
 
   /**
    * The main method that launches the JavaFX application.
@@ -74,6 +74,14 @@ public class App extends Application {
    */
   public static void restartGame() throws IOException {
     setRoot("mainlayout"); // Reset the scene to the initial one
+  }
+
+  public static void setWinner(boolean isWinner) {
+    App.isWinner = isWinner;
+  }
+
+  public static boolean isWinner() {
+    return isWinner;
   }
 
   /**
