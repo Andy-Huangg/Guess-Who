@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
 public class MusicRoomController implements ChatSceneController {
@@ -21,6 +22,7 @@ public class MusicRoomController implements ChatSceneController {
   @FXML private Button btnSend;
 
   private ChatHandler chatHandler;
+  private boolean isAlfredInteracted = false;
 
   public void initialize() {
     chatHandler = new ChatHandler("Alfred");
@@ -42,6 +44,12 @@ public class MusicRoomController implements ChatSceneController {
     if (message.isEmpty()) {
       return;
     }
+
+    if (!isAlfredInteracted) {
+      isAlfredInteracted = true;
+      App.setAlfredInteracted(isAlfredInteracted);
+    }
+
     chatHandler.sendMessage(message, this);
     txtChat.clear();
     txtInput.clear();

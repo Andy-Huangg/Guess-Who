@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
 public class GardenController implements ChatSceneController {
@@ -21,6 +22,7 @@ public class GardenController implements ChatSceneController {
   @FXML private Button btnSend;
 
   private ChatHandler chatHandler;
+  private boolean isBruceInteracted = false;
 
   public void initialize() {
     chatHandler = new ChatHandler("Bruce");
@@ -42,6 +44,11 @@ public class GardenController implements ChatSceneController {
     if (message.isEmpty()) {
       return;
     }
+    if (!isBruceInteracted) {
+      isBruceInteracted = true;
+      App.setBruceInteracted(isBruceInteracted);
+    }
+
     chatHandler.sendMessage(message, this);
     txtChat.clear();
     txtInput.clear();
