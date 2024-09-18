@@ -68,6 +68,15 @@ public class App extends Application {
   }
 
   /**
+   * Restarts the game by setting the scene back to the initial layout.
+   *
+   * @throws IOException if the FXML file is not found
+   */
+  public static void restartGame() throws IOException {
+    setRoot("mainlayout"); // Reset the scene to the initial one
+  }
+
+  /**
    * This method is invoked when the application starts. It loads and shows the "room" scene.
    *
    * @param stage the primary stage of the application

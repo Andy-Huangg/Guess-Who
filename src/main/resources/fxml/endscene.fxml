@@ -16,13 +16,13 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="466.0" layoutX="-4.0" layoutY="-7.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="690.0" />
-      <Label alignment="CENTER" layoutX="238.0" layoutY="55.0" prefHeight="54.0" prefWidth="199.0" text="You Won!" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="labelResult" alignment="CENTER" layoutX="238.0" layoutY="55.0" prefHeight="54.0" prefWidth="199.0" text="You Won!" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="140.0" prefHeight="173.0" prefWidth="372.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <Button fx:id="btnPlayAgain" layoutX="199.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Play Again" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="202.0" />
-      <Button fx:id="btnQuit" layoutX="398.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Quit" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="202.0" />
+      <Label fx:id="labelReason" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="140.0" prefHeight="173.0" prefWidth="372.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Button fx:id="btnPlayAgain" layoutX="199.0" layoutY="333.0" mnemonicParsing="false" onAction="#onRestart" prefHeight="26.0" prefWidth="80.0" text="Play Again" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="202.0" />
+      <Button fx:id="btnQuit" layoutX="398.0" layoutY="333.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="26.0" prefWidth="80.0" text="Quit" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="202.0" />
    </children>
 </AnchorPane>
