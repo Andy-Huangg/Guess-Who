@@ -8,6 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -110,7 +113,25 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </AnchorPane>
-            <Label fx:id="timerLabel" layoutX="311.0" layoutY="7.0" text="Timer">
+            <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="303.0" layoutY="-17.0" stroke="BLACK" strokeType="INSIDE" width="73.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label fx:id="timerLabel" layoutX="309.0" layoutY="-4.0" text="Timer" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
