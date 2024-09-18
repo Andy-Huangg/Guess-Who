@@ -64,14 +64,14 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0" visible="false">
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0">
          <children>
             <ImageView fitHeight="529.0" fitWidth="686.0" layoutX="-6.0" layoutY="-12.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Pane fx:id="documentsGuestList" layoutX="121.0" layoutY="46.0" prefHeight="385.0" prefWidth="375.0">
+            <Pane fx:id="documentsGuestList" layoutX="154.0" layoutY="46.0" prefHeight="385.0" prefWidth="342.0">
                <children>
                   <ImageView disable="true" fitHeight="421.0" fitWidth="428.0" layoutX="3.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,18 +80,18 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="documentsInvoice" layoutX="210.0" layoutY="120.0" prefHeight="303.0" prefWidth="251.0" rotate="8.7">
+            <Pane fx:id="documentsInvoice" layoutX="287.0" layoutY="210.0" prefHeight="180.0" prefWidth="209.0" rotate="8.7">
                <children>
-                  <ImageView disable="true" fitHeight="421.0" fitWidth="353.0" layoutX="-38.0" layoutY="-54.0" pickOnBounds="true">
+                  <ImageView disable="true" fitHeight="337.0" fitWidth="294.0" layoutX="-39.0" layoutY="-125.0" pickOnBounds="true">
                      <image>
                         <Image url="@../images/invoice.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="documentsLetter" layoutX="150.0" layoutY="140.0" prefHeight="263.0" prefWidth="273.0" rotate="-7.6">
+            <Pane fx:id="documentsLetter" layoutX="200.0" layoutY="189.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
                <children>
-                  <ImageView disable="true" fitHeight="421.0" fitWidth="353.0" layoutX="-38.0" layoutY="-68.0" pickOnBounds="true">
+                  <ImageView disable="true" fitHeight="337.0" fitWidth="321.0" layoutX="-38.0" layoutY="-67.0" pickOnBounds="true">
                      <image>
                         <Image url="@../images/document2.PNG" />
                      </image>
