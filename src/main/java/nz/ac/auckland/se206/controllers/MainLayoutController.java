@@ -21,7 +21,7 @@ public class MainLayoutController {
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
 
-  private int timeRemaining = 10; // 5 minutes = 300 seconds
+  private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
 
   private static int clueCount = 0;
