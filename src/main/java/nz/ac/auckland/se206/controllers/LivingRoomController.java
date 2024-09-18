@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -23,6 +24,16 @@ public class LivingRoomController implements ChatSceneController {
 
   public void initialize() {
     chatHandler = new ChatHandler("Saul");
+    txtInput.setOnKeyPressed(
+        event -> {
+          if (event.getCode() == KeyCode.ENTER) {
+            try {
+              onSendMessage(null); // You can pass null since the ActionEvent is not needed here
+            } catch (ApiProxyException e) {
+              e.printStackTrace(); // Handle your exception
+            }
+          }
+        });
   }
 
   @FXML
