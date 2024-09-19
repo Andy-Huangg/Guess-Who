@@ -157,6 +157,7 @@ public class MainLayoutController {
                           if (App.isEnoughInteraction()) {
                             App.openGuessWindow(timerLabel);
                           } else {
+                            App.setTimeUp(true);
                             App.openEndGameWindow(timerLabel);
                           }
                         } catch (IOException e) {

@@ -19,6 +19,7 @@ public class App extends Application {
   private static Scene scene;
   private static String guessReason;
   private static boolean isWinner;
+  private static boolean isTimeUp = false;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
@@ -120,6 +121,7 @@ public class App extends Application {
     setBruceInteracted(false);
     setSaulInteracted(false);
     setWinner(false);
+    setTimeUp(false);
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
     Parent root = loader.load();
     Stage stage = (Stage) event.getScene().getWindow();
@@ -142,6 +144,14 @@ public class App extends Application {
 
   public static String getGuessReason() {
     return guessReason;
+  }
+
+  public static void setTimeUp(boolean isTimeUp) {
+    App.isTimeUp = isTimeUp;
+  }
+
+  public static boolean isTimeUp() {
+    return isTimeUp;
   }
 
   /**
