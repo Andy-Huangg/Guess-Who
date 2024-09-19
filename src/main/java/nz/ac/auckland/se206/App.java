@@ -56,10 +56,9 @@ public class App extends Application {
   }
 
   /**
-   * Opens the chat view and sets the profession in the chat controller.
+   * Opens the guessing stage window.
    *
-   * @param event the mouse event that triggered the method
-   * @param profession the profession to set in the chat controller
+   * @param event a label in the current scene
    * @throws IOException if the FXML file is not found
    */
   public static void openGuessWindow(Label event) throws IOException {
@@ -71,6 +70,12 @@ public class App extends Application {
     stage.show();
   }
 
+  /**
+   * Opens the end game window.
+   *
+   * @param event a label in the current scene
+   * @throws IOException if the FXML file is not found
+   */
   public static void openEndGameWindow(Label event) throws IOException {
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/endscene.fxml"));
     Parent root = loader.load();
@@ -83,6 +88,7 @@ public class App extends Application {
   /**
    * Restarts the game by setting the scene back to the initial layout.
    *
+   * @param event a label in the current scene
    * @throws IOException if the FXML file is not found
    */
   public static void restartGame(Label event) throws IOException {
