@@ -1,12 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import nz.ac.auckland.se206.App;
 
 /**
@@ -17,7 +20,6 @@ public class MainLayoutController {
 
   private static boolean isFirstTimeInit = true;
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
-  private static int clueCount = 0;
 
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
@@ -27,6 +29,7 @@ public class MainLayoutController {
   @FXML private ImageView musicroomImage;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
+  private MediaPlayer mediaPlayer;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -76,13 +79,6 @@ public class MainLayoutController {
     musicroomImage.setOpacity(1);
   }
 
-  @FXML
-  public static void enoughClues() {
-    if (clueCount == 1 && navBar != null) {
-      navBar.setVisible(true);
-    }
-  }
-
   private void loadFXML(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
@@ -104,9 +100,11 @@ public class MainLayoutController {
     fxmlLoaderThread.start();
   }
 
-  public static void incrementClueCount() {
-    clueCount++;
-    enoughClues();
+  public void playAudio(String audioFileName) {
+    String audioFilePath = "src/main/resources/sounds/" + audioFileName;
+    Media media = new Media(Paths.get(audioFilePath).toUri().toString());
+    mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.play();
   }
 
   /**
@@ -117,13 +115,12 @@ public class MainLayoutController {
    */
   @FXML
   private void handleGuessClick() throws IOException {
-    // if (clueCount < 3) {
-    //   // TODO notify user must interact with all clue before continue;
-    //   App.openGuessWindow(
-    //       timerLabel); // need to pass some kinds of components for it to get the root window
-    //   return;
-    // }
-    App.openGuessWindow(timerLabel);
+    if (App.isEnoughInteraction() && App.isClueInteracted()) {
+      stopTimer();
+      App.openGuessWindow(timerLabel);
+      return;
+    }
+    playAudio("investigatemore.mp3");
   }
 
   // Method to start the countdown timer
@@ -144,7 +141,7 @@ public class MainLayoutController {
                       if (timeRemaining <= 0) {
                         try {
                           stopTimer();
-                          if (App.isEnoughInteraction()) {
+                          if (App.isEnoughInteraction() && App.isClueInteracted()) {
                             App.openGuessWindow(timerLabel);
                           } else {
                             App.setTimeUp(true);
