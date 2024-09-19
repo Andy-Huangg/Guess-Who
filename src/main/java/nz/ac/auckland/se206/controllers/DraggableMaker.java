@@ -20,8 +20,6 @@ public class DraggableMaker {
         mouseEvent -> {
           node.setLayoutX(mouseEvent.getSceneX() - mouseAnchorX);
           node.setLayoutY(mouseEvent.getSceneY() - mouseAnchorY);
-          // System.out.println(new Robot().getMouseY());
-          System.out.println(mouseEvent.getSceneY());
           if (mouseEvent.getSceneX() > 680
               || mouseEvent.getSceneX() < -10
               || mouseEvent.getSceneY() < -10
