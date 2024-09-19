@@ -19,16 +19,16 @@ public class EndSceneController {
   @FXML
   public void initialize() {
     if (!App.isWinner()) {
-      labelResult.setText("Wrong! You Lost!");
+      labelResult.setText("You Guessed Wrong! You Lost!");
     } else {
-      labelResult.setText("Correct! You Won!");
+      labelResult.setText("You Guessed Right!");
       labelReason.setText("You got this right because blah blah blah");
     }
   }
 
   @FXML
   private void onRestart(ActionEvent event) throws IOException {
-    App.restartGame(); // Restart the game
+    App.restartGame(labelResult); // Restart the game
   }
 
   @FXML

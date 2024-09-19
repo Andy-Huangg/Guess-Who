@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
 public class GuessController extends ChatSceneController {
@@ -71,15 +73,19 @@ public class GuessController extends ChatSceneController {
   }
 
   @FXML
-  private void getSuspect(MouseEvent event) {
+  private void getSuspect(MouseEvent event) throws IOException {
     ImageView selected = (ImageView) event.getSource();
-    enableSuspectSelectedPane(selected.getId());
+    if (selected.getId().equals("Bruce")) {
+      enableSuspectSelectedPane(selected.getId());
+    } else {
+      App.openEndGameWindow(explainLabel);
+    }
   }
 
   private void enableSuspectSelectedPane(String id) {
     suspectSelectedPane.setVisible(true);
     suspectSelected = id;
-    suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the theif?");
+    suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the thief?");
   }
 
   @FXML

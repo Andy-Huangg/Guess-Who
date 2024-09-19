@@ -70,9 +70,8 @@ public class App extends Application {
   }
 
   public static void openEndGameWindow(Label event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/endscene.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -115,12 +114,17 @@ public class App extends Application {
    *
    * @throws IOException if the FXML file is not found
    */
-  public static void restartGame() throws IOException {
+  public static void restartGame(Label event) throws IOException {
     setAlfredInteracted(false);
     setBruceInteracted(false);
     setSaulInteracted(false);
     setWinner(false);
-    setRoot("mainlayout"); // Reset the scene to the initial one
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
   }
 
   public static void setWinner(boolean isWinner) {
