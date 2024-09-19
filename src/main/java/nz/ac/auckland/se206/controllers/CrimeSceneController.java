@@ -9,22 +9,37 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectSafe, rectDocuments, rectWallet, rectNewsPaper;
-  @FXML private Pane newsPaperPane, documentsPane, walletOpenPane, walletClosedPane, walletCluePane;
-  @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
-  @FXML private Pane documentsGuestList, documentsInvoice, documentsLetter;
-  @FXML private ImageView ImageDriversLicense, ImageCreditCard, ImageLoyaltyCard;
-  private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
+  @FXML private Rectangle rectSafe;
+  @FXML private Rectangle rectDocuments;
+  @FXML private Rectangle rectWallet;
+  @FXML private Rectangle rectNewsPaper;
+  @FXML private Pane newsPaperPane;
+  @FXML private Pane documentsPane;
+  @FXML private Pane newsPaperPiece1;
+  @FXML private Pane newsPaperPiece2;
+  @FXML private Pane newsPaperPiece3;
+  @FXML private Pane newsPaperPiece4;
+  @FXML private Pane documentsGuestList;
+  @FXML private Pane documentsInvoice;
+  @FXML private Pane documentsLetter;
+  @FXML private Pane walletOpenPane;
+  @FXML private Pane walletClosedPane;
+  @FXML private Pane walletCluePane;
+  @FXML private ImageView ImageDriversLicense;
+  @FXML private ImageView ImageCreditCard;
+  @FXML private ImageView ImageLoyaltyCard;
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
   private boolean cardTranslating = false;
 
-  DraggableMaker draggableMaker = new DraggableMaker();
+  private DraggableMaker draggableMaker = new DraggableMaker();
 
   public void initialize() {
+    // creating draggable nodes to make the clue interactive
     draggableMaker.makeDraggable(newsPaperPiece1);
     draggableMaker.makeDraggable(newsPaperPiece2);
     draggableMaker.makeDraggable(newsPaperPiece3);
@@ -38,8 +53,10 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) { // re-direct based on the rectangle clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    App.setClueInteracted(true);
+    // id is setted up in fxml
     switch (clickedRectangle.getId()) {
       case "documents":
         handleDocumentsInteraction();
@@ -55,19 +72,11 @@ public class CrimeSceneController {
 
   private void handleDocumentsInteraction() {
     // Handle interaction with the guest list
-    if (!clueArray[0]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[0] = true;
-    }
     documentsPane.setVisible(true);
   }
 
   private void handleWalletInteraction() {
     // Handle interaction with the broken glass
-    if (!clueArray[1]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[1] = true;
-    }
     walletCluePane.setVisible(true);
   }
 
@@ -119,23 +128,18 @@ public class CrimeSceneController {
   }
 
   private void handleNewsInteraction() {
-    // Handle interaction with the broken glass
-    if (!clueArray[2]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[2] = true;
-    }
     System.out.println("news clicked");
     newsPaperPane.setVisible(true);
   }
 
   @FXML
-  private void closeNewsPaper() {
+  private void onCloseNewsPaper() {
 
     newsPaperPane.setVisible(false);
   }
 
   @FXML
-  private void closeDocuments() {
+  private void onCloseDocuments() {
     documentsPane.setVisible(false);
   }
 

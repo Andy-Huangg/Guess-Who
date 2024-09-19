@@ -1,60 +1,72 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
-public class GuessController implements ChatSceneController {
+public class GuessController extends ChatSceneController {
 
-  @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel, ownerLabel;
+  @FXML private Label timeLabel, suspectSelectedLabel, ownerLabel;
   @FXML private TextArea answerText;
-  @FXML private Button SubmitBtn;
-  @FXML private Pane suspectSelectedPane, resultPane;
+  @FXML private Pane suspectSelectedPane;
+  @FXML private Pane resultPane;
 
   private String suspectSelected;
-  private int timeCount = 61;
+  private ChatHandler chatHandler = new ChatHandler("owner");
+  private int timeCount = 60;
+  private boolean stopTimer = false;
   private String[] responseList = {
     "Are you being serious right now? Me? Really?",
     "Yea yea you're right, I set up the whole thing just for fun.",
     "Don't look at me, there is no answer on my face!",
     "I think I have given you too much time to muck around...",
   };
-  private ChatHandler chatHandler = new ChatHandler("owner");
-  private ChatMessage feedbackMsg;
 
   public void initialize() {
-    Thread timer = // very ugly looking but will work as a timer
+    Thread timer =
         new Thread(
             () -> {
-              while (timeCount >= 0) {
+              while (timeCount >= 0 && !stopTimer) {
                 Platform.runLater(
                     () -> {
                       timeLabel.setText("You have " + timeCount + " seconds remaining");
+
+                      // End interactions if time runs out
+                      if (timeCount <= 0) {
+                        try {
+                          stopTimer();
+                          if (!"Bruce".equals(suspectSelected)) {
+                            App.setTimeUp(true);
+                            App.openEndGameWindow(timeLabel);
+                          } else {
+                            onSubmit(null);
+                          }
+                        } catch (IOException | ApiProxyException e) {
+                          e.printStackTrace();
+                        }
+                      }
                     });
-                timeCount--;
+
                 try {
-                  Thread.currentThread().sleep(1000);
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                  // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
-              }
-              try {
-                onSubmit(null);
-              } catch (ApiProxyException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+
+                // Decrease the remaining time after each second
+                timeCount--;
               }
             });
     timer.start();
@@ -72,42 +84,48 @@ public class GuessController implements ChatSceneController {
     loadingPrompt.start();
   }
 
+  // Call this method to stop the timer if needed
+  private void stopTimer() {
+    stopTimer = true;
+  }
+
   @FXML
-  private void getSuspect(MouseEvent event) {
+  private void setSuspect(MouseEvent event) {
     ImageView selected = (ImageView) event.getSource();
-    enableSuspectSelectedPane(selected.getId());
-  }
-
-  private void enableSuspectSelectedPane(String id) {
-    suspectSelectedPane.setVisible(true);
-    suspectSelected = id;
-    suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the theif?");
+    suspectSelected = selected.getId();
   }
 
   @FXML
-  private void onBack() {
-    suspectSelectedPane.setVisible(false);
-  }
-
-  @FXML
-  private void onSubmit(ActionEvent event) throws ApiProxyException {
-    resultPane.setVisible(true);
+  private void getSuspect(MouseEvent event) throws IOException {
+    if (suspectSelected == null) {
+      return;
+    }
     if (suspectSelected.equals("Bruce")) {
-      resultLabel.setText("CORRECT!");
-      resultLabel.setTextFill(Color.GREEN);
-      String userInput = answerText.getText().strip();
-      if (!userInput.equals("")) {
-        chatHandler.sendMessage(userInput, this);
-      }
+      App.setWinner(true);
+      enableReasoningPane("Bruce");
     } else {
-      resultLabel.setText("INCORRECT!");
-      resultLabel.setTextFill(Color.RED);
-      appendChatMessage(new ChatMessage(null, "No explanation avaliable."));
+      App.setWinner(false);
+      App.openEndGameWindow(timeLabel);
     }
   }
 
+  private void enableReasoningPane(String id) {
+    suspectSelectedPane.setVisible(true);
+    suspectSelected = id;
+    suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the thief?");
+  }
+
   @FXML
-  private void onRestart(ActionEvent event) {}
+  private void onSubmit(ActionEvent event) throws ApiProxyException, IOException {
+
+    String userInput = answerText.getText().strip();
+    if (!userInput.equals("")) {
+      App.setGuessReason(userInput);
+    } else {
+      App.setGuessReason("No reason given");
+    }
+    App.openEndGameWindow(timeLabel);
+  }
 
   @FXML
   private void handleOwnerClick() {
@@ -117,7 +135,12 @@ public class GuessController implements ChatSceneController {
 
   @Override
   public void appendChatMessage(ChatMessage msg) {
-    feedbackMsg = msg; // store the feedback locally
-    Platform.runLater(() -> explainLabel.setText(msg.getContent()));
+    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
+  }
+
+  @Override
+  protected void setInteractedFlag(boolean interacted) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setInteractedFlag'");
   }
 }

@@ -17,10 +17,13 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
-  private static FXMLLoader loader;
+  private static String guessReason;
+  private static boolean isWinner;
+  private static boolean isTimeUp = false;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
+  private static boolean isClueInteracted = false;
 
   /**
    * The main method that launches the JavaFX application.
@@ -54,30 +57,53 @@ public class App extends Application {
   }
 
   /**
-   * Opens the chat view and sets the profession in the chat controller.
+   * Opens the guessing stage window.
    *
-   * @param event the mouse event that triggered the method
-   * @param profession the profession to set in the chat controller
+   * @param event a label in the current scene
    * @throws IOException if the FXML file is not found
    */
   public static void openGuessWindow(Label event) throws IOException {
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
   }
 
+  /**
+   * Opens the end game window.
+   *
+   * @param event a label in the current scene
+   * @throws IOException if the FXML file is not found
+   */
   public static void openEndGameWindow(Label event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/endscene.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
+
+  /**
+   * Restarts the game by setting the scene back to the initial layout.
+   *
+   * @param event a label in the current scene
+   * @throws IOException if the FXML file is not found
+   */
+  public static void restartGame(Label event) throws IOException {
+    setAlfredInteracted(false);
+    setBruceInteracted(false);
+    setSaulInteracted(false);
+    setWinner(false);
+    setClueInteracted(false);
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
   }
 
   public static void setBruceInteracted(boolean isInteracted) {
@@ -92,11 +118,55 @@ public class App extends Application {
     isAlfredInteracted = isInteracted;
   }
 
+  public static boolean isBruceInteracted() {
+    return isBruceInteracted;
+  }
+
+  public static boolean isSaulInteracted() {
+    return isSaulInteracted;
+  }
+
+  public static boolean isAlfredInteracted() {
+    return isAlfredInteracted;
+  }
+
   public static boolean isEnoughInteraction() {
     if (isBruceInteracted && isSaulInteracted && isAlfredInteracted) {
       return true;
     }
     return false;
+  }
+
+  public static void setClueInteracted(boolean isInteracted) {
+    isClueInteracted = isInteracted;
+  }
+
+  public static boolean isClueInteracted() {
+    return isClueInteracted;
+  }
+
+  public static void setWinner(boolean isWinner) {
+    App.isWinner = isWinner;
+  }
+
+  public static boolean isWinner() {
+    return isWinner;
+  }
+
+  public static void setGuessReason(String reason) {
+    guessReason = reason;
+  }
+
+  public static String getGuessReason() {
+    return guessReason;
+  }
+
+  public static void setTimeUp(boolean isTimeUp) {
+    App.isTimeUp = isTimeUp;
+  }
+
+  public static boolean isTimeUp() {
+    return isTimeUp;
   }
 
   /**

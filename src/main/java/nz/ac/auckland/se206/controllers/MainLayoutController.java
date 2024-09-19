@@ -1,16 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -18,17 +18,18 @@ import nz.ac.auckland.se206.speech.TextToSpeech;
  */
 public class MainLayoutController {
 
+  private static boolean isFirstTimeInit = true;
+  @FXML private static AnchorPane navBar; // Pane for the navigation bar
+
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
-  @FXML private static AnchorPane navBar; // Pane for the navigation bar
-  @FXML private ImageView gardenImage, livingroomImage, studyImage, musicroomImage;
+  @FXML private ImageView gardenImage;
+  @FXML private ImageView livingroomImage;
+  @FXML private ImageView studyImage;
+  @FXML private ImageView musicroomImage;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
-
-  private static int clueCount = 0;
-
-  private static boolean isFirstTimeInit = true;
-  private static GameStateContext context = new GameStateContext();
+  private MediaPlayer mediaPlayer;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -37,7 +38,6 @@ public class MainLayoutController {
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {
-      TextToSpeech.speak("Chat with the three customers, and guess who is the");
       isFirstTimeInit = false;
     }
     startTimer();
@@ -79,22 +79,6 @@ public class MainLayoutController {
     musicroomImage.setOpacity(1);
   }
 
-  @FXML
-  public static void enoughClues() {
-    if (clueCount == 1 && navBar != null) {
-      navBar.setVisible(true);
-    }
-  }
-
-  // private AnchorPane loadFXML(String fxmlFile) {
-  //   try {
-  //     return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
-  //   } catch (IOException e) {
-  //     e.printStackTrace();
-  //   }
-  //   return new AnchorPane();
-  // }
-
   private void loadFXML(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
@@ -116,13 +100,11 @@ public class MainLayoutController {
     fxmlLoaderThread.start();
   }
 
-  public static void incrementClueCount() {
-    clueCount++;
-    enoughClues();
-  }
-
-  public static GameStateContext getContext() {
-    return context;
+  public void playAudio(String audioFileName) {
+    String audioFilePath = "src/main/resources/sounds/" + audioFileName;
+    Media media = new Media(Paths.get(audioFilePath).toUri().toString());
+    mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.play();
   }
 
   /**
@@ -132,14 +114,13 @@ public class MainLayoutController {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void handleGuessClick(ActionEvent event) throws IOException {
-    if (clueCount < 3) {
-      // TODO notify user must interact with all clue before continue;
-      App.openGuessWindow(
-          timerLabel); // need to pass some kinds of components for it to get the root window
+  private void handleGuessClick() throws IOException {
+    if (App.isEnoughInteraction() && App.isClueInteracted()) {
+      stopTimer();
+      App.openGuessWindow(timerLabel);
       return;
     }
-    App.openGuessWindow(timerLabel);
+    playAudio("investigatemore.mp3");
   }
 
   // Method to start the countdown timer
@@ -148,17 +129,7 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
-              while (timeRemaining > 0 && !stopTimer) {
-                try {
-                  // Sleep for 1 second
-                  Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                  e.printStackTrace();
-                }
-
-                // Decrease the remaining time
-                timeRemaining--;
-
+              while (timeRemaining >= 0 && !stopTimer) {
                 // Update the timerLabel on the JavaFX Application Thread
                 Platform.runLater(
                     () -> {
@@ -170,9 +141,10 @@ public class MainLayoutController {
                       if (timeRemaining <= 0) {
                         try {
                           stopTimer();
-                          if (App.isEnoughInteraction()) {
+                          if (App.isEnoughInteraction() && App.isClueInteracted()) {
                             App.openGuessWindow(timerLabel);
                           } else {
+                            App.setTimeUp(true);
                             App.openEndGameWindow(timerLabel);
                           }
                         } catch (IOException e) {
@@ -180,6 +152,15 @@ public class MainLayoutController {
                         }
                       }
                     });
+                try {
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
+
+                // Decrease the remaining time
+                timeRemaining--;
               }
             });
     timerThread.setDaemon(true); // Ensures thread is closed when the application exits

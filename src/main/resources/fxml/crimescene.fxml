@@ -34,7 +34,7 @@
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Button layoutX="256.0" layoutY="483.0" mnemonicParsing="false" onAction="#closeNewsPaper" prefHeight="33.0" prefWidth="179.0" text="Close newspaper" />
+            <Button layoutX="256.0" layoutY="483.0" mnemonicParsing="false" onAction="#onCloseNewsPaper" prefHeight="33.0" prefWidth="179.0" text="Close newspaper" />
             <Pane fx:id="newsPaperPiece1" layoutX="346.0" layoutY="279.0" prefHeight="168.0" prefWidth="291.0">
                <children>
                   <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-33.0" layoutY="-51.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05">
@@ -107,7 +107,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="251.0" layoutY="466.0" mnemonicParsing="false" onAction="#closeDocuments" prefHeight="33.0" prefWidth="179.0" text="Close documents" />
+            <Button layoutX="251.0" layoutY="466.0" mnemonicParsing="false" onAction="#onCloseDocuments" prefHeight="33.0" prefWidth="179.0" text="Close documents" />
          </children>
       </Pane>
       <Pane fx:id="walletCluePane" prefHeight="512.0" prefWidth="680.0" visible="false">
