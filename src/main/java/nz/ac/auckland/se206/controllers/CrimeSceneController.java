@@ -21,7 +21,6 @@ public class CrimeSceneController {
   @FXML private Pane documentsGuestList;
   @FXML private Pane documentsInvoice;
   @FXML private Pane documentsLetter;
-  private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 

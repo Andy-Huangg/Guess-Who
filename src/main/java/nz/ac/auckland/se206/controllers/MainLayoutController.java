@@ -17,7 +17,6 @@ public class MainLayoutController {
 
   private static boolean isFirstTimeInit = true;
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
-  private static int clueCount = 0;
 
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
@@ -106,6 +105,7 @@ public class MainLayoutController {
   @FXML
   private void handleGuessClick() throws IOException {
     if (App.isEnoughInteraction() && App.isClueInteracted()) {
+      stopTimer();
       App.openGuessWindow(timerLabel);
       return;
     }

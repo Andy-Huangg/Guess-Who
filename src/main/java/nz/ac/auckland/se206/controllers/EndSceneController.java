@@ -13,7 +13,7 @@ import nz.ac.auckland.se206.ChatHandler;
 public class EndSceneController {
 
   @FXML private Label labelResult; // Label for the end message
-  @FXML private Label labelReason; // Label for the score
+  @FXML private Label labelReason; // Label for the feedback
   @FXML private Button btnnPlayAgain; // Button to restart the game
   @FXML private Button btnQuit; // Button to exit the game
 
