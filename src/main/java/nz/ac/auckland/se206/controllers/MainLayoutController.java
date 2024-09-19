@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.GameStateContext;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -16,17 +15,18 @@ import nz.ac.auckland.se206.GameStateContext;
  */
 public class MainLayoutController {
 
-  @FXML private Label timerLabel; // Label for the countdown timer
-  @FXML private AnchorPane centrePane; // Pane for loading different rooms
+  private static boolean isFirstTimeInit = true;
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
-  @FXML private ImageView gardenImage, livingroomImage, studyImage, musicroomImage;
-  private int timeRemaining = 300; // 5 minutes = 300 seconds
-  private boolean stopTimer = false;
-
   private static int clueCount = 0;
 
-  private static boolean isFirstTimeInit = true;
-  private static GameStateContext context = new GameStateContext();
+  @FXML private Label timerLabel; // Label for the countdown timer
+  @FXML private AnchorPane centrePane; // Pane for loading different rooms
+  @FXML private ImageView gardenImage;
+  @FXML private ImageView livingroomImage;
+  @FXML private ImageView studyImage;
+  @FXML private ImageView musicroomImage;
+  private int timeRemaining = 300; // 5 minutes = 300 seconds
+  private boolean stopTimer = false;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -107,10 +107,6 @@ public class MainLayoutController {
   public static void incrementClueCount() {
     clueCount++;
     enoughClues();
-  }
-
-  public static GameStateContext getContext() {
-    return context;
   }
 
   /**

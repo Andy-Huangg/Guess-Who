@@ -23,7 +23,7 @@ public class ChatHandler {
 
     this.character = character;
 
-    Thread backgroundThread =
+    Thread backgroundThread = // use the background thread to run GPT so it don't lag the UI
         new Thread(
             () -> {
               try {
@@ -34,7 +34,9 @@ public class ChatHandler {
                         .setTemperature(0.2)
                         .setTopP(0.5)
                         .setMaxTokens(100);
-                runGpt(new ChatMessage("system", getSystemPrompt()));
+                runGpt(
+                    new ChatMessage(
+                        "system", getSystemPrompt())); // load the system prompt into GPT
               } catch (ApiProxyException e) {
                 e.printStackTrace();
               }
