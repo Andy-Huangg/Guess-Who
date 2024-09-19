@@ -4,7 +4,6 @@ import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -17,10 +16,14 @@ import nz.ac.auckland.se206.ChatHandler;
 
 public class GuessController extends ChatSceneController {
 
-  @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel, ownerLabel;
+  @FXML private Label timeLabel;
+  @FXML private Label resultLabel;
+  @FXML private Label explainLabel;
+  @FXML private Label suspectSelectedLabel;
+  @FXML private Label ownerLabel;
   @FXML private TextArea answerText;
-  @FXML private Button SubmitBtn;
-  @FXML private Pane suspectSelectedPane, resultPane;
+  @FXML private Pane suspectSelectedPane;
+  @FXML private Pane resultPane;
 
   private String suspectSelected;
   private int timeCount = 61;
