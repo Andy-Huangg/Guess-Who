@@ -110,5 +110,25 @@
             <Button layoutX="251.0" layoutY="466.0" mnemonicParsing="false" onAction="#closeDocuments" prefHeight="33.0" prefWidth="179.0" text="Close documents" />
          </children>
       </Pane>
+      <Pane prefHeight="512.0" prefWidth="680.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="512.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="680.0" />
+            <ImageView fitHeight="512.0" fitWidth="680.0">
+               <image>
+                  <Image url="@../../../../../../Downloads/NewsPaper/rug.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="340.0" fitWidth="369.0" layoutX="164.0" layoutY="70.0">
+               <image>
+                  <Image url="@../../../../../../Downloads/NewsPaper/brown-wallet-portrait-isolated-transparent-background_427410-894.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="289.0" fitWidth="712.0" layoutX="-8.0" layoutY="95.0">
+               <image>
+                  <Image url="@../../../../../../Downloads/NewsPaper/openWallet.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
