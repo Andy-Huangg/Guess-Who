@@ -35,7 +35,7 @@ public class TextToSpeech {
             try {
               ApiProxyConfig config = ApiProxyConfig.readConfig();
               Provider provider = Provider.OPENAI;
-              Voice voice = Voice.OPENAI_ALLOY;
+              Voice voice = Voice.OPENAI_SHIMMER;
 
               TextToSpeechRequest ttsRequest = new TextToSpeechRequest(config);
               ttsRequest.setText(text).setProvider(provider).setVoice(voice);

@@ -1,12 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import nz.ac.auckland.se206.App;
 
 /**
@@ -26,6 +29,7 @@ public class MainLayoutController {
   @FXML private ImageView musicroomImage;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
+  private MediaPlayer mediaPlayer;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -96,6 +100,13 @@ public class MainLayoutController {
     fxmlLoaderThread.start();
   }
 
+  public void playAudio(String audioFileName) {
+    String audioFilePath = "src/main/resources/sounds/" + audioFileName;
+    Media media = new Media(Paths.get(audioFilePath).toUri().toString());
+    mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.play();
+  }
+
   /**
    * Handles the guess button click event.
    *
@@ -109,7 +120,7 @@ public class MainLayoutController {
       App.openGuessWindow(timerLabel);
       return;
     }
-    System.out.println("Please investigate more before guessing.");
+    playAudio("investigatemore.mp3");
   }
 
   // Method to start the countdown timer
