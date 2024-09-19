@@ -17,7 +17,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
-  private static FXMLLoader loader;
+  private static boolean isWinner;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
@@ -97,6 +97,27 @@ public class App extends Application {
       return true;
     }
     return false;
+  }
+
+  /**
+   * Restarts the game by setting the scene back to the initial layout.
+   *
+   * @throws IOException if the FXML file is not found
+   */
+  public static void restartGame() throws IOException {
+    setAlfredInteracted(false);
+    setBruceInteracted(false);
+    setSaulInteracted(false);
+    setWinner(false);
+    setRoot("mainlayout"); // Reset the scene to the initial one
+  }
+
+  public static void setWinner(boolean isWinner) {
+    App.isWinner = isWinner;
+  }
+
+  public static boolean isWinner() {
+    return isWinner;
   }
 
   /**
