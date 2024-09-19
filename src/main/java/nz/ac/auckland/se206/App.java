@@ -92,6 +92,18 @@ public class App extends Application {
     isAlfredInteracted = isInteracted;
   }
 
+  public static boolean isBruceInteracted() {
+    return isBruceInteracted;
+  }
+
+  public static boolean isSaulInteracted() {
+    return isSaulInteracted;
+  }
+
+  public static boolean isAlfredInteracted() {
+    return isAlfredInteracted;
+  }
+
   public static boolean isEnoughInteraction() {
     if (isBruceInteracted && isSaulInteracted && isAlfredInteracted) {
       return true;

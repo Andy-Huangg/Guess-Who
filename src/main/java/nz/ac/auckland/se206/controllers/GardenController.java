@@ -13,9 +13,11 @@ public class GardenController extends ChatSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) throws InterruptedException {
     enableChat();
-    playIntroAudio("Bruce.mp3");
-    txtChat.appendText(
-        "Ah Detective, I’m Bruce. I was just looking around when all this happened.");
+    if (!App.isBruceInteracted()) {
+      playIntroAudio("Bruce.mp3");
+      txtChat.appendText(
+          "Ah Detective, I’m Bruce. I was just looking around when all this happened.");
+    }
     chatHandler.setCharacter("bruce");
   }
 
