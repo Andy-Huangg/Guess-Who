@@ -19,6 +19,8 @@ public class CrimeSceneController {
   @FXML private ImageView ImageDriversLicense;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
+  private TranslateTransition cardTranslate = new TranslateTransition();
+  private boolean cardTranslating = false;
 
   DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -70,6 +72,9 @@ public class CrimeSceneController {
   @FXML
   private void handleWalletClueClick(MouseEvent event) {
 
+    if (cardTranslating == true) {
+      return;
+    }
     ImageView currentImage = (ImageView) event.getTarget();
     String currentID = currentImage.getId();
     ImageView imageToMove = null;
@@ -89,18 +94,21 @@ public class CrimeSceneController {
   }
 
   private void cardTransition(ImageView image, String direction) {
-    TranslateTransition translate = new TranslateTransition();
-    translate.setNode(image);
+    cardTranslate.setNode(image);
     image.setVisible(true);
-    translate.setDuration(Duration.millis(200));
+    cardTranslate.setDuration(Duration.millis(200));
     if (direction.equals("up")) {
       walletClueMap.put(image, true);
-      translate.setByY(-60);
+      cardTranslate.setByY(-60);
     } else {
-      translate.setByY(60);
+      cardTranslate.setByY(60);
     }
-
-    translate.play();
+    cardTranslate.play();
+    cardTranslating = true;
+    cardTranslate.setOnFinished(
+        event -> {
+          cardTranslating = false;
+        });
   }
 
   private void handleNewsInteraction() {
