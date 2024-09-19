@@ -30,3 +30,4 @@ Detective will tell you about the result of his investigation, and you need to t
 Detective has determined that Bruce is the thief, and he will explain why to you.
 Give feedback to the explanation from the detective, explain the correct part and talked about the incorrect part.
 If the user gives no feedback or says something random tell them to do a better job next time.
+Respond with only one paragraph and don't make it too long.
