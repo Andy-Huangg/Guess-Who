@@ -27,7 +27,6 @@
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Button layoutX="595.0" layoutY="119.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
             <ImageView fx:id="studyImage" fitHeight="111.0" fitWidth="138.0" layoutX="20.0" layoutY="93.0" onMouseClicked="#loadStudy" pickOnBounds="true">
                <image>
                   <Image url="@../images/study.png" />
@@ -74,7 +73,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <ImageView fitHeight="124.0" fitWidth="106.0" layoutX="584.0" layoutY="87.0" y="-1.0">
+            <ImageView fx:id="btnGuess" fitHeight="124.0" fitWidth="106.0" layoutX="584.0" layoutY="87.0" y="-1.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
@@ -102,6 +101,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
+            <Button layoutX="595.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
          </children>
       </AnchorPane>
    </bottom>

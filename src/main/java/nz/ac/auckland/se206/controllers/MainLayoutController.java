@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -84,15 +83,6 @@ public class MainLayoutController {
     }
   }
 
-  // private AnchorPane loadFXML(String fxmlFile) {
-  //   try {
-  //     return FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
-  //   } catch (IOException e) {
-  //     e.printStackTrace();
-  //   }
-  //   return new AnchorPane();
-  // }
-
   private void loadFXML(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
@@ -130,13 +120,13 @@ public class MainLayoutController {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void handleGuessClick(ActionEvent event) throws IOException {
-    if (clueCount < 3) {
-      // TODO notify user must interact with all clue before continue;
-      App.openGuessWindow(
-          timerLabel); // need to pass some kinds of components for it to get the root window
-      return;
-    }
+  private void handleGuessClick() throws IOException {
+    // if (clueCount < 3) {
+    //   // TODO notify user must interact with all clue before continue;
+    //   App.openGuessWindow(
+    //       timerLabel); // need to pass some kinds of components for it to get the root window
+    //   return;
+    // }
     App.openGuessWindow(timerLabel);
   }
 

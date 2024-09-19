@@ -63,7 +63,6 @@ public class App extends Application {
   public static void openGuessWindow(Label event) throws IOException {
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
