@@ -11,13 +11,12 @@
    <children>
       <ImageView fitHeight="708.0" fitWidth="680.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="21.3782958984375" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="22.0">
          <image>
-            <Image url="@../images/crimescene.png" />
+            <Image url="@../images/crimescene.jpeg" />
          </image>
       </ImageView>
-      <Rectangle id="safe" fx:id="rectSafe" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="193.0" layoutX="529.0" layoutY="287.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
-      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="124.0" layoutX="281.0" layoutY="382.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="167.0" />
-      <Rectangle id="glass" fx:id="rectGlass" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="107.0" layoutX="132.0" layoutY="389.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
-      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="66.0" layoutX="230.0" layoutY="308.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="114.0" layoutX="287.0" layoutY="392.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
+      <Rectangle id="wallet" fx:id="rectWallet" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="49.0" layoutX="538.0" layoutY="466.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="54.0" />
+      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="42.0" layoutX="245.0" layoutY="340.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="126.0" />
       <Pane fx:id="newsPaperPane" layoutX="-8.0" layoutY="-9.0" prefHeight="499.0" prefWidth="662.0" visible="false">
          <children>
             <ImageView fitHeight="523.0" fitWidth="686.0" layoutX="2.0" pickOnBounds="true">

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
@@ -20,7 +21,7 @@ public class MainLayoutController {
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
-
+  @FXML private ImageView gardenImage, livingroomImage, studyImage, musicroomImage;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
 
@@ -46,21 +47,36 @@ public class MainLayoutController {
   @FXML
   private void loadStudy() {
     loadFXML("crimescene");
+    clearImageOpacity();
+    studyImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadGarden() {
     loadFXML("garden");
+    clearImageOpacity();
+    gardenImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadLivingRoom() {
     loadFXML("livingroom");
+    clearImageOpacity();
+    livingroomImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadMusicRoom() {
     loadFXML("musicroom");
+    clearImageOpacity();
+    musicroomImage.setOpacity(0.7);
+  }
+
+  private void clearImageOpacity() {
+    studyImage.setOpacity(1);
+    gardenImage.setOpacity(1);
+    livingroomImage.setOpacity(1);
+    musicroomImage.setOpacity(1);
   }
 
   @FXML
@@ -152,7 +168,16 @@ public class MainLayoutController {
 
                       // End interactions if time runs out
                       if (timeRemaining <= 0) {
-                        endInteractionPhase();
+                        try {
+                          stopTimer();
+                          if (App.isEnoughInteraction()) {
+                            App.openGuessWindow(timerLabel);
+                          } else {
+                            App.openEndGameWindow(timerLabel);
+                          }
+                        } catch (IOException e) {
+                          e.printStackTrace();
+                        }
                       }
                     });
               }
@@ -164,9 +189,5 @@ public class MainLayoutController {
   // Call this method to stop the timer if needed
   private void stopTimer() {
     stopTimer = true;
-  }
-
-  private void endInteractionPhase() {
-    timerLabel.setText("Time's up! Make your guess.");
   }
 }

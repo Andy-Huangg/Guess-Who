@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectSafe, rectDocuments, rectGlass, rectNewsPaper;
+  @FXML private Rectangle rectSafe, rectDocuments, rectWallet, rectNewsPaper;
   @FXML private Pane newsPaperPane, documentsPane;
   @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
   @FXML private Pane documentsGuestList, documentsInvoice, documentsLetter;
@@ -29,23 +29,16 @@ public class CrimeSceneController {
   private void handleRectangleClick(MouseEvent event) {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     switch (clickedRectangle.getId()) {
-      case "safe":
-        handleSafeInteraction();
-        break;
       case "documents":
         handleDocumentsInteraction();
         break;
-      case "glass":
-        handleGlassInteraction();
+      case "wallet":
+        handleWalletInteraction();
         break;
       default:
         handleNewsInteraction();
         break;
     }
-  }
-
-  private void handleSafeInteraction() {
-    // Handle interaction with the safe
   }
 
   private void handleDocumentsInteraction() {
@@ -54,16 +47,17 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[0] = true;
     }
-
+    System.out.println("document clicked");
     documentsPane.setVisible(true);
   }
 
-  private void handleGlassInteraction() {
+  private void handleWalletInteraction() {
     // Handle interaction with the broken glass
     if (!clueArray[1]) { // if first time clicked
       MainLayoutController.incrementClueCount();
       clueArray[1] = true;
     }
+    System.out.println("wallet clicked");
   }
 
   private void handleNewsInteraction() {
@@ -72,7 +66,7 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[2] = true;
     }
-
+    System.out.println("news clicked");
     newsPaperPane.setVisible(true);
   }
 

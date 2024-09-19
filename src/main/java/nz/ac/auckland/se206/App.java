@@ -18,6 +18,10 @@ public class App extends Application {
 
   private static Scene scene;
   private static boolean isWinner;
+  private static FXMLLoader loader;
+  private static boolean isBruceInteracted = false;
+  private static boolean isSaulInteracted = false;
+  private static boolean isAlfredInteracted = false;
 
   /**
    * The main method that launches the JavaFX application.
@@ -65,6 +69,35 @@ public class App extends Application {
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
+
+  public static void openEndGameWindow(Label event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
+    Parent root = loader.load();
+
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public static void setBruceInteracted(boolean isInteracted) {
+    isBruceInteracted = isInteracted;
+  }
+
+  public static void setSaulInteracted(boolean isInteracted) {
+    isSaulInteracted = isInteracted;
+  }
+
+  public static void setAlfredInteracted(boolean isInteracted) {
+    isAlfredInteracted = isInteracted;
+  }
+
+  public static boolean isEnoughInteraction() {
+    if (isBruceInteracted && isSaulInteracted && isAlfredInteracted) {
+      return true;
+    }
+    return false;
   }
 
   /**
