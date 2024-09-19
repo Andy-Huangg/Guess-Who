@@ -11,7 +11,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
@@ -19,12 +18,13 @@ import nz.ac.auckland.se206.ChatHandler;
 
 public class GuessController extends ChatSceneController {
 
-  @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel, ownerLabel;
+  @FXML private Label timeLabel, suspectSelectedLabel, ownerLabel;
   @FXML private TextArea answerText;
   @FXML private Button SubmitBtn;
   @FXML private Pane suspectSelectedPane, resultPane;
 
   private String suspectSelected;
+  private ChatHandler chatHandler = new ChatHandler("owner");
   private int timeCount = 61;
   private String[] responseList = {
     "Are you being serious right now? Me? Really?",
@@ -32,8 +32,6 @@ public class GuessController extends ChatSceneController {
     "Don't look at me, there is no answer on my face!",
     "I think I have given you too much time to muck around...",
   };
-  private ChatHandler chatHandler = new ChatHandler("owner");
-  private ChatMessage feedbackMsg;
 
   public void initialize() {
     Thread timer = // very ugly looking but will work as a timer
@@ -51,9 +49,10 @@ public class GuessController extends ChatSceneController {
                   e.printStackTrace();
                 }
               }
+
               try {
                 onSubmit(null);
-              } catch (ApiProxyException e) {
+              } catch (ApiProxyException | IOException e) {
                 e.printStackTrace();
               }
             });
@@ -85,43 +84,30 @@ public class GuessController extends ChatSceneController {
     }
     if (suspectSelected.equals("Bruce")) {
       App.setWinner(true);
-      enableSuspectSelectedPane("Bruce");
+      enableReasoningPane("Bruce");
     } else {
       App.setWinner(false);
-      App.openEndGameWindow(explainLabel);
+      App.openEndGameWindow(timeLabel);
     }
   }
 
-  private void enableSuspectSelectedPane(String id) {
+  private void enableReasoningPane(String id) {
     suspectSelectedPane.setVisible(true);
     suspectSelected = id;
     suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the thief?");
   }
 
   @FXML
-  private void onBack() {
-    suspectSelectedPane.setVisible(false);
-  }
+  private void onSubmit(ActionEvent event) throws ApiProxyException, IOException {
 
-  @FXML
-  private void onSubmit(ActionEvent event) throws ApiProxyException {
-    resultPane.setVisible(true);
-    if (suspectSelected.equals("Bruce")) {
-      resultLabel.setText("CORRECT!");
-      resultLabel.setTextFill(Color.GREEN);
-      String userInput = answerText.getText().strip();
-      if (!userInput.equals("")) {
-        chatHandler.sendMessage(userInput, this);
-      }
+    String userInput = answerText.getText().strip();
+    if (!userInput.equals("")) {
+      App.setGuessReason(userInput);
     } else {
-      resultLabel.setText("INCORRECT!");
-      resultLabel.setTextFill(Color.RED);
-      appendChatMessage(new ChatMessage(null, "No explanation avaliable."));
+      App.setGuessReason("No reason given");
     }
+    App.openEndGameWindow(timeLabel);
   }
-
-  @FXML
-  private void onRestart(ActionEvent event) {}
 
   @FXML
   private void handleOwnerClick() {
@@ -131,8 +117,7 @@ public class GuessController extends ChatSceneController {
 
   @Override
   public void appendChatMessage(ChatMessage msg) {
-    feedbackMsg = msg; // store the feedback locally
-    Platform.runLater(() -> explainLabel.setText(msg.getContent()));
+    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
   }
 
   @Override

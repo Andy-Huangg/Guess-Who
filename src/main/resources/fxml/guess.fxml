@@ -27,22 +27,6 @@
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="121.0" layoutX="283.0" onMouseClicked="#handleOwnerClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="132.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="203.0" layoutX="144.0" layoutY="131.0" onMouseClicked="#handleOwnerClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
-            <Pane fx:id="resultPane" layoutX="152.0" layoutY="161.0" prefHeight="252.0" prefWidth="394.0" style="-fx-background-color: #d3e6df;" visible="false">
-               <children>
-                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="20.0" prefWidth="394.0" text="Your guess is:">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutY="24.0" prefHeight="25.0" prefWidth="394.0" text="result text" wrapText="true">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="explainLabel" layoutX="3.0" layoutY="56.0" prefHeight="138.0" prefWidth="394.0" text="explanation text goes here." wrapText="true" />
-                  <Button layoutX="157.0" layoutY="202.0" mnemonicParsing="false" onAction="#onRestart" text="Play again!" />
-               </children>
-            </Pane>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="329.0" prefWidth="680.0">

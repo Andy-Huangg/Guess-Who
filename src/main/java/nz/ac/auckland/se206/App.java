@@ -17,6 +17,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static String guessReason;
   private static boolean isWinner;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
@@ -133,6 +134,14 @@ public class App extends Application {
 
   public static boolean isWinner() {
     return isWinner;
+  }
+
+  public static void setGuessReason(String reason) {
+    guessReason = reason;
+  }
+
+  public static String getGuessReason() {
+    return guessReason;
   }
 
   /**
