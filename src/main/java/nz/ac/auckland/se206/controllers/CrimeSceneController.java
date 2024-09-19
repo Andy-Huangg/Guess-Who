@@ -13,7 +13,7 @@ import javafx.util.Duration;
 public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe, rectDocuments, rectWallet, rectNewsPaper;
-  @FXML private Pane newsPaperPane, documentsPane;
+  @FXML private Pane newsPaperPane, documentsPane, walletOpenPane, walletClosedPane, walletCluePane;
   @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
   @FXML private Pane documentsGuestList, documentsInvoice, documentsLetter;
   @FXML private ImageView ImageDriversLicense, ImageCreditCard, ImageLoyaltyCard;
@@ -68,6 +68,7 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[1] = true;
     }
+    walletCluePane.setVisible(true);
   }
 
   @FXML
@@ -136,5 +137,16 @@ public class CrimeSceneController {
   @FXML
   private void closeDocuments() {
     documentsPane.setVisible(false);
+  }
+
+  @FXML
+  private void closeWallet() {
+    walletCluePane.setVisible(false);
+  }
+
+  @FXML
+  private void openWallet() {
+    walletOpenPane.setVisible(true);
+    walletClosedPane.setVisible(false);
   }
 }
