@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -37,7 +36,6 @@ public class MainLayoutController {
   @FXML
   public void initialize() {
     if (isFirstTimeInit) {
-      TextToSpeech.speak("Chat with the three customers, and guess who is the");
       isFirstTimeInit = false;
     }
     startTimer();

@@ -15,7 +15,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.ChatHandler;
 
-public class GuessController implements ChatSceneController {
+public class GuessController extends ChatSceneController {
 
   @FXML private Label timeLabel, resultLabel, explainLabel, suspectSelectedLabel, ownerLabel;
   @FXML private TextArea answerText;
@@ -117,5 +117,11 @@ public class GuessController implements ChatSceneController {
   public void appendChatMessage(ChatMessage msg) {
     feedbackMsg = msg; // store the feedback locally
     Platform.runLater(() -> explainLabel.setText(msg.getContent()));
+  }
+
+  @Override
+  protected void setInteractedFlag(boolean interacted) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setInteractedFlag'");
   }
 }

@@ -1,93 +1,31 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.io.IOException;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
-import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
-import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.ChatHandler;
 
-public class MusicRoomController implements ChatSceneController {
-  @FXML private Rectangle rectAlfred;
-  @FXML private TextArea txtChat;
-  @FXML private TextField txtInput;
-  @FXML private Button btnSend;
-
-  private ChatHandler chatHandler;
-  private boolean isAlfredInteracted = false;
+public class MusicRoomController extends ChatSceneController {
 
   public void initialize() {
-    chatHandler = new ChatHandler("Alfred");
-    txtInput.setOnKeyPressed(
-        event -> {
-          if (event.getCode() == KeyCode.ENTER) {
-            try {
-              onSendMessage(null); // You can pass null since the ActionEvent is not needed here
-            } catch (ApiProxyException e) {
-              e.printStackTrace(); // Handle your exception
-            }
-          }
-        });
+    super.initialize("Alfred");
   }
 
   @FXML
-  public void onSendMessage(ActionEvent event) throws ApiProxyException {
-    String message = txtInput.getText().trim();
-    if (message.isEmpty()) {
-      return;
-    }
-
-    if (!isAlfredInteracted) {
-      isAlfredInteracted = true;
-      App.setAlfredInteracted(isAlfredInteracted);
-    }
-
-    chatHandler.sendMessage(message, this);
-    txtChat.clear();
-    txtInput.clear();
-  }
-
-  @FXML
-  public void onKeyPressed(ActionEvent event) throws ApiProxyException {
-    String message = txtInput.getText().trim();
-    if (message.isEmpty()) {
-      return;
-    }
-    chatHandler.sendMessage(message, this);
-    txtChat.clear();
-    txtInput.clear();
-  }
-
-  @FXML
-  private void handleRectangleClick(MouseEvent event) throws IOException, InterruptedException {
+  private void handleRectangleClick(MouseEvent event) throws InterruptedException {
     enableChat();
+    if (!App.isAlfredInteracted()) {
+      playIntroAudio("Alfred_intro.mp3");
+      txtChat.appendText(
+          "Hello, Detective, I’m Alfred. I hope I can be of some help to your investigation.");
+    } else {
+      playIntroAudio("Alfred_return.mp3");
+      txtChat.appendText("Hello again, Detective. Anything else you need from me?");
+    }
     chatHandler.setCharacter("alfred");
   }
 
-  @FXML
-  private void enableChat() {
-    txtChat.setVisible(true);
-    txtInput.setVisible(true);
-    btnSend.setVisible(true);
-  }
-
-  @FXML
-  private void disableChat() {
-    txtChat.setVisible(false);
-    txtInput.setVisible(false);
-    btnSend.setVisible(false);
-  }
-
   @Override
-  public void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
+  protected void setInteractedFlag(boolean interacted) {
+    App.setAlfredInteracted(interacted);
   }
 }
