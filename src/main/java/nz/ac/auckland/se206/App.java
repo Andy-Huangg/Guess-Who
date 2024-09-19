@@ -17,7 +17,9 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static String guessReason;
   private static boolean isWinner;
+  private static boolean isTimeUp = false;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
@@ -63,7 +65,6 @@ public class App extends Application {
   public static void openGuessWindow(Label event) throws IOException {
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -71,9 +72,8 @@ public class App extends Application {
   }
 
   public static void openEndGameWindow(Label event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/guess.fxml"));
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/endscene.fxml"));
     Parent root = loader.load();
-
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -116,12 +116,18 @@ public class App extends Application {
    *
    * @throws IOException if the FXML file is not found
    */
-  public static void restartGame() throws IOException {
+  public static void restartGame(Label event) throws IOException {
     setAlfredInteracted(false);
     setBruceInteracted(false);
     setSaulInteracted(false);
     setWinner(false);
-    setRoot("mainlayout"); // Reset the scene to the initial one
+    setTimeUp(false);
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
   }
 
   public static void setWinner(boolean isWinner) {
@@ -130,6 +136,22 @@ public class App extends Application {
 
   public static boolean isWinner() {
     return isWinner;
+  }
+
+  public static void setGuessReason(String reason) {
+    guessReason = reason;
+  }
+
+  public static String getGuessReason() {
+    return guessReason;
+  }
+
+  public static void setTimeUp(boolean isTimeUp) {
+    App.isTimeUp = isTimeUp;
+  }
+
+  public static boolean isTimeUp() {
+    return isTimeUp;
   }
 
   /**

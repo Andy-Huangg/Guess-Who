@@ -7,6 +7,7 @@ import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.controllers.ChatSceneController;
+import nz.ac.auckland.se206.controllers.EndSceneController;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public class ChatHandler {
@@ -57,6 +58,21 @@ public class ChatHandler {
 
                 ChatMessage response = runGpt(msg);
                 controller.appendChatMessage(response); // Update UI with response
+              } catch (ApiProxyException e) {
+                e.printStackTrace();
+              }
+            });
+    backgroundThread.start();
+  }
+
+  public void sendReason(String message, EndSceneController controller) throws ApiProxyException {
+    Thread backgroundThread =
+        new Thread(
+            () -> {
+              try {
+                ChatMessage msg = new ChatMessage("user", message);
+                ChatMessage response = runGpt(msg);
+                controller.setReason(response.getContent());
               } catch (ApiProxyException e) {
                 e.printStackTrace();
               }

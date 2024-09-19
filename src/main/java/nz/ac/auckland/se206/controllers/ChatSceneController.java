@@ -59,11 +59,6 @@ public abstract class ChatSceneController {
   protected abstract void setInteractedFlag(boolean interacted);
 
   public void playIntroAudio(String audioFileName) {
-    System.out.println(mediaPlayer);
-    if (mediaPlayer != null) {
-      mediaPlayer.stop(); // Stop current audio
-      mediaPlayer.dispose(); // Release resources held by the current media player
-    }
     String audioFilePath = "src/main/resources/sounds/" + audioFileName;
     Media media = new Media(Paths.get(audioFilePath).toUri().toString());
     mediaPlayer = new MediaPlayer(media);

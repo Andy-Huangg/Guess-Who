@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -117,13 +116,13 @@ public class MainLayoutController {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void handleGuessClick(ActionEvent event) throws IOException {
-    if (clueCount < 3) {
-      // TODO notify user must interact with all clue before continue;
-      App.openGuessWindow(
-          timerLabel); // need to pass some kinds of components for it to get the root window
-      return;
-    }
+  private void handleGuessClick() throws IOException {
+    // if (clueCount < 3) {
+    //   // TODO notify user must interact with all clue before continue;
+    //   App.openGuessWindow(
+    //       timerLabel); // need to pass some kinds of components for it to get the root window
+    //   return;
+    // }
     App.openGuessWindow(timerLabel);
   }
 
@@ -133,17 +132,7 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
-              while (timeRemaining > 0 && !stopTimer) {
-                try {
-                  // Sleep for 1 second
-                  Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                  e.printStackTrace();
-                }
-
-                // Decrease the remaining time
-                timeRemaining--;
-
+              while (timeRemaining >= 0 && !stopTimer) {
                 // Update the timerLabel on the JavaFX Application Thread
                 Platform.runLater(
                     () -> {
@@ -158,6 +147,7 @@ public class MainLayoutController {
                           if (App.isEnoughInteraction()) {
                             App.openGuessWindow(timerLabel);
                           } else {
+                            App.setTimeUp(true);
                             App.openEndGameWindow(timerLabel);
                           }
                         } catch (IOException e) {
@@ -165,6 +155,15 @@ public class MainLayoutController {
                         }
                       }
                     });
+                try {
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
+
+                // Decrease the remaining time
+                timeRemaining--;
               }
             });
     timerThread.setDaemon(true); // Ensures thread is closed when the application exits

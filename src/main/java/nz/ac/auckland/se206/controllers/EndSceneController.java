@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.ChatHandler;
 
 public class EndSceneController {
 
@@ -15,20 +17,56 @@ public class EndSceneController {
   @FXML private Button btnnPlayAgain; // Button to restart the game
   @FXML private Button btnQuit; // Button to exit the game
 
-  /** Initializes the end scene view. It will display the end message and the score. */
+  private ChatHandler chatHandler = new ChatHandler("owner");
+
+  /**
+   * Initializes the end scene view. It will display the end message and the score.
+   *
+   * @throws ApiProxyException
+   * @throws InterruptedException
+   */
   @FXML
-  public void initialize() {
-    if (!App.isWinner()) {
-      labelResult.setText("Wrong! You Lost!");
+  public void initialize() throws ApiProxyException, InterruptedException {
+    if (App.isTimeUp()) {
+      labelResult.setText("Time's Up! You Lost!");
+      labelReason.setText("");
+    } else if (!App.isWinner()) {
+      labelResult.setText("You Guessed Wrong! You Lost!");
+      labelReason.setText("");
     } else {
-      labelResult.setText("Correct! You Won!");
-      labelReason.setText("You got this right because blah blah blah");
+      Thread loadingPrompt =
+          new Thread(
+              () -> {
+                try {
+                  chatHandler.setCharacter("owner");
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
+                Platform.runLater(
+                    () -> {
+                      try {
+                        getReason(App.getGuessReason());
+                      } catch (ApiProxyException e) {
+                        e.printStackTrace();
+                      }
+                    });
+              });
+      loadingPrompt.start();
+      labelResult.setText("You Guessed Right!");
     }
+  }
+
+  private void getReason(String reason) throws ApiProxyException {
+    chatHandler.sendReason(reason, this);
+  }
+
+  public void setReason(String reason) {
+    Platform.runLater(() -> labelReason.setText(reason));
   }
 
   @FXML
   private void onRestart(ActionEvent event) throws IOException {
-    App.restartGame(); // Restart the game
+    App.restartGame(labelResult); // Restart the game
   }
 
   @FXML
