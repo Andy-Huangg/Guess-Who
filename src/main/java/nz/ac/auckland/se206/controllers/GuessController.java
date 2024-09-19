@@ -73,11 +73,21 @@ public class GuessController extends ChatSceneController {
   }
 
   @FXML
-  private void getSuspect(MouseEvent event) throws IOException {
+  private void setSuspect(MouseEvent event) {
     ImageView selected = (ImageView) event.getSource();
-    if (selected.getId().equals("Bruce")) {
-      enableSuspectSelectedPane(selected.getId());
+    suspectSelected = selected.getId();
+  }
+
+  @FXML
+  private void getSuspect(MouseEvent event) throws IOException {
+    if (suspectSelected == null) {
+      return;
+    }
+    if (suspectSelected.equals("Bruce")) {
+      App.setWinner(true);
+      enableSuspectSelectedPane("Bruce");
     } else {
+      App.setWinner(false);
       App.openEndGameWindow(explainLabel);
     }
   }

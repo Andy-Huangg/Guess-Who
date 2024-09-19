@@ -47,22 +47,22 @@
       </AnchorPane>
       <AnchorPane prefHeight="329.0" prefWidth="680.0">
          <children>
-            <ImageView fitHeight="288.0" fitWidth="680.0" pickOnBounds="true">
+            <ImageView fitHeight="301.0" fitWidth="680.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <ImageView id="Bruce" fitHeight="139.0" fitWidth="139.0" layoutX="77.0" layoutY="56.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="77.0">
+            <ImageView id="Bruce" fitHeight="139.0" fitWidth="139.0" layoutX="77.0" layoutY="57.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="77.0">
                <image>
                   <Image url="@../images/Bruce.jpg" />
                </image>
             </ImageView>
-            <ImageView id="Saul" fitHeight="139.0" fitWidth="139.0" layoutX="464.0" layoutY="56.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="77.0">
+            <ImageView id="Saul" fitHeight="139.0" fitWidth="139.0" layoutX="464.0" layoutY="57.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="105.0" AnchorPane.rightAnchor="77.0">
                <image>
                   <Image url="@../images/Saul.jpg" />
                </image>
             </ImageView>
-            <ImageView id="Alfred" fitHeight="139.0" fitWidth="139.0" layoutX="276.0" layoutY="56.0" onMouseClicked="#getSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="93.0">
+            <ImageView id="Alfred" fitHeight="139.0" fitWidth="139.0" layoutX="276.0" layoutY="57.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="105.0">
                <image>
                   <Image url="@../images/Alfred.jpg" />
                </image>
@@ -84,23 +84,28 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="290.0" layoutY="237.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Acuse">
+            <Button layoutX="290.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#getSuspect" prefHeight="33.0" prefWidth="105.0" text="Acuse">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Pane fx:id="suspectSelectedPane" layoutY="-1.0" prefHeight="182.0" prefWidth="680.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="0.0">
+            <Pane fx:id="suspectSelectedPane" prefHeight="301.0" prefWidth="680.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="0.0">
                <children>
-                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" layoutX="-1.0" layoutY="1.0" prefHeight="34.0" prefWidth="680.0" text="Well done... Why do you think &lt;sus name&gt; is the thief?" textFill="WHITE">
+                  <ImageView fitHeight="301.0" fitWidth="681.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/woodtexture.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="34.0" prefWidth="680.0" text="Well done... Why do you think &lt;sus name&gt; is the thief?" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="answerText" layoutY="36.0" prefHeight="79.0" prefWidth="680.0" wrapText="true">
+                  <TextArea fx:id="answerText" layoutX="14.0" layoutY="43.0" prefHeight="175.0" prefWidth="650.0" wrapText="true">
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button fx:id="submitButton" layoutX="250.0" layoutY="127.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="199.0" text="I have decided my answer" textFill="WHITE">
+                  <Button fx:id="submitButton" layoutX="239.0" layoutY="235.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="199.0" text="I have decided my answer">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
