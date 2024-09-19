@@ -151,7 +151,7 @@ public class MainLayoutController {
                       if (timeRemaining <= 0) {
                         try {
                           stopTimer();
-                          if (App.isEnoughInteraction()) {
+                          if (App.isEnoughInteraction() && App.isClueInteracted()) {
                             App.openGuessWindow(timerLabel);
                           } else {
                             App.openEndGameWindow(timerLabel);
