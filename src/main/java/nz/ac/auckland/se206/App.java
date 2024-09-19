@@ -19,6 +19,7 @@ public class App extends Application {
   private static Scene scene;
   private static String guessReason;
   private static boolean isWinner;
+  private static boolean isTimeUp = false;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
@@ -158,6 +159,14 @@ public class App extends Application {
 
   public static String getGuessReason() {
     return guessReason;
+  }
+
+  public static void setTimeUp(boolean isTimeUp) {
+    App.isTimeUp = isTimeUp;
+  }
+
+  public static boolean isTimeUp() {
+    return isTimeUp;
   }
 
   /**

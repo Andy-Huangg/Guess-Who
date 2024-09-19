@@ -24,7 +24,8 @@ public class GuessController extends ChatSceneController {
 
   private String suspectSelected;
   private ChatHandler chatHandler = new ChatHandler("owner");
-  private int timeCount = 61;
+  private int timeCount = 60;
+  private boolean stopTimer = false;
   private String[] responseList = {
     "Are you being serious right now? Me? Really?",
     "Yea yea you're right, I set up the whole thing just for fun.",
@@ -33,26 +34,39 @@ public class GuessController extends ChatSceneController {
   };
 
   public void initialize() {
-    Thread timer = // very ugly looking but will work as a timer
+    Thread timer =
         new Thread(
             () -> {
-              while (timeCount >= 0) {
+              while (timeCount >= 0 && !stopTimer) {
                 Platform.runLater(
                     () -> {
                       timeLabel.setText("You have " + timeCount + " seconds remaining");
+
+                      // End interactions if time runs out
+                      if (timeCount <= 0) {
+                        try {
+                          stopTimer();
+                          if (!"Bruce".equals(suspectSelected)) {
+                            App.setTimeUp(true);
+                            App.openEndGameWindow(timeLabel);
+                          } else {
+                            onSubmit(null);
+                          }
+                        } catch (IOException | ApiProxyException e) {
+                          e.printStackTrace();
+                        }
+                      }
                     });
-                timeCount--;
+
                 try {
-                  Thread.currentThread().sleep(1000);
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
                 } catch (InterruptedException e) {
                   e.printStackTrace();
                 }
-              }
 
-              try {
-                onSubmit(null);
-              } catch (ApiProxyException | IOException e) {
-                e.printStackTrace();
+                // Decrease the remaining time after each second
+                timeCount--;
               }
             });
     timer.start();
@@ -68,6 +82,11 @@ public class GuessController extends ChatSceneController {
               }
             });
     loadingPrompt.start();
+  }
+
+  // Call this method to stop the timer if needed
+  private void stopTimer() {
+    stopTimer = true;
   }
 
   @FXML

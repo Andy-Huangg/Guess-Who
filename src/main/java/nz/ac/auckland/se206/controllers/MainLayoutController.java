@@ -129,17 +129,7 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
-              while (timeRemaining > 0 && !stopTimer) {
-                try {
-                  // Sleep for 1 second
-                  Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                  e.printStackTrace();
-                }
-
-                // Decrease the remaining time
-                timeRemaining--;
-
+              while (timeRemaining >= 0 && !stopTimer) {
                 // Update the timerLabel on the JavaFX Application Thread
                 Platform.runLater(
                     () -> {
@@ -154,6 +144,7 @@ public class MainLayoutController {
                           if (App.isEnoughInteraction() && App.isClueInteracted()) {
                             App.openGuessWindow(timerLabel);
                           } else {
+                            App.setTimeUp(true);
                             App.openEndGameWindow(timerLabel);
                           }
                         } catch (IOException e) {
@@ -161,6 +152,15 @@ public class MainLayoutController {
                         }
                       }
                     });
+                try {
+                  // Sleep for 1 second
+                  Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
+
+                // Decrease the remaining time
+                timeRemaining--;
               }
             });
     timerThread.setDaemon(true); // Ensures thread is closed when the application exits

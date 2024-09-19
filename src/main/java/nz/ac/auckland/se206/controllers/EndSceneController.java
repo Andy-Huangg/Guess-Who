@@ -27,7 +27,10 @@ public class EndSceneController {
    */
   @FXML
   public void initialize() throws ApiProxyException, InterruptedException {
-    if (!App.isWinner()) {
+    if (App.isTimeUp()) {
+      labelResult.setText("Time's Up! You Lost!");
+      labelReason.setText("");
+    } else if (!App.isWinner()) {
       labelResult.setText("You Guessed Wrong! You Lost!");
       labelReason.setText("");
     } else {
