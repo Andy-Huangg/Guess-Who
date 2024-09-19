@@ -117,13 +117,11 @@ public class MainLayoutController {
    */
   @FXML
   private void handleGuessClick() throws IOException {
-    // if (clueCount < 3) {
-    //   // TODO notify user must interact with all clue before continue;
-    //   App.openGuessWindow(
-    //       timerLabel); // need to pass some kinds of components for it to get the root window
-    //   return;
-    // }
-    App.openGuessWindow(timerLabel);
+    if (App.isEnoughInteraction()) {
+      App.openGuessWindow(timerLabel);
+      return;
+    }
+    System.out.println("Please interact with all the suspects before guessing.");
   }
 
   // Method to start the countdown timer
