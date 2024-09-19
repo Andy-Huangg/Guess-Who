@@ -32,6 +32,10 @@ public class CrimeSceneController {
   @FXML private ImageView ImageDriversLicense;
   @FXML private ImageView ImageCreditCard;
   @FXML private ImageView ImageLoyaltyCard;
+  @FXML private ImageView newsStroke;
+  @FXML private ImageView walletStroke;
+  @FXML private ImageView documentStroke;
+
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
   private boolean cardTranslating = false;
@@ -153,4 +157,10 @@ public class CrimeSceneController {
     walletOpenPane.setVisible(true);
     walletClosedPane.setVisible(false);
   }
+
+  @FXML
+  private void handleRectangleHover() {}
+
+  @FXML
+  private void handleRectangleUnhover() {}
 }
