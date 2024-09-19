@@ -39,6 +39,7 @@ public class CrimeSceneController {
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
   private boolean cardTranslating = false;
+  private ImageView currentHover;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -159,8 +160,23 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleRectangleHover() {}
+  private void handleRectangleHover(MouseEvent event) {
+    switch (((Rectangle) event.getSource()).getId()) {
+      case "documents":
+        currentHover = documentStroke;
+        break;
+      case "wallet":
+        currentHover = walletStroke;
+        break;
+      default:
+        currentHover = newsStroke;
+        break;
+    }
+    currentHover.setVisible(true);
+  }
 
   @FXML
-  private void handleRectangleUnhover() {}
+  private void handleRectangleUnhover() {
+    currentHover.setVisible(false);
+  }
 }
