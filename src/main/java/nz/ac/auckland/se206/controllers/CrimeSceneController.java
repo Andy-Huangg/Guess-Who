@@ -7,15 +7,25 @@ import javafx.scene.shape.Rectangle;
 
 public class CrimeSceneController {
 
-  @FXML private Rectangle rectSafe, rectDocuments, rectWallet, rectNewsPaper;
-  @FXML private Pane newsPaperPane, documentsPane;
-  @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
-  @FXML private Pane documentsGuestList, documentsInvoice, documentsLetter;
+  @FXML private Rectangle rectSafe;
+  @FXML private Rectangle rectDocuments;
+  @FXML private Rectangle rectWallet;
+  @FXML private Rectangle rectNewsPaper;
+  @FXML private Pane newsPaperPane;
+  @FXML private Pane documentsPane;
+  @FXML private Pane newsPaperPiece1;
+  @FXML private Pane newsPaperPiece2;
+  @FXML private Pane newsPaperPiece3;
+  @FXML private Pane newsPaperPiece4;
+  @FXML private Pane documentsGuestList;
+  @FXML private Pane documentsInvoice;
+  @FXML private Pane documentsLetter;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
 
-  DraggableMaker draggableMaker = new DraggableMaker();
+  private DraggableMaker draggableMaker = new DraggableMaker();
 
   public void initialize() {
+    // creating draggable nodes to make the clue interactive
     draggableMaker.makeDraggable(newsPaperPiece1);
     draggableMaker.makeDraggable(newsPaperPiece2);
     draggableMaker.makeDraggable(newsPaperPiece3);
@@ -26,8 +36,9 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) {
+  private void handleRectangleClick(MouseEvent event) { // re-direct based on the rectangle clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    // id is setted up in fxml
     switch (clickedRectangle.getId()) {
       case "documents":
         handleDocumentsInteraction();
@@ -71,13 +82,13 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void closeNewsPaper() {
+  private void onCloseNewsPaper() {
 
     newsPaperPane.setVisible(false);
   }
 
   @FXML
-  private void closeDocuments() {
+  private void onCloseDocuments() {
     documentsPane.setVisible(false);
   }
 }
