@@ -18,7 +18,6 @@ public class App extends Application {
 
   private static Scene scene;
   private static boolean isWinner;
-  private static FXMLLoader loader;
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
@@ -106,6 +105,10 @@ public class App extends Application {
    * @throws IOException if the FXML file is not found
    */
   public static void restartGame() throws IOException {
+    setAlfredInteracted(false);
+    setBruceInteracted(false);
+    setSaulInteracted(false);
+    setWinner(false);
     setRoot("mainlayout"); // Reset the scene to the initial one
   }
 
