@@ -73,6 +73,21 @@
                   <Font size="18.0" />
                </font>
             </Button>
+            <ImageView fx:id="selectedBruce" fitHeight="150.0" fitWidth="200.0" layoutX="72.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="selectedAlfred" fitHeight="150.0" fitWidth="200.0" layoutX="271.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="selectedSaul" fitHeight="150.0" fitWidth="200.0" layoutX="459.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/select.png" />
+               </image>
+            </ImageView>
             <Pane fx:id="suspectSelectedPane" prefHeight="301.0" prefWidth="680.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="0.0">
                <children>
                   <ImageView fitHeight="301.0" fitWidth="681.0" pickOnBounds="true">

@@ -21,6 +21,9 @@ public class GuessController extends ChatSceneController {
   @FXML private TextArea answerText;
   @FXML private Pane suspectSelectedPane;
   @FXML private Pane resultPane;
+  @FXML private ImageView selectedBruce;
+  @FXML private ImageView selectedSaul;
+  @FXML private ImageView selectedAlfred;
 
   private String suspectSelected;
   private ChatHandler chatHandler = new ChatHandler("owner");
@@ -32,6 +35,7 @@ public class GuessController extends ChatSceneController {
     "Don't look at me, there is no answer on my face!",
     "I think I have given you too much time to muck around...",
   };
+  private ImageView selectedImage;
 
   public void initialize() {
     Thread timer =
@@ -93,6 +97,21 @@ public class GuessController extends ChatSceneController {
   private void setSuspect(MouseEvent event) {
     ImageView selected = (ImageView) event.getSource();
     suspectSelected = selected.getId();
+    if (selectedImage != null) {
+      selectedImage.setVisible(false);
+    }
+    switch (suspectSelected) {
+      case "Bruce":
+        selectedImage = selectedBruce;
+        break;
+      case "Alfred":
+        selectedImage = selectedAlfred;
+        break;
+      default:
+        selectedImage = selectedSaul;
+        break;
+    }
+    selectedImage.setVisible(true);
   }
 
   @FXML
