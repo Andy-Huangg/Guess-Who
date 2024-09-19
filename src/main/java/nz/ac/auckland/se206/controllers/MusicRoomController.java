@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
@@ -23,6 +26,7 @@ public class MusicRoomController implements ChatSceneController {
 
   private ChatHandler chatHandler;
   private boolean isAlfredInteracted = false;
+  private MediaPlayer mediaPlayer;
 
   public void initialize() {
     chatHandler = new ChatHandler("Alfred");
@@ -69,7 +73,17 @@ public class MusicRoomController implements ChatSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) throws IOException, InterruptedException {
     enableChat();
+    playIntroAudio("Alfred.mp3");
+    txtChat.appendText(
+        "Hello, Detective, I’m Alfred. I hope I can be of some help to your investigation");
     chatHandler.setCharacter("alfred");
+  }
+
+  public void playIntroAudio(String audioFileName) {
+    String audioFilePath = "src/main/resources/sounds/" + audioFileName;
+    Media media = new Media(Paths.get(audioFilePath).toUri().toString());
+    mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.play();
   }
 
   @FXML
