@@ -13,8 +13,13 @@ public class LivingRoomController extends ChatSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) throws InterruptedException {
     enableChat();
-    playIntroAudio("Saul.mp3");
-    txtChat.appendText("Hi Detective, Saul here. Strange to be involved in something like this.");
+    if (!App.isSaulInteracted()) {
+      playIntroAudio("Saul_intro.mp3");
+      txtChat.appendText("Hi Detective, Saul here. Strange to be involved in something like this.");
+    } else {
+      playIntroAudio("Saul_return.mp3");
+      txtChat.appendText("Detective, what can I help you with this time?");
+    }
     chatHandler.setCharacter("saul");
   }
 
