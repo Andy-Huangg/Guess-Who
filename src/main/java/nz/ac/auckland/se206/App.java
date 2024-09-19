@@ -22,6 +22,7 @@ public class App extends Application {
   private static boolean isBruceInteracted = false;
   private static boolean isSaulInteracted = false;
   private static boolean isAlfredInteracted = false;
+  private static boolean isClueInteracted = false;
 
   /**
    * The main method that launches the JavaFX application.
@@ -79,6 +80,24 @@ public class App extends Application {
     stage.show();
   }
 
+  /**
+   * Restarts the game by setting the scene back to the initial layout.
+   *
+   * @throws IOException if the FXML file is not found
+   */
+  public static void restartGame(Label event) throws IOException {
+    setAlfredInteracted(false);
+    setBruceInteracted(false);
+    setSaulInteracted(false);
+    setWinner(false);
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
+  }
+
   public static void setBruceInteracted(boolean isInteracted) {
     isBruceInteracted = isInteracted;
   }
@@ -110,22 +129,12 @@ public class App extends Application {
     return false;
   }
 
-  /**
-   * Restarts the game by setting the scene back to the initial layout.
-   *
-   * @throws IOException if the FXML file is not found
-   */
-  public static void restartGame(Label event) throws IOException {
-    setAlfredInteracted(false);
-    setBruceInteracted(false);
-    setSaulInteracted(false);
-    setWinner(false);
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
-    Parent root = loader.load();
-    Stage stage = (Stage) event.getScene().getWindow();
-    scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show(); // Reset the scene to the initial one
+  public static void setClueInteracted(boolean isInteracted) {
+    isClueInteracted = isInteracted;
+  }
+
+  public static boolean isClueInteracted() {
+    return isClueInteracted;
   }
 
   public static void setWinner(boolean isWinner) {

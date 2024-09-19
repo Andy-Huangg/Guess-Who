@@ -76,13 +76,6 @@ public class MainLayoutController {
     musicroomImage.setOpacity(1);
   }
 
-  @FXML
-  public static void enoughClues() {
-    if (clueCount == 1 && navBar != null) {
-      navBar.setVisible(true);
-    }
-  }
-
   private void loadFXML(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
@@ -104,11 +97,6 @@ public class MainLayoutController {
     fxmlLoaderThread.start();
   }
 
-  public static void incrementClueCount() {
-    clueCount++;
-    enoughClues();
-  }
-
   /**
    * Handles the guess button click event.
    *
@@ -117,11 +105,11 @@ public class MainLayoutController {
    */
   @FXML
   private void handleGuessClick() throws IOException {
-    if (App.isEnoughInteraction()) {
+    if (App.isEnoughInteraction() && App.isClueInteracted()) {
       App.openGuessWindow(timerLabel);
       return;
     }
-    System.out.println("Please interact with all the suspects before guessing.");
+    System.out.println("Please investigate more before guessing.");
   }
 
   // Method to start the countdown timer

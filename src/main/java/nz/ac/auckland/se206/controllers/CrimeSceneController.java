@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import nz.ac.auckland.se206.App;
 
 public class CrimeSceneController {
 
@@ -38,6 +39,7 @@ public class CrimeSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) { // re-direct based on the rectangle clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    App.setClueInteracted(true);
     // id is setted up in fxml
     switch (clickedRectangle.getId()) {
       case "documents":
@@ -54,29 +56,16 @@ public class CrimeSceneController {
 
   private void handleDocumentsInteraction() {
     // Handle interaction with the guest list
-    if (!clueArray[0]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[0] = true;
-    }
     System.out.println("document clicked");
     documentsPane.setVisible(true);
   }
 
   private void handleWalletInteraction() {
     // Handle interaction with the broken glass
-    if (!clueArray[1]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[1] = true;
-    }
     System.out.println("wallet clicked");
   }
 
   private void handleNewsInteraction() {
-    // Handle interaction with the broken glass
-    if (!clueArray[2]) { // if first time clicked
-      MainLayoutController.incrementClueCount();
-      clueArray[2] = true;
-    }
     System.out.println("news clicked");
     newsPaperPane.setVisible(true);
   }
