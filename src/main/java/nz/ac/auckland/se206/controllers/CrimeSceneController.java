@@ -16,7 +16,7 @@ public class CrimeSceneController {
   @FXML private Pane newsPaperPane, documentsPane;
   @FXML private Pane newsPaperPiece1, newsPaperPiece2, newsPaperPiece3, newsPaperPiece4;
   @FXML private Pane documentsGuestList, documentsInvoice, documentsLetter;
-  @FXML private ImageView ImageDriversLicense;
+  @FXML private ImageView ImageDriversLicense, ImageCreditCard;
   private static boolean[] clueArray = new boolean[3]; // [guestList,glass,newspaper]
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
@@ -33,6 +33,7 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
     walletClueMap.put(ImageDriversLicense, false);
+    walletClueMap.put(ImageCreditCard, false);
   }
 
   @FXML
@@ -57,7 +58,6 @@ public class CrimeSceneController {
       MainLayoutController.incrementClueCount();
       clueArray[0] = true;
     }
-    System.out.println("document clicked");
     documentsPane.setVisible(true);
   }
 
@@ -81,6 +81,9 @@ public class CrimeSceneController {
     switch (currentID) {
       case "ImageDriversLicense":
         imageToMove = ImageDriversLicense;
+        break;
+      case "ImageCreditCard":
+        imageToMove = ImageCreditCard;
         break;
       default:
         break;
