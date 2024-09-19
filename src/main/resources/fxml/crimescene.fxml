@@ -112,20 +112,24 @@
       </Pane>
       <Pane prefHeight="512.0" prefWidth="680.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="512.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="680.0" />
             <ImageView fitHeight="512.0" fitWidth="680.0">
                <image>
-                  <Image url="@../../../../../../Downloads/NewsPaper/rug.png" />
+                  <Image url="@../images/rug.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="340.0" fitWidth="369.0" layoutX="164.0" layoutY="70.0">
+            <ImageView fitHeight="452.0" fitWidth="744.0" layoutX="-24.0" layoutY="125.0">
                <image>
-                  <Image url="@../../../../../../Downloads/NewsPaper/brown-wallet-portrait-isolated-transparent-background_427410-894.png" />
+                  <Image url="@../images/openWallet.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="289.0" fitWidth="712.0" layoutX="-8.0" layoutY="95.0">
+            <ImageView fx:id="ImageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="390.0" layoutY="244.0" onMouseClicked="#handleWalletClueClick">
                <image>
-                  <Image url="@../../../../../../Downloads/NewsPaper/openWallet.png" />
+                  <Image url="@../images/bruceLicense.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="108.0" fitWidth="244.0" layoutX="365.0" layoutY="264.0">
+               <image>
+                  <Image url="@../images/walletTexture.png" />
                </image>
             </ImageView>
          </children>
