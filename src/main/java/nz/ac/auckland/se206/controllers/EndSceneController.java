@@ -15,17 +15,15 @@ public class EndSceneController {
   @FXML private Button btnnPlayAgain; // Button to restart the game
   @FXML private Button btnQuit; // Button to exit the game
 
-  private static int score = 0; // Score of the player
-
   /** Initializes the end scene view. It will display the end message and the score. */
   @FXML
   public void initialize() {
-    if (App.isWinner()) {
-      labelResult.setText("Correct! You Won!");
-    } else {
+    if (!App.isWinner()) {
       labelResult.setText("Wrong! You Lost!");
+    } else {
+      labelResult.setText("Correct! You Won!");
+      labelReason.setText("You got this right because blah blah blah");
     }
-    labelReason.setText("You got this right because blah blah blah");
   }
 
   @FXML

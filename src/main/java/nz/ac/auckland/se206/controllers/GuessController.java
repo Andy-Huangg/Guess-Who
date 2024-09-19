@@ -46,14 +46,12 @@ public class GuessController implements ChatSceneController {
                 try {
                   Thread.currentThread().sleep(1000);
                 } catch (InterruptedException e) {
-                  // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
               }
               try {
                 onSubmit(null);
               } catch (ApiProxyException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
               }
             });
