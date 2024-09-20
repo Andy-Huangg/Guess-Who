@@ -196,7 +196,7 @@ public class CrimeSceneController {
               () -> {
                 try {
                   // sleep until 5 sec
-                  Thread.currentThread().sleep(5000);
+                  Thread.sleep(5000);
                   if (closeClueThread.isInterrupted()) { // quit if interrupt
                     return;
                   }

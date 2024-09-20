@@ -1,11 +1,14 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
@@ -18,6 +21,7 @@ public class EndSceneController {
   @FXML private Button btnQuit; // Button to exit the game
 
   private ChatHandler chatHandler = new ChatHandler("owner");
+  private MediaPlayer mediaPlayer;
 
   /**
    * Initializes the end scene view. It will display the end message and the score.
@@ -29,9 +33,11 @@ public class EndSceneController {
   public void initialize() throws ApiProxyException, InterruptedException {
     // Check game state and set according text
     if (App.isTimeUp()) {
+      playEndAudio("timesup.mp3");
       labelResult.setText("Time's Up! You Lost!");
       labelReason.setText("");
     } else if (!App.isWinner()) {
+      playEndAudio("guesswrong.mp3");
       labelResult.setText("You Guessed Wrong! You Lost!");
       labelReason.setText("");
     } else {
@@ -54,6 +60,7 @@ public class EndSceneController {
                     });
               });
       loadingPrompt.start();
+      playEndAudio("guessright.mp3");
       labelResult.setText("You Guessed Right!");
     }
   }
@@ -64,6 +71,13 @@ public class EndSceneController {
 
   public void setReason(String reason) {
     Platform.runLater(() -> labelReason.setText(reason));
+  }
+
+  public void playEndAudio(String audioFileName) {
+    String audioFilePath = "src/main/resources/sounds/" + audioFileName;
+    Media media = new Media(Paths.get(audioFilePath).toUri().toString());
+    mediaPlayer = new MediaPlayer(media);
+    mediaPlayer.play();
   }
 
   @FXML
