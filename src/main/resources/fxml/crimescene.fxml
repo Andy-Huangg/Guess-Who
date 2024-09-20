@@ -15,15 +15,30 @@
             <Image url="@../images/crimescene.jpeg" />
          </image>
       </ImageView>
-      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="114.0" layoutX="287.0" layoutY="392.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="140.0">
+      <ImageView fx:id="newsStroke" fitHeight="55.0" fitWidth="140.0" layoutX="235.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/strokeNews.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="documentStroke" fitHeight="121.0" fitWidth="196.0" layoutX="254.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/strokeGuest.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="walletStroke" fitHeight="67.0" fitWidth="54.0" layoutX="539.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/strokeWallet.PNG" />
+         </image>
+      </ImageView>
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="114.0" layoutX="287.0" layoutY="392.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="140.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="wallet" fx:id="rectWallet" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="49.0" layoutX="538.0" layoutY="466.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="54.0">
+      <Rectangle id="wallet" fx:id="rectWallet" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="49.0" layoutX="538.0" layoutY="466.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="54.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="42.0" layoutX="245.0" layoutY="340.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="126.0">
+      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="42.0" layoutX="245.0" layoutY="340.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="126.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
