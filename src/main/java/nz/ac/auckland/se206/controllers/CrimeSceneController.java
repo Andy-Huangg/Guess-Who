@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.controllers;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,6 +41,7 @@ public class CrimeSceneController {
   private TranslateTransition cardTranslate = new TranslateTransition();
   private boolean cardTranslating = false;
   private ImageView currentHover;
+  private Thread closeClueThread = new Thread();
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -144,7 +146,6 @@ public class CrimeSceneController {
 
   @FXML
   private void onCloseNewsPaper() {
-
     newsPaperPane.setVisible(false);
   }
 
@@ -184,5 +185,46 @@ public class CrimeSceneController {
   @FXML
   private void handleRectangleUnhover() {
     currentHover.setVisible(false);
+  }
+
+  @FXML
+  private void onMouseLeave() {
+    try {
+      closeClueThread.interrupt();
+      closeClueThread =
+          new Thread(
+              () -> {
+                try {
+                  // sleep until 5 sec
+                  Thread.currentThread().sleep(5000);
+                  if (closeClueThread.isInterrupted()) { // quit if interrupt
+                    return;
+                  }
+                  // close all clue pane
+                  Platform.runLater(
+                      () -> {
+                        onCloseDocuments();
+                        onCloseNewsPaper();
+                        onCloseWallet();
+                      });
+                } catch (InterruptedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              });
+      closeClueThread.start();
+    } catch (Exception e) { // in case interrupt casue error
+      // TODO: handle exception
+    }
+  }
+
+  @FXML
+  private void onMouseEnter() {
+    try {
+      // "refresh" the clue pane
+      closeClueThread.interrupt();
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
   }
 }
