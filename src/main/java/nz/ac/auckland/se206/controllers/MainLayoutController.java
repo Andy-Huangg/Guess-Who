@@ -23,6 +23,7 @@ public class MainLayoutController {
 
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
+  @FXML private AnchorPane studyPane;
   @FXML private ImageView gardenImage;
   @FXML private ImageView livingroomImage;
   @FXML private ImageView studyImage;
@@ -87,9 +88,16 @@ public class MainLayoutController {
               try {
                 AnchorPane loadedPane =
                     FXMLLoader.load(getClass().getResource("/fxml/" + fxmlFile + ".fxml"));
+                if (studyPane == null) {
+                  studyPane = loadedPane;
+                }
                 Platform.runLater(
                     () -> {
-                      centrePane.getChildren().setAll(loadedPane);
+                      if (studyPane != null && fxmlFile.equals("crimescene")) {
+                        centrePane.getChildren().setAll(studyPane);
+                      } else {
+                        centrePane.getChildren().setAll(loadedPane);
+                      }
                     });
               } catch (IOException e) {
                 e.printStackTrace();

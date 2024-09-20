@@ -128,7 +128,6 @@ public class CrimeSceneController {
   }
 
   private void handleNewsInteraction() {
-    System.out.println("news clicked");
     newsPaperPane.setVisible(true);
   }
 
