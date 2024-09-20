@@ -29,9 +29,9 @@ public class CrimeSceneController {
   @FXML private Pane walletOpenPane;
   @FXML private Pane walletClosedPane;
   @FXML private Pane walletCluePane;
-  @FXML private ImageView ImageDriversLicense;
-  @FXML private ImageView ImageCreditCard;
-  @FXML private ImageView ImageLoyaltyCard;
+  @FXML private ImageView imageDriversLicense;
+  @FXML private ImageView imageCreditCard;
+  @FXML private ImageView imageLoyaltyCard;
   @FXML private ImageView newsStroke;
   @FXML private ImageView walletStroke;
   @FXML private ImageView documentStroke;
@@ -52,9 +52,9 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsGuestList);
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
-    walletClueMap.put(ImageDriversLicense, false);
-    walletClueMap.put(ImageCreditCard, false);
-    walletClueMap.put(ImageLoyaltyCard, false);
+    walletClueMap.put(imageDriversLicense, false);
+    walletClueMap.put(imageCreditCard, false);
+    walletClueMap.put(imageLoyaltyCard, false);
   }
 
   @FXML
@@ -92,17 +92,17 @@ public class CrimeSceneController {
       return;
     }
     ImageView currentImage = (ImageView) event.getTarget();
-    String currentID = currentImage.getId();
+    String currentIdentification = currentImage.getId();
     ImageView imageToMove = null;
-    switch (currentID) {
+    switch (currentIdentification) {
       case "ImageDriversLicense":
-        imageToMove = ImageDriversLicense;
+        imageToMove = imageDriversLicense;
         break;
       case "ImageCreditCard":
-        imageToMove = ImageCreditCard;
+        imageToMove = imageCreditCard;
         break;
       case "ImageLoyaltyCard":
-        imageToMove = ImageLoyaltyCard;
+        imageToMove = imageLoyaltyCard;
         break;
       default:
         break;
