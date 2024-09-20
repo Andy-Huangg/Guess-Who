@@ -40,6 +40,7 @@ public class GuessController extends ChatSceneController {
   private ImageView selectedImage;
 
   public void initialize() {
+    playIntroAudio("guessstart.mp3");
     Thread timer =
         new Thread(
             () -> {
