@@ -153,7 +153,7 @@
                         <Image url="@../images/openWallet.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ImageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="390.0" layoutY="244.0" onMouseClicked="#handleWalletClueClick">
+                  <ImageView fx:id="imageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="390.0" layoutY="244.0" onMouseClicked="#handleWalletClueClick">
                      <image>
                         <Image url="@../images/bruceLicense.png" />
                      </image>
@@ -166,7 +166,7 @@
                         <Image url="@../images/walletTexture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ImageCreditCard" fitHeight="85.0" fitWidth="188.0" layoutX="96.0" layoutY="179.0" onMouseClicked="#handleWalletClueClick">
+                  <ImageView fx:id="imageCreditCard" fitHeight="85.0" fitWidth="188.0" layoutX="96.0" layoutY="179.0" onMouseClicked="#handleWalletClueClick">
                      <image>
                         <Image url="@../images/walletCreditCard.png" />
                      </image>
@@ -179,7 +179,7 @@
                         <Image url="@../images/walletTexture2.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ImageLoyaltyCard" fitHeight="85.0" fitWidth="188.0" layoutX="90.0" layoutY="252.0" onMouseClicked="#handleWalletClueClick">
+                  <ImageView fx:id="imageLoyaltyCard" fitHeight="85.0" fitWidth="188.0" layoutX="90.0" layoutY="252.0" onMouseClicked="#handleWalletClueClick">
                      <image>
                         <Image url="@../images/WalletLoyaltyCard.png" />
                      </image>
