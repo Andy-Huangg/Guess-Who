@@ -189,17 +189,18 @@ public class CrimeSceneController {
 
   @FXML
   private void onMouseLeave() {
-    System.out.println("left");
     try {
       closeClueThread.interrupt();
       closeClueThread =
           new Thread(
               () -> {
                 try {
+                  // sleep until 2 sec
                   Thread.currentThread().sleep(2000);
-                  if (closeClueThread.isInterrupted()) {
+                  if (closeClueThread.isInterrupted()) { // quit if interrupt
                     return;
                   }
+                  // close all clue pane
                   Platform.runLater(
                       () -> {
                         onCloseDocuments();
@@ -212,15 +213,15 @@ public class CrimeSceneController {
                 }
               });
       closeClueThread.start();
-    } catch (Exception e) {
+    } catch (Exception e) { // in case interrupt casue error
       // TODO: handle exception
     }
   }
 
   @FXML
   private void onMouseEnter() {
-    System.out.println("enter");
     try {
+      // "refresh" the clue pane
       closeClueThread.interrupt();
     } catch (Exception e) {
       // TODO: handle exception
