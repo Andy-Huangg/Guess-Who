@@ -19,9 +19,7 @@ import nz.ac.auckland.se206.App;
  */
 public class MainLayoutController {
 
-  private static boolean isFirstTimeInit = true;
   @FXML private static AnchorPane navBar; // Pane for the navigation bar
-
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
   @FXML private AnchorPane studyPane;
@@ -40,9 +38,7 @@ public class MainLayoutController {
    */
   @FXML
   public void initialize() {
-    if (isFirstTimeInit) {
-      isFirstTimeInit = false;
-    }
+    playAudio("introduction.mp3");
     startTimer();
     loadStudy();
   }
