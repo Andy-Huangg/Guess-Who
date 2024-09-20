@@ -95,6 +95,7 @@ public class GuessController extends ChatSceneController {
     stopTimer = true;
   }
 
+  // Adds the border to show who the user has selected as the suspect
   @FXML
   private void setSuspect(MouseEvent event) {
     ImageView selected = (ImageView) event.getSource();
@@ -116,6 +117,7 @@ public class GuessController extends ChatSceneController {
     selectedImage.setVisible(true);
   }
 
+  // Determines if the selected suspect is correct.
   @FXML
   private void getSuspect(MouseEvent event) throws IOException {
     if (suspectSelected == null) {
@@ -136,6 +138,7 @@ public class GuessController extends ChatSceneController {
     suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the thief?");
   }
 
+  // Submits the reason for guessing the thief.
   @FXML
   private void onSubmit(ActionEvent event) throws ApiProxyException, IOException {
 

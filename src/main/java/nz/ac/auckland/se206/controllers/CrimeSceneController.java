@@ -85,6 +85,7 @@ public class CrimeSceneController {
     walletCluePane.setVisible(true);
   }
 
+  // Handles which card should be moved inside the wallet.
   @FXML
   private void handleWalletClueClick(MouseEvent event) {
 
@@ -115,6 +116,7 @@ public class CrimeSceneController {
     }
   }
 
+  // This method moves the inputted card in the inputted direction in a sliding animation
   private void cardTransition(ImageView image, String direction) {
     cardTranslate.setNode(image);
     image.setVisible(true);
@@ -150,16 +152,17 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void closeWallet() {
+  private void onCloseWallet() {
     walletCluePane.setVisible(false);
   }
 
   @FXML
-  private void openWallet() {
+  private void onOpenWallet() {
     walletOpenPane.setVisible(true);
     walletClosedPane.setVisible(false);
   }
 
+  // Highlights the clue when mouse hovers over it
   @FXML
   private void handleRectangleHover(MouseEvent event) {
     switch (((Rectangle) event.getSource()).getId()) {
