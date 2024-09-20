@@ -85,13 +85,13 @@ public class CrimeSceneController {
     walletCluePane.setVisible(true);
   }
 
-  // Handles which card should be moved inside the wallet.
   @FXML
   private void handleWalletClueClick(MouseEvent event) {
-
+    // Return if the card is already moving.
     if (cardTranslating == true) {
       return;
     }
+    // Find which card to move
     ImageView currentImage = (ImageView) event.getTarget();
     String currentIdentification = currentImage.getId();
     ImageView imageToMove = null;
@@ -108,6 +108,7 @@ public class CrimeSceneController {
       default:
         break;
     }
+    // Find the direction the card should move in
     if (walletClueMap.get(imageToMove) == true) {
       cardTransition(imageToMove, "down");
       walletClueMap.put(imageToMove, false);
@@ -116,17 +117,19 @@ public class CrimeSceneController {
     }
   }
 
-  // This method moves the inputted card in the inputted direction in a sliding animation
   private void cardTransition(ImageView image, String direction) {
+    // Sets the card to be translated
     cardTranslate.setNode(image);
     image.setVisible(true);
     cardTranslate.setDuration(Duration.millis(200));
+    // Find direction for card to move
     if (direction.equals("up")) {
       walletClueMap.put(image, true);
       cardTranslate.setByY(-60);
     } else {
       cardTranslate.setByY(60);
     }
+    // Start translating and set variables for if a card is already moving
     cardTranslate.play();
     cardTranslating = true;
     cardTranslate.setOnFinished(
@@ -161,9 +164,9 @@ public class CrimeSceneController {
     walletClosedPane.setVisible(false);
   }
 
-  // Highlights the clue when mouse hovers over it
   @FXML
   private void handleRectangleHover(MouseEvent event) {
+    // Highlights the clue when mouse hovers over it
     switch (((Rectangle) event.getSource()).getId()) {
       case "documents":
         currentHover = documentStroke;
