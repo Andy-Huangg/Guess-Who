@@ -73,7 +73,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <ImageView fx:id="btnGuess" fitHeight="124.0" fitWidth="106.0" layoutX="584.0" layoutY="87.0" y="-1.0">
+            <ImageView fitHeight="124.0" fitWidth="106.0" layoutX="584.0" layoutY="87.0" y="-1.0">
                <image>
                   <Image url="@../images/frame.png" />
                </image>
@@ -101,7 +101,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="595.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
+            <Button fx:id="btnGuess" layoutX="595.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
          </children>
       </AnchorPane>
    </bottom>
@@ -113,7 +113,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </AnchorPane>
-            <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="303.0" layoutY="-17.0" stroke="BLACK" strokeType="INSIDE" width="73.0">
+            <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="298.0" layoutY="-17.0" stroke="BLACK" strokeType="INSIDE" width="84.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="298.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="1.0">
                      <stops>
@@ -131,7 +131,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Label fx:id="timerLabel" layoutX="309.0" layoutY="-4.0" text="Timer" textFill="WHITE">
+            <Label fx:id="timerLabel" layoutX="309.0" layoutY="-4.0" text="Timer" textFill="WHITE" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="310.5">
                <font>
                   <Font size="25.0" />
                </font>

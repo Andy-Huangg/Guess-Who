@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -28,6 +29,7 @@ public class MainLayoutController {
   @FXML private ImageView livingroomImage;
   @FXML private ImageView studyImage;
   @FXML private ImageView musicroomImage;
+  @FXML private Button btnGuess;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
   private MediaPlayer mediaPlayer;
@@ -128,7 +130,25 @@ public class MainLayoutController {
       App.openGuessWindow(timerLabel);
       return;
     }
+    btnGuess.setDisable(true);
+
+    // Play the audio
     playAudio("investigatemore.mp3");
+
+    // Create a new thread to handle the delay
+    new Thread(
+            () -> {
+              try {
+                // Sleep for 4 seconds
+                Thread.sleep(4000);
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
+
+              // Re-enable the button on the JavaFX Application Thread
+              Platform.runLater(() -> btnGuess.setDisable(false));
+            })
+        .start();
   }
 
   // Method to start the countdown timer
@@ -143,7 +163,7 @@ public class MainLayoutController {
                     () -> {
                       int minutes = timeRemaining / 60;
                       int seconds = timeRemaining % 60;
-                      timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+                      timerLabel.setText(String.format("%2d:%02d", minutes, seconds));
 
                       // End interactions if time runs out
                       if (timeRemaining <= 0) {
