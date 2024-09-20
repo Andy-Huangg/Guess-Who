@@ -27,6 +27,7 @@ public class EndSceneController {
    */
   @FXML
   public void initialize() throws ApiProxyException, InterruptedException {
+    // Check game state and set according text
     if (App.isTimeUp()) {
       labelResult.setText("Time's Up! You Lost!");
       labelReason.setText("");
@@ -34,6 +35,7 @@ public class EndSceneController {
       labelResult.setText("You Guessed Wrong! You Lost!");
       labelReason.setText("");
     } else {
+      // Get the reason of the user and handle it accordingly
       Thread loadingPrompt =
           new Thread(
               () -> {

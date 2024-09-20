@@ -8,6 +8,7 @@ public class DraggableMaker {
   private double mouseAnchorX;
   private double mouseAnchorY;
 
+  // Makes the selected node draggable and also resets back if the node is dragged off screen
   public void makeDraggable(Node node) {
 
     node.setOnMousePressed(

@@ -29,9 +29,9 @@ public class CrimeSceneController {
   @FXML private Pane walletOpenPane;
   @FXML private Pane walletClosedPane;
   @FXML private Pane walletCluePane;
-  @FXML private ImageView ImageDriversLicense;
-  @FXML private ImageView ImageCreditCard;
-  @FXML private ImageView ImageLoyaltyCard;
+  @FXML private ImageView imageDriversLicense;
+  @FXML private ImageView imageCreditCard;
+  @FXML private ImageView imageLoyaltyCard;
   @FXML private ImageView newsStroke;
   @FXML private ImageView walletStroke;
   @FXML private ImageView documentStroke;
@@ -52,9 +52,9 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsGuestList);
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
-    walletClueMap.put(ImageDriversLicense, false);
-    walletClueMap.put(ImageCreditCard, false);
-    walletClueMap.put(ImageLoyaltyCard, false);
+    walletClueMap.put(imageDriversLicense, false);
+    walletClueMap.put(imageCreditCard, false);
+    walletClueMap.put(imageLoyaltyCard, false);
   }
 
   @FXML
@@ -85,6 +85,7 @@ public class CrimeSceneController {
     walletCluePane.setVisible(true);
   }
 
+  // Handles which card should be moved inside the wallet.
   @FXML
   private void handleWalletClueClick(MouseEvent event) {
 
@@ -92,17 +93,18 @@ public class CrimeSceneController {
       return;
     }
     ImageView currentImage = (ImageView) event.getTarget();
-    String currentID = currentImage.getId();
+    String currentIdentification = currentImage.getId();
     ImageView imageToMove = null;
-    switch (currentID) {
+    switch (currentIdentification) {
       case "ImageDriversLicense":
-        imageToMove = ImageDriversLicense;
+        imageToMove = imageDriversLicense;
         break;
       case "ImageCreditCard":
-        imageToMove = ImageCreditCard;
+        imageToMove = imageCreditCard;
         break;
       case "ImageLoyaltyCard":
-        imageToMove = ImageLoyaltyCard;
+        imageToMove = imageLoyaltyCard;
+        break;
       default:
         break;
     }
@@ -114,6 +116,7 @@ public class CrimeSceneController {
     }
   }
 
+  // This method moves the inputted card in the inputted direction in a sliding animation
   private void cardTransition(ImageView image, String direction) {
     cardTranslate.setNode(image);
     image.setVisible(true);
@@ -148,16 +151,17 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void closeWallet() {
+  private void onCloseWallet() {
     walletCluePane.setVisible(false);
   }
 
   @FXML
-  private void openWallet() {
+  private void onOpenWallet() {
     walletOpenPane.setVisible(true);
     walletClosedPane.setVisible(false);
   }
 
+  // Highlights the clue when mouse hovers over it
   @FXML
   private void handleRectangleHover(MouseEvent event) {
     switch (((Rectangle) event.getSource()).getId()) {

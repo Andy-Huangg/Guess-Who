@@ -32,6 +32,7 @@ public class GameStateContext {
   // Utility method to load the entire contents of a file as a String
   private String loadFileAsString(String filePath) {
     StringBuilder fileContent = new StringBuilder();
+    // Creates a reader if file is valid
     try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
@@ -39,6 +40,7 @@ public class GameStateContext {
         throw new IllegalStateException("File not found: " + filePath);
       }
 
+      // Appends the current line to the new file if it is valid
       String line;
       while ((line = reader.readLine()) != null) {
         fileContent.append(line).append("\n");

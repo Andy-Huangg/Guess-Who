@@ -47,28 +47,28 @@ public class MainLayoutController {
 
   @FXML
   private void loadStudy() {
-    loadFXML("crimescene");
+    loadScene("crimescene");
     clearImageOpacity();
     studyImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadGarden() {
-    loadFXML("garden");
+    loadScene("garden");
     clearImageOpacity();
     gardenImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadLivingRoom() {
-    loadFXML("livingroom");
+    loadScene("livingroom");
     clearImageOpacity();
     livingroomImage.setOpacity(0.7);
   }
 
   @FXML
   public void loadMusicRoom() {
-    loadFXML("musicroom");
+    loadScene("musicroom");
     clearImageOpacity();
     musicroomImage.setOpacity(0.7);
   }
@@ -80,7 +80,7 @@ public class MainLayoutController {
     musicroomImage.setOpacity(1);
   }
 
-  private void loadFXML(String fxmlFile) {
+  private void loadScene(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
         new Thread(
