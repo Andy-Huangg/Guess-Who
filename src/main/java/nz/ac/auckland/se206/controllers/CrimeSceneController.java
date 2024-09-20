@@ -96,13 +96,13 @@ public class CrimeSceneController {
     String currentIdentification = currentImage.getId();
     ImageView imageToMove = null;
     switch (currentIdentification) {
-      case "ImageDriversLicense":
+      case "imageDriversLicense":
         imageToMove = imageDriversLicense;
         break;
-      case "ImageCreditCard":
+      case "imageCreditCard":
         imageToMove = imageCreditCard;
         break;
-      case "ImageLoyaltyCard":
+      case "imageLoyaltyCard":
         imageToMove = imageLoyaltyCard;
         break;
       default:
