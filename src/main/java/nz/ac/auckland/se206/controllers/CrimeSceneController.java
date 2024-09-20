@@ -103,6 +103,7 @@ public class CrimeSceneController {
         break;
       case "ImageLoyaltyCard":
         imageToMove = ImageLoyaltyCard;
+        break;
       default:
         break;
     }

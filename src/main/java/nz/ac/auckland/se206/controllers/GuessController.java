@@ -17,7 +17,9 @@ import nz.ac.auckland.se206.ChatHandler;
 
 public class GuessController extends ChatSceneController {
 
-  @FXML private Label timeLabel, suspectSelectedLabel, ownerLabel;
+  @FXML private Label timeLabel;
+  @FXML private Label suspectSelectedLabel;
+  @FXML private Label ownerLabel;
   @FXML private TextArea answerText;
   @FXML private Pane suspectSelectedPane;
   @FXML private Pane resultPane;
