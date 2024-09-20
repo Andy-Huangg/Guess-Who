@@ -65,8 +65,8 @@ public class ChatHandler {
     backgroundThread.start();
   }
 
-  // Sends the user's reason for guessing the thief to chatGPT
   public void sendReason(String message, EndSceneController controller) throws ApiProxyException {
+    // Creates a thread to Send the user's reason for guessing the thief to chatGPT
     Thread backgroundThread =
         new Thread(
             () -> {
