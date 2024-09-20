@@ -2,9 +2,12 @@ package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
 
 public class GardenController extends ChatSceneController {
+
+  @FXML private Rectangle rectBruce;
 
   public void initialize() {
     super.initialize("Bruce");
@@ -13,6 +16,7 @@ public class GardenController extends ChatSceneController {
   @FXML
   private void handleRectangleClick(MouseEvent event) throws InterruptedException {
     enableChat();
+    rectBruce.setDisable(true);
     if (!App.isBruceInteracted()) { // if bruce is talked for the first time
       playIntroAudio("Bruce_intro.mp3");
       txtChat.appendText(
