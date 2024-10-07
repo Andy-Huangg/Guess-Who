@@ -103,6 +103,11 @@
             <Font name="Copperplate Gothic Light" size="18.0" />
          </font>
       </Label>
+      <ImageView fx:id="mouseImage" fitHeight="150.0" fitWidth="200.0" layoutX="265.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/mouse.gif" />
+         </image>
+      </ImageView>
       <Rectangle fx:id="coverRectangle" arcHeight="5.0" arcWidth="5.0" height="640.0" onMouseClicked="#progress" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
    </children>
 </AnchorPane>

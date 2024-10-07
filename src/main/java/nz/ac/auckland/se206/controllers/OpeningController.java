@@ -14,6 +14,7 @@ public class OpeningController {
   @FXML ImageView block2;
   @FXML ImageView block3;
   @FXML ImageView block4;
+  @FXML ImageView mouseImage;
   @FXML Label nameLabel;
   @FXML Label dialogLabel;
   @FXML Rectangle nameRectangle;
@@ -65,6 +66,7 @@ public class OpeningController {
 
   @FXML
   public void progress() {
+    mouseImage.setVisible(false);
     if (clickCount == 1) { // enableing the chatbox related nodes
       nameLabel.setVisible(true);
       nameRectangle.setVisible(true);
