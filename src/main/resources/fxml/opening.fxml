@@ -103,6 +103,6 @@
             <Font name="Copperplate Gothic Light" size="18.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="640.0" onMouseClicked="#progress" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
+      <Rectangle fx:id="coverRectangle" arcHeight="5.0" arcWidth="5.0" height="640.0" onMouseClicked="#progress" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
    </children>
 </AnchorPane>

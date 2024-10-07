@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,11 +18,15 @@ public class OpeningController {
   @FXML Label dialogLabel;
   @FXML Rectangle nameRectangle;
   @FXML Rectangle dialogRectangle;
+  @FXML Rectangle coverRectangle;
 
   ImageView currentBlock;
 
   TranslateTransition blockAnimation = new TranslateTransition();
   int clickCount = 0;
+  double opacity = 0;
+
+  FadeTransition coverAnimation = new FadeTransition();
 
   String[] dialogArray = {
     "",
@@ -43,6 +48,13 @@ public class OpeningController {
 
   public void initialize() {
 
+    // setting animation properties
+    coverAnimation.setFromValue(0);
+    coverAnimation.setToValue(1);
+    coverAnimation.setByValue(0.05);
+    coverAnimation.setNode(coverRectangle);
+    coverAnimation.setDuration(Duration.millis(2000));
+
     currentBlock = block1;
     blockAnimation.setByX(8);
     blockAnimation.setAutoReverse(true);
@@ -53,11 +65,15 @@ public class OpeningController {
 
   @FXML
   public void progress() {
-    if (clickCount == 1) {
+    if (clickCount == 1) { // enableing the chatbox related nodes
       nameLabel.setVisible(true);
       nameRectangle.setVisible(true);
       dialogLabel.setVisible(true);
       dialogRectangle.setVisible(true);
+    }
+    // prevent further click when all dialog appeared
+    if (clickCount > 12) {
+      return;
     }
     System.out.println(clickCount);
     updateDialog();
@@ -66,6 +82,10 @@ public class OpeningController {
   }
 
   public void updateDialog() {
+    if (clickCount == 12) {
+      transitionToGame();
+      return;
+    }
     if (clickCount == 2) {
       nameLabel.setText("Hawthorne");
     }
@@ -73,6 +93,7 @@ public class OpeningController {
   }
 
   public void showBlock() {
+    // play the correspond animation accroding to clue count
     if (clickCount == 0) {
       blockAnimation.play();
       currentBlock.setVisible(true);
@@ -95,5 +116,10 @@ public class OpeningController {
       blockAnimation.play();
       currentBlock.setVisible(true);
     }
+  }
+
+  public void transitionToGame() {
+    coverAnimation.play();
+    // to mainlayour controller
   }
 }
