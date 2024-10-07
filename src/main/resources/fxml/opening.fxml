@@ -1,31 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="680.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.OpeningController">
    <children>
-      <ImageView fitHeight="688.0" fitWidth="707.0" layoutX="-18.0" layoutY="-49.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="block4" fitHeight="696.0" fitWidth="680.0" layoutX="-14.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/block4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="647.0" fitWidth="661.0" layoutX="11.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="block3" fitHeight="647.0" fitWidth="661.0" layoutX="16.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/block3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="647.0" fitWidth="653.0" layoutX="23.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="block2" fitHeight="658.0" fitWidth="647.0" layoutX="19.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/block2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="647.0" fitWidth="647.0" layoutX="11.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="block1" fitHeight="647.0" fitWidth="655.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/block1.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="dialogRectangle" arcHeight="5.0" arcWidth="5.0" height="58.0" layoutY="582.0" opacity="0.64" stroke="#ffffff00" strokeType="INSIDE" visible="false" width="680.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5048780487804878">
+                     <color>
+                        <Color red="0.6736842393875122" green="0.6736842393875122" blue="0.6736842393875122" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle fx:id="nameRectangle" arcHeight="5.0" arcWidth="5.0" height="32.0" layoutX="16.0" layoutY="550.0" opacity="0.77" stroke="#ffffff00" strokeType="INSIDE" visible="false" width="90.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" opacity="0.6170694828033447" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.33832846403834155">
+                     <color>
+                        <Color red="0.9372549057006836" green="1.0" blue="0.47058823704719543" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6439024390243903">
+                     <color>
+                        <Color red="0.9372549057006836" green="1.0" blue="0.47058823704719543" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9946164199192462">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" opacity="0.6223565340042114" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" opacity="0.6283988356590271" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label fx:id="nameLabel" alignment="CENTER" layoutX="16.0" layoutY="550.0" prefHeight="32.0" prefWidth="90.0" style="-fx-border-radius: 5; -fx-border-color: gold; -fx-border-width: 1.5;" text="???" textAlignment="JUSTIFY" visible="false">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="dialogLabel" layoutX="8.0" layoutY="582.0" prefHeight="58.0" prefWidth="662.0" visible="false" wrapText="true">
+         <font>
+            <Font name="Copperplate Gothic Light" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="640.0" onMouseClicked="#progress" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
    </children>
 </AnchorPane>
