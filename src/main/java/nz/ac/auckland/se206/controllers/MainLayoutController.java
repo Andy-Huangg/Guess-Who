@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Text;
 import nz.ac.auckland.se206.App;
 
 /**
@@ -28,6 +30,9 @@ public class MainLayoutController {
   @FXML private ImageView studyImage;
   @FXML private ImageView musicroomImage;
   @FXML private Button btnGuess;
+  @FXML private Pane taskPane;
+  @FXML private Text suspectCounter;
+  @FXML private Text clueCounter;
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
   private MediaPlayer mediaPlayer;
@@ -41,6 +46,7 @@ public class MainLayoutController {
     playAudio("introduction.mp3");
     startTimer();
     loadStudy();
+    System.out.println(suspectCounter);
   }
 
   @FXML
@@ -76,6 +82,20 @@ public class MainLayoutController {
     gardenImage.setOpacity(1);
     livingroomImage.setOpacity(1);
     musicroomImage.setOpacity(1);
+  }
+
+  public void displayTasks() {
+    boolean clueInteractedWith = App.isClueInteracted();
+    if (clueInteractedWith) {
+      clueCounter.setText("1/1");
+    }
+    int suspectsInteractedWith = App.getSuspectsInteracted();
+    suspectCounter.setText(suspectsInteractedWith + "/3");
+
+    if (clueInteractedWith && suspectsInteractedWith >= 3) {
+      taskPane.setVisible(false);
+      btnGuess.setVisible(true);
+    }
   }
 
   private void loadScene(String fxmlFile) {
@@ -160,6 +180,7 @@ public class MainLayoutController {
                       int minutes = timeRemaining / 60;
                       int seconds = timeRemaining % 60;
                       timerLabel.setText(String.format("%2d:%02d", minutes, seconds));
+                      displayTasks();
 
                       // End interactions if time runs out
                       if (timeRemaining <= 0) {
