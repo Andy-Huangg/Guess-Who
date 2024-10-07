@@ -19,12 +19,18 @@ public class GardenController extends ChatSceneController {
     rectBruce.setDisable(true);
     if (!App.isBruceInteracted()) { // if bruce is talked for the first time
       playIntroAudio("Bruce_intro.mp3");
-      txtChat.appendText(
-          "Ah Detective, I’m Bruce. I was just looking around when all this happened.");
+      // Make the text animate in
+      TextAnimator intro =
+          new TextAnimator(
+              "Ah Detective, I’m Bruce. I was just looking around when all this happened.",
+              txtChat);
+      intro.startAnimation();
     } else {
       // if have talked to bruce before
       playIntroAudio("Bruce_return.mp3");
-      txtChat.appendText("Detective, back already? How’s it going on your end?");
+      TextAnimator text =
+          new TextAnimator("Detective, back already? How’s it going on your end?", txtChat);
+      text.run();
     }
     chatHandler.setCharacter("bruce");
   }

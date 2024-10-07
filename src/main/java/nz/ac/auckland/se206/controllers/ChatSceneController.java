@@ -80,6 +80,11 @@ public abstract class ChatSceneController {
   }
 
   public void appendChatMessage(ChatMessage msg) {
-    Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
+    Platform.runLater(
+        () -> {
+          TextAnimator text = new TextAnimator(msg.getContent(), txtChat);
+          txtChat.appendText("\n");
+          text.startAnimation();
+        });
   }
 }
