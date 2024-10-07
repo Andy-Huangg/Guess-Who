@@ -1,7 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.scene.Node;
-import javafx.scene.robot.Robot;
+import javafx.scene.Parent;
 
 public class DraggableMaker {
 
@@ -19,14 +19,25 @@ public class DraggableMaker {
     // Set the new position of where the node should be
     node.setOnMouseDragged(
         mouseEvent -> {
-          node.setLayoutX(mouseEvent.getSceneX() - mouseAnchorX);
-          node.setLayoutY(mouseEvent.getSceneY() - mouseAnchorY);
-          // Node resets back to the middle if it has exceeded the borders.
-          if (mouseEvent.getSceneX() > 680
-              || mouseEvent.getSceneX() < -10
-              || mouseEvent.getSceneY() < -10
-              || mouseEvent.getSceneY() > 550) {
-            new Robot().mouseMove(850, 400);
+          double newX = mouseEvent.getSceneX() - mouseAnchorX;
+          double newY = mouseEvent.getSceneY() - mouseAnchorY;
+
+          // Get the parent container dimensions
+          Parent parent = node.getParent();
+          double parentWidth = parent.getLayoutBounds().getWidth();
+          double parentHeight = parent.getLayoutBounds().getHeight();
+
+          // Get the node dimensions
+          double nodeWidth = node.getBoundsInParent().getWidth();
+          double nodeHeight = node.getBoundsInParent().getHeight();
+          System.out.println(parentWidth);
+
+          // Ensure the node stays within the bounds of the parent container
+          if (newX >= -200 && newX + nodeWidth <= parentWidth + 200) {
+            node.setLayoutX(newX);
+          }
+          if (newY >= -50 && newY + nodeHeight <= parentHeight + 50) {
+            node.setLayoutY(newY);
           }
         });
   }
