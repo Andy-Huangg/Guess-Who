@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
    <bottom>
       <AnchorPane fx:id="navBar" prefHeight="117.0" prefWidth="730.0" BorderPane.alignment="CENTER">
          <opaqueInsets>
@@ -79,7 +79,7 @@
                   <Image url="@../images/frame.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="19.0" fitWidth="680.0" layoutY="74.0" x="7.0">
+            <ImageView fitHeight="49.0" fitWidth="680.0" layoutY="44.0" x="7.0">
                <image>
                   <Image url="@../images/frameTexture.png" />
                </image>
@@ -141,34 +141,36 @@
    <top>
       <AnchorPane prefHeight="50.0" prefWidth="730.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="centrePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="730.0">
+            <AnchorPane fx:id="centrePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="730.0">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
+               <children>
+                  <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="322.0" layoutY="-17.0" stroke="BLACK" strokeType="INSIDE" width="84.0" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="324.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Label fx:id="timerLabel" layoutX="330.0" layoutY="-1.0" prefHeight="30.0" prefWidth="70.0" text="Timer" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="330.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
             </AnchorPane>
-            <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="298.0" layoutY="-17.0" stroke="BLACK" strokeType="INSIDE" width="84.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="298.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Label fx:id="timerLabel" layoutX="309.0" layoutY="-4.0" text="Timer" textFill="WHITE" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="310.5">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </top>
