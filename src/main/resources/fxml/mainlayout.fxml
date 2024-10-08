@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -101,7 +102,39 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button fx:id="btnGuess" layoutX="595.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="60.0" prefWidth="83.0" text="Guess now" wrapText="true" />
+            <Button fx:id="btnGuess" layoutX="591.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="60.0" prefWidth="92.0" style="-fx-background-radius: 20; -fx-alignment: center; -fx-wrap-text: true; -fx-background-color: #C19A6B;" text="Guess now" textFill="WHITE" visible="false" wrapText="true">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font></Button>
+            <Pane fx:id="taskPane" layoutX="586.0" layoutY="89.0" prefHeight="116.0" prefWidth="108.0">
+               <children>
+                  <Text fx:id="clueCounter" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0/1" translateX="37.0" translateY="100.0" wrappingWidth="27.13671875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks:" translateX="26.0" translateY="20.0" wrappingWidth="55.13671875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat with suspects" translateX="12.0" translateY="36.0" wrappingWidth="85.13671875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="8.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="suspectCounter" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0/3" translateX="35.0" translateY="57.0" wrappingWidth="27.13671875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Interact with a clue" translateX="15.0" translateY="73.0" wrappingWidth="85.13671875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="8.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </bottom>

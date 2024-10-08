@@ -130,6 +130,20 @@ public class App extends Application {
     return isAlfredInteracted;
   }
 
+  public static int getSuspectsInteracted() {
+    int count = 0;
+    if (isBruceInteracted()) {
+      count++;
+    }
+    if (isSaulInteracted()) {
+      count++;
+    }
+    if (isAlfredInteracted()) {
+      count++;
+    }
+    return count;
+  }
+
   public static boolean isEnoughInteraction() {
     if (isBruceInteracted && isSaulInteracted && isAlfredInteracted) {
       return true;

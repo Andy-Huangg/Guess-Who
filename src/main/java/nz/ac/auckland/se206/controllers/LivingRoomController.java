@@ -19,10 +19,15 @@ public class LivingRoomController extends ChatSceneController {
     rectSaul.setDisable(true);
     if (!App.isSaulInteracted()) { // if talked to saul for the first time
       playIntroAudio("Saul_intro.mp3");
-      txtChat.appendText("Hi Detective, Saul here. Strange to be involved in something like this.");
+      TextAnimator text =
+          new TextAnimator(
+              "Hi Detective, Saul here. Strange to be involved in something like this.", txtChat);
+      text.startAnimation();
     } else { // if talked to saul before
       playIntroAudio("Saul_return.mp3");
-      txtChat.appendText("Detective, what can I help you with this time?");
+      TextAnimator text =
+          new TextAnimator("Detective, what can I help you with this time?", txtChat);
+      text.startAnimation();
     }
     chatHandler.setCharacter("saul");
   }
