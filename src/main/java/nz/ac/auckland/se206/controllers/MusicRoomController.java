@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
 
@@ -9,14 +8,13 @@ public class MusicRoomController extends ChatSceneController {
 
   @FXML private Rectangle rectAlfred;
 
-  public void initialize() {
+  public void initialize() throws InterruptedException {
     super.initialize("Alfred");
+    startChat();
   }
 
   @FXML
-  private void handleRectangleClick(MouseEvent event) throws InterruptedException {
-    enableChat();
-    rectAlfred.setDisable(true);
+  private void startChat() throws InterruptedException {
     if (!App.isAlfredInteracted()) { // if talk to alfred for the first time
       playIntroAudio("Alfred_intro.mp3");
       TextAnimator text =

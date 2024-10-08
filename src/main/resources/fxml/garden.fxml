@@ -6,7 +6,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GardenController">
@@ -16,16 +15,15 @@
             <Image url="@../images/garden.jpg" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rectBruce" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="317.0" layoutX="371.0" layoutY="30.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="142.0" />
-      <TextArea fx:id="txtChat" editable="false" layoutX="16.0" layoutY="406.0" opacity="0.9" prefHeight="70.0" prefWidth="646.0" visible="false" wrapText="true">
+      <TextArea fx:id="txtChat" editable="false" layoutX="16.0" layoutY="385.0" opacity="0.9" prefHeight="85.0" prefWidth="646.0" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </TextArea>
-      <TextField fx:id="txtInput" layoutX="16.0" layoutY="477.0" opacity="0.9" prefHeight="26.0" prefWidth="562.0" visible="false">
+      <TextField fx:id="txtInput" layoutX="16.0" layoutY="475.0" opacity="0.9" prefHeight="26.0" prefWidth="562.0">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="btnSend" layoutX="586.0" layoutY="478.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="26.0" prefWidth="74.0" text="Send" visible="false" />
+      <Button fx:id="btnSend" layoutX="585.0" layoutY="476.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="26.0" prefWidth="74.0" text="Send" />
    </children>
 </AnchorPane>
