@@ -145,7 +145,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0">
+      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" visible="false">
          <children>
             <ImageView fitHeight="550.0" fitWidth="732.0">
                <image>
