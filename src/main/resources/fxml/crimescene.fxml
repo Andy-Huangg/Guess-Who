@@ -22,21 +22,21 @@
             <Image url="@../images/newspaperStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="documentStroke" fitHeight="66.0" fitWidth="150.0" layoutX="290.0" layoutY="275.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="documentStroke" fitHeight="76.0" fitWidth="166.0" layoutX="324.0" layoutY="283.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/documentStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="shelfStroke" fitHeight="452.0" fitWidth="140.0" layoutY="31.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="shelfStroke" fitHeight="503.0" fitWidth="155.0" layoutY="14.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/shelfStroke.png" />
          </image>
       </ImageView>
-      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#003cff" focusTraversable="true" height="49.0" layoutX="296.0" layoutY="288.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#003cff" focusTraversable="true" height="49.0" layoutX="330.0" layoutY="303.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="145.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="shelf" fx:id="rectShelf" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="439.0" layoutX="2.0" layoutY="44.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
+      <Rectangle id="shelf" fx:id="rectShelf" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="378.0" layoutX="-3.0" layoutY="70.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="155.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
