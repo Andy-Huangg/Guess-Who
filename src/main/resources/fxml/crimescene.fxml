@@ -99,9 +99,9 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0" visible="false">
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="550.0" prefWidth="730.0" visible="false">
          <children>
-            <ImageView fitHeight="529.0" fitWidth="686.0" layoutX="-6.0" layoutY="-12.0" pickOnBounds="true">
+            <ImageView fitHeight="550.0" fitWidth="732.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
@@ -133,12 +133,12 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="240.0" layoutY="465.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
+            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="259.0" layoutY="485.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
                <image>
                   <Image url="@../images/buttonTest.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="272.0" layoutY="496.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document">
+            <Text fill="WHITE" layoutX="281.0" layoutY="515.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document" textAlignment="CENTER" wrappingWidth="156.69791430937477">
                <font>
                   <Font name="Goudy Old Style" size="20.0" />
                </font>
