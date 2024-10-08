@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LivingRoomController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LivingRoomController">
    <children>
-      <ImageView fitHeight="513.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="548.0" fitWidth="730.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../images/living_room.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtInput" layoutX="18.0" layoutY="469.0" opacity="0.9" prefHeight="26.0" prefWidth="562.0">
+      <TextField fx:id="txtInput" layoutX="18.0" layoutY="469.0" opacity="0.9" prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="21.0">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="btnSend" layoutX="589.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="26.0" prefWidth="74.0" text="Send" />
-      <TextArea fx:id="txtChat" editable="false" layoutX="17.0" layoutY="377.0" opacity="0.9" prefHeight="85.0" prefWidth="646.0" wrapText="true">
+      <Button fx:id="btnSend" layoutX="589.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="40.0" prefWidth="83.0" text="Send" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="21.0" />
+      <TextArea fx:id="txtChat" editable="false" layoutX="17.0" layoutY="377.0" opacity="0.9" prefHeight="85.0" prefWidth="646.0" wrapText="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
          <font>
             <Font size="15.0" />
          </font>
