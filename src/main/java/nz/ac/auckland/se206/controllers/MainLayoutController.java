@@ -46,7 +46,6 @@ public class MainLayoutController {
     playAudio("introduction.mp3");
     startTimer();
     loadStudy();
-    System.out.println(suspectCounter);
   }
 
   @FXML
