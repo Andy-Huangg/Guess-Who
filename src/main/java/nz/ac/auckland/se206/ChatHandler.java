@@ -32,7 +32,7 @@ public class ChatHandler {
                     new ChatCompletionRequest(config)
                         .setN(1)
                         .setTemperature(0.2)
-                        .setTopP(0.5)
+                        .setTopP(0.2)
                         .setMaxTokens(100);
                 runGpt(
                     new ChatMessage(
