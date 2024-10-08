@@ -65,20 +65,6 @@ public abstract class ChatSceneController {
     mediaPlayer.play();
   }
 
-  @FXML
-  public void enableChat() {
-    txtChat.setVisible(true);
-    txtInput.setVisible(true);
-    btnSend.setVisible(true);
-  }
-
-  @FXML
-  public void disableChat() {
-    txtChat.setVisible(false);
-    txtInput.setVisible(false);
-    btnSend.setVisible(false);
-  }
-
   public void appendChatMessage(ChatMessage msg) {
     Platform.runLater(
         () -> {

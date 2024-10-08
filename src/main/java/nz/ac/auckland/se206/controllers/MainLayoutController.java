@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 
 /**
@@ -21,10 +23,10 @@ import nz.ac.auckland.se206.App;
  */
 public class MainLayoutController {
 
-  @FXML private static AnchorPane navBar; // Pane for the navigation bar
   @FXML private Label timerLabel; // Label for the countdown timer
   @FXML private AnchorPane centrePane; // Pane for loading different rooms
   @FXML private AnchorPane studyPane;
+  @FXML private AnchorPane navBar;
   @FXML private ImageView gardenImage;
   @FXML private ImageView livingroomImage;
   @FXML private ImageView studyImage;
@@ -33,6 +35,7 @@ public class MainLayoutController {
   @FXML private Pane taskPane;
   @FXML private Text suspectCounter;
   @FXML private Text clueCounter;
+
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
   private MediaPlayer mediaPlayer;
@@ -114,6 +117,13 @@ public class MainLayoutController {
                         centrePane.getChildren().setAll(studyPane);
                       } else {
                         centrePane.getChildren().setAll(loadedPane);
+                        navBar.setDisable(true); // Disable the navBar
+
+                        // Create a PauseTransition to re-enable the navBar after 4 seconds
+                        PauseTransition pause = new PauseTransition(Duration.seconds(5));
+                        pause.setOnFinished(
+                            event -> navBar.setDisable(false)); // Re-enable navBar after 4 seconds
+                        pause.play(); // Start the timer
                       }
                     });
               } catch (IOException e) {
