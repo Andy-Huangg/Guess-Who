@@ -16,7 +16,7 @@ public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe;
   @FXML private Rectangle rectDocuments;
-  @FXML private Rectangle rectWallet;
+  @FXML private Rectangle rectShelf;
   @FXML private Rectangle rectNewsPaper;
   @FXML private Pane newsPaperPane;
   @FXML private Pane documentsPane;
@@ -34,7 +34,7 @@ public class CrimeSceneController {
   @FXML private ImageView imageCreditCard;
   @FXML private ImageView imageLoyaltyCard;
   @FXML private ImageView newsStroke;
-  @FXML private ImageView walletStroke;
+  @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
@@ -68,8 +68,8 @@ public class CrimeSceneController {
       case "documents":
         handleDocumentsInteraction();
         break;
-      case "wallet":
-        handleWalletInteraction();
+      case "shelf":
+        handleShelfInteraction();
         break;
       default:
         handleNewsInteraction();
@@ -82,7 +82,7 @@ public class CrimeSceneController {
     documentsPane.setVisible(true);
   }
 
-  private void handleWalletInteraction() {
+  private void handleShelfInteraction() {
     // Handle interaction with the broken glass
     walletCluePane.setVisible(true);
   }
@@ -172,8 +172,8 @@ public class CrimeSceneController {
       case "documents":
         currentHover = documentStroke;
         break;
-      case "wallet":
-        currentHover = walletStroke;
+      case "shelf":
+        currentHover = shelfStroke;
         break;
       default:
         currentHover = newsStroke;
