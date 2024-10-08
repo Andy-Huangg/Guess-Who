@@ -30,7 +30,7 @@
             </ImageView>
             <ImageView fx:id="studyImage" fitHeight="111.0" fitWidth="138.0" layoutX="20.0" layoutY="93.0" onMouseClicked="#loadStudy" pickOnBounds="true">
                <image>
-                  <Image url="@../images/study.png" />
+                  <Image url="@../images/study.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="124.0" fitWidth="164.0" layoutX="7.0" layoutY="86.0">

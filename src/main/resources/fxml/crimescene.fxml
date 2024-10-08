@@ -12,43 +12,43 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEnter" onMouseExited="#onMouseLeave" prefHeight="512.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
    <children>
-      <ImageView fitHeight="708.0" fitWidth="680.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="21.3782958984375" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="22.0">
+      <ImageView fitHeight="474.0" fitWidth="719.0" layoutY="17.8" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="22.35624999999999" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-39.0" AnchorPane.topAnchor="17.8">
          <image>
-            <Image url="@../images/crimescene.jpeg" />
+            <Image url="@../images/study.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="newsStroke" fitHeight="55.0" fitWidth="140.0" layoutX="235.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="newsStroke" fitHeight="66.0" fitWidth="104.0" layoutX="130.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/strokeNews.PNG" />
+            <Image url="@../images/newspaperStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="documentStroke" fitHeight="121.0" fitWidth="196.0" layoutX="254.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="documentStroke" fitHeight="66.0" fitWidth="150.0" layoutX="290.0" layoutY="275.0" pickOnBounds="true" visible="false">
          <image>
-            <Image url="@../images/strokeGuest.PNG" />
+            <Image url="@../images/documentStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="walletStroke" fitHeight="67.0" fitWidth="54.0" layoutX="539.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="shelfStroke" fitHeight="452.0" fitWidth="140.0" layoutY="31.0" pickOnBounds="true" visible="false">
          <image>
-            <Image url="@../images/strokeWallet.PNG" />
+            <Image url="@../images/shelfStroke.png" />
          </image>
       </ImageView>
-      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="114.0" layoutX="287.0" layoutY="392.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="140.0">
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#003cff" focusTraversable="true" height="49.0" layoutX="296.0" layoutY="288.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="wallet" fx:id="rectWallet" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="49.0" layoutX="538.0" layoutY="466.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="54.0">
+      <Rectangle id="shelf" fx:id="rectShelf" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="439.0" layoutX="2.0" layoutY="44.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="42.0" layoutX="245.0" layoutY="340.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="126.0">
+      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="66.0" layoutX="130.0" layoutY="374.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
       <Pane fx:id="newsPaperPane" layoutX="-8.0" layoutY="-9.0" prefHeight="521.0" prefWidth="686.0" visible="false">
          <children>
-            <ImageView fitHeight="523.0" fitWidth="686.0" layoutX="2.0" pickOnBounds="true">
+            <ImageView fitHeight="669.0" fitWidth="877.0" layoutX="3.0" layoutY="-147.0" pickOnBounds="true">
                <image>
-                  <Image url="@../images/woodtexture.png" />
+                  <Image url="@../images/rug.png" />
                </image>
             </ImageView>
             <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="243.0" layoutY="474.0" onMouseClicked="#onCloseNewsPaper" pickOnBounds="true">
