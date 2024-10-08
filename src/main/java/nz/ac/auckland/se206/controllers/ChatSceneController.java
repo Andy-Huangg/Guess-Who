@@ -53,6 +53,8 @@ public abstract class ChatSceneController {
     chatHandler.sendMessage(message, this);
     txtChat.clear();
     txtInput.clear();
+    TextAnimator text = new TextAnimator(message, txtChat);
+    text.startAnimation();
   }
 
   // Abstract method for subclass to implement setting interaction flag

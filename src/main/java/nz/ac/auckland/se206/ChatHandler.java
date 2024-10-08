@@ -54,7 +54,6 @@ public class ChatHandler {
             () -> {
               try {
                 ChatMessage msg = new ChatMessage("user", message);
-                controller.appendChatMessage(msg); // Call controller to update UI
 
                 ChatMessage response = runGpt(msg);
                 controller.appendChatMessage(response); // Update UI with response

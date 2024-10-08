@@ -40,7 +40,7 @@ public class TextAnimator implements Runnable {
   public void startAnimation() {
     while (isRunning) {
       try {
-        Thread.sleep(10);
+        Thread.sleep(5);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
