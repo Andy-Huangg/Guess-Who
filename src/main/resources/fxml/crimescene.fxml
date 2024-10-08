@@ -10,60 +10,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEnter" onMouseExited="#onMouseLeave" prefHeight="512.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEnter" onMouseExited="#onMouseLeave" prefHeight="548.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.CrimeSceneController">
    <children>
-      <ImageView fitHeight="474.0" fitWidth="719.0" layoutY="17.8" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="22.35624999999999" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-39.0" AnchorPane.topAnchor="17.8">
+      <ImageView fitHeight="548.0" fitWidth="800.0" layoutX="-6.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" scaleY="1.095" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../images/study.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="newsStroke" fitHeight="66.0" fitWidth="104.0" layoutX="130.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="newsStroke" fitHeight="83.0" fitWidth="117.0" layoutX="147.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/newspaperStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="documentStroke" fitHeight="66.0" fitWidth="150.0" layoutX="290.0" layoutY="275.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="documentStroke" fitHeight="76.0" fitWidth="166.0" layoutX="324.0" layoutY="283.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/documentStroke.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="shelfStroke" fitHeight="452.0" fitWidth="140.0" layoutY="31.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="shelfStroke" fitHeight="503.0" fitWidth="155.0" layoutY="14.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../images/shelfStroke.png" />
          </image>
       </ImageView>
-      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#003cff" focusTraversable="true" height="49.0" layoutX="296.0" layoutY="288.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
+      <Rectangle id="documents" fx:id="rectDocuments" arcHeight="5.0" arcWidth="5.0" fill="#003cff" focusTraversable="true" height="49.0" layoutX="330.0" layoutY="303.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="145.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="shelf" fx:id="rectShelf" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="439.0" layoutX="2.0" layoutY="44.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0">
+      <Rectangle id="shelf" fx:id="rectShelf" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="378.0" layoutX="-3.0" layoutY="70.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="155.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="66.0" layoutX="130.0" layoutY="374.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0">
+      <Rectangle id="newspaper" fx:id="rectNewsPaper" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="73.0" layoutX="155.0" layoutY="395.0" onMouseClicked="#handleRectangleClick" onMouseEntered="#handleRectangleHover" onMouseExited="#handleRectangleUnhover" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Rectangle>
-      <Pane fx:id="newsPaperPane" layoutX="-8.0" layoutY="-9.0" prefHeight="521.0" prefWidth="686.0" visible="false">
+      <Pane fx:id="newsPaperPane" layoutX="-8.0" layoutY="-9.0" prefHeight="548.0" prefWidth="730.0" visible="false">
          <children>
-            <ImageView fitHeight="669.0" fitWidth="877.0" layoutX="3.0" layoutY="-147.0" pickOnBounds="true">
+            <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true">
                <image>
-                  <Image url="@../images/rug.png" />
+                  <Image url="@../images/rug2.png" />
                </image>
             </ImageView>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="243.0" layoutY="474.0" onMouseClicked="#onCloseNewsPaper" pickOnBounds="true">
+            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="258.0" layoutY="484.0" onMouseClicked="#onCloseNewsPaper" pickOnBounds="true">
                <image>
                   <Image url="@../images/buttonTest.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="275.0" layoutY="505.0" onMouseClicked="#onCloseNewsPaper" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Newspaper">
+            <Text fill="WHITE" layoutX="284.0" layoutY="512.0" onMouseClicked="#onCloseNewsPaper" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Newspaper">
                <font>
                   <Font name="Goudy Old Style" size="20.0" />
                </font>
             </Text>
             <Pane fx:id="newsPaperPiece1" layoutX="346.0" layoutY="279.0" prefHeight="168.0" prefWidth="291.0">
                <children>
-                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-33.0" layoutY="-51.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05">
+                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-11.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05">
                      <image>
                         <Image url="@../images/newsPiece3.png" />
                      </image>
@@ -72,7 +72,7 @@
             </Pane>
             <Pane fx:id="newsPaperPiece2" layoutX="38.0" layoutY="263.0" prefHeight="201.0" prefWidth="244.0">
                <children>
-                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-48.0" layoutY="-55.0" pickOnBounds="true" preserveRatio="true" scaleX="0.85" scaleY="0.9">
+                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-39.0" layoutY="-52.0" pickOnBounds="true" preserveRatio="true" scaleX="0.85" scaleY="0.9">
                      <image>
                         <Image url="@../images/newsPiece4.png" />
                      </image>
@@ -81,7 +81,7 @@
             </Pane>
             <Pane fx:id="newsPaperPiece3" layoutX="38.0" layoutY="33.0" prefHeight="180.0" prefWidth="317.0">
                <children>
-                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-61.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.95">
+                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-32.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.95">
                      <image>
                         <Image url="@../images/newsPiece2.png" />
                      </image>
@@ -90,7 +90,7 @@
             </Pane>
             <Pane fx:id="newsPaperPiece4" layoutX="376.0" layoutY="47.0" prefHeight="193.0" prefWidth="232.0">
                <children>
-                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-55.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
+                  <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-26.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
                      <image>
                         <Image url="@../images/newsPiece1.png" />
                      </image>
@@ -99,9 +99,9 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="513.0" prefWidth="680.0" visible="false">
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="550.0" prefWidth="730.0" visible="false">
          <children>
-            <ImageView fitHeight="529.0" fitWidth="686.0" layoutX="-6.0" layoutY="-12.0" pickOnBounds="true">
+            <ImageView fitHeight="550.0" fitWidth="732.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
@@ -133,23 +133,23 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="240.0" layoutY="465.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
+            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="259.0" layoutY="485.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
                <image>
                   <Image url="@../images/buttonTest.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="272.0" layoutY="496.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document">
+            <Text fill="WHITE" layoutX="281.0" layoutY="515.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document" textAlignment="CENTER" wrappingWidth="156.69791430937477">
                <font>
                   <Font name="Goudy Old Style" size="20.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="walletCluePane" prefHeight="512.0" prefWidth="680.0" visible="false">
+      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" visible="false">
          <children>
-            <ImageView fitHeight="512.0" fitWidth="680.0">
+            <ImageView fitHeight="550.0" fitWidth="732.0">
                <image>
-                  <Image url="@../images/rug.png" />
+                  <Image url="@../images/rug2.png" />
                </image>
             </ImageView>
             <Pane fx:id="walletClosedPane" prefHeight="421.0" prefWidth="680.0">
