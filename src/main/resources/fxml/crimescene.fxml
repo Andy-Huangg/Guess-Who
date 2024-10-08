@@ -145,11 +145,11 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="walletCluePane" prefHeight="512.0" prefWidth="680.0" visible="false">
+      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0">
          <children>
-            <ImageView fitHeight="512.0" fitWidth="680.0">
+            <ImageView fitHeight="550.0" fitWidth="732.0">
                <image>
-                  <Image url="@../images/rug.png" />
+                  <Image url="@../images/rug2.png" />
                </image>
             </ImageView>
             <Pane fx:id="walletClosedPane" prefHeight="421.0" prefWidth="680.0">
