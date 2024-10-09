@@ -41,9 +41,7 @@ public class CrimeSceneController {
   @FXML private Pane walletCluePane;
   @FXML private Pane metalPanelPane;
   @FXML private Pane keypadPane;
-  @FXML private ImageView imageDriversLicense;
-  @FXML private ImageView imageCreditCard;
-  @FXML private ImageView imageLoyaltyCard;
+  @FXML private Pane keypadLogPane;
   @FXML private ImageView newsStroke;
   @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
@@ -77,9 +75,6 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsGuestList);
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
-    walletClueMap.put(imageDriversLicense, false);
-    walletClueMap.put(imageCreditCard, false);
-    walletClueMap.put(imageLoyaltyCard, false);
     circlesClicked = new HashMap<>();
     startKeypadFlash(1);
     keypadNumber1 = -1;
@@ -218,6 +213,7 @@ public class CrimeSceneController {
         event -> {
           if (correctGuess) {
             keypadPane.setVisible(false);
+            keypadLogPane.setVisible(true);
             return;
           }
           keypadUnderline1.setOpacity(1);
@@ -228,38 +224,6 @@ public class CrimeSceneController {
           keypadNumberDisplayText.setText("");
         });
     pause.play();
-  }
-
-  @FXML
-  private void handleWalletClueClick(MouseEvent event) {
-    // Return if the card is already moving.
-    if (cardTranslating == true) {
-      return;
-    }
-    // Find which card to move
-    ImageView currentImage = (ImageView) event.getTarget();
-    String currentIdentification = currentImage.getId();
-    ImageView imageToMove = null;
-    switch (currentIdentification) {
-      case "imageDriversLicense":
-        imageToMove = imageDriversLicense;
-        break;
-      case "imageCreditCard":
-        imageToMove = imageCreditCard;
-        break;
-      case "imageLoyaltyCard":
-        imageToMove = imageLoyaltyCard;
-        break;
-      default:
-        break;
-    }
-    // Find the direction the card should move in
-    if (walletClueMap.get(imageToMove) == true) {
-      cardTransition(imageToMove, "down");
-      walletClueMap.put(imageToMove, false);
-    } else {
-      cardTransition(imageToMove, "up");
-    }
   }
 
   private void paneTransition(Pane pane) {
