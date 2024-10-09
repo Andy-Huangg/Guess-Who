@@ -73,23 +73,15 @@ public class OpeningController {
     textFadeOut.setToValue(0);
     textFadeOut.setDuration(Duration.millis(300));
 
-    pullFromLeft.setByX(-50);
-    pullFromLeft.setDuration(Duration.millis(8000));
-    pullFromRight.setByX(50);
-    pullFromRight.setDuration(Duration.millis(8000));
-
     openingThread =
         new Thread(
             () -> {
               try {
                 textFadeIn(block1Dialog1);
                 imageFadeIn(block1);
-                imagePull(true, block1);
-                textGo(true, block1Dialog1);
+                imagePull(true, block1, 1500);
+                textGo(true, block1Dialog1, 1500);
                 Thread.currentThread().sleep(500);
-
-                textFadeIn(block1Dialog2);
-                textGo(true, block1Dialog2);
               } catch (Exception e) {
               }
             });
