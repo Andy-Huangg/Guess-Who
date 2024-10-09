@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.hover:hover {
+  -fx-opacity: 0.6;
+}
+
+.hover:pressed {
+  -fx-opacity: 0.2;
+}
+
+.keypadFont {
+  -fx-font-family: "Orbitron", sans-serif;
+  -fx-font-optical-sizing: auto;
+  -fx-font-weight: 200;
+  -fx-font-style: normal;
+}
+
+.success {
+  -fx-fill: green;
+  -fx-text-alignment: center;
+}
