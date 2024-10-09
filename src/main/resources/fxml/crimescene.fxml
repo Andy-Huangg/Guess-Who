@@ -51,16 +51,7 @@
                   <Image url="@../images/rug2.png" />
                </image>
             </ImageView>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="258.0" layoutY="484.0" onMouseClicked="#onCloseNewsPaper" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/buttonTest.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="284.0" layoutY="512.0" onMouseClicked="#onCloseNewsPaper" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Newspaper">
-               <font>
-                  <Font name="Goudy Old Style" size="20.0" />
-               </font>
-            </Text>
+            <Button layoutX="293.0" layoutY="490.0" mnemonicParsing="false" onAction="#onCloseNewsPaper" stylesheets="@../css/general.css" text="Close Newspaper" />
             <Pane fx:id="newsPaperPiece1" layoutX="346.0" layoutY="279.0" prefHeight="168.0" prefWidth="291.0">
                <children>
                   <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-11.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05">
@@ -229,6 +220,5 @@
             <Button layoutX="275.0" layoutY="500.0" mnemonicParsing="false" onAction="#onCloseWallet" prefHeight="33.0" prefWidth="179.0" text="Close wallet" />
          </children>
       </Pane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

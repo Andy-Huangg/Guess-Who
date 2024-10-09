@@ -1,75 +1,54 @@
 /* All Buttons */
 .button {
   -fx-background-color: #2C2A29;
-  /* Dark background */
   -fx-text-fill: white;
-  /* Gold text for luxury */
   -fx-padding: 8px 16px;
   -fx-border-color: white;
-  /* Gold border for an elegant outline */
   -fx-border-width: 2px;
   -fx-font-family: "Times New Roman", serif;
-  /* Classic, high-society font */
   -fx-font-size: 17px;
   -fx-border-radius: 5px;
-  /* Rounded corners */
   -fx-background-radius: 5px;
   -fx-cursor: hand;
-  /* Pointer cursor on hover */
 }
 
 /* Button Hover Effect */
 .button:hover {
   -fx-background-color: #3E3C3B;
-  /* Lighter on hover */
   -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 5, 0, 0, 1);
-  /* Slight shadow for depth */
 }
 
 /* Button Pressed Effect */
 .button:pressed {
   -fx-background-color: #1F1D1C;
-  /* Darker when pressed */
 }
 
 /* All TextFields */
 .text-field {
   -fx-background-color: #2C2A29;
-  /* Dark theme to blend with mansion atmosphere */
   -fx-text-fill: white;
-  /* Gold text color */
   -fx-border-color: white;
-  /* Gold border */
   -fx-border-width: 1px;
   -fx-font-family: "Times New Roman", serif;
-  /* Classic font */
   -fx-font-size: 17px;
   -fx-padding: 5px;
   -fx-border-radius: 5px;
   -fx-background-radius: 5px;
   -fx-prompt-text-fill: #A3978A;
-  /* Softer gold tone for placeholder text */
 }
 
 /* All TextAreas */
 .text-area {
   .text-area {
     -fx-background-color: #2C2A29;
-    /* Dark background */
     -fx-control-inner-background: #2C2A29;
-    /* Inner area (where text is) */
     -fx-text-fill: white;
-    /* Gold text for elegance */
     -fx-border-color: white;
-    /* Gold border */
     -fx-border-width: 1px;
     -fx-font-family: "Times New Roman", serif;
-    /* Mansion-inspired font */
     -fx-font-size: 17px;
-
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-wrap-text: true;
-    /* Ensure long text wraps */
   }
 }
