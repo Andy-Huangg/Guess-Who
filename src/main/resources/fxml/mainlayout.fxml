@@ -18,7 +18,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MainLayoutController">
    <bottom>
-      <AnchorPane fx:id="navBar" prefHeight="79.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="navBar" prefHeight="79.0" prefWidth="730.0" stylesheets="@../css/mainLayout.css" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -69,7 +69,7 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="10.0" fill="#000000da" height="16.0" layoutX="41.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
-            <Text fill="WHITE" layoutX="32.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
+            <Text fill="WHITE" layoutX="32.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -80,19 +80,19 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="189.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
-            <Text fill="WHITE" layoutX="181.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
+            <Text fill="WHITE" layoutX="181.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="318.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
-            <Text fill="WHITE" layoutX="314.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0">
+            <Text fill="WHITE" layoutX="314.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000da" height="16.0" layoutX="459.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
-            <Text fill="WHITE" layoutX="460.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Music Room" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
+            <Text fill="WHITE" layoutX="460.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Music Room" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
