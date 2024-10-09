@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -35,6 +36,10 @@ public class MainLayoutController {
   @FXML private Pane taskPane;
   @FXML private Text suspectCounter;
   @FXML private Text clueCounter;
+  @FXML private Text studyText;
+  @FXML private Text gardenText;
+  @FXML private Text livingRoomText;
+  @FXML private Text musicRoomText;
 
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
@@ -77,6 +82,52 @@ public class MainLayoutController {
     loadScene("musicroom");
     clearImageOpacity();
     musicroomImage.setOpacity(0.7);
+  }
+
+  @FXML
+  private void handleImageEntered(MouseEvent event) {
+    ImageView currentImage = (ImageView) event.getTarget();
+    String imageIdentification = currentImage.getId();
+
+    switch (imageIdentification) {
+      case "studyImage":
+        studyText.getStyleClass().add("enlarge");
+        break;
+      case "gardenImage":
+        gardenText.getStyleClass().add("enlarge");
+        break;
+      case "livingroomImage":
+        livingRoomText.getStyleClass().add("enlarge");
+        break;
+      case "musicroomImage":
+        musicRoomText.getStyleClass().add("enlarge");
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleImageExited(MouseEvent event) {
+    ImageView currentImage = (ImageView) event.getTarget();
+    String imageIdentification = currentImage.getId();
+
+    switch (imageIdentification) {
+      case "studyImage":
+        studyText.getStyleClass().remove("enlarge");
+        break;
+      case "gardenImage":
+        gardenText.getStyleClass().remove("enlarge");
+        break;
+      case "livingroomImage":
+        livingRoomText.getStyleClass().remove("enlarge");
+        break;
+      case "musicroomImage":
+        musicRoomText.getStyleClass().remove("enlarge");
+        break;
+      default:
+        break;
+    }
   }
 
   private void clearImageOpacity() {
