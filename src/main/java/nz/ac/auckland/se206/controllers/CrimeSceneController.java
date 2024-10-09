@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -25,6 +26,7 @@ public class CrimeSceneController {
   @FXML private Rectangle rectNewsPaper;
   @FXML private Rectangle keypadUnderline1;
   @FXML private Rectangle keypadUnderline2;
+  @FXML private Rectangle unlockRectangle;
   @FXML private Pane newsPaperPane;
   @FXML private Pane documentsPane;
   @FXML private Pane newsPaperPiece1;
@@ -38,6 +40,7 @@ public class CrimeSceneController {
   @FXML private Pane walletClosedPane;
   @FXML private Pane walletCluePane;
   @FXML private Pane metalPanelPane;
+  @FXML private Pane keypadPane;
   @FXML private ImageView imageDriversLicense;
   @FXML private ImageView imageCreditCard;
   @FXML private ImageView imageLoyaltyCard;
@@ -50,6 +53,7 @@ public class CrimeSceneController {
   @FXML private Circle panelBotRightCircle;
   @FXML private Text keypadNumberDisplay1;
   @FXML private Text keypadNumberDisplay2;
+  @FXML private Text keypadNumberDisplayText;
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
@@ -60,6 +64,7 @@ public class CrimeSceneController {
   private Timeline keypadFlash;
   private int keypadNumber1;
   private int keypadNumber2;
+  private int successfulKeypadNumber = 45;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -117,7 +122,6 @@ public class CrimeSceneController {
     circleClicked.setOpacity(1);
 
     if (circlesClicked.size() >= 4) {
-      System.out.println("SHOULD SLIDE OFF!");
       paneTransition(metalPanelPane);
     }
   }
@@ -157,9 +161,12 @@ public class CrimeSceneController {
     Rectangle currentRectangle = (Rectangle) event.getTarget();
     String rectangleID = currentRectangle.getId();
     if (rectangleID.equals("keypadEnter")) {
-      System.out.println("keypadenter");
       if (keypadNumber1 > -1 && keypadNumber2 > -1) {
-        System.out.println("process input");
+        StringBuilder sb = new StringBuilder();
+        sb.append(keypadNumber1);
+        sb.append(keypadNumber2);
+        int keypadNumber = Integer.parseInt(sb.toString());
+        validateKeypadNumber(keypadNumber);
       }
       return;
     }
@@ -180,6 +187,47 @@ public class CrimeSceneController {
     }
 
     System.err.println(input);
+  }
+
+  @FXML
+  private void validateKeypadNumber(int keypadNumber) {
+    System.out.println(keypadNumber);
+    if (keypadNumber < successfulKeypadNumber) {
+      setKeypadOutcome("ERR: KEY TOO LOW", false);
+    } else if (keypadNumber > successfulKeypadNumber) {
+      setKeypadOutcome("ERR: KEY TOO HIGH", false);
+    } else {
+      keypadNumberDisplayText.getStyleClass().add("success");
+      setKeypadOutcome("SUCCESS", true);
+    }
+  }
+
+  @FXML
+  private void setKeypadOutcome(String text, boolean correctGuess) {
+    keypadUnderline1.setOpacity(0);
+    keypadUnderline2.setOpacity(0);
+    keypadNumberDisplay1.setText("");
+    keypadNumberDisplay2.setText("");
+    stopKeypadFlash();
+    keypadNumberDisplayText.setText(text);
+    if (correctGuess) {
+      unlockRectangle.setOpacity(1);
+    }
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    pause.setOnFinished(
+        event -> {
+          if (correctGuess) {
+            keypadPane.setVisible(false);
+            return;
+          }
+          keypadUnderline1.setOpacity(1);
+          keypadUnderline2.setOpacity(1);
+          startKeypadFlash(1);
+          keypadNumber1 = -1;
+          keypadNumber2 = -1;
+          keypadNumberDisplayText.setText("");
+        });
+    pause.play();
   }
 
   @FXML
