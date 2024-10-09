@@ -193,19 +193,32 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Rectangle fx:id="keypad0" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="382.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
-                        <Rectangle fx:id="keypad1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="311.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="2.0" width="48.0" />
-                        <Rectangle fx:id="keypad2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="313.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
-                        <Rectangle fx:id="keypad3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="211.0" layoutY="313.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateX="-1.0" width="49.0" />
-                        <Rectangle fx:id="keypad4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="250.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="48.0" />
-                        <Rectangle fx:id="keypad5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="250.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="49.0" />
-                        <Rectangle fx:id="keypad6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="250.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.5" width="48.0" />
-                        <Rectangle fx:id="keypad7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="175.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
-                        <Rectangle fx:id="keypad8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="175.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="49.0" />
-                        <Rectangle fx:id="keypad9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="175.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
-                        <Rectangle fx:id="keypadEnter" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="382.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
+                        <Rectangle fx:id="keypad0" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="382.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="311.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="2.0" width="48.0" />
+                        <Rectangle fx:id="keypad2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="313.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="211.0" layoutY="313.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateX="-1.0" width="49.0" />
+                        <Rectangle fx:id="keypad4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="48.0" />
+                        <Rectangle fx:id="keypad5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="49.0" />
+                        <Rectangle fx:id="keypad6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.5" width="48.0" />
+                        <Rectangle fx:id="keypad7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="49.0" />
+                        <Rectangle fx:id="keypad9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypadEnter" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="382.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
                         <Rectangle fx:id="keypadUnderline1" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="132.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
                         <Rectangle fx:id="keypadUnderline2" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="203.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
+                        <Text fx:id="keypadNumberDisplay1" fill="#09ff00" layoutX="142.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" text="5" translateX="4.0" wrappingWidth="35.13671875">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="36.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="imageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="443.0" layoutY="306.0" onMouseClicked="#handleWalletClueClick">
+                           <image>
+                              <Image url="@../images/bruceLicense.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0" visible="false">
@@ -237,17 +250,10 @@
                         </Circle>
                      </children>
                   </Pane>
-                  <ImageView fx:id="imageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="390.0" layoutY="244.0" onMouseClicked="#handleWalletClueClick">
-                     <image>
-                        <Image url="@../images/bruceLicense.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
                </children>
             </Pane>
          </children>
       </Pane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 
@@ -47,6 +48,7 @@ public class CrimeSceneController {
   @FXML private Circle panelBotLeftCircle;
   @FXML private Circle panelTopRightCircle;
   @FXML private Circle panelBotRightCircle;
+  @FXML private Text keypadNumberDisplay1;
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
@@ -55,6 +57,8 @@ public class CrimeSceneController {
   private Thread closeClueThread = new Thread();
   private Map<String, Boolean> circlesClicked;
   private Timeline keypadFlash;
+  private int keypadNumber1;
+  private int keypadNumber2;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -72,6 +76,8 @@ public class CrimeSceneController {
     walletClueMap.put(imageLoyaltyCard, false);
     circlesClicked = new HashMap<>();
     startKeypadFlash(1);
+    keypadNumber1 = -1;
+    keypadNumber2 = -1;
   }
 
   @FXML
@@ -143,6 +149,32 @@ public class CrimeSceneController {
 
   private void stopKeypadFlash() {
     keypadFlash.stop();
+  }
+
+  @FXML
+  private void handleKeypadClick(MouseEvent event) {
+    Rectangle currentRectangle = (Rectangle) event.getTarget();
+    String rectangleID = currentRectangle.getId();
+    if (rectangleID.equals("keypadEnter")) {
+      System.out.println("keypadenter");
+      if (keypadNumber1 > -1 && keypadNumber2 > -1) {
+        System.out.println("process input");
+      }
+      return;
+    }
+    char lastLetter = rectangleID.charAt(rectangleID.length() - 1);
+    int input = Character.getNumericValue(lastLetter);
+
+    if (keypadNumber1 < 0) {
+      keypadNumber1 = input;
+      keypadNumberDisplay1.setText(String.valueOf(input));
+      keypadNumberDisplay1.getStyleClass().add("keypadFont");
+      stopKeypadFlash();
+      startKeypadFlash(2);
+      keypadUnderline1.setOpacity(1);
+    }
+
+    System.err.println(input);
   }
 
   @FXML
