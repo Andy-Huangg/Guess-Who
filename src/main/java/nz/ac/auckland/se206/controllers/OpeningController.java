@@ -73,70 +73,98 @@ public class OpeningController {
     textFadeOut.setToValue(0);
     textFadeOut.setDuration(Duration.millis(300));
 
-    pullFromLeft.setByX(-10);
-    pullFromLeft.setDuration(Duration.millis(1600));
+    pullFromLeft.setByX(-50);
+    pullFromLeft.setDuration(Duration.millis(8000));
     pullFromRight.setByX(50);
-    pullFromRight.setDuration(Duration.millis(1600));
-
-    textGoLeft.setByX(50);
-    textGoLeft.setDuration(Duration.millis(8000));
-
-    textGoRight.setByY(50);
-    textGoRight.setDuration(Duration.millis(8000));
+    pullFromRight.setDuration(Duration.millis(8000));
 
     openingThread =
         new Thread(
             () -> {
-              Platform.runLater(
-                  () -> {
-                    textFadeIn(block1Dialog1);
-                    imageFadeIn(block1);
-                    imagePull(true, block1);
-                    textGo(true, block1Dialog1);
-                    textFadeIn(block1Dialog2);
-                    textGo(true, block1Dialog2);
-                  });
+              try {
+                textFadeIn(block1Dialog1);
+                imageFadeIn(block1);
+                imagePull(true, block1);
+                textGo(true, block1Dialog1);
+                Thread.currentThread().sleep(500);
+
+                textFadeIn(block1Dialog2);
+                textGo(true, block1Dialog2);
+              } catch (Exception e) {
+              }
             });
     openingThread.start();
   }
 
   public void imageFadeIn(ImageView temp) {
-    fadeIn.setNode(temp);
-    fadeIn.play();
+    Platform.runLater(
+        () -> {
+          fadeIn.setNode(temp);
+          fadeIn.play();
+        });
   }
 
   public void imageFadeOut(ImageView temp) {
-    fadeOut.setNode(temp);
-    fadeOut.play();
+    Platform.runLater(
+        () -> {
+          fadeOut.setNode(temp);
+          fadeOut.play();
+        });
   }
 
-  public void imagePull(boolean isLeft, ImageView temp) {
+  public void imagePull(boolean isLeft, ImageView temp, int time) {
     if (isLeft) {
-      pullFromLeft.setNode(temp);
-      pullFromLeft.play();
+      Platform.runLater(
+          () -> {
+            pullFromLeft.setDuration(Duration.millis(time));
+            pullFromLeft.setByX(-1 * time / 160);
+            pullFromLeft.setNode(temp);
+            pullFromLeft.play();
+          });
     } else {
-      pullFromRight.setNode(temp);
-      pullFromRight.play();
+      Platform.runLater(
+          () -> {
+            pullFromRight.setDuration(Duration.millis(time));
+            pullFromRight.setByX(time / 160);
+            pullFromRight.setNode(temp);
+            pullFromRight.play();
+          });
     }
   }
 
   public void textFadeIn(Label temp) {
-    textFadeIn.setNode(temp);
-    textFadeIn.play();
+    Platform.runLater(
+        () -> {
+          textFadeIn.setNode(temp);
+          textFadeIn.play();
+        });
   }
 
   public void textFadeOut(Label temp) {
-    textFadeOut.setNode(temp);
-    textFadeOut.play();
+    Platform.runLater(
+        () -> {
+          textFadeOut.setNode(temp);
+          textFadeOut.play();
+        });
   }
 
-  public void textGo(boolean isLeft, Label temp) {
+  public void textGo(boolean isLeft, Label temp, int time) {
     if (isLeft) {
-      textGoLeft.setNode(temp);
-      textGoLeft.play();
+      Platform.runLater(
+          () -> {
+            textGoLeft.setDuration(Duration.millis(time));
+            textGoLeft.setByX(-1 * time / 160);
+            textGoLeft.setNode(temp);
+            textGoLeft.play();
+          });
     } else {
-      textGoRight.setNode(temp);
-      textGoRight.play();
+      Platform.runLater(
+          () -> {
+            textGoRight.setDuration(Duration.millis(time));
+            textGoRight.setByX(time / 160);
+            textGoRight.setNode(temp);
+            textGoRight.play();
+          });
     }
   }
 }
