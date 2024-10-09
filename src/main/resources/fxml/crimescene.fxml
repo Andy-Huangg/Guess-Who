@@ -205,7 +205,7 @@
                         <Rectangle fx:id="keypad9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="175.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
                         <Rectangle fx:id="keypadEnter" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="382.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
                         <Rectangle fx:id="keypadUnderline1" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="132.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="203.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
+                        <Rectangle fx:id="keypadUnderline2" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="203.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0" visible="false">

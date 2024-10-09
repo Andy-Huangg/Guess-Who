@@ -23,6 +23,7 @@ public class CrimeSceneController {
   @FXML private Rectangle rectShelf;
   @FXML private Rectangle rectNewsPaper;
   @FXML private Rectangle keypadUnderline1;
+  @FXML private Rectangle keypadUnderline2;
   @FXML private Pane newsPaperPane;
   @FXML private Pane documentsPane;
   @FXML private Pane newsPaperPiece1;
@@ -53,6 +54,7 @@ public class CrimeSceneController {
   private ImageView currentHover;
   private Thread closeClueThread = new Thread();
   private Map<String, Boolean> circlesClicked;
+  private Timeline keypadFlash;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -69,7 +71,7 @@ public class CrimeSceneController {
     walletClueMap.put(imageCreditCard, false);
     walletClueMap.put(imageLoyaltyCard, false);
     circlesClicked = new HashMap<>();
-    startKeypadFlash();
+    startKeypadFlash(1);
   }
 
   @FXML
@@ -114,20 +116,33 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void startKeypadFlash() {
-    Timeline timeline =
+  private void startKeypadFlash(int number) {
+    keypadFlash =
         new Timeline(
             new KeyFrame(
-                Duration.seconds(0.5),
+                Duration.seconds(0.75),
                 e -> {
-                  keypadUnderline1.setOpacity(0);
+                  if (number == 1) {
+                    keypadUnderline1.setOpacity(0);
+                  } else if (number == 2) {
+                    keypadUnderline2.setOpacity(0);
+                  }
                 }),
             new KeyFrame(
-                Duration.seconds(1),
+                Duration.seconds(1.5),
                 e -> {
-                  keypadUnderline1.setOpacity(1);
+                  if (number == 1) {
+                    keypadUnderline1.setOpacity(1);
+                  } else if (number == 2) {
+                    keypadUnderline2.setOpacity(1);
+                  }
                 }));
-    timeline.setCycleCount(Animation.INDEFINITE);
+    keypadFlash.setCycleCount(Animation.INDEFINITE);
+    keypadFlash.play();
+  }
+
+  private void stopKeypadFlash() {
+    keypadFlash.stop();
   }
 
   @FXML
