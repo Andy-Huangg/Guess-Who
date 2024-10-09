@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class OpeningController {
@@ -38,11 +39,9 @@ public class OpeningController {
   @FXML Label block7Dialog1;
   @FXML Label block7Dialog2;
 
-  Thread openingThread;
+  @FXML Rectangle coverRect;
 
-  TranslateTransition blockAnimation = new TranslateTransition();
-  int clickCount = 0;
-  double opacity = 0;
+  Thread openingThread;
 
   TranslateTransition pullFromLeft = new TranslateTransition();
   TranslateTransition pullFromRight = new TranslateTransition();
@@ -145,6 +144,7 @@ public class OpeningController {
                 textGo(true, block7Dialog2, 1000);
                 Thread.currentThread().sleep(1750);
                 // transit to black screen
+                endOpening();
               } catch (Exception e) {
               }
             });
@@ -249,5 +249,14 @@ public class OpeningController {
     goDown.setByY(-1 * 2800 / 160);
     goDown.setNode(temp);
     goDown.play();
+  }
+
+  public void endOpening() {
+    FadeTransition temp = new FadeTransition();
+    temp.setToValue(1);
+    temp.setDuration(Duration.millis(2000));
+    temp.setNode(coverRect);
+    coverRect.setVisible(true);
+    temp.play();
   }
 }

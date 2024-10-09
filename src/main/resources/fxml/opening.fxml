@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="730.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.OpeningController">
@@ -113,5 +114,6 @@
             <Font name="Arial Bold Italic" size="32.0" />
          </font>
       </Label>
+      <Rectangle fx:id="coverRect" arcHeight="5.0" arcWidth="5.0" height="691.0" layoutY="-1.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="730.0" />
    </children>
 </AnchorPane>
