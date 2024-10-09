@@ -68,7 +68,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button layoutX="299.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#getSuspect" prefHeight="43.0" prefWidth="132.0" text="Accuse" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="300.0">
+            <Button layoutX="299.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#getSuspect" prefHeight="43.0" prefWidth="132.0" stylesheets="@../css/general.css" text="Accuse" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="300.0">
                <font>
                   <Font size="22.0" />
                </font>
@@ -88,7 +88,7 @@
                   <Image url="@../images/select.png" />
                </image>
             </ImageView>
-            <Pane fx:id="suspectSelectedPane" layoutX="-5.0" layoutY="29.0" prefHeight="307.0" prefWidth="730.0" visible="false" AnchorPane.leftAnchor="-5.0">
+            <Pane fx:id="suspectSelectedPane" layoutX="-5.0" layoutY="29.0" prefHeight="307.0" prefWidth="730.0" AnchorPane.leftAnchor="-5.0">
                <children>
                   <ImageView fitHeight="313.0" fitWidth="730.0" layoutX="5.0" pickOnBounds="true">
                      <image>
@@ -100,11 +100,11 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="answerText" layoutX="21.0" layoutY="44.0" prefHeight="192.0" prefWidth="688.0" wrapText="true">
+                  <TextArea fx:id="answerText" layoutX="21.0" layoutY="44.0" opacity="0.9" prefHeight="192.0" prefWidth="688.0" stylesheets="@../css/general.css" wrapText="true">
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button fx:id="submitButton" layoutX="265.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="199.0" text="I Have Decided My Answer">
+                  <Button fx:id="submitButton" layoutX="260.0" layoutY="252.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="243.0" stylesheets="@../css/general.css" text="I Have Decided My Answer">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
