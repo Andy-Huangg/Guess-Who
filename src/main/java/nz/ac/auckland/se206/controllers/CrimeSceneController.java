@@ -1,7 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
@@ -12,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -45,19 +42,13 @@ public class CrimeSceneController {
   @FXML private ImageView newsStroke;
   @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
-  @FXML private Circle panelTopLeftCircle;
-  @FXML private Circle panelBotLeftCircle;
-  @FXML private Circle panelTopRightCircle;
-  @FXML private Circle panelBotRightCircle;
   @FXML private Text keypadNumberDisplay1;
   @FXML private Text keypadNumberDisplay2;
   @FXML private Text keypadNumberDisplayText;
 
-  private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
   private ImageView currentHover;
   private Thread closeClueThread = new Thread();
-  private Map<String, Boolean> circlesClicked;
   private Timeline keypadFlash;
   private int keypadNumber1;
   private int keypadNumber2;
@@ -74,7 +65,6 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsGuestList);
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
-    circlesClicked = new HashMap<>();
     startKeypadFlash(1);
     keypadNumber1 = -1;
     keypadNumber2 = -1;
@@ -109,15 +99,8 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleCircleClicked(MouseEvent event) {
-    Circle circleClicked = (Circle) event.getTarget();
-    String currentCircle = circleClicked.getId();
-    circlesClicked.put(currentCircle, true);
-    circleClicked.setOpacity(1);
-
-    if (circlesClicked.size() >= 4) {
-      paneTransition(metalPanelPane);
-    }
+  private void handleMetalPanel(MouseEvent event) {
+    paneTransition(metalPanelPane);
   }
 
   @FXML

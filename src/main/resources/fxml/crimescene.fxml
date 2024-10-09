@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -155,7 +154,7 @@
             </ImageView>
             <Pane fx:id="walletOpenPane" layoutY="-55.0" prefHeight="603.0" prefWidth="680.0">
                <children>
-                  <Pane fx:id="keypadLogPane" layoutX="19.0" layoutY="80.0" prefHeight="503.0" prefWidth="693.0" visible="false">
+                  <Pane fx:id="keypadLogPane" layoutX="19.0" layoutY="80.0" prefHeight="503.0" prefWidth="693.0">
                      <children>
                         <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-23.0">
                            <image>
@@ -204,31 +203,11 @@
                   </Pane>
                   <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
                      <children>
-                        <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-33.0" translateY="5.0">
+                        <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-33.0" onMouseClicked="#handleMetalPanel" translateY="5.0">
                            <image>
                               <Image url="@../images/metalPanel.png" />
                            </image>
                         </ImageView>
-                        <Circle fx:id="panelTopLeftCircle" layoutX="45.0" layoutY="45.0" onMouseClicked="#handleCircleClicked" opacity="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                        </Circle>
-                        <Circle fx:id="panelBotLeftCircle" layoutX="39.0" layoutY="464.0" onMouseClicked="#handleCircleClicked" opacity="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" translateX="3.0" translateY="-3.0">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                        </Circle>
-                        <Circle fx:id="panelTopRightCircle" layoutX="648.0" layoutY="49.0" onMouseClicked="#handleCircleClicked" opacity="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" translateX="8.0" translateY="-4.0">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                        </Circle>
-                        <Circle fx:id="panelBotRightCircle" layoutX="656.0" layoutY="461.0" onMouseClicked="#handleCircleClicked" opacity="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" translateX="-3.0">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                        </Circle>
                      </children>
                   </Pane>
                </children>
