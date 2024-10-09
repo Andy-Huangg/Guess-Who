@@ -55,7 +55,6 @@ public class CrimeSceneController {
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
-  private boolean cardTranslating = false;
   private ImageView currentHover;
   private Thread closeClueThread = new Thread();
   private Map<String, Boolean> circlesClicked;
@@ -180,13 +179,10 @@ public class CrimeSceneController {
       stopKeypadFlash();
       keypadUnderline2.setOpacity(1);
     }
-
-    System.err.println(input);
   }
 
   @FXML
   private void validateKeypadNumber(int keypadNumber) {
-    System.out.println(keypadNumber);
     if (keypadNumber < successfulKeypadNumber) {
       setKeypadOutcome("ERR: KEY TOO LOW", false);
     } else if (keypadNumber > successfulKeypadNumber) {
@@ -234,28 +230,6 @@ public class CrimeSceneController {
     cardTranslate.setOnFinished(
         event -> {
           pane.setVisible(false);
-          System.out.println("Finished");
-        });
-  }
-
-  private void cardTransition(ImageView image, String direction) {
-    // Sets the card to be translated
-    cardTranslate.setNode(image);
-    image.setVisible(true);
-    cardTranslate.setDuration(Duration.millis(200));
-    // Find direction for card to move
-    if (direction.equals("up")) {
-      walletClueMap.put(image, true);
-      cardTranslate.setByY(-60);
-    } else {
-      cardTranslate.setByY(60);
-    }
-    // Start translating and set variables for if a card is already moving
-    cardTranslate.play();
-    cardTranslating = true;
-    cardTranslate.setOnFinished(
-        event -> {
-          cardTranslating = false;
         });
   }
 
