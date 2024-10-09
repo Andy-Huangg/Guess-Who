@@ -146,7 +146,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" stylesheets="@../css/bookshelf.css">
+      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" stylesheets="@../css/bookshelf.css" visible="false">
          <children>
             <Button mnemonicParsing="false" onAction="#onCloseWallet" prefHeight="33.0" prefWidth="179.0" text="Close wallet" />
             <ImageView fitHeight="550.0" fitWidth="732.0">
@@ -154,7 +154,7 @@
                   <Image url="@../images/woodtexture2.png" />
                </image>
             </ImageView>
-            <Pane fx:id="walletClosedPane" prefHeight="421.0" prefWidth="680.0" visible="false">
+            <Pane fx:id="walletClosedPane" prefHeight="421.0" prefWidth="680.0">
                <children>
                   <ImageView fitHeight="550.0" fitWidth="732.0" layoutX="-1.0" layoutY="-1.0">
                      <image>
@@ -168,7 +168,7 @@
                   </Rectangle>
                </children>
             </Pane>
-            <Pane fx:id="walletOpenPane" layoutY="-55.0" prefHeight="603.0" prefWidth="680.0">
+            <Pane fx:id="walletOpenPane" layoutY="-55.0" prefHeight="603.0" prefWidth="680.0" visible="false">
                <children>
                   <Pane layoutX="16.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
                      <children>
@@ -206,11 +206,6 @@
                         <Rectangle fx:id="keypadEnter" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="382.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
                         <Rectangle fx:id="keypadUnderline1" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="132.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
                         <Rectangle fx:id="keypadUnderline2" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="203.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
-                        <Text fx:id="keypadNumberDisplay1" fill="#09ff00" layoutX="142.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" text="5" translateX="4.0" wrappingWidth="35.13671875">
-                           <font>
-                              <Font name="Comic Sans MS Italic" size="36.0" />
-                           </font>
-                        </Text>
                         <ImageView fx:id="imageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="443.0" layoutY="306.0" onMouseClicked="#handleWalletClueClick">
                            <image>
                               <Image url="@../images/bruceLicense.png" />
@@ -219,9 +214,19 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <Text fx:id="keypadNumberDisplay1" fill="#09ff00" layoutX="142.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" text="5" translateX="4.0" wrappingWidth="35.13671875">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="keypadNumberDisplay2" fill="#09ff00" layoutX="217.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" text="5" wrappingWidth="35.13671875">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="36.0" />
+                           </font>
+                        </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0" visible="false">
+                  <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
                      <children>
                         <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-33.0" translateY="5.0">
                            <image>

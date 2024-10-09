@@ -49,6 +49,7 @@ public class CrimeSceneController {
   @FXML private Circle panelTopRightCircle;
   @FXML private Circle panelBotRightCircle;
   @FXML private Text keypadNumberDisplay1;
+  @FXML private Text keypadNumberDisplay2;
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
@@ -168,10 +169,14 @@ public class CrimeSceneController {
     if (keypadNumber1 < 0) {
       keypadNumber1 = input;
       keypadNumberDisplay1.setText(String.valueOf(input));
-      keypadNumberDisplay1.getStyleClass().add("keypadFont");
       stopKeypadFlash();
       startKeypadFlash(2);
       keypadUnderline1.setOpacity(1);
+    } else if (keypadNumber2 < 0) {
+      keypadNumber2 = input;
+      keypadNumberDisplay2.setText(String.valueOf(input));
+      stopKeypadFlash();
+      keypadUnderline2.setOpacity(1);
     }
 
     System.err.println(input);
