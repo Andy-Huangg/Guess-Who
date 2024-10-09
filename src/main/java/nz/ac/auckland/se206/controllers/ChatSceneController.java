@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.nio.file.Paths;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.ChatHandler;
@@ -21,6 +23,7 @@ public abstract class ChatSceneController {
 
   protected ChatHandler chatHandler;
   protected boolean isInteracted = false;
+  protected boolean disableSend = false;
   protected MediaPlayer mediaPlayer;
 
   // Common initialization logic
@@ -41,6 +44,13 @@ public abstract class ChatSceneController {
   @FXML
   public void onSendMessage(ActionEvent event) throws ApiProxyException {
     String message = txtInput.getText().trim();
+    if (disableSend == true) {
+      return;
+    }
+    if (TextAnimator.getIsRunning()) {
+      return;
+    }
+
     if (message.isEmpty()) {
       return;
     }
@@ -55,6 +65,20 @@ public abstract class ChatSceneController {
     txtInput.clear();
     TextAnimator text = new TextAnimator(message, txtChat);
     text.startAnimation();
+    disableSend = true;
+    btnSend.setDisable(true);
+    PauseTransition pause = new PauseTransition(Duration.seconds(3));
+    pause.setOnFinished(
+        e -> {
+          if (TextAnimator.getIsRunning()) {
+            pause.playFromStart();
+            disableSend = true;
+            btnSend.setDisable(true);
+          }
+          disableSend = false;
+          btnSend.setDisable(false);
+        });
+    pause.play();
   }
 
   // Abstract method for subclass to implement setting interaction flag

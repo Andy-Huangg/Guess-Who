@@ -3,8 +3,11 @@ package nz.ac.auckland.se206.speech;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import javafx.concurrent.Task;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
@@ -13,9 +16,12 @@ import nz.ac.auckland.apiproxy.tts.TextToSpeechRequest;
 import nz.ac.auckland.apiproxy.tts.TextToSpeechRequest.Provider;
 import nz.ac.auckland.apiproxy.tts.TextToSpeechRequest.Voice;
 import nz.ac.auckland.apiproxy.tts.TextToSpeechResult;
+import nz.ac.auckland.se206.App;
 
 /** A utility class for converting text to speech using the specified API proxy. */
 public class TextToSpeech {
+
+  private static MediaPlayer mediaPlayer;
 
   /**
    * Converts the given text to speech and plays the audio.
@@ -62,5 +68,21 @@ public class TextToSpeech {
     Thread backgroundThread = new Thread(backgroundTask);
     backgroundThread.setDaemon(true); // Ensure the thread does not prevent JVM shutdown
     backgroundThread.start();
+  }
+
+  public static void speakLocally(String fileName) {
+    try {
+      Media sound =
+          new Media(App.class.getResource("/sounds/" + fileName + ".mp3").toURI().toString());
+      mediaPlayer = new MediaPlayer(sound);
+
+      if (mediaPlayer != null) {
+        mediaPlayer.play();
+      }
+
+    } catch (URISyntaxException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 }
