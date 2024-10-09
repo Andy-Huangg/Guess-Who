@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.speech.TextToSpeech;
 
 public class CrimeSceneController {
 
@@ -147,6 +148,7 @@ public class CrimeSceneController {
       }
       return;
     }
+    TextToSpeech.speakLocally("click");
     char lastLetter = rectangleID.charAt(rectangleID.length() - 1);
     int input = Character.getNumericValue(lastLetter);
 
@@ -168,11 +170,14 @@ public class CrimeSceneController {
   private void validateKeypadNumber(int keypadNumber) {
     if (keypadNumber < successfulKeypadNumber) {
       setKeypadOutcome("ERR: KEY TOO LOW", false);
+      TextToSpeech.speakLocally("error");
     } else if (keypadNumber > successfulKeypadNumber) {
       setKeypadOutcome("ERR: KEY TOO HIGH", false);
+      TextToSpeech.speakLocally("error");
     } else {
       keypadNumberDisplayText.getStyleClass().add("success");
       setKeypadOutcome("SUCCESS", true);
+      TextToSpeech.speakLocally("success");
     }
   }
 
