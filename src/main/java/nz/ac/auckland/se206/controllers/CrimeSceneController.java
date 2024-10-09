@@ -2,12 +2,16 @@ package nz.ac.auckland.se206.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -18,6 +22,7 @@ public class CrimeSceneController {
   @FXML private Rectangle rectDocuments;
   @FXML private Rectangle rectShelf;
   @FXML private Rectangle rectNewsPaper;
+  @FXML private Rectangle keypadUnderline1;
   @FXML private Pane newsPaperPane;
   @FXML private Pane documentsPane;
   @FXML private Pane newsPaperPiece1;
@@ -30,18 +35,24 @@ public class CrimeSceneController {
   @FXML private Pane walletOpenPane;
   @FXML private Pane walletClosedPane;
   @FXML private Pane walletCluePane;
+  @FXML private Pane metalPanelPane;
   @FXML private ImageView imageDriversLicense;
   @FXML private ImageView imageCreditCard;
   @FXML private ImageView imageLoyaltyCard;
   @FXML private ImageView newsStroke;
   @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
+  @FXML private Circle panelTopLeftCircle;
+  @FXML private Circle panelBotLeftCircle;
+  @FXML private Circle panelTopRightCircle;
+  @FXML private Circle panelBotRightCircle;
 
   private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
   private boolean cardTranslating = false;
   private ImageView currentHover;
   private Thread closeClueThread = new Thread();
+  private Map<String, Boolean> circlesClicked;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -57,6 +68,8 @@ public class CrimeSceneController {
     walletClueMap.put(imageDriversLicense, false);
     walletClueMap.put(imageCreditCard, false);
     walletClueMap.put(imageLoyaltyCard, false);
+    circlesClicked = new HashMap<>();
+    startKeypadFlash();
   }
 
   @FXML
@@ -85,6 +98,36 @@ public class CrimeSceneController {
   private void handleShelfInteraction() {
     // Handle interaction with the broken glass
     walletCluePane.setVisible(true);
+  }
+
+  @FXML
+  private void handleCircleClicked(MouseEvent event) {
+    Circle circleClicked = (Circle) event.getTarget();
+    String currentCircle = circleClicked.getId();
+    circlesClicked.put(currentCircle, true);
+    circleClicked.setOpacity(1);
+
+    if (circlesClicked.size() >= 4) {
+      System.out.println("SHOULD SLIDE OFF!");
+      paneTransition(metalPanelPane);
+    }
+  }
+
+  @FXML
+  private void startKeypadFlash() {
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(0.5),
+                e -> {
+                  keypadUnderline1.setOpacity(0);
+                }),
+            new KeyFrame(
+                Duration.seconds(1),
+                e -> {
+                  keypadUnderline1.setOpacity(1);
+                }));
+    timeline.setCycleCount(Animation.INDEFINITE);
   }
 
   @FXML
@@ -117,6 +160,18 @@ public class CrimeSceneController {
     } else {
       cardTransition(imageToMove, "up");
     }
+  }
+
+  private void paneTransition(Pane pane) {
+    cardTranslate.setNode(pane);
+    cardTranslate.setDuration(Duration.millis(1000));
+    cardTranslate.setByY(-750);
+    cardTranslate.play();
+    cardTranslate.setOnFinished(
+        event -> {
+          pane.setVisible(false);
+          System.out.println("Finished");
+        });
   }
 
   private void cardTransition(ImageView image, String direction) {
