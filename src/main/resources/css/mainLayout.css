@@ -5,3 +5,8 @@
   -fx-font-weight: 400;
   -fx-font-style: normal;
 }
+
+.enlarge {
+  -fx-scale-x: 1.2;
+  -fx-scale-y: 1.2;
+}
