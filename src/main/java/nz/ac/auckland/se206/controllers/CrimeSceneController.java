@@ -192,7 +192,7 @@ public class CrimeSceneController {
     if (correctGuess) {
       unlockRectangle.setOpacity(1);
     }
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
     pause.setOnFinished(
         event -> {
           if (correctGuess) {
