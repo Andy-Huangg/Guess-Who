@@ -48,14 +48,28 @@ public class MainLayoutController {
   public void initialize() {
     playAudio("introduction.mp3");
     startTimer();
+    try {
+      studyPane = FXMLLoader.load(getClass().getResource("/fxml/" + "crimescene" + ".fxml"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     loadStudy();
   }
 
   @FXML
   private void loadStudy() {
-    loadScene("crimescene");
-    clearImageOpacity();
-    studyImage.setOpacity(0.7);
+    Thread thread =
+        new Thread(
+            () -> {
+              Platform.runLater(
+                  () -> {
+                    centrePane.getChildren().setAll(studyPane);
+                    clearImageOpacity();
+                    studyImage.setOpacity(0.7);
+                  });
+            });
+    thread.setDaemon(true);
+    thread.start();
   }
 
   @FXML
@@ -120,7 +134,7 @@ public class MainLayoutController {
                         navBar.setDisable(true); // Disable the navBar
 
                         // Create a PauseTransition to re-enable the navBar after 4 seconds
-                        PauseTransition pause = new PauseTransition(Duration.seconds(5));
+                        PauseTransition pause = new PauseTransition(Duration.seconds(3));
                         pause.setOnFinished(
                             event -> navBar.setDisable(false)); // Re-enable navBar after 4 seconds
                         pause.play(); // Start the timer
