@@ -15,6 +15,10 @@ public class TextAnimator implements Runnable {
     this.textOutput = textField;
   }
 
+  public static boolean getIsRunning() {
+    return isRunning;
+  }
+
   @Override
   public void run() {
     Task<Void> task =
