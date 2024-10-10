@@ -213,7 +213,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="btnGuess" layoutX="591.0" layoutY="72.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="101.0" prefWidth="120.0" style="-fx-background-radius: 20; -fx-alignment: center; -fx-wrap-text: true; -fx-background-color: #C19A6B;" text="Guess now" textFill="WHITE" visible="false" wrapText="true">
+            <Button fx:id="btnGuess" layoutX="585.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#handleGuessClick" prefHeight="112.0" prefWidth="130.0" stylesheets="@../css/general.css" text="Guess now" textFill="WHITE" visible="false" wrapText="true" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="Verdana Bold" size="12.0" />
                </font></Button>
