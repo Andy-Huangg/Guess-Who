@@ -238,6 +238,7 @@ public class MainLayoutController {
   }
 
   public void transitionToMain() {
+    coverRect.setVisible(true);
     FadeTransition temp = new FadeTransition();
     temp.setDuration(Duration.millis(2000));
     temp.setToValue(0);

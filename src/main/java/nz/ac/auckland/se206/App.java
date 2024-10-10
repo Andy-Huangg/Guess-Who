@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
@@ -106,6 +107,15 @@ public class App extends Application {
     stage.show(); // Reset the scene to the initial one
   }
 
+  public static void switchMainGame(Rectangle event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    Parent root = loader.load();
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
+  }
+
   public static void setBruceInteracted(boolean isInteracted) {
     isBruceInteracted = isInteracted;
   }
@@ -191,7 +201,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("mainlayout");
+    Parent root = loadFxml("opening");
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();

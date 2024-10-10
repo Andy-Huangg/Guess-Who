@@ -1,6 +1,9 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -10,46 +13,47 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.App;
 
 public class OpeningController {
 
-  @FXML ImageView block1;
-  @FXML Label block1Dialog1;
-  @FXML Label block1Dialog2;
+  @FXML private ImageView block1;
+  @FXML private Label block1Dialog1;
+  @FXML private Label block1Dialog2;
 
-  @FXML ImageView block2;
-  @FXML Label block2Dialog1;
-  @FXML Label block2Dialog2;
+  @FXML private ImageView block2;
+  @FXML private Label block2Dialog1;
+  @FXML private Label block2Dialog2;
 
-  @FXML ImageView block3;
-  @FXML Label block3Dialog1;
-  @FXML Label block3Dialog2;
+  @FXML private ImageView block3;
+  @FXML private Label block3Dialog1;
+  @FXML private Label block3Dialog2;
 
-  @FXML ImageView block4;
-  @FXML Label block4Dialog1;
-  @FXML Label block4Dialog2;
+  @FXML private ImageView block4;
+  @FXML private Label block4Dialog1;
+  @FXML private Label block4Dialog2;
 
-  @FXML ImageView block5;
-  @FXML Label block5Dialog1;
-  @FXML Label block5Dialog2;
+  @FXML private ImageView block5;
+  @FXML private Label block5Dialog1;
+  @FXML private Label block5Dialog2;
 
-  @FXML ImageView block6;
-  @FXML Label block6Dialog1;
-  @FXML Label block6Dialog2;
+  @FXML private ImageView block6;
+  @FXML private Label block6Dialog1;
+  @FXML private Label block6Dialog2;
 
-  @FXML ImageView block7;
-  @FXML Label block7Dialog1;
-  @FXML Label block7Dialog2;
+  @FXML private ImageView block7;
+  @FXML private Label block7Dialog1;
+  @FXML private Label block7Dialog2;
 
-  @FXML Rectangle coverRect;
+  @FXML private Rectangle coverRect;
 
-  Thread openingThread;
+  private Thread openingThread;
 
-  TranslateTransition pullFromLeft = new TranslateTransition();
-  TranslateTransition pullFromRight = new TranslateTransition();
+  private TranslateTransition pullFromLeft = new TranslateTransition();
+  private TranslateTransition pullFromRight = new TranslateTransition();
 
-  TranslateTransition textGoRight = new TranslateTransition();
-  TranslateTransition textGoLeft = new TranslateTransition();
+  private TranslateTransition textGoRight = new TranslateTransition();
+  private TranslateTransition textGoLeft = new TranslateTransition();
 
   public void initialize() {
 
@@ -146,7 +150,7 @@ public class OpeningController {
                 textGo(true, block7Dialog2, 1000);
                 Thread.currentThread().sleep(1750);
                 // transit to black screen
-                endOpening();
+                handleSkipClick(null);
               } catch (Exception e) {
               }
             });
@@ -256,17 +260,35 @@ public class OpeningController {
   public void endOpening() {
     FadeTransition temp = new FadeTransition();
     temp.setToValue(1);
-    temp.setDuration(Duration.millis(2000));
+    temp.setDuration(Duration.millis(2010));
     temp.setNode(coverRect);
     coverRect.setVisible(true);
     temp.play();
   }
 
   @FXML
-  public void handleSkipClick(ActionEvent event) {
+  public void handleSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt();
-    Button temp = (Button) event.getSource();
-    temp.setDisable(true);
-    endOpening();
+    KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
+    KeyFrame f2 =
+        new KeyFrame(
+            Duration.millis(2000),
+            e -> {
+              try {
+                App.switchMainGame(coverRect);
+              } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+              }
+            });
+    Timeline tl = new Timeline(f1, f2);
+    if (event != null) {
+      Button temp = (Button) event.getSource();
+      temp.setDisable(true);
+    }
+    Platform.runLater(
+        () -> {
+          tl.play();
+        });
   }
 }
