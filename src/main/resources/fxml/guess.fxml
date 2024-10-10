@@ -88,7 +88,7 @@
                   <Image url="@../images/select.png" />
                </image>
             </ImageView>
-            <Pane fx:id="suspectSelectedPane" layoutX="-5.0" layoutY="29.0" prefHeight="307.0" prefWidth="730.0" AnchorPane.leftAnchor="-5.0">
+            <Pane fx:id="suspectSelectedPane" layoutX="-5.0" layoutY="29.0" prefHeight="307.0" prefWidth="730.0" visible="false" AnchorPane.leftAnchor="-5.0">
                <children>
                   <ImageView fitHeight="313.0" fitWidth="730.0" layoutX="5.0" pickOnBounds="true">
                      <image>
