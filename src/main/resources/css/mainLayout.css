@@ -11,6 +11,14 @@
   -fx-scale-y: 1.2;
 }
 
+/* Glow effect on hover */
+.image-view:hover {
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 1), 20, 0, 0, 0);
+  /* White glow effect */
+  -fx-cursor: hand;
+}
+
+/* Hand cursor on hover */
 .hover:hover {
   -fx-opacity: 0.4;
 }
