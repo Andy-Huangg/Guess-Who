@@ -54,7 +54,6 @@ public class MainLayoutController {
    */
   @FXML
   public void initialize() {
-    playAudio("introduction.mp3");
     startTimer();
     try {
       studyPane = FXMLLoader.load(getClass().getResource("/fxml/" + "crimescene" + ".fxml"));
@@ -224,9 +223,6 @@ public class MainLayoutController {
       return;
     }
     btnGuess.setDisable(true);
-
-    // Play the audio
-    playAudio("investigatemore.mp3");
 
     // Create a new thread to handle the delay
     new Thread(
