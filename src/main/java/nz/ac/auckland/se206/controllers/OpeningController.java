@@ -46,6 +46,7 @@ public class OpeningController {
   @FXML private Label block7Dialog2;
 
   @FXML private Rectangle coverRect;
+  @FXML private ImageView startImage;
 
   private Thread openingThread;
 
@@ -62,6 +63,8 @@ public class OpeningController {
             () -> {
               try {
                 // block1
+
+                Thread.currentThread().sleep(750);
                 textFadeIn(block1Dialog1);
                 imageFadeIn(block1);
                 imagePull(true, block1, 1500);
@@ -154,7 +157,6 @@ public class OpeningController {
               } catch (Exception e) {
               }
             });
-    openingThread.start();
   }
 
   public void imageFadeIn(ImageView temp) {
@@ -290,5 +292,22 @@ public class OpeningController {
         () -> {
           tl.play();
         });
+  }
+
+  @FXML
+  public void handleStartClick(ActionEvent event) {
+    TranslateTransition temp1 = new TranslateTransition();
+    temp1.setByX(-1000);
+    temp1.setDuration(Duration.millis(1000));
+    temp1.setNode((Button) event.getSource());
+    temp1.play();
+
+    TranslateTransition temp2 = new TranslateTransition();
+    temp2.setByX(-1000);
+    temp2.setDuration(Duration.millis(1000));
+    temp2.setNode(startImage);
+    temp2.play();
+
+    openingThread.start();
   }
 }

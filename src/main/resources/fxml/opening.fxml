@@ -121,5 +121,19 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Button>
+      <AnchorPane prefHeight="690.0" prefWidth="730.0">
+         <children>
+            <ImageView fx:id="startImage" fitHeight="730.0" fitWidth="738.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Start.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="271.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleStartClick" text="Game Start">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
