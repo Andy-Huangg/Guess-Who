@@ -184,9 +184,9 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Pane fx:id="taskPane" layoutX="589.0" layoutY="68.0" prefHeight="111.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF;" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
+            <Pane fx:id="taskPane" layoutX="583.0" layoutY="61.0" prefHeight="114.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 2px;" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
                <children>
-                  <Text fill="WHITE" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks:" textAlignment="CENTER" wrappingWidth="129.316650390625">
+                  <Text fill="WHITE" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks:" textAlignment="CENTER" wrappingWidth="129.316650390625">
                      <font>
                         <Font name="Times New Roman Bold Italic" size="14.0" />
                      </font>
