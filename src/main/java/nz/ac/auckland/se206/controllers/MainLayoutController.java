@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -35,6 +37,7 @@ public class MainLayoutController {
   @FXML private Pane taskPane;
   @FXML private Text suspectCounter;
   @FXML private Text clueCounter;
+  @FXML private Rectangle coverRect;
 
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
@@ -182,6 +185,14 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
+              transitionToMain();
+              try {
+                Thread.currentThread().sleep(2000);
+              } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+              coverRect.setVisible(false);
               while (timeRemaining >= 0 && !stopTimer) {
                 // Update the timerLabel on the JavaFX Application Thread
                 Platform.runLater(
@@ -224,5 +235,13 @@ public class MainLayoutController {
   // Call this method to stop the timer if needed
   private void stopTimer() {
     stopTimer = true;
+  }
+
+  public void transitionToMain() {
+    FadeTransition temp = new FadeTransition();
+    temp.setDuration(Duration.millis(2000));
+    temp.setToValue(0);
+    temp.setNode(coverRect);
+    temp.play();
   }
 }
