@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 
 public class TextAnimator implements Runnable {
   private static boolean isRunning = false;
+  private static int runningCount = 0;
   private String text;
   private int animationTime = 30;
   private TextArea textOutput;
@@ -19,19 +20,31 @@ public class TextAnimator implements Runnable {
     return isRunning;
   }
 
+  public static void setRunningCount(int value) {
+    runningCount = value;
+  }
+
   @Override
   public void run() {
+    runningCount += 1;
+    System.out.println(runningCount);
     Task<Void> task =
         new Task<Void>() {
           protected Void call() throws Exception {
             isRunning = true;
             for (int i = 1; i <= text.length(); i++) {
+              int j = i;
               String character = text.substring(i - 1, i);
-              Platform.runLater(() -> textOutput.appendText(character));
+              Platform.runLater(
+                  () -> {
+                    textOutput.appendText(character);
+                    if (j == text.length() && runningCount == 2) {
+                      ChatSceneController.readyToSendMessage = true;
+                    }
+                  });
               Thread.sleep(animationTime);
             }
             isRunning = false;
-
             return null;
           }
         };
