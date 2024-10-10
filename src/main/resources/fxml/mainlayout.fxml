@@ -53,47 +53,47 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView fx:id="studyImage" fitHeight="111.0" fitWidth="133.0" layoutX="14.0" layoutY="65.0" onMouseClicked="#loadStudy" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="15.0">
+            <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="14.0" layoutY="65.0" onMouseClicked="#loadStudy" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="15.0">
                <image>
                   <Image url="@../images/study.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="gardenImage" fitHeight="111.0" fitWidth="133.0" layoutX="165.0" layoutY="71.0" onMouseClicked="#loadGarden" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="157.0">
+            <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="165.0" layoutY="71.0" onMouseClicked="#loadGarden" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="157.0">
                <image>
                   <Image url="@../images/garden.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="livingroomImage" fitHeight="111.0" fitWidth="133.0" layoutX="307.0" layoutY="72.0" onMouseClicked="#loadLivingRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="299.0">
+            <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="307.0" layoutY="72.0" onMouseClicked="#loadLivingRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="299.0">
                <image>
                   <Image url="@../images/living_room.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="musicroomImage" fitHeight="111.0" fitWidth="133.0" layoutX="447.0" layoutY="71.0" onMouseClicked="#loadMusicRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="441.0">
+            <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="447.0" layoutY="71.0" onMouseClicked="#loadMusicRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="441.0">
                <image>
                   <Image url="@../images/piano.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="115.0" fitWidth="136.0" layoutY="68.0" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="15.0">
+            <ImageView fx:id="studyImage" fitHeight="115.0" fitWidth="136.0" layoutX="15.0" layoutY="62.0" onMouseClicked="#loadStudy" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="15.0">
                <image>
                   <Image url="@../images/suspectframe.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="115.0" fitWidth="136.0" layoutX="10.0" layoutY="78.0" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="157.0">
+            <ImageView fx:id="gardenImage" fitHeight="115.0" fitWidth="136.0" layoutX="157.0" layoutY="62.0" onMouseClicked="#loadGarden" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="157.0">
                <image>
                   <Image url="@../images/suspectframe.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="115.0" fitWidth="136.0" layoutX="10.0" layoutY="78.0" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="299.0">
+            <ImageView fx:id="livingroomImage" fitHeight="115.0" fitWidth="136.0" layoutX="299.0" layoutY="62.0" onMouseClicked="#loadLivingRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="299.0">
                <image>
                   <Image url="@../images/suspectframe.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="115.0" fitWidth="136.0" layoutX="10.0" layoutY="78.0" pickOnBounds="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="441.0">
+            <ImageView fx:id="musicroomImage" fitHeight="115.0" fitWidth="136.0" layoutX="441.0" layoutY="62.0" onMouseClicked="#loadMusicRoom" onMouseEntered="#handleImageEntered" onMouseExited="#handleImageExited" pickOnBounds="true" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="441.0">
                <image>
                   <Image url="@../images/suspectframe.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="41.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="38.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
                <fill>
                   <RadialGradient centerX="0.494475138121547" centerY="0.5450236966824644" radius="0.5">
                      <stops>
@@ -111,12 +111,12 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="studyText" fill="WHITE" layoutX="32.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="16.0">
+            <Text fx:id="studyText" fill="WHITE" layoutX="29.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="189.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="189.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="80.0" AnchorPane.bottomAnchor="16.0">
                <fill>
                   <RadialGradient centerX="0.494475138121547" centerY="0.5450236966824644" radius="0.5">
                      <stops>
@@ -133,12 +133,12 @@
                      </stops>
                   </RadialGradient>
                </fill></Rectangle>
-            <Text fx:id="gardenText" fill="WHITE" layoutX="181.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="16.0">
+            <Text fx:id="gardenText" fill="WHITE" layoutX="175.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="328.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="320.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
                <fill>
                   <RadialGradient centerX="0.494475138121547" centerY="0.5450236966824644" radius="0.5">
                      <stops>
@@ -156,12 +156,12 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="livingRoomText" fill="WHITE" layoutX="314.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0" AnchorPane.bottomAnchor="16.0">
+            <Text fx:id="livingRoomText" fill="WHITE" layoutX="308.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="468.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="16.0" layoutX="465.0" layoutY="158.0" stroke="#282828" strokeType="OUTSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="16.0">
                <fill>
                   <RadialGradient centerX="0.494475138121547" centerY="0.5450236966824644" radius="0.5">
                      <stops>
@@ -179,12 +179,12 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="musicRoomText" fill="WHITE" layoutX="460.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Music Room" textAlignment="CENTER" translateY="-0.5" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="16.0">
+            <Text fx:id="musicRoomText" fill="WHITE" layoutX="455.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Music Room" textAlignment="CENTER" translateY="-0.5" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Pane fx:id="taskPane" layoutX="583.0" layoutY="61.0" prefHeight="114.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 2px;" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
+            <Pane fx:id="taskPane" layoutX="583.0" layoutY="63.0" prefHeight="115.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 2.5px;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
                <children>
                   <Text fill="WHITE" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks:" textAlignment="CENTER" wrappingWidth="129.316650390625">
                      <font>
