@@ -63,6 +63,9 @@ public class MainLayoutController {
 
   @FXML
   private void loadStudy() {
+    if (ChatSceneController.readyToSendMessage == false) {
+      return;
+    }
     Thread thread =
         new Thread(
             () -> {
@@ -79,6 +82,9 @@ public class MainLayoutController {
 
   @FXML
   public void loadGarden() {
+    if (ChatSceneController.readyToSendMessage == false) {
+      return;
+    }
     loadScene("garden");
     clearImageOpacity();
     gardenImage.setOpacity(0.7);
@@ -86,6 +92,9 @@ public class MainLayoutController {
 
   @FXML
   public void loadLivingRoom() {
+    if (ChatSceneController.readyToSendMessage == false) {
+      return;
+    }
     loadScene("livingroom");
     clearImageOpacity();
     livingroomImage.setOpacity(0.7);
@@ -93,6 +102,9 @@ public class MainLayoutController {
 
   @FXML
   public void loadMusicRoom() {
+    if (ChatSceneController.readyToSendMessage == false) {
+      return;
+    }
     loadScene("musicroom");
     clearImageOpacity();
     musicroomImage.setOpacity(0.7);

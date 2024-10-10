@@ -40,6 +40,7 @@ public class CrimeSceneController {
   @FXML private Pane metalPanelPane;
   @FXML private Pane keypadPane;
   @FXML private Pane keypadLogPane;
+  @FXML private Pane stickyNotePane;
   @FXML private ImageView newsStroke;
   @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
@@ -97,6 +98,16 @@ public class CrimeSceneController {
   private void handleShelfInteraction() {
     // Handle interaction with the broken glass
     walletCluePane.setVisible(true);
+  }
+
+  @FXML
+  private void openStickyNote() {
+    stickyNotePane.setVisible(true);
+  }
+
+  @FXML
+  private void closeStickyNote() {
+    stickyNotePane.setVisible(false);
   }
 
   @FXML
@@ -287,6 +298,7 @@ public class CrimeSceneController {
                         onCloseDocuments();
                         onCloseNewsPaper();
                         onCloseWallet();
+                        closeStickyNote();
                       });
                 } catch (InterruptedException e) {
                   // TODO Auto-generated catch block
