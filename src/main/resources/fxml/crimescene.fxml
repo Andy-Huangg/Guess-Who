@@ -99,14 +99,14 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="550.0" prefWidth="730.0">
+      <Pane id="documents" fx:id="documentsPane" layoutX="2.0" layoutY="1.0" prefHeight="550.0" prefWidth="730.0" visible="false">
          <children>
             <ImageView fitHeight="550.0" fitWidth="732.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Pane fx:id="documentsGuestList" layoutX="14.0" layoutY="42.0" prefHeight="385.0" prefWidth="342.0" stylesheets="@../css/mainLayout.css">
+            <Pane fx:id="documentsGuestList" layoutX="188.0" layoutY="66.0" prefHeight="385.0" prefWidth="342.0" stylesheets="@../css/mainLayout.css">
                <children>
                   <ImageView disable="true" fitHeight="421.0" fitWidth="428.0" layoutX="3.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -116,7 +116,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="93.0" layoutX="106.0" layoutY="283.0" onMouseClicked="#openStickyNote" opacity="0.0" rotate="-33.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
                </children>
             </Pane>
-            <Pane fx:id="documentsLetter" layoutX="421.0" layoutY="346.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
+            <Pane fx:id="documentsLetter" layoutX="250.0" layoutY="190.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
                <children>
                   <ImageView disable="true" fitHeight="337.0" fitWidth="321.0" layoutX="-38.0" layoutY="-67.0" pickOnBounds="true">
                      <image>
@@ -130,9 +130,9 @@
                   <Image url="@../images/buttonTest.png" />
                </image>
             </ImageView>
-            <Pane fx:id="documentsInvoice" layoutX="441.0" layoutY="81.0" prefHeight="192.0" prefWidth="209.0" rotate="8.7">
+            <Pane fx:id="documentsInvoice" layoutX="294.0" layoutY="108.0" prefHeight="285.0" prefWidth="302.0" rotate="8.7">
                <children>
-                  <ImageView disable="true" fitHeight="337.0" fitWidth="294.0" layoutX="-38.0" layoutY="-80.0" pickOnBounds="true">
+                  <ImageView disable="true" fitHeight="378.0" fitWidth="308.0" layoutX="-10.0" layoutY="-24.0" pickOnBounds="true">
                      <image>
                         <Image url="@../images/invoice.png" />
                      </image>
@@ -144,7 +144,7 @@
                   <Font name="Goudy Old Style" size="20.0" />
                </font>
             </Text>
-            <Pane fx:id="stickyNotePane" prefHeight="550.0" prefWidth="730.0">
+            <Pane fx:id="stickyNotePane" prefHeight="550.0" prefWidth="730.0" visible="false">
                <children>
                   <ImageView fitHeight="550.0" fitWidth="732.0" pickOnBounds="true">
                      <image>
