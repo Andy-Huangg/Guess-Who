@@ -92,3 +92,12 @@
   -fx-border-color: #444444;
   /* Lighter border when pressed */
 }
+
+
+/* Glow effect on hover */
+.image-view:hover {
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 1), 20, 0, 0, 0);
+  /* White glow effect */
+  -fx-cursor: hand;
+  /* Hand cursor on hover */
+}
