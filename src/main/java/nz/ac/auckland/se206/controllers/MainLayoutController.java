@@ -237,7 +237,6 @@ public class MainLayoutController {
               } catch (InterruptedException e) {
                 e.printStackTrace();
               }
-
               // Re-enable the button on the JavaFX Application Thread
               Platform.runLater(() -> btnGuess.setDisable(false));
             })
@@ -250,9 +249,9 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
-              transitionToMain();
               try {
-                Thread.currentThread().sleep(2000);
+                transitionToMain();
+                Thread.currentThread().sleep(4500);
               } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -305,7 +304,7 @@ public class MainLayoutController {
   public void transitionToMain() {
     coverRect.setVisible(true);
     FadeTransition temp = new FadeTransition();
-    temp.setDuration(Duration.millis(2000));
+    temp.setDuration(Duration.millis(4500));
     temp.setToValue(0);
     temp.setNode(coverRect);
     temp.play();

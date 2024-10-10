@@ -18,6 +18,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static Parent mainLayout;
   private static String guessReason;
   private static boolean isWinner;
   private static boolean isTimeUp = false;
@@ -107,11 +108,23 @@ public class App extends Application {
     stage.show(); // Reset the scene to the initial one
   }
 
+  public static void preloadMainLayout(Rectangle event) {
+    new Thread(
+            () -> {
+              FXMLLoader temp = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+              try {
+                mainLayout = temp.load();
+              } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            })
+        .start();
+  }
+
   public static void switchMainGame(Rectangle event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
-    Parent root = loader.load();
     Stage stage = (Stage) event.getScene().getWindow();
-    scene = new Scene(root);
+    scene = new Scene(mainLayout);
     stage.setScene(scene);
     stage.show(); // Reset the scene to the initial one
   }

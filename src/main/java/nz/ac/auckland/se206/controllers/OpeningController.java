@@ -275,6 +275,7 @@ public class OpeningController {
   public void handleSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt();
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
+    KeyFrame f3 = new KeyFrame(Duration.millis(650), e -> App.preloadMainLayout(coverRect));
     KeyFrame f2 =
         new KeyFrame(
             Duration.millis(1500),
@@ -286,7 +287,7 @@ public class OpeningController {
                 e1.printStackTrace();
               }
             });
-    Timeline tl = new Timeline(f1, f2);
+    Timeline tl = new Timeline(f1, f3, f2);
     if (event != null) {
       Button temp = (Button) event.getSource();
       temp.setDisable(true);
