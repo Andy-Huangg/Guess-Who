@@ -235,4 +235,7 @@
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <Rectangle fx:id="coverRect" arcHeight="5.0" arcWidth="5.0" height="1034.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="732.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

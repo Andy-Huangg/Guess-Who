@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
@@ -17,6 +18,7 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 public class App extends Application {
 
   private static Scene scene;
+  private static Parent mainLayout;
   private static String guessReason;
   private static boolean isWinner;
   private static boolean isTimeUp = false;
@@ -98,10 +100,31 @@ public class App extends Application {
     setSaulInteracted(false);
     setWinner(false);
     setClueInteracted(false);
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/opening.fxml"));
     Parent root = loader.load();
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show(); // Reset the scene to the initial one
+  }
+
+  public static void preloadMainLayout(Rectangle event) {
+    new Thread(
+            () -> {
+              FXMLLoader temp = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+              try {
+                mainLayout = temp.load();
+              } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            })
+        .start();
+  }
+
+  public static void switchMainGame(Rectangle event) throws IOException {
+    Stage stage = (Stage) event.getScene().getWindow();
+    scene = new Scene(mainLayout);
     stage.setScene(scene);
     stage.show(); // Reset the scene to the initial one
   }
@@ -191,7 +214,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("mainlayout");
+    Parent root = loadFxml("opening");
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
