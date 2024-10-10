@@ -15,15 +15,15 @@
             <Image url="@../images/garden.jpg" />
          </image>
       </ImageView>
-      <TextArea fx:id="txtChat" editable="false" layoutX="21.0" layoutY="361.0" opacity="0.9" prefHeight="100.0" prefWidth="688.0" wrapText="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
+      <TextArea fx:id="txtChat" editable="false" layoutX="21.0" layoutY="361.0" opacity="0.9" prefHeight="100.0" prefWidth="688.0" stylesheets="@../css/general.css" wrapText="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
          <font>
             <Font size="15.0" />
          </font>
       </TextArea>
-      <TextField fx:id="txtInput" layoutX="21.0" layoutY="483.0" opacity="0.9" prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="21.0">
+      <TextField fx:id="txtInput" layoutX="21.0" layoutY="483.0" opacity="0.9" prefHeight="40.0" prefWidth="600.0" stylesheets="@../css/general.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="21.0">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="btnSend" layoutX="626.0" layoutY="484.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="40.0" prefWidth="83.0" text="Send" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="21.0" />
+      <Button fx:id="btnSend" layoutX="626.0" layoutY="484.0" mnemonicParsing="false" onAction="#onSendMessage" opacity="0.9" prefHeight="40.0" prefWidth="83.0" stylesheets="@../css/general.css" text="Send" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="21.0" />
    </children>
 </AnchorPane>

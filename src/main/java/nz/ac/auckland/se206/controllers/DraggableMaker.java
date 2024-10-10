@@ -30,7 +30,6 @@ public class DraggableMaker {
           // Get the node dimensions
           double nodeWidth = node.getBoundsInParent().getWidth();
           double nodeHeight = node.getBoundsInParent().getHeight();
-          System.out.println(parentWidth);
 
           // Ensure the node stays within the bounds of the parent container
           if (newX >= -200 && newX + nodeWidth <= parentWidth + 200) {
