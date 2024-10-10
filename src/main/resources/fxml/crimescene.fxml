@@ -97,25 +97,17 @@
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <Pane fx:id="documentsGuestList" layoutX="154.0" layoutY="46.0" prefHeight="385.0" prefWidth="342.0">
+            <Pane fx:id="documentsGuestList" layoutX="188.0" layoutY="66.0" prefHeight="385.0" prefWidth="342.0" stylesheets="@../css/mainLayout.css">
                <children>
                   <ImageView disable="true" fitHeight="421.0" fitWidth="428.0" layoutX="3.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/guestListClue.png" />
                      </image>
                   </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="93.0" layoutX="106.0" layoutY="283.0" onMouseClicked="#openStickyNote" opacity="0.0" rotate="-33.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
                </children>
             </Pane>
-            <Pane fx:id="documentsInvoice" layoutX="287.0" layoutY="210.0" prefHeight="180.0" prefWidth="209.0" rotate="8.7">
-               <children>
-                  <ImageView disable="true" fitHeight="337.0" fitWidth="294.0" layoutX="-39.0" layoutY="-125.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../images/invoice.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="documentsLetter" layoutX="200.0" layoutY="189.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
+            <Pane fx:id="documentsLetter" layoutX="250.0" layoutY="190.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
                <children>
                   <ImageView disable="true" fitHeight="337.0" fitWidth="321.0" layoutX="-38.0" layoutY="-67.0" pickOnBounds="true">
                      <image>
@@ -124,7 +116,40 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="311.0" layoutY="497.0" mnemonicParsing="false" onAction="#onCloseDocuments" stylesheets="@../css/general.css" text="Step Away" />
+            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="259.0" layoutY="485.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/buttonTest.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="documentsInvoice" layoutX="294.0" layoutY="108.0" prefHeight="285.0" prefWidth="302.0" rotate="8.7">
+               <children>
+                  <ImageView disable="true" fitHeight="378.0" fitWidth="308.0" layoutX="-10.0" layoutY="-24.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/invoice.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Text fill="WHITE" layoutX="281.0" layoutY="515.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document" textAlignment="CENTER" wrappingWidth="156.69791430937477">
+               <font>
+                  <Font name="Goudy Old Style" size="20.0" />
+               </font>
+            </Text>
+            <Pane fx:id="stickyNotePane" prefHeight="550.0" prefWidth="730.0" visible="false">
+               <children>
+                  <ImageView fitHeight="550.0" fitWidth="732.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/stickyNoteBackground.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView disable="true" fitHeight="512.0" fitWidth="619.0" layoutX="134.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/stickyNote.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="205.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#closeStickyNote" prefHeight="53.0" prefWidth="456.0" text="temporary close button" />
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" stylesheets="@../css/bookshelf.css" visible="false">
