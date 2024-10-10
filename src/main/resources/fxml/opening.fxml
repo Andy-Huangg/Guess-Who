@@ -35,7 +35,7 @@
             <Font name="Arial Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="block2Dialog2" layoutX="284.0" layoutY="273.0" opacity="0.0" prefHeight="42.0" prefWidth="414.0" text="was stolen from study...">
+      <Label fx:id="block2Dialog2" layoutX="215.0" layoutY="273.0" opacity="0.0" prefHeight="42.0" prefWidth="483.0" text="was stolen from the study...">
          <font>
             <Font name="Arial Bold Italic" size="36.0" />
          </font>
@@ -123,12 +123,12 @@
       </Button>
       <AnchorPane fx:id="startPane" prefHeight="690.0" prefWidth="730.0">
          <children>
-            <ImageView fx:id="startImage" fitHeight="730.0" fitWidth="738.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="startImage" fitHeight="745.0" fitWidth="737.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Start.png" />
                </image>
             </ImageView>
-            <Button layoutX="271.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleStartClick" text="Game Start">
+            <Button layoutX="274.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleStartClick" text="Game Start">
                <font>
                   <Font size="28.0" />
                </font>

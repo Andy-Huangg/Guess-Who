@@ -275,10 +275,10 @@ public class OpeningController {
   public void handleSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt();
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
-    KeyFrame f3 = new KeyFrame(Duration.millis(400), e -> App.preloadMainLayout(coverRect));
+    KeyFrame f3 = new KeyFrame(Duration.millis(250), e -> App.preloadMainLayout(coverRect));
     KeyFrame f2 =
         new KeyFrame(
-            Duration.millis(1600),
+            Duration.millis(1650),
             e -> {
               try {
                 App.switchMainGame(coverRect);
