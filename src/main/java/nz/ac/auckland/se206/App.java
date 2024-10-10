@@ -99,7 +99,7 @@ public class App extends Application {
     setSaulInteracted(false);
     setWinner(false);
     setClueInteracted(false);
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/opening.fxml"));
     Parent root = loader.load();
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(root);
