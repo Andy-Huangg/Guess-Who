@@ -1,7 +1,9 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -9,8 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.speech.TextToSpeech;
 
 public class CrimeSceneController {
 
@@ -18,6 +22,9 @@ public class CrimeSceneController {
   @FXML private Rectangle rectDocuments;
   @FXML private Rectangle rectShelf;
   @FXML private Rectangle rectNewsPaper;
+  @FXML private Rectangle keypadUnderline1;
+  @FXML private Rectangle keypadUnderline2;
+  @FXML private Rectangle unlockRectangle;
   @FXML private Pane newsPaperPane;
   @FXML private Pane documentsPane;
   @FXML private Pane newsPaperPiece1;
@@ -30,18 +37,23 @@ public class CrimeSceneController {
   @FXML private Pane walletOpenPane;
   @FXML private Pane walletClosedPane;
   @FXML private Pane walletCluePane;
-  @FXML private ImageView imageDriversLicense;
-  @FXML private ImageView imageCreditCard;
-  @FXML private ImageView imageLoyaltyCard;
+  @FXML private Pane metalPanelPane;
+  @FXML private Pane keypadPane;
+  @FXML private Pane keypadLogPane;
   @FXML private ImageView newsStroke;
   @FXML private ImageView shelfStroke;
   @FXML private ImageView documentStroke;
+  @FXML private Text keypadNumberDisplay1;
+  @FXML private Text keypadNumberDisplay2;
+  @FXML private Text keypadNumberDisplayText;
 
-  private Map<ImageView, Boolean> walletClueMap = new HashMap<>();
   private TranslateTransition cardTranslate = new TranslateTransition();
-  private boolean cardTranslating = false;
   private ImageView currentHover;
   private Thread closeClueThread = new Thread();
+  private Timeline keypadFlash;
+  private int keypadNumber1;
+  private int keypadNumber2;
+  private int successfulKeypadNumber = 45;
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
@@ -54,9 +66,9 @@ public class CrimeSceneController {
     draggableMaker.makeDraggable(documentsGuestList);
     draggableMaker.makeDraggable(documentsInvoice);
     draggableMaker.makeDraggable(documentsLetter);
-    walletClueMap.put(imageDriversLicense, false);
-    walletClueMap.put(imageCreditCard, false);
-    walletClueMap.put(imageLoyaltyCard, false);
+    startKeypadFlash(1);
+    keypadNumber1 = -1;
+    keypadNumber2 = -1;
   }
 
   @FXML
@@ -88,55 +100,124 @@ public class CrimeSceneController {
   }
 
   @FXML
-  private void handleWalletClueClick(MouseEvent event) {
-    // Return if the card is already moving.
-    if (cardTranslating == true) {
+  private void handleMetalPanel(MouseEvent event) {
+    paneTransition(metalPanelPane);
+  }
+
+  @FXML
+  private void startKeypadFlash(int number) {
+    keypadFlash =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(0.75),
+                e -> {
+                  if (number == 1) {
+                    keypadUnderline1.setOpacity(0);
+                  } else if (number == 2) {
+                    keypadUnderline2.setOpacity(0);
+                  }
+                }),
+            new KeyFrame(
+                Duration.seconds(1.5),
+                e -> {
+                  if (number == 1) {
+                    keypadUnderline1.setOpacity(1);
+                  } else if (number == 2) {
+                    keypadUnderline2.setOpacity(1);
+                  }
+                }));
+    keypadFlash.setCycleCount(Animation.INDEFINITE);
+    keypadFlash.play();
+  }
+
+  private void stopKeypadFlash() {
+    keypadFlash.stop();
+  }
+
+  @FXML
+  private void handleKeypadClick(MouseEvent event) {
+    Rectangle currentRectangle = (Rectangle) event.getTarget();
+    String rectangleID = currentRectangle.getId();
+    if (rectangleID.equals("keypadEnter")) {
+      if (keypadNumber1 > -1 && keypadNumber2 > -1) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(keypadNumber1);
+        sb.append(keypadNumber2);
+        int keypadNumber = Integer.parseInt(sb.toString());
+        validateKeypadNumber(keypadNumber);
+      }
       return;
     }
-    // Find which card to move
-    ImageView currentImage = (ImageView) event.getTarget();
-    String currentIdentification = currentImage.getId();
-    ImageView imageToMove = null;
-    switch (currentIdentification) {
-      case "imageDriversLicense":
-        imageToMove = imageDriversLicense;
-        break;
-      case "imageCreditCard":
-        imageToMove = imageCreditCard;
-        break;
-      case "imageLoyaltyCard":
-        imageToMove = imageLoyaltyCard;
-        break;
-      default:
-        break;
-    }
-    // Find the direction the card should move in
-    if (walletClueMap.get(imageToMove) == true) {
-      cardTransition(imageToMove, "down");
-      walletClueMap.put(imageToMove, false);
-    } else {
-      cardTransition(imageToMove, "up");
+    TextToSpeech.speakLocally("click");
+    char lastLetter = rectangleID.charAt(rectangleID.length() - 1);
+    int input = Character.getNumericValue(lastLetter);
+
+    if (keypadNumber1 < 0) {
+      keypadNumber1 = input;
+      keypadNumberDisplay1.setText(String.valueOf(input));
+      stopKeypadFlash();
+      startKeypadFlash(2);
+      keypadUnderline1.setOpacity(1);
+    } else if (keypadNumber2 < 0) {
+      keypadNumber2 = input;
+      keypadNumberDisplay2.setText(String.valueOf(input));
+      stopKeypadFlash();
+      keypadUnderline2.setOpacity(1);
     }
   }
 
-  private void cardTransition(ImageView image, String direction) {
-    // Sets the card to be translated
-    cardTranslate.setNode(image);
-    image.setVisible(true);
-    cardTranslate.setDuration(Duration.millis(200));
-    // Find direction for card to move
-    if (direction.equals("up")) {
-      walletClueMap.put(image, true);
-      cardTranslate.setByY(-60);
+  @FXML
+  private void validateKeypadNumber(int keypadNumber) {
+    if (keypadNumber < successfulKeypadNumber) {
+      setKeypadOutcome("ERR: KEY TOO LOW", false);
+      TextToSpeech.speakLocally("error");
+    } else if (keypadNumber > successfulKeypadNumber) {
+      setKeypadOutcome("ERR: KEY TOO HIGH", false);
+      TextToSpeech.speakLocally("error");
     } else {
-      cardTranslate.setByY(60);
+      keypadNumberDisplayText.getStyleClass().add("success");
+      setKeypadOutcome("SUCCESS", true);
+      TextToSpeech.speakLocally("success");
     }
-    // Start translating and set variables for if a card is already moving
+  }
+
+  @FXML
+  private void setKeypadOutcome(String text, boolean correctGuess) {
+    keypadUnderline1.setOpacity(0);
+    keypadUnderline2.setOpacity(0);
+    keypadNumberDisplay1.setText("");
+    keypadNumberDisplay2.setText("");
+    stopKeypadFlash();
+    keypadNumberDisplayText.setText(text);
+    if (correctGuess) {
+      unlockRectangle.setOpacity(1);
+    }
+    PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
+    pause.setOnFinished(
+        event -> {
+          if (correctGuess) {
+            keypadPane.setVisible(false);
+            keypadLogPane.setVisible(true);
+            return;
+          }
+          keypadUnderline1.setOpacity(1);
+          keypadUnderline2.setOpacity(1);
+          startKeypadFlash(1);
+          keypadNumber1 = -1;
+          keypadNumber2 = -1;
+          keypadNumberDisplayText.setText("");
+        });
+    pause.play();
+  }
+
+  private void paneTransition(Pane pane) {
+    cardTranslate.setNode(pane);
+    cardTranslate.setDuration(Duration.millis(1000));
+    cardTranslate.setByY(-750);
     cardTranslate.play();
-    cardTranslating = true;
     cardTranslate.setOnFinished(
         event -> {
-          cardTranslating = false;
+          pane.setVisible(false);
         });
   }
 

@@ -51,16 +51,7 @@
                   <Image url="@../images/rug2.png" />
                </image>
             </ImageView>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="258.0" layoutY="484.0" onMouseClicked="#onCloseNewsPaper" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/buttonTest.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="284.0" layoutY="512.0" onMouseClicked="#onCloseNewsPaper" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Newspaper">
-               <font>
-                  <Font name="Goudy Old Style" size="20.0" />
-               </font>
-            </Text>
+            <Button layoutX="325.0" layoutY="499.0" mnemonicParsing="false" onAction="#onCloseNewsPaper" stylesheets="@../css/general.css" text="Step Away" textAlignment="CENTER" />
             <Pane fx:id="newsPaperPiece1" layoutX="346.0" layoutY="279.0" prefHeight="168.0" prefWidth="291.0">
                <children>
                   <ImageView disable="true" fitHeight="280.0" fitWidth="357.0" layoutX="-11.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05">
@@ -133,88 +124,91 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="259.0" layoutY="485.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/buttonTest.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="281.0" layoutY="515.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document" textAlignment="CENTER" wrappingWidth="156.69791430937477">
-               <font>
-                  <Font name="Goudy Old Style" size="20.0" />
-               </font>
-            </Text>
+            <Button layoutX="311.0" layoutY="497.0" mnemonicParsing="false" onAction="#onCloseDocuments" stylesheets="@../css/general.css" text="Step Away" />
          </children>
       </Pane>
-      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" visible="false">
+      <Pane fx:id="walletCluePane" prefHeight="548.0" prefWidth="730.0" stylesheets="@../css/bookshelf.css" visible="false">
          <children>
             <ImageView fitHeight="550.0" fitWidth="732.0">
                <image>
-                  <Image url="@../images/rug2.png" />
+                  <Image url="@../images/woodtexture2.png" />
                </image>
             </ImageView>
+            <Pane fx:id="walletOpenPane" layoutY="-55.0" prefHeight="603.0" prefWidth="680.0">
+               <children>
+                  <Pane fx:id="keypadLogPane" layoutX="19.0" layoutY="80.0" prefHeight="503.0" prefWidth="693.0">
+                     <children>
+                        <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-23.0">
+                           <image>
+                              <Image url="@../images/securityLogs.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="keypadPane" layoutX="16.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
+                     <children>
+                        <ImageView fitHeight="550.0" fitWidth="730.0" translateX="-14.0" translateY="-25.0">
+                           <image>
+                              <Image url="@../images/securityKeypad.png" />
+                           </image>
+                        </ImageView>
+                        <Rectangle fx:id="keypad0" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="382.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="83.0" layoutY="311.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="2.0" width="48.0" />
+                        <Rectangle fx:id="keypad2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="313.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="211.0" layoutY="313.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateX="-1.0" width="49.0" />
+                        <Rectangle fx:id="keypad4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="48.0" />
+                        <Rectangle fx:id="keypad5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.0" width="49.0" />
+                        <Rectangle fx:id="keypad6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="250.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" translateY="-5.5" width="48.0" />
+                        <Rectangle fx:id="keypad7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="83.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypad8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="146.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="49.0" />
+                        <Rectangle fx:id="keypad9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="53.0" layoutX="211.0" layoutY="175.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="48.0" />
+                        <Rectangle fx:id="keypadEnter" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="146.0" layoutY="382.0" onMouseClicked="#handleKeypadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
+                        <Rectangle fx:id="keypadUnderline1" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="132.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
+                        <Rectangle fx:id="keypadUnderline2" arcHeight="5.0" arcWidth="5.0" fill="#50bc44" height="4.0" layoutX="203.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" styleClass="blinking" width="56.0" />
+                        <Rectangle fx:id="unlockRectangle" arcHeight="5.0" arcWidth="5.0" fill="#71acb9" height="16.0" layoutX="267.0" layoutY="186.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="1.8" width="29.0" />
+                        <Text fx:id="keypadNumberDisplay1" fill="#09ff00" layoutX="142.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" translateX="4.0" wrappingWidth="35.13671875">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="keypadNumberDisplay2" fill="#09ff00" layoutX="217.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" wrappingWidth="35.13671875">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="keypadNumberDisplayText" fill="RED" layoutX="86.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="keypadFont" wrappingWidth="233.82216998751437">
+                           <font>
+                              <Font name="Comic Sans MS Italic" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="metalPanelPane" layoutX="19.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
+                     <children>
+                        <ImageView fitHeight="550.0" fitWidth="730.0" layoutX="-18.0" layoutY="-33.0" onMouseClicked="#handleMetalPanel" translateY="5.0">
+                           <image>
+                              <Image url="@../images/metalPanel.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
             <Pane fx:id="walletClosedPane" prefHeight="421.0" prefWidth="680.0">
                <children>
-                  <ImageView fitHeight="237.0" fitWidth="291.0" layoutX="254.0" layoutY="105.0">
+                  <ImageView fitHeight="550.0" fitWidth="732.0" layoutX="-1.0" layoutY="-1.0">
                      <image>
-                        <Image url="@../images/walletClosed.png" />
+                        <Image url="@../images/bookshelfZoomedIn.png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="42.0" layoutX="412.0" layoutY="191.0" onMouseClicked="#onOpenWallet" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="104.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" focusTraversable="true" height="33.0" layoutX="283.0" layoutY="235.0" onMouseClicked="#onOpenWallet" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="179.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Rectangle>
                </children>
             </Pane>
-            <Pane fx:id="walletOpenPane" layoutY="-55.0" prefHeight="467.0" prefWidth="680.0" visible="false">
-               <children>
-                  <ImageView fitHeight="452.0" fitWidth="744.0" layoutX="-24.0" layoutY="125.0">
-                     <image>
-                        <Image url="@../images/openWallet.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="imageDriversLicense" fitHeight="94.0" fitWidth="188.0" layoutX="390.0" layoutY="244.0" onMouseClicked="#handleWalletClueClick">
-                     <image>
-                        <Image url="@../images/bruceLicense.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fitHeight="108.0" fitWidth="244.0" layoutX="365.0" layoutY="264.0">
-                     <image>
-                        <Image url="@../images/walletTexture.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="imageCreditCard" fitHeight="85.0" fitWidth="188.0" layoutX="96.0" layoutY="179.0" onMouseClicked="#handleWalletClueClick">
-                     <image>
-                        <Image url="@../images/walletCreditCard.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fitHeight="66.0" fitWidth="200.0" layoutX="90.0" layoutY="198.0">
-                     <image>
-                        <Image url="@../images/walletTexture2.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="imageLoyaltyCard" fitHeight="85.0" fitWidth="188.0" layoutX="90.0" layoutY="252.0" onMouseClicked="#handleWalletClueClick">
-                     <image>
-                        <Image url="@../images/WalletLoyaltyCard.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fitHeight="108.0" fitWidth="234.0" layoutX="69.0" layoutY="271.0">
-                     <image>
-                        <Image url="@../images/walletTexture.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Button layoutX="245.0" layoutY="460.0" mnemonicParsing="false" onAction="#onCloseWallet" prefHeight="33.0" prefWidth="179.0" text="Close wallet" />
+            <Button layoutX="315.0" layoutY="490.0" mnemonicParsing="false" onAction="#onCloseWallet" prefHeight="40.0" prefWidth="119.0" stylesheets="@../css/general.css" text="Step Away" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
    </children>

@@ -1,0 +1,103 @@
+/* All Buttons */
+.button {
+  -fx-background-color: #2C2A29;
+  -fx-text-fill: white;
+  -fx-padding: 8px 16px;
+  -fx-border-color: white;
+  -fx-border-width: 2px;
+  -fx-font-family: "Times New Roman", serif;
+  -fx-font-size: 17px;
+  -fx-border-radius: 5px;
+  -fx-background-radius: 5px;
+  -fx-cursor: hand;
+}
+
+/* Button Hover Effect */
+.button:hover {
+  -fx-background-color: #3E3C3B;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 5, 0, 0, 1);
+}
+
+/* Button Pressed Effect */
+.button:pressed {
+  -fx-background-color: #1F1D1C;
+}
+
+/* All TextFields */
+.text-field {
+  -fx-background-color: #2C2A29;
+  -fx-text-fill: white;
+  -fx-border-color: white;
+  -fx-border-width: 1px;
+  -fx-font-family: "Times New Roman", serif;
+  -fx-font-size: 17px;
+  -fx-padding: 5px;
+  -fx-border-radius: 5px;
+  -fx-background-radius: 5px;
+  -fx-prompt-text-fill: #A3978A;
+}
+
+/* All TextAreas */
+.text-area {
+  -fx-background-color: #2C2A29;
+  -fx-control-inner-background: #2C2A29;
+  -fx-text-fill: white;
+  -fx-border-color: white;
+  -fx-border-width: 1px;
+  -fx-font-family: "Times New Roman", serif;
+  -fx-font-size: 17px;
+  -fx-border-radius: 5px;
+  -fx-background-radius: 5px;
+  -fx-wrap-text: true;
+}
+
+/* Custom styling for Play Again and Quit Game buttons */
+#btnPlayAgain,
+#btnQuit {
+  -fx-background-color: #3C3B3B;
+  /* Dark gray background to match the mansion theme */
+  -fx-text-fill: white;
+  /* White text */
+  -fx-border-color: #B0B0B0;
+  /* Subtle light gray border */
+  -fx-border-width: 2px;
+  -fx-font-family: "Times New Roman", serif;
+  /* Elegant font */
+  -fx-font-size: 18px;
+  /* Slightly larger text for emphasis */
+  -fx-padding: 12px 24px;
+  /* Extra padding for a larger button */
+  -fx-border-radius: 8px;
+  -fx-background-radius: 8px;
+  -fx-cursor: hand;
+  /* Cursor changes to a hand when hovering */
+}
+
+
+#btnPlayAgain:hover,
+#btnQuit:hover {
+  -fx-background-color: white;
+  /* Inverted background color */
+  -fx-text-fill: #2C2A29;
+  /* Inverted text color */
+  -fx-border-color: #2C2A29;
+  /* Inverted border color */
+}
+
+/* Click effect for the Play Again and Quit Game buttons */
+#btnPlayAgain:pressed,
+#btnQuit:pressed {
+  -fx-background-color: #BBBBBB;
+  /* Darker background when pressed */
+  -fx-border-color: #444444;
+  /* Lighter border when pressed */
+}
+
+
+/* Glow effect on hover */
+.image-view:hover {
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 1), 20, 0, 0, 0);
+  /* White glow effect */
+  -fx-cursor: hand;
+  /* Hand cursor on hover */
+}

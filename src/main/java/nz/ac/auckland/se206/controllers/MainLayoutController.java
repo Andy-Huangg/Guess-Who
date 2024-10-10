@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -38,6 +39,10 @@ public class MainLayoutController {
   @FXML private Text suspectCounter;
   @FXML private Text clueCounter;
   @FXML private Rectangle coverRect;
+  @FXML private Text studyText;
+  @FXML private Text gardenText;
+  @FXML private Text livingRoomText;
+  @FXML private Text musicRoomText;
 
   private int timeRemaining = 300; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
@@ -51,14 +56,28 @@ public class MainLayoutController {
   public void initialize() {
     playAudio("introduction.mp3");
     startTimer();
+    try {
+      studyPane = FXMLLoader.load(getClass().getResource("/fxml/" + "crimescene" + ".fxml"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     loadStudy();
   }
 
   @FXML
   private void loadStudy() {
-    loadScene("crimescene");
-    clearImageOpacity();
-    studyImage.setOpacity(0.7);
+    Thread thread =
+        new Thread(
+            () -> {
+              Platform.runLater(
+                  () -> {
+                    centrePane.getChildren().setAll(studyPane);
+                    clearImageOpacity();
+                    studyImage.setOpacity(0.7);
+                  });
+            });
+    thread.setDaemon(true);
+    thread.start();
   }
 
   @FXML
@@ -80,6 +99,52 @@ public class MainLayoutController {
     loadScene("musicroom");
     clearImageOpacity();
     musicroomImage.setOpacity(0.7);
+  }
+
+  @FXML
+  private void handleImageEntered(MouseEvent event) {
+    ImageView currentImage = (ImageView) event.getTarget();
+    String imageIdentification = currentImage.getId();
+
+    switch (imageIdentification) {
+      case "studyImage":
+        studyText.getStyleClass().add("enlarge");
+        break;
+      case "gardenImage":
+        gardenText.getStyleClass().add("enlarge");
+        break;
+      case "livingroomImage":
+        livingRoomText.getStyleClass().add("enlarge");
+        break;
+      case "musicroomImage":
+        musicRoomText.getStyleClass().add("enlarge");
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  private void handleImageExited(MouseEvent event) {
+    ImageView currentImage = (ImageView) event.getTarget();
+    String imageIdentification = currentImage.getId();
+
+    switch (imageIdentification) {
+      case "studyImage":
+        studyText.getStyleClass().remove("enlarge");
+        break;
+      case "gardenImage":
+        gardenText.getStyleClass().remove("enlarge");
+        break;
+      case "livingroomImage":
+        livingRoomText.getStyleClass().remove("enlarge");
+        break;
+      case "musicroomImage":
+        musicRoomText.getStyleClass().remove("enlarge");
+        break;
+      default:
+        break;
+    }
   }
 
   private void clearImageOpacity() {
@@ -123,7 +188,7 @@ public class MainLayoutController {
                         navBar.setDisable(true); // Disable the navBar
 
                         // Create a PauseTransition to re-enable the navBar after 4 seconds
-                        PauseTransition pause = new PauseTransition(Duration.seconds(5));
+                        PauseTransition pause = new PauseTransition(Duration.seconds(3));
                         pause.setOnFinished(
                             event -> navBar.setDisable(false)); // Re-enable navBar after 4 seconds
                         pause.play(); // Start the timer
