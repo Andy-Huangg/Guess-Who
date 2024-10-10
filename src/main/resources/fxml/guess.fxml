@@ -36,30 +36,34 @@
                   <Image url="@../images/woodtexture.png" />
                </image>
             </ImageView>
-            <ImageView id="Bruce" fitHeight="162.0" fitWidth="162.0" layoutX="60.0" layoutY="78.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="60.0">
-               <image>
-                  <Image url="@../images/Bruce.jpg" />
-               </image>
-            </ImageView>
-            <ImageView id="Saul" fitHeight="162.0" fitWidth="162.0" layoutX="491.0" layoutY="78.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.rightAnchor="60.0">
-               <image>
-                  <Image url="@../images/Saul.jpg" />
-               </image>
-            </ImageView>
-            <ImageView id="Alfred" fitHeight="162.0" fitWidth="162.0" layoutX="284.0" layoutY="78.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="284.0">
-               <image>
-                  <Image url="@../images/Alfred.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="120.0" layoutY="210.0" text="Bruce" textAlignment="CENTER" textFill="WHITE">
+            <Pane layoutY="78.0" prefHeight="200.0" prefWidth="730.0" stylesheets="@../css/general.css">
+               <children>
+                  <ImageView id="Saul" fitHeight="162.0" fitWidth="162.0" layoutX="511.0" layoutY="-5.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Saul.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="Bruce" fitHeight="162.0" fitWidth="162.0" layoutX="63.0" layoutY="-5.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Bruce.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="Alfred" fitHeight="162.0" fitWidth="162.0" layoutX="285.0" layoutY="-5.0" onMouseClicked="#setSuspect" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Alfred.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label layoutX="120.0" layoutY="236.0" text="Bruce" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label layoutX="342.0" layoutY="211.0" text="Alfred" textFill="WHITE">
+            <Label layoutX="342.0" layoutY="236.0" text="Alfred" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label layoutX="572.0" layoutY="211.0" style="-fx-background-color: 1111111;" text="Saul" textFill="WHITE">
+            <Label layoutX="572.0" layoutY="236.0" text="Saul" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
@@ -68,22 +72,22 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button layoutX="299.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#getSuspect" prefHeight="43.0" prefWidth="132.0" text="Accuse" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="300.0">
+            <Button layoutX="299.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#getSuspect" prefHeight="43.0" prefWidth="132.0" stylesheets="@../css/general.css" text="Accuse" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="300.0">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <ImageView fx:id="selectedBruce" fitHeight="162.0" fitWidth="162.0" layoutX="61.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="selectedBruce" fitHeight="162.0" fitWidth="162.0" layoutX="63.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../images/select.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="selectedAlfred" fitHeight="162.0" fitWidth="162.0" layoutX="284.0" layoutY="78.0" pickOnBounds="true" visible="false">
+            <ImageView fx:id="selectedAlfred" fitHeight="162.0" fitWidth="162.0" layoutX="285.0" layoutY="73.0" pickOnBounds="true" visible="false">
                <image>
                   <Image url="@../images/select.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="selectedSaul" fitHeight="162.0" fitWidth="162.0" layoutX="509.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="selectedSaul" fitHeight="162.0" fitWidth="162.0" layoutX="511.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../images/select.png" />
                </image>
@@ -100,11 +104,11 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="answerText" layoutX="21.0" layoutY="44.0" prefHeight="192.0" prefWidth="688.0" wrapText="true">
+                  <TextArea fx:id="answerText" layoutX="21.0" layoutY="44.0" opacity="0.9" prefHeight="192.0" prefWidth="688.0" stylesheets="@../css/general.css" wrapText="true">
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button fx:id="submitButton" layoutX="265.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="199.0" text="I Have Decided My Answer">
+                  <Button fx:id="submitButton" layoutX="260.0" layoutY="252.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="243.0" stylesheets="@../css/general.css" text="I Have Decided My Answer">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
