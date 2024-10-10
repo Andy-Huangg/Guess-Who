@@ -1,3 +1,7 @@
+.font {
+  -fx-font-family: "Palatino", serif;
+}
+
 /* All Buttons */
 .button {
   -fx-background-color: #2C2A29;
@@ -5,7 +9,7 @@
   -fx-padding: 8px 16px;
   -fx-border-color: white;
   -fx-border-width: 2px;
-  -fx-font-family: "Times New Roman", serif;
+  -fx-font-family: "Palatino", serif;
   -fx-font-size: 17px;
   -fx-border-radius: 5px;
   -fx-background-radius: 5px;
@@ -29,7 +33,7 @@
   -fx-text-fill: white;
   -fx-border-color: white;
   -fx-border-width: 1px;
-  -fx-font-family: "Times New Roman", serif;
+  -fx-font-family: "Palatino", serif;
   -fx-font-size: 17px;
   -fx-padding: 5px;
   -fx-border-radius: 5px;
@@ -44,7 +48,7 @@
   -fx-text-fill: white;
   -fx-border-color: white;
   -fx-border-width: 1px;
-  -fx-font-family: "Times New Roman", serif;
+  -fx-font-family: "Palatino", serif;
   -fx-font-size: 17px;
   -fx-border-radius: 5px;
   -fx-background-radius: 5px;
@@ -61,7 +65,7 @@
   -fx-border-color: #B0B0B0;
   /* Subtle light gray border */
   -fx-border-width: 2px;
-  -fx-font-family: "Times New Roman", serif;
+  -fx-font-family: "Palatino", serif;
   /* Elegant font */
   -fx-font-size: 18px;
   /* Slightly larger text for emphasis */
@@ -100,4 +104,36 @@
   /* White glow effect */
   -fx-cursor: hand;
   /* Hand cursor on hover */
+}
+
+/* Character name label above the chatbox */
+.characterName {
+  -fx-background-color: transparent;
+  /* Transparent background to blend in */
+  -fx-text-fill: white;
+  /* Gold text for elegance and clarity */
+  -fx-font-family: "Palatino", serif;
+  /* Mansion-themed font */
+  -fx-font-size: 32px;
+  /* Slightly larger font size to distinguish the name */
+  -fx-font-weight: bold;
+  /* Bold to make the name stand out */
+  -fx-padding: 5px 0px;
+  /* Some padding on top and bottom */
+  -fx-text-alignment: center;
+  /* Center the text */
+  -fx-border-color: transparent;
+  /* No border by default */
+}
+
+/* Optional shadow for the text to make it pop */
+.characterName {
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.75), 4, 0, 0, 2);
+  /* Adds a subtle shadow for depth */
+}
+
+/* Optional hover effect for interactivity */
+.characterName:hover {
+  -fx-text-fill: #FFFFFF;
+  /* White text on hover for contrast */
 }

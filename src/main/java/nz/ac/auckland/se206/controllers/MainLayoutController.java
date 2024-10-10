@@ -271,7 +271,7 @@ public class MainLayoutController {
                     () -> {
                       int minutes = timeRemaining / 60;
                       int seconds = timeRemaining % 60;
-                      timerLabel.setText(String.format("%2d:%02d", minutes, seconds));
+                      timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
                       displayTasks();
 
                       // End interactions if time runs out

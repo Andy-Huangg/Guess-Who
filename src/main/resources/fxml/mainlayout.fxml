@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
@@ -24,7 +23,7 @@
             <Insets />
          </opaqueInsets>
          <children>
-            <Pane layoutY="50.0" prefHeight="136.0" prefWidth="730.0">
+            <Pane layoutY="50.0" prefHeight="136.0" prefWidth="730.0" stylesheets="@../css/general.css">
                <children>
                   <ImageView fitHeight="133.0" fitWidth="730.0">
                      <image>
@@ -111,7 +110,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="studyText" fill="WHITE" layoutX="29.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
+            <Text fx:id="studyText" fill="WHITE" layoutX="29.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="font" text="Study" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -133,7 +132,7 @@
                      </stops>
                   </RadialGradient>
                </fill></Rectangle>
-            <Text fx:id="gardenText" fill="WHITE" layoutX="175.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
+            <Text fx:id="gardenText" fill="WHITE" layoutX="175.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="font" text="Garden" textAlignment="CENTER" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -156,7 +155,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="livingRoomText" fill="WHITE" layoutX="308.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0" AnchorPane.bottomAnchor="18.0">
+            <Text fx:id="livingRoomText" fill="WHITE" layoutX="308.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="font" text="Living room" textAlignment="CENTER" wrappingWidth="117.484619140625" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -179,36 +178,36 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Text fx:id="musicRoomText" fill="WHITE" layoutX="455.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="lobster-regular" text="Music Room" textAlignment="CENTER" translateY="-0.5" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
+            <Text fx:id="musicRoomText" fill="WHITE" layoutX="455.0" layoutY="167.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" styleClass="font" text="Music Room" textAlignment="CENTER" translateY="-0.5" wrappingWidth="108.13671875" y="-3.0" AnchorPane.bottomAnchor="18.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Pane fx:id="taskPane" layoutX="583.0" layoutY="63.0" prefHeight="115.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 2.5px;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
+            <Pane fx:id="taskPane" layoutX="583.0" layoutY="63.0" prefHeight="115.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 2.5px;" styleClass="label" stylesheets="@../css/mainLayout.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="583.0" AnchorPane.rightAnchor="14.0">
                <children>
-                  <Text fill="WHITE" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks:" textAlignment="CENTER" wrappingWidth="129.316650390625">
+                  <Text fill="WHITE" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Tasks:" textAlignment="CENTER" wrappingWidth="129.316650390625">
                      <font>
-                        <Font name="Times New Roman Bold Italic" size="14.0" />
+                        <Font name="Times New Roman Bold Italic" size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="clueCounter" fill="WHITE" layoutX="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/1" translateX="37.0" translateY="100.0" wrappingWidth="27.13671875">
+                  <Text fx:id="clueCounter" fill="WHITE" layoutX="17.0" layoutY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0/1" translateX="37.0" translateY="100.0" wrappingWidth="27.13671875">
                      <font>
-                        <Font name="Verdana Bold Italic" size="12.0" />
+                        <Font name="Verdana Bold Italic" size="15.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="-10.0" layoutY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat with suspects" textAlignment="CENTER" translateX="12.0" translateY="36.0" wrappingWidth="128.40838623046875">
+                  <Text fill="WHITE" layoutX="-10.0" layoutY="4.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Chat with suspects" textAlignment="CENTER" translateX="12.0" translateY="36.0" wrappingWidth="128.40838623046875">
                      <font>
-                        <Font name="Verdana Bold Italic" size="11.0" />
+                        <Font name="Verdana Bold Italic" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="suspectCounter" fill="WHITE" layoutX="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/3" textAlignment="CENTER" translateX="35.0" translateY="57.0" wrappingWidth="27.13671875">
+                  <Text fx:id="suspectCounter" fill="WHITE" layoutX="16.0" layoutY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0/3" textAlignment="CENTER" translateX="35.0" translateY="57.0" wrappingWidth="27.13671875">
                      <font>
-                        <Font name="Verdana Bold Italic" size="12.0" />
+                        <Font name="Verdana Bold Italic" size="15.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="-12.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interact with a clue" textAlignment="CENTER" translateX="15.0" translateY="73.0" wrappingWidth="127.52520751953125">
+                  <Text fill="WHITE" layoutX="-12.0" layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Interact with a clue" textAlignment="CENTER" translateX="15.0" translateY="73.0" wrappingWidth="127.52520751953125">
                      <font>
-                        <Font name="Verdana Bold Italic" size="11.0" />
+                        <Font name="Verdana Bold Italic" size="13.0" />
                      </font>
                   </Text>
                </children>
@@ -228,25 +227,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </AnchorPane>
-            <Rectangle arcHeight="25.0" arcWidth="45.0" height="49.0" layoutX="322.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" width="84.0" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="324.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Label fx:id="timerLabel" prefHeight="30.0" prefWidth="70.0" text="4:45" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="333.0" AnchorPane.rightAnchor="327.0">
+            <Label fx:id="timerLabel" alignment="CENTER" layoutX="320.0" layoutY="-9.0" opacity="0.9" prefHeight="56.0" prefWidth="133.0" styleClass="timer-label" stylesheets="@../css/mainLayout.css" text="00:00" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
                <font>
                   <Font size="25.0" />
                </font>

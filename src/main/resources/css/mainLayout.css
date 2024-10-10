@@ -22,3 +22,29 @@
 .hover:hover {
   -fx-opacity: 0.4;
 }
+
+/* Timer label at the top of the game */
+.timer-label {
+  -fx-background-color: #2C2A29;
+  /* Dark background for a subtle look */
+  -fx-text-fill: white;
+  /* Gold text for elegance and visibility */
+  -fx-font-family: "Palatino", serif;
+  /* Classy mansion-inspired font */
+  -fx-font-size: 25px;
+  /* Slightly larger font size to make it noticeable */
+  -fx-padding: 10px 15px;
+  /* Adds some padding around the text */
+  -fx-border-color: white;
+  /* Gold border for luxury feel */
+  -fx-border-width: 2px;
+  -fx-border-radius: 10px;
+  /* Rounded corners to soften the appearance */
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 5);
+  /* Adds shadow for depth */
+}
+
+.font {
+  -fx-font-family: "Palatino", serif;
+}
