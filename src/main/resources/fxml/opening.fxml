@@ -121,7 +121,7 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Button>
-      <AnchorPane prefHeight="690.0" prefWidth="730.0">
+      <AnchorPane fx:id="startPane" prefHeight="690.0" prefWidth="730.0">
          <children>
             <ImageView fx:id="startImage" fitHeight="730.0" fitWidth="738.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
                <image>

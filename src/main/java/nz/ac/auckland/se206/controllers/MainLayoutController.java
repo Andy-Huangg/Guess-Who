@@ -44,7 +44,7 @@ public class MainLayoutController {
   @FXML private Text livingRoomText;
   @FXML private Text musicRoomText;
 
-  private int timeRemaining = 300; // 5 minutes = 300 seconds
+  private int timeRemaining = 285; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
   private MediaPlayer mediaPlayer;
 

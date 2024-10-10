@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -47,6 +48,7 @@ public class OpeningController {
 
   @FXML private Rectangle coverRect;
   @FXML private ImageView startImage;
+  @FXML private Pane startPane;
 
   private Thread openingThread;
 
@@ -64,7 +66,8 @@ public class OpeningController {
               try {
                 // block1
 
-                Thread.currentThread().sleep(750);
+                Thread.currentThread().sleep(500);
+                startPane.setVisible(false);
                 textFadeIn(block1Dialog1);
                 imageFadeIn(block1);
                 imagePull(true, block1, 1500);
@@ -87,7 +90,7 @@ public class OpeningController {
                 Thread.currentThread().sleep(1000);
                 textFadeIn(block2Dialog2);
                 textGo(true, block2Dialog2, 1000);
-                Thread.currentThread().sleep(1100);
+                Thread.currentThread().sleep(1000);
                 textFadeOut(block2Dialog1);
                 textFadeOut(block2Dialog2);
                 imageFadeOut(block2);
@@ -113,7 +116,7 @@ public class OpeningController {
                 Thread.currentThread().sleep(1000);
                 textFadeIn(block4Dialog2);
                 textGo(true, block4Dialog2, 1000);
-                Thread.currentThread().sleep(1750);
+                Thread.currentThread().sleep(1550);
                 textFadeOut(block4Dialog1);
                 textFadeOut(block4Dialog2);
                 imageFadeOut(block4);
@@ -126,7 +129,7 @@ public class OpeningController {
                 Thread.currentThread().sleep(1000);
                 textFadeIn(block5Dialog2);
                 textGo(true, block5Dialog2, 1000);
-                Thread.currentThread().sleep(1750);
+                Thread.currentThread().sleep(1550);
                 textFadeOut(block5Dialog1);
                 textFadeOut(block5Dialog2);
                 imageFadeOut(block5);
@@ -139,7 +142,7 @@ public class OpeningController {
                 Thread.currentThread().sleep(1000);
                 textFadeIn(block6Dialog2);
                 textGo(true, block6Dialog2, 1000);
-                Thread.currentThread().sleep(1750);
+                Thread.currentThread().sleep(1550);
                 textFadeOut(block6Dialog1);
                 textFadeOut(block6Dialog2);
                 imageFadeOut(block6);
@@ -151,7 +154,7 @@ public class OpeningController {
                 Thread.currentThread().sleep(1000);
                 textFadeIn(block7Dialog2);
                 textGo(true, block7Dialog2, 1000);
-                Thread.currentThread().sleep(1750);
+                Thread.currentThread().sleep(1200);
                 // transit to black screen
                 handleSkipClick(null);
               } catch (Exception e) {
@@ -262,7 +265,7 @@ public class OpeningController {
   public void endOpening() {
     FadeTransition temp = new FadeTransition();
     temp.setToValue(1);
-    temp.setDuration(Duration.millis(2010));
+    temp.setDuration(Duration.millis(1500));
     temp.setNode(coverRect);
     coverRect.setVisible(true);
     temp.play();
@@ -274,7 +277,7 @@ public class OpeningController {
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
     KeyFrame f2 =
         new KeyFrame(
-            Duration.millis(2000),
+            Duration.millis(1500),
             e -> {
               try {
                 App.switchMainGame(coverRect);
@@ -298,13 +301,13 @@ public class OpeningController {
   public void handleStartClick(ActionEvent event) {
     TranslateTransition temp1 = new TranslateTransition();
     temp1.setByX(-1000);
-    temp1.setDuration(Duration.millis(1000));
+    temp1.setDuration(Duration.millis(500));
     temp1.setNode((Button) event.getSource());
     temp1.play();
 
     TranslateTransition temp2 = new TranslateTransition();
     temp2.setByX(-1000);
-    temp2.setDuration(Duration.millis(1000));
+    temp2.setDuration(Duration.millis(500));
     temp2.setNode(startImage);
     temp2.play();
 
