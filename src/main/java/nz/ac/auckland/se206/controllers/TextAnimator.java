@@ -27,7 +27,6 @@ public class TextAnimator implements Runnable {
   @Override
   public void run() {
     runningCount += 1;
-    System.out.println(runningCount);
     Task<Void> task =
         new Task<Void>() {
           protected Void call() throws Exception {
