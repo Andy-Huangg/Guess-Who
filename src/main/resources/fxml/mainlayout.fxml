@@ -246,7 +246,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Label fx:id="timerLabel" prefHeight="30.0" prefWidth="70.0" text="Timer" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="333.0" AnchorPane.rightAnchor="327.0">
+            <Label fx:id="timerLabel" prefHeight="30.0" prefWidth="70.0" text="4:45" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="333.0" AnchorPane.rightAnchor="327.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -254,4 +254,7 @@
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <Rectangle fx:id="coverRect" arcHeight="5.0" arcWidth="5.0" height="1034.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="732.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
@@ -36,12 +38,13 @@ public class MainLayoutController {
   @FXML private Pane taskPane;
   @FXML private Text suspectCounter;
   @FXML private Text clueCounter;
+  @FXML private Rectangle coverRect;
   @FXML private Text studyText;
   @FXML private Text gardenText;
   @FXML private Text livingRoomText;
   @FXML private Text musicRoomText;
 
-  private int timeRemaining = 300; // 5 minutes = 300 seconds
+  private int timeRemaining = 284; // 5 minutes = 300 seconds
   private boolean stopTimer = false;
   private MediaPlayer mediaPlayer;
 
@@ -51,7 +54,6 @@ public class MainLayoutController {
    */
   @FXML
   public void initialize() {
-    playAudio("introduction.mp3");
     startTimer();
     try {
       studyPane = FXMLLoader.load(getClass().getResource("/fxml/" + "crimescene" + ".fxml"));
@@ -234,9 +236,6 @@ public class MainLayoutController {
     }
     btnGuess.setDisable(true);
 
-    // Play the audio
-    playAudio("investigatemore.mp3");
-
     // Create a new thread to handle the delay
     new Thread(
             () -> {
@@ -246,7 +245,6 @@ public class MainLayoutController {
               } catch (InterruptedException e) {
                 e.printStackTrace();
               }
-
               // Re-enable the button on the JavaFX Application Thread
               Platform.runLater(() -> btnGuess.setDisable(false));
             })
@@ -259,6 +257,14 @@ public class MainLayoutController {
     Thread timerThread =
         new Thread(
             () -> {
+              try {
+                transitionToMain();
+                Thread.currentThread().sleep(4500);
+              } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+              coverRect.setVisible(false);
               while (timeRemaining >= 0 && !stopTimer) {
                 // Update the timerLabel on the JavaFX Application Thread
                 Platform.runLater(
@@ -301,5 +307,14 @@ public class MainLayoutController {
   // Call this method to stop the timer if needed
   private void stopTimer() {
     stopTimer = true;
+  }
+
+  public void transitionToMain() {
+    coverRect.setVisible(true);
+    FadeTransition temp = new FadeTransition();
+    temp.setDuration(Duration.millis(4500));
+    temp.setToValue(0);
+    temp.setNode(coverRect);
+    temp.play();
   }
 }
