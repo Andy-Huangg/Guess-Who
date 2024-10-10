@@ -104,7 +104,11 @@
                         <Image url="@../images/guestListClue.png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="93.0" layoutX="106.0" layoutY="283.0" onMouseClicked="#openStickyNote" opacity="0.0" rotate="-33.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="93.0" layoutX="106.0" layoutY="283.0" onMouseClicked="#openStickyNote" opacity="0.0" rotate="-33.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="hover" width="114.0">
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Rectangle>
                </children>
             </Pane>
             <Pane fx:id="documentsLetter" layoutX="250.0" layoutY="190.0" prefHeight="201.0" prefWidth="232.0" rotate="-6.3">
@@ -116,12 +120,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView blendMode="SCREEN" fitHeight="49.0" fitWidth="200.0" layoutX="259.0" layoutY="485.0" onMouseClicked="#onCloseDocuments" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/buttonTest.png" />
-               </image>
-            </ImageView>
-            <Pane fx:id="documentsInvoice" layoutX="294.0" layoutY="108.0" prefHeight="285.0" prefWidth="302.0" rotate="8.7">
+            <Pane fx:id="documentsInvoice" layoutX="351.0" layoutY="133.0" prefHeight="285.0" prefWidth="302.0" rotate="8.7">
                <children>
                   <ImageView disable="true" fitHeight="378.0" fitWidth="308.0" layoutX="-10.0" layoutY="-24.0" pickOnBounds="true">
                      <image>
@@ -130,11 +129,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Text fill="WHITE" layoutX="281.0" layoutY="515.0" onMouseClicked="#onCloseDocuments" strokeType="OUTSIDE" strokeWidth="0.0" text="Close Document" textAlignment="CENTER" wrappingWidth="156.69791430937477">
-               <font>
-                  <Font name="Goudy Old Style" size="20.0" />
-               </font>
-            </Text>
+            <Button layoutX="311.0" layoutY="497.0" mnemonicParsing="false" onAction="#onCloseDocuments" stylesheets="@../css/general.css" text="Step Away" />
             <Pane fx:id="stickyNotePane" prefHeight="550.0" prefWidth="730.0" visible="false">
                <children>
                   <ImageView fitHeight="550.0" fitWidth="732.0" pickOnBounds="true">
@@ -147,7 +142,7 @@
                         <Image url="@../images/stickyNote.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="205.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#closeStickyNote" prefHeight="53.0" prefWidth="456.0" text="temporary close button" />
+                  <Button layoutX="311.0" layoutY="497.0" mnemonicParsing="false" onAction="#closeStickyNote" prefWidth="126.0" stylesheets="@../css/general.css" text="Zoom Out" />
                </children>
             </Pane>
          </children>
