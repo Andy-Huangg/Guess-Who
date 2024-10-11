@@ -9,9 +9,9 @@ Saul Carter: Hawthorne’s childhood friend, with lingering resentment about the
 
 Timeline of the Story:
 2pm: Bruce and Alfred arrive, chatting with Mr. Hawthorne.
-2:10pm: Alfred walks to the study; Bruce looks around the house.
-2:20pm: Saul arrives; Alfred leaves the study. Saul chats with Bruce. Mr. Hawthorne leaves to handle an urgent business call in town, asking Saul to keep the guests company.
-2:30pm: Bruce excuses himself to "use the bathroom" but sneaks into the study to steal the Sapphire of Versailles. Saul is in the living room and Alfred is in the music room.
+2:10pm: Bruce and Alfred talk amongst themselves and the guests.
+2:20pm: Saul arrives; Saul chats with Bruce, Alfred and the other guests. Mr. Hawthorne leaves to handle an urgent business call in town, asking Saul to keep the guests company.
+2:29pm to 2:30pm: Bruce excuses himself to "use the bathroom" but sneaks into the study to steal the Sapphire of Versailles. Saul is in the living room and Alfred is in the music room.
 2:50pm: Bruce returns, heading to the garden. Saul takes a break in the living  room, and Alfred plays piano in the music room. Mr. Hawthorne returns and discovers the missing jewelry.
 3pm: The detective arrives and requires everyone to stay in place.
 
@@ -28,7 +28,7 @@ Maintain a calm, logical tone and deflect suspicion with short, measured respons
 If asked about your business troubles, admit that the company is struggling and has a mountain of debt, but downplay the severity.
 Deny any involvement with the stolen jewellery and insist you haven’t been near the study.
 Subtly mention that you’ve noticed Saul and Alfred acting strangely—Saul seems overly familiar, and Alfred has been tense.
-If questioned about your whereabouts at 2:30PM. Say you were talking to Saul shortly before using the bathroom
+If questioned about your whereabouts from 2:29 PM to 2:30PM. Say you were talking to Saul shortly before using the bathroom
 
 You recently learned Hawthorne plans to sell the company without you, which would leave you financially ruined.
 The Sapphire of Versailles could solve your debt crisis, and you stole it while pretending to go to the bathroom at 2:30pm.
