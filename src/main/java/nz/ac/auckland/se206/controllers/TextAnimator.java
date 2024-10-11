@@ -12,19 +12,53 @@ public class TextAnimator implements Runnable {
   private int animationTime = 30;
   private String text;
 
+  /**
+   * Constructor for TextAnimator
+   *
+   * @param text the text to animate
+   * @param textField the TextArea to output the text
+   */
   public TextAnimator(String text, TextArea textField) {
     this.text = text;
     this.textOutput = textField;
   }
 
+  /**
+   * Get the running count
+   *
+   * @return the running count
+   */
   public static boolean getIsRunning() {
     return isRunning;
   }
 
+  /**
+   * Set the running count
+   *
+   * @param value the value to set
+   */
   public static void setRunningCount(int value) {
     runningCount = value;
   }
 
+  /** Start the animation */
+  public void startAnimation() {
+    while (isRunning) {
+      try {
+        Thread.sleep(5); // pause a bit
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    Thread thread = new Thread(this);
+    thread.start();
+  }
+
+  /**
+   * Get the running count
+   *
+   * @return the running count
+   */
   @Override
   public void run() {
     // increment running count
@@ -57,17 +91,5 @@ public class TextAnimator implements Runnable {
     Thread backgroundThread = new Thread(task);
     backgroundThread.setDaemon(true);
     backgroundThread.start();
-  }
-
-  public void startAnimation() {
-    while (isRunning) {
-      try {
-        Thread.sleep(5); // pause a bit
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-    Thread thread = new Thread(this);
-    thread.start();
   }
 }
