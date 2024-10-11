@@ -163,6 +163,11 @@
                               <Image url="@../images/securityLogs.png" />
                            </image>
                         </ImageView>
+                        <Text fill="WHITE" layoutX="225.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3:00 PM" wrappingWidth="81.791015625">
+                           <font>
+                              <Font name="Verdana Bold" size="12.0" />
+                           </font>
+                        </Text>
                      </children>
                   </Pane>
                   <Pane fx:id="keypadPane" layoutX="16.0" layoutY="79.0" prefHeight="503.0" prefWidth="693.0">
