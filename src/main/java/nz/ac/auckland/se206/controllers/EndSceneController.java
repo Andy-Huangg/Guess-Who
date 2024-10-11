@@ -13,6 +13,10 @@ import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
+/**
+ * Controller class for the end scene view. Handles user interactions within the end scene where the
+ * user can see the result of the game.
+ */
 public class EndSceneController {
 
   @FXML private Label labelResult; // Label for the end message
@@ -26,8 +30,8 @@ public class EndSceneController {
   /**
    * Initializes the end scene view. It will display the end message and the score.
    *
-   * @throws ApiProxyException
-   * @throws InterruptedException
+   * @throws ApiProxyException when there is an error with the API proxy
+   * @throws InterruptedException when there is an error with the thread
    */
   @FXML
   public void initialize() throws ApiProxyException, InterruptedException {
@@ -66,17 +70,17 @@ public class EndSceneController {
   }
 
   /**
-   * Get the reason of the user's guess
+   * Get the reason of the user's guess.
    *
    * @param reason the reason of the user's guess
-   * @throws ApiProxyException
+   * @throws ApiProxyException when there is an error with the API proxy
    */
   private void getReason(String reason) throws ApiProxyException {
     chatHandler.sendReason(reason, this);
   }
 
   /**
-   * Set the reason of the user's guess
+   * Set the reason of the user's guess.
    *
    * @param reason the reason of the user's guess
    */
@@ -85,7 +89,7 @@ public class EndSceneController {
   }
 
   /**
-   * Play the end audio
+   * Play the audio file for the end scene depending on the game result.
    *
    * @param audioFileName the name of the audio file
    */
@@ -96,18 +100,11 @@ public class EndSceneController {
     mediaPlayer.play();
   }
 
-  /**
-   * Restart the game
-   *
-   * @param event the action event triggered by clicking the play again button
-   * @throws IOException if there is an I/O error
-   */
   @FXML
   private void onRestart(ActionEvent event) throws IOException {
     App.restartGame(labelResult); // Restart the game
   }
 
-  /** Exit the game */
   @FXML
   private void onQuit() {
     Platform.exit(); // This closes the application
