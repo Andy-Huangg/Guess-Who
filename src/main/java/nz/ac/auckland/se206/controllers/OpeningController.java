@@ -170,7 +170,7 @@ public class OpeningController {
                 textGo(true, block7Dialog2, 1000);
                 Thread.sleep(1200);
                 // transit to black screen
-                handleSkipClick(null);
+                onSkipClick(null);
               } catch (Exception e) {
                 // do nothing
               }
@@ -348,7 +348,7 @@ public class OpeningController {
    * @throws IOException if the "src/main/resources/fxml/mainLayout.fxml" file is not found
    */
   @FXML
-  public void handleSkipClick(ActionEvent event) throws IOException {
+  protected void onSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt(); // stop the animation thread
     // use timeline to schecule the transition
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
@@ -380,7 +380,7 @@ public class OpeningController {
    * @param event the event of the start button click
    */
   @FXML
-  public void handleStartClick(ActionEvent event) {
+  protected void onStartClick(ActionEvent event) {
     // sliding the start button and image to the left
     TranslateTransition temp1 = new TranslateTransition();
     temp1.setByX(-1000);

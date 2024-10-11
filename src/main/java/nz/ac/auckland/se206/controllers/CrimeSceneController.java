@@ -124,7 +124,7 @@ public class CrimeSceneController {
 
   /** Handles the close button on the sticky note. Sticky note pane is hidden. */
   @FXML
-  private void closeStickyNote() {
+  private void onCloseStickyNote() {
     stickyNotePane.setVisible(false);
   }
 
@@ -362,7 +362,7 @@ public class CrimeSceneController {
                         onCloseDocuments();
                         onCloseNewsPaper();
                         onCloseWallet();
-                        closeStickyNote();
+                        onCloseStickyNote();
                       });
                 } catch (InterruptedException e) {
                   // do nothing
