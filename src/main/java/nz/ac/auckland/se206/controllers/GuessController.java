@@ -107,7 +107,7 @@ public class GuessController extends ChatSceneController {
    * Puts frame around selected suspect.
    *
    * @param event the suspect image clicked
-   * @throws IOException
+   * @throws IOException if the "endScene.fxml" file is not found
    */
   @FXML
   private void setSuspect(MouseEvent event) {

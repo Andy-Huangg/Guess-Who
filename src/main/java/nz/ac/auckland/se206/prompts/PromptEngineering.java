@@ -13,6 +13,12 @@ import java.nio.file.Paths;
  */
 public class PromptEngineering {
 
+  /**
+   * Returns a prompt template filled with the provided data.
+   *
+   * @param promptId the ID of the prompt template to load
+   * @return the prompt template filled with the provided data
+   */
   public static String getPrompt(String promptId) {
     try {
       // Load the prompt template file from resources

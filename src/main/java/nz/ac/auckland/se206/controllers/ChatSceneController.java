@@ -66,10 +66,10 @@ public abstract class ChatSceneController {
   }
 
   /**
-   * Sends a message to the chat
+   * Sends a message to the chat.
    *
-   * @param event send message button pressed
-   * @throws ApiProxyException if an error occurs while sending the message
+   * @param event send message button pressed.
+   * @throws ApiProxyException if an error occurs while sending the message.
    */
   @FXML
   public void onSendMessage(ActionEvent event) throws ApiProxyException {
@@ -119,7 +119,7 @@ public abstract class ChatSceneController {
   protected abstract void setInteractedFlag(boolean interacted);
 
   /**
-   * Plays the intro audio.
+   * Plays the intro audio for the chat scene.
    *
    * @param audioFileName the name of the audio file
    */

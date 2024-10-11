@@ -151,21 +151,25 @@ public class CrimeSceneController {
             new KeyFrame(
                 Duration.seconds(0.75),
                 e -> {
-                  if (number == 1) { // if the number is 1 then set the opacity to 0
+                  if (number == 1) {
+                    // if the number is 1 then set the opacity to 0
                     keypadUnderline1.setOpacity(0);
-                  } else if (number == 2) { // if the number is 2 then set the opacity to 0
+                  } else if (number == 2) {
+                    // if the number is 2 then set the opacity to 0
                     keypadUnderline2.setOpacity(0);
                   }
                 }),
-            new KeyFrame( // set the opacity to 1 after 1.5 sec
+            new KeyFrame(
                 Duration.seconds(1.5),
                 e -> {
+                  // set the opacity to 1 after 1.5 sec
                   if (number == 1) {
                     keypadUnderline1.setOpacity(1);
                   } else if (number == 2) {
                     keypadUnderline2.setOpacity(1);
                   }
                 }));
+
     keypadFlash.setCycleCount(Animation.INDEFINITE);
     keypadFlash.play();
   }
@@ -255,14 +259,15 @@ public class CrimeSceneController {
       unlockRectangle.setOpacity(1); // when guess is correct unlock the safe
     }
     PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
-    pause.setOnFinished( // pause for 1.5 sec and display the result
+    pause.setOnFinished(
         event -> {
           if (correctGuess) {
-            // hide the keypad and show the log
+            // Hide the keypad and show the log
             keypadPane.setVisible(false);
             keypadLogPane.setVisible(true);
             return;
           }
+
           keypadUnderline1.setOpacity(1);
           keypadUnderline2.setOpacity(1);
           startKeypadFlash(1);
@@ -270,6 +275,7 @@ public class CrimeSceneController {
           keypadNumber2 = -1;
           keypadNumberDisplayText.setText("");
         });
+
     pause.play();
   }
 
