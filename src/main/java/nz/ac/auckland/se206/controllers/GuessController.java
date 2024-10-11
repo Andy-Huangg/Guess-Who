@@ -15,6 +15,10 @@ import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatHandler;
 
+/**
+ * Controller class for the guess view. Handles user interactions within the guess scene where the
+ * user can guess the thief.
+ */
 public class GuessController extends ChatSceneController {
 
   @FXML private Label timeLabel;
@@ -129,7 +133,7 @@ public class GuessController extends ChatSceneController {
   }
 
   /**
-   * Handles the logic for guessing a suspect
+   * Handles the logic for guessing a suspect.
    *
    * @param event the mouse event
    * @throws IOException if the "src/main/resources/fxml/endScene.fxml" file is not found
