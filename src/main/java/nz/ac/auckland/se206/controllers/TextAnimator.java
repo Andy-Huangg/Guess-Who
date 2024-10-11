@@ -11,10 +11,10 @@ public class TextAnimator implements Runnable {
   private static boolean isRunning = false;
   private static int runningCount = 0;
 
+  @FXML private TextArea textOutput;
+
   private int animationTime = 30;
   private String text;
-
-  @FXML private TextArea textOutput;
 
   /**
    * Constructor for TextAnimator.
