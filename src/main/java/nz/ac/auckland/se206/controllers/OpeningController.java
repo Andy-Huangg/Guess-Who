@@ -58,8 +58,8 @@ public class OpeningController {
   private TranslateTransition textGoRight = new TranslateTransition();
   private TranslateTransition textGoLeft = new TranslateTransition();
 
+  /** Initializes the opening scene view. It will display the opening animation. */
   public void initialize() {
-
     openingThread =
         new Thread(
             () -> {
@@ -94,7 +94,7 @@ public class OpeningController {
                 textFadeOut(block2Dialog1);
                 textFadeOut(block2Dialog2);
                 imageFadeOut(block2);
-                //end of block 2
+                // end of block 2
                 Thread.sleep(10);
 
                 // block 3
@@ -173,6 +173,11 @@ public class OpeningController {
             });
   }
 
+  /**
+   * This method is used to fade in the image.
+   *
+   * @param temp the image to be faded in
+   */
   public void imageFadeIn(ImageView temp) {
     // fade in the image
     Platform.runLater(
@@ -185,6 +190,11 @@ public class OpeningController {
         });
   }
 
+  /**
+   * This method is used to fade out the image.
+   *
+   * @param temp the image to be faded out
+   */
   public void imageFadeOut(ImageView temp) {
     //  fade out the image
     Platform.runLater(
@@ -197,6 +207,14 @@ public class OpeningController {
         });
   }
 
+  /**
+   * This method is used to pull the image to the left or right.
+   *
+   * @param isLeft true if the image is pulled to the left, false if the image is pulled to the
+   *     right
+   * @param temp the image to be pulled
+   * @param time the time taken to pull the image
+   */
   public void imagePull(boolean isLeft, ImageView temp, int time) {
     // move the image to the left or right
     if (isLeft) {
@@ -218,6 +236,11 @@ public class OpeningController {
     }
   }
 
+  /**
+   * This method is used to fade in the text.
+   *
+   * @param temp the text to be faded in
+   */
   public void textFadeIn(Label temp) {
     // fade in the text
     Platform.runLater(
@@ -230,6 +253,11 @@ public class OpeningController {
         });
   }
 
+  /**
+   * This method is used to fade out the text.
+   *
+   * @param temp the text to be faded out
+   */
   public void textFadeOut(Label temp) {
     // fade out the text
     Platform.runLater(
@@ -242,6 +270,13 @@ public class OpeningController {
         });
   }
 
+  /**
+   * This method is used to move the text to the left or right.
+   *
+   * @param isLeft true if the text is moved to the left, false if the text is moved to the right
+   * @param temp the text to be moved
+   * @param time the time taken to move the text
+   */
   public void textGo(boolean isLeft, Label temp, int time) {
     // move the text to the left or right
     if (isLeft) {
@@ -263,6 +298,11 @@ public class OpeningController {
     }
   }
 
+  /**
+   * This method is used to move the image up.
+   *
+   * @param temp the image to be moved up
+   */
   public void imageUp(ImageView temp) {
     // move the image up
     TranslateTransition goUp = new TranslateTransition();
@@ -272,6 +312,11 @@ public class OpeningController {
     goUp.play();
   }
 
+  /**
+   * This method is used to move the image down.
+   *
+   * @param temp the image to be moved down
+   */
   public void imageDown(ImageView temp) {
     //  move the image down
     TranslateTransition goDown = new TranslateTransition();
@@ -281,6 +326,7 @@ public class OpeningController {
     goDown.play();
   }
 
+  /** This method is used to end the opening scene. */
   public void endOpening() {
     // fade in the black screen
     FadeTransition temp = new FadeTransition();
@@ -291,15 +337,16 @@ public class OpeningController {
     temp.play();
   }
 
+  /**
+   * This method is used to handle the skip button click event.
+   *
+   * @param event the event of the skip button click
+   * @throws IOException if the "src/main/resources/fxml/mainLayout.fxml" file is not found
+   */
   @FXML
-<<<<<<< HEAD
-  private void handleSkipClick(ActionEvent event) throws IOException {
-    openingThread.interrupt();
-=======
   public void handleSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt(); // stop the animation thread
     // use timeline to schecule the transition
->>>>>>> main
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
     KeyFrame f3 = new KeyFrame(Duration.millis(250), e -> App.preloadMainLayout(coverRect));
     KeyFrame f2 =
@@ -323,13 +370,14 @@ public class OpeningController {
         });
   }
 
+  /**
+   * This method is used to handle the start button click event.
+   *
+   * @param event the event of the start button click
+   */
   @FXML
-<<<<<<< HEAD
-  private void handleStartClick(ActionEvent event) {
-=======
   public void handleStartClick(ActionEvent event) {
     // sliding the start button and image to the left
->>>>>>> main
     TranslateTransition temp1 = new TranslateTransition();
     temp1.setByX(-1000);
     temp1.setDuration(Duration.millis(500));
