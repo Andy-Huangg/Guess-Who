@@ -64,8 +64,8 @@ public class OpeningController {
         new Thread(
             () -> {
               try {
+                // animation of the opening scene
                 // block1
-
                 Thread.currentThread().sleep(500);
                 startPane.setVisible(false);
                 textFadeIn(block1Dialog1);
@@ -94,8 +94,10 @@ public class OpeningController {
                 textFadeOut(block2Dialog1);
                 textFadeOut(block2Dialog2);
                 imageFadeOut(block2);
+                // end of block 2
                 Thread.currentThread().sleep(10);
 
+                // block 3
                 imageFadeIn(block3);
                 textFadeIn(block3Dialog1);
                 imagePull(true, block3, 1500);
@@ -107,8 +109,10 @@ public class OpeningController {
                 textFadeOut(block3Dialog1);
                 textFadeOut(block3Dialog2);
                 imageFadeOut(block3);
+                // end of block 3
                 Thread.currentThread().sleep(10);
 
+                // block 4
                 imageFadeIn(block4);
                 textFadeIn(block4Dialog1);
                 textGo(false, block4Dialog1, 1500);
@@ -120,8 +124,10 @@ public class OpeningController {
                 textFadeOut(block4Dialog1);
                 textFadeOut(block4Dialog2);
                 imageFadeOut(block4);
+                // end of block 4
                 Thread.currentThread().sleep(10);
 
+                // block 5
                 imageFadeIn(block5);
                 textFadeIn(block5Dialog1);
                 textGo(false, block5Dialog1, 1500);
@@ -133,8 +139,10 @@ public class OpeningController {
                 textFadeOut(block5Dialog1);
                 textFadeOut(block5Dialog2);
                 imageFadeOut(block5);
+                // end of block 5
                 Thread.currentThread().sleep(10);
 
+                // block 6
                 imageFadeIn(block6);
                 textFadeIn(block6Dialog1);
                 textGo(false, block6Dialog1, 1500);
@@ -146,8 +154,10 @@ public class OpeningController {
                 textFadeOut(block6Dialog1);
                 textFadeOut(block6Dialog2);
                 imageFadeOut(block6);
+                // end of block 6 block
                 Thread.currentThread().sleep(10);
 
+                // block 7
                 imageFadeIn(block7);
                 textFadeIn(block7Dialog1);
                 textGo(false, block7Dialog1, 1500);
@@ -163,6 +173,7 @@ public class OpeningController {
   }
 
   public void imageFadeIn(ImageView temp) {
+    // fade in the image
     Platform.runLater(
         () -> {
           FadeTransition fadeIn = new FadeTransition();
@@ -174,6 +185,7 @@ public class OpeningController {
   }
 
   public void imageFadeOut(ImageView temp) {
+    //  fade out the image
     Platform.runLater(
         () -> {
           FadeTransition fadeOut = new FadeTransition();
@@ -185,6 +197,7 @@ public class OpeningController {
   }
 
   public void imagePull(boolean isLeft, ImageView temp, int time) {
+    // move the image to the left or right
     if (isLeft) {
       Platform.runLater(
           () -> {
@@ -205,6 +218,7 @@ public class OpeningController {
   }
 
   public void textFadeIn(Label temp) {
+    // fade in the text
     Platform.runLater(
         () -> {
           FadeTransition textFadeIn = new FadeTransition();
@@ -216,6 +230,7 @@ public class OpeningController {
   }
 
   public void textFadeOut(Label temp) {
+    // fade out the text
     Platform.runLater(
         () -> {
           FadeTransition textFadeOut = new FadeTransition();
@@ -227,6 +242,7 @@ public class OpeningController {
   }
 
   public void textGo(boolean isLeft, Label temp, int time) {
+    // move the text to the left or right
     if (isLeft) {
       Platform.runLater(
           () -> {
@@ -247,6 +263,7 @@ public class OpeningController {
   }
 
   public void imageUp(ImageView temp) {
+    // move the image up
     TranslateTransition goUp = new TranslateTransition();
     goUp.setDuration(Duration.millis(3000));
     goUp.setByY(2800 / 160);
@@ -255,6 +272,7 @@ public class OpeningController {
   }
 
   public void imageDown(ImageView temp) {
+    //  move the image down
     TranslateTransition goDown = new TranslateTransition();
     goDown.setDuration(Duration.millis(2800));
     goDown.setByY(-1 * 2800 / 160);
@@ -263,6 +281,7 @@ public class OpeningController {
   }
 
   public void endOpening() {
+    // fade in the black screen
     FadeTransition temp = new FadeTransition();
     temp.setToValue(1);
     temp.setDuration(Duration.millis(1300));
@@ -273,7 +292,8 @@ public class OpeningController {
 
   @FXML
   public void handleSkipClick(ActionEvent event) throws IOException {
-    openingThread.interrupt();
+    openingThread.interrupt(); // stop the animation thread
+    // use timeline to schecule the transition
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
     KeyFrame f3 = new KeyFrame(Duration.millis(250), e -> App.preloadMainLayout(coverRect));
     KeyFrame f2 =
@@ -288,7 +308,7 @@ public class OpeningController {
               }
             });
     Timeline tl = new Timeline(f1, f3, f2);
-    if (event != null) {
+    if (event != null) { // disable button if access by click skip button
       Button temp = (Button) event.getSource();
       temp.setDisable(true);
     }
@@ -300,6 +320,7 @@ public class OpeningController {
 
   @FXML
   public void handleStartClick(ActionEvent event) {
+    // sliding the start button and image to the left
     TranslateTransition temp1 = new TranslateTransition();
     temp1.setByX(-1000);
     temp1.setDuration(Duration.millis(500));
