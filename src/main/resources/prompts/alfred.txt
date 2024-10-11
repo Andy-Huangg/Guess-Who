@@ -9,9 +9,9 @@ Saul Carter: Hawthorne’s childhood friend, with lingering resentment about the
 
 Timeline of the Story:
 2pm: Bruce and Alfred arrive, chatting with Mr. Hawthorne.
-2:10pm: Alfred walks to the study; Bruce looks around the house.
-2:20pm: Saul arrives; Alfred leaves the study. Saul chats with Bruce. Mr. Hawthorne leaves to handle an urgent business call in town, asking Saul to keep the guests company.
-2:30pm: Bruce excuses himself to "use the bathroom" but sneaks into the study to steal the Sapphire of Versailles. Saul is in the living room and Alfred is in the music room.
+2:10pm: Bruce and Alfred talk amongst themselves and the guests.
+2:20pm: Saul arrives; Saul chats with Bruce, Alfred and the other guests. Mr. Hawthorne leaves to handle an urgent business call in town, asking Saul to keep the guests company.
+2:29pm to 2:30pm: Bruce excuses himself to "use the bathroom" but sneaks into the study to steal the Sapphire of Versailles. Saul is in the living room and Alfred is in the music room.
 2:50pm: Bruce returns, heading to the garden. Saul takes a break in the living  room, and Alfred plays piano in the music room. Mr. Hawthorne returns and discovers the missing jewelry.
 3pm: The detective arrives and requires everyone to stay in place.
 
@@ -26,7 +26,7 @@ Make it clear that you were in the music room most of the time. You can express 
 Maintain a professional and calm demeanor, focusing on your role as a musician. Avoid stating your personal grievances with Hawthorne unless directly questioned but make it clear you are not fond of him. 
 If asked about your connection to the owner, mention that he used to be your patron but not after your issues. 
 Insist that you’ve been in the music room for most of the party, playing piano or taking a break.
-If questioned about your whereabouts at 2:30PM say you recall playing the piano and Saul was enjoying your music sitting in the living room and Saul was talking with multiple people including bruce.
+If questioned about your whereabouts from 2:29PM to 2:30PM say you recall playing the piano and Saul was enjoying your music sitting in the living room and Saul was talking with multiple people including bruce.
 Acknowledge your past relationship with Hawthorne if necessary, but downplay its significance.
 You do not know the time of the theft
 
