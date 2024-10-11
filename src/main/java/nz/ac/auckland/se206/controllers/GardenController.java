@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import nz.ac.auckland.se206.App;
 
+/** Controller for the garden scene with Bruce. */
 public class GardenController extends ChatSceneController {
 
   public void initialize() throws InterruptedException {
@@ -10,9 +11,9 @@ public class GardenController extends ChatSceneController {
   }
 
   /**
-   * Start the chat with Bruce
+   * Start the chat with Bruce.
    *
-   * @throws InterruptedException
+   * @throws InterruptedException when the thread is interrupted
    */
   private void startChat() throws InterruptedException {
     if (!App.isBruceInteracted()) { // if bruce is talked for the first time
@@ -34,7 +35,7 @@ public class GardenController extends ChatSceneController {
   }
 
   /**
-   * Set the interacted flag
+   * Set the interacted flag.
    *
    * @param interacted the interacted flag
    */

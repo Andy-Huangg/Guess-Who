@@ -108,6 +108,11 @@ public class App extends Application {
     stage.show(); // Reset the scene to the initial one
   }
 
+  /**
+   * Preloads the main layout.
+   *
+   * @param event a rectangle in the current scene
+   */
   public static void preloadMainLayout(Rectangle event) {
     new Thread(
             () -> {
@@ -115,7 +120,6 @@ public class App extends Application {
               try {
                 mainLayout = temp.load();
               } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
               }
             })
@@ -159,8 +163,13 @@ public class App extends Application {
     return isAlfredInteracted;
   }
 
+  /**
+   * Get the number of suspects interacted.
+   *
+   * @return the number of suspects interacted
+   */
   public static int getSuspectsInteracted() {
-    // get the numbers or suspects interacted
+    // increment count if the suspect is interacted for first time
     int count = 0;
     if (isBruceInteracted()) {
       count++;
@@ -174,6 +183,11 @@ public class App extends Application {
     return count; // return the number of suspects interacted
   }
 
+  /**
+   * Check if the user has interacted with all suspects.
+   *
+   * @return true if the user has interacted with all suspects, false otherwise
+   */
   public static boolean isEnoughInteraction() {
     if (isBruceInteracted && isSaulInteracted && isAlfredInteracted) {
       return true;

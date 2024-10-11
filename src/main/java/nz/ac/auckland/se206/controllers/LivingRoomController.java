@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import nz.ac.auckland.se206.App;
 
+/** Controller for the living room scene with Saul. */
 public class LivingRoomController extends ChatSceneController {
 
   public void initialize() throws InterruptedException {
@@ -10,9 +11,9 @@ public class LivingRoomController extends ChatSceneController {
   }
 
   /**
-   * Start the chat with Saul
+   * Start the chat with Saul.
    *
-   * @throws InterruptedException
+   * @throws InterruptedException when the thread is interrupted
    */
   private void startChat() throws InterruptedException {
     if (!App.isSaulInteracted()) { // if talked to saul for the first time
@@ -31,7 +32,7 @@ public class LivingRoomController extends ChatSceneController {
   }
 
   /**
-   * Set the interacted flag
+   * Set the interacted flag.
    *
    * @param interacted the interacted flag
    */

@@ -248,6 +248,11 @@ public class MainLayoutController {
     fxmlLoaderThread.start();
   }
 
+  /**
+   * Plays the audio file specified by the parameter.
+   *
+   * @param audioFileName the name of the audio file to play
+   */
   public void playAudio(String audioFileName) {
     String audioFilePath = "src/main/resources/sounds/" + audioFileName;
     Media media = new Media(Paths.get(audioFilePath).toUri().toString());
@@ -338,12 +343,12 @@ public class MainLayoutController {
     timerThread.start(); // Start the background thread
   }
 
-  // Call this method to stop the timer if needed
+  /** Stops the countdown timer. */
   private void stopTimer() {
     stopTimer = true;
   }
 
-  /* Method to transition to the main screen */
+  /** Method to transition to the main screen */
   public void transitionToMain() {
     coverRect.setVisible(true);
     FadeTransition temp = new FadeTransition();

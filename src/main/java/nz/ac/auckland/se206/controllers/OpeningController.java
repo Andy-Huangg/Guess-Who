@@ -16,6 +16,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 
+/**
+ * Controller class for the opening scene view. Handles user interactions within the opening scene
+ * where the user can see the opening animation.
+ */
 public class OpeningController {
 
   @FXML private ImageView block1;
