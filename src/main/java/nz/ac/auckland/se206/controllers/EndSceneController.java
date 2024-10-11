@@ -38,11 +38,11 @@ public class EndSceneController {
     // Check game state and set according text
     if (App.isTimeUp()) {
       playEndAudio("timesup.mp3");
-      labelResult.setText("Time's Up! You Lost!");
+      labelResult.setText("Time's Up!\nYou Lost!");
       labelReason.setText("");
     } else if (!App.isWinner()) {
       playEndAudio("guesswrong.mp3");
-      labelResult.setText("You Guessed Wrong! You Lost!");
+      labelResult.setText("You Guessed Wrong!\nYou Lost!");
       labelReason.setText("");
     } else {
       // Get the reason of the user and handle it accordingly
