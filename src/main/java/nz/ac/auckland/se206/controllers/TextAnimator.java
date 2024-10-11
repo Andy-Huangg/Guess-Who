@@ -10,6 +10,15 @@ public class TextAnimator implements Runnable {
 
   private static boolean isRunning = false;
   private static int runningCount = 0;
+
+  public static boolean getIsRunning() {
+    return isRunning;
+  }
+
+  public static void setRunningCount(int value) {
+    runningCount = value;
+  }
+
   private String text;
   private int animationTime = 30;
   @FXML private TextArea textOutput;
@@ -23,14 +32,6 @@ public class TextAnimator implements Runnable {
   public TextAnimator(String text, TextArea textField) {
     this.text = text;
     this.textOutput = textField;
-  }
-
-  public static boolean getIsRunning() {
-    return isRunning;
-  }
-
-  public static void setRunningCount(int value) {
-    runningCount = value;
   }
 
   /** Start the text animation at given speed. */
