@@ -362,7 +362,7 @@ public class CrimeSceneController {
                         closeStickyNote();
                       });
                 } catch (InterruptedException e) {
-                  e.printStackTrace();
+                  // do nothing
                 }
               });
       closeClueThread.start();

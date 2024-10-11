@@ -168,7 +168,7 @@ public class OpeningController {
                 // transit to black screen
                 handleSkipClick(null);
               } catch (Exception e) {
-                e.printStackTrace();
+                // do nothing
               }
             });
   }
