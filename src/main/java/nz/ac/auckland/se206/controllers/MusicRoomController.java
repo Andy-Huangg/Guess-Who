@@ -13,6 +13,11 @@ public class MusicRoomController extends ChatSceneController {
     startChat();
   }
 
+  /**
+   * Start the chat with Alfred
+   *
+   * @throws InterruptedException
+   */
   @FXML
   private void startChat() throws InterruptedException {
     if (!App.isAlfredInteracted()) { // if talk to alfred for the first time
@@ -31,6 +36,11 @@ public class MusicRoomController extends ChatSceneController {
     chatHandler.setCharacter("alfred");
   }
 
+  /**
+   * Set the interacted flag
+   *
+   * @param interacted the interacted flag
+   */
   @Override
   protected void setInteractedFlag(boolean interacted) {
     App.setAlfredInteracted(interacted);

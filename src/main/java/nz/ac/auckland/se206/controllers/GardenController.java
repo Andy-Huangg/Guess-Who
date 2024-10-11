@@ -9,6 +9,11 @@ public class GardenController extends ChatSceneController {
     startChat();
   }
 
+  /**
+   * Start the chat with Bruce
+   *
+   * @throws InterruptedException
+   */
   private void startChat() throws InterruptedException {
     if (!App.isBruceInteracted()) { // if bruce is talked for the first time
       playIntroAudio("Bruce_intro.mp3");
@@ -28,6 +33,11 @@ public class GardenController extends ChatSceneController {
     chatHandler.setCharacter("bruce");
   }
 
+  /**
+   * Set the interacted flag
+   *
+   * @param interacted the interacted flag
+   */
   @Override
   protected void setInteractedFlag(boolean interacted) {
     App.setBruceInteracted(interacted);
