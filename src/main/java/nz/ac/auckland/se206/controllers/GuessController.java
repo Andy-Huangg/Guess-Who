@@ -29,7 +29,7 @@ public class GuessController extends ChatSceneController {
 
   private String suspectSelected;
   private ChatHandler chatHandler = new ChatHandler("owner");
-  private int timeCount = 20;
+  private int timeCount = 60;
   private boolean stopTimer = false;
   private String[] responseList = {
     "Are you being serious right now? Me? Really?",
