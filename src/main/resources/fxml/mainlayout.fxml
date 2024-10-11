@@ -227,7 +227,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </AnchorPane>
-            <Label fx:id="timerLabel" alignment="CENTER" layoutX="299.0" layoutY="-9.0" opacity="0.9" prefHeight="56.0" prefWidth="133.0" styleClass="timer-label" stylesheets="@../css/mainLayout.css" text="00:00" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="298.0">
+            <Label fx:id="timerLabel" alignment="CENTER" layoutX="303.0" layoutY="-9.0" opacity="0.9" prefHeight="56.0" prefWidth="133.0" styleClass="timer-label" stylesheets="@../css/mainLayout.css" text="04:45" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="303.0" AnchorPane.rightAnchor="294.0">
                <font>
                   <Font size="25.0" />
                </font>

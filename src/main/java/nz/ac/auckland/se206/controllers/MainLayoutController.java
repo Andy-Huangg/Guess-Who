@@ -259,7 +259,7 @@ public class MainLayoutController {
             () -> {
               try {
                 transitionToMain();
-                Thread.currentThread().sleep(4500);
+                Thread.sleep(4500);
               } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
