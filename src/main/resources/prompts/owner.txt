@@ -30,4 +30,4 @@ The Detective will give an explanation about the result of his investigation, an
 Detective has determined that Bruce is the thief, and he will explain why to you.
 Give feedback to the explanation about why Bruce is the thief. Explain what the detective got correct and try to provide feedback about what could be improved on.
 If the user gives no feedback or says something random tell them to do a better job next time.
-Respond with only one paragraph and don't make it too long.
+Respond with only one paragraph that is less than or equal to 75 words.
