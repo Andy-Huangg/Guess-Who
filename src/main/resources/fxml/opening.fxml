@@ -8,19 +8,19 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="730.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.OpeningController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="730.0" style="-fx-background-color: white;" stylesheets="@../css/mainLayout.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.OpeningController">
    <children>
       <ImageView fx:id="block1" fitHeight="698.0" fitWidth="947.0" layoutX="-114.0" opacity="0.0" pickOnBounds="true">
          <image>
             <Image url="@../images/mansion.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="block1Dialog1" layoutX="15.0" layoutY="189.0" opacity="0.0" prefHeight="48.0" prefWidth="413.0" text="A grand mansion...">
+      <Label fx:id="block1Dialog1" layoutX="15.0" layoutY="189.0" opacity="0.0" prefHeight="48.0" prefWidth="413.0" styleClass="font" stylesheets="@../css/mainLayout.css" text="A grand mansion...">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="block1Dialog2" layoutX="297.0" layoutY="361.0" opacity="0.0" prefHeight="47.0" prefWidth="428.0" text="A high-society party...">
+      <Label fx:id="block1Dialog2" layoutX="297.0" layoutY="361.0" opacity="0.0" prefHeight="47.0" prefWidth="428.0" styleClass="font" text="A high-society party...">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="40.0" />
          </font>
@@ -30,12 +30,12 @@
             <Image url="@../images/necklace.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="block2Dialog1" layoutX="14.0" layoutY="133.0" prefHeight="126.0" prefWidth="592.0" text="The Sapphire of Versailles                   a family heirloom" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="block2Dialog1" layoutX="14.0" layoutY="133.0" prefHeight="126.0" prefWidth="592.0" styleClass="font" stylesheets="@../css/mainLayout.css" text="The Sapphire of Versailles a family heirloom" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="block2Dialog2" layoutX="215.0" layoutY="273.0" opacity="0.0" prefHeight="42.0" prefWidth="483.0" text="was stolen from the study...">
+      <Label fx:id="block2Dialog2" layoutX="215.0" layoutY="273.0" opacity="0.0" prefHeight="42.0" prefWidth="483.0" styleClass="font" text="was stolen from the study...">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
@@ -45,12 +45,12 @@
             <Image url="@../images/3man.png" />
          </image>
       </ImageView>
-      <Label fx:id="block3Dialog1" layoutX="14.0" layoutY="230.0" opacity="0.0" prefHeight="42.0" prefWidth="302.0" text="Who is the thief?">
+      <Label fx:id="block3Dialog1" layoutX="14.0" layoutY="230.0" opacity="0.0" prefHeight="42.0" prefWidth="302.0" styleClass="font" text="Who is the thief?">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="block3Dialog2" layoutX="187.0" layoutY="349.0" opacity="0.0" prefHeight="42.0" prefWidth="542.0" text="Who is trying to ruin the night?">
+      <Label fx:id="block3Dialog2" layoutX="187.0" layoutY="349.0" opacity="0.0" prefHeight="42.0" prefWidth="542.0" styleClass="font" text="Who is trying to ruin the night?">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
@@ -60,12 +60,12 @@
             <Image url="@../images/3man.png" />
          </image>
       </ImageView>
-      <Label fx:id="block4Dialog1" layoutX="25.0" layoutY="230.0" opacity="0.0" prefHeight="47.0" prefWidth="331.0" text="Is it Saul Carter?">
+      <Label fx:id="block4Dialog1" layoutX="25.0" layoutY="230.0" opacity="0.0" prefHeight="47.0" prefWidth="331.0" styleClass="font" text="Is it Saul Carter?">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="block4Dialog2" layoutX="107.0" layoutY="273.0" opacity="0.0" prefHeight="175.0" prefWidth="642.0" text="A childhood friend of Mr.Hawthorne that used to own the necklace?" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="block4Dialog2" layoutX="107.0" layoutY="273.0" opacity="0.0" prefHeight="175.0" prefWidth="642.0" styleClass="font" text="A childhood friend of Mr.Hawthorne that used to own the necklace?" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
@@ -75,12 +75,12 @@
             <Image url="@../images/3man.png" />
          </image>
       </ImageView>
-      <Label fx:id="block5Dialog1" layoutX="7.0" layoutY="182.0" opacity="0.0" prefHeight="47.0" prefWidth="414.0" text="Or Bruce Lockwood?">
+      <Label fx:id="block5Dialog1" layoutX="7.0" layoutY="182.0" opacity="0.0" prefHeight="47.0" prefWidth="414.0" styleClass="font" text="Or Bruce Lockwood?">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="block5Dialog2" alignment="CENTER" layoutX="165.0" layoutY="303.0" opacity="0.0" prefHeight="175.0" prefWidth="563.0" text="The business partner who found betrayal in Mr.Hawthorne?" textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="block5Dialog2" alignment="CENTER" layoutX="165.0" layoutY="303.0" opacity="0.0" prefHeight="175.0" prefWidth="563.0" styleClass="font" text="The business partner who found betrayal in Mr.Hawthorne?" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
@@ -90,12 +90,12 @@
             <Image url="@../images/3man.png" />
          </image>
       </ImageView>
-      <Label fx:id="block6Dialog1" layoutX="17.0" layoutY="192.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" text="Could it be Alfred Connelly?">
+      <Label fx:id="block6Dialog1" layoutX="17.0" layoutY="192.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" styleClass="font" text="Could it be Alfred Connelly?">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="block6Dialog2" alignment="CENTER" layoutX="199.0" layoutY="315.0" opacity="0.0" prefHeight="175.0" prefWidth="517.0" text="The pianist who was once abandoned by Mr.Hawthorne?" textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="block6Dialog2" alignment="CENTER" layoutX="199.0" layoutY="315.0" opacity="0.0" prefHeight="175.0" prefWidth="517.0" styleClass="font" text="The pianist who was once abandoned by Mr.Hawthorne?" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
@@ -105,12 +105,12 @@
             <Image url="@../images/owner.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="block7Dialog1" layoutX="17.0" layoutY="270.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" text="Mr. Hawthorne awaits you......">
+      <Label fx:id="block7Dialog1" layoutX="17.0" layoutY="270.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" styleClass="font" text="Mr. Hawthorne awaits you......">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="block7Dialog2" layoutX="175.0" layoutY="361.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" text="Find the thief, before it's too late......">
+      <Label fx:id="block7Dialog2" layoutX="175.0" layoutY="361.0" opacity="0.0" prefHeight="47.0" prefWidth="542.0" styleClass="font" text="Find the thief, before it's too late......">
          <font>
             <Font name="Palatino Linotype Bold Italic" size="32.0" />
          </font>
