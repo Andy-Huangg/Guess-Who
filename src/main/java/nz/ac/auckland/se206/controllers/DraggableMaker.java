@@ -8,6 +8,11 @@ public class DraggableMaker {
   private double mouseAnchorX;
   private double mouseAnchorY;
 
+  /**
+   * Make a node draggable
+   *
+   * @param node the node to make draggable
+   */
   public void makeDraggable(Node node) {
     // Gets current mouse position
     node.setOnMousePressed(
