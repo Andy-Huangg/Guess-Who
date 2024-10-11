@@ -14,11 +14,21 @@ public class ChatHandler {
   private ChatCompletionRequest chatCompletionRequest;
   private String character;
 
+  /**
+   * Constructor for ChatHandler
+   *
+   * @param character the character for the chat
+   */
   public ChatHandler(String character) {
     this.character = character;
   }
 
-  // Set the profession and initialize ChatCompletionRequest
+  /**
+   * Set the character for the chat
+   *
+   * @param character the character for the chat
+   * @throws InterruptedException
+   */
   public void setCharacter(String character) throws InterruptedException {
 
     this.character = character;
@@ -48,6 +58,13 @@ public class ChatHandler {
     return PromptEngineering.getPrompt(character);
   }
 
+  /**
+   * Send the user's message to chatGPT
+   *
+   * @param message the user's message
+   * @param controller the controller to update the UI
+   * @throws ApiProxyException
+   */
   public void sendMessage(String message, ChatSceneController controller) throws ApiProxyException {
     Thread backgroundThread =
         new Thread(
@@ -64,6 +81,13 @@ public class ChatHandler {
     backgroundThread.start();
   }
 
+  /**
+   * Send the user's reason for guessing the thief to chatGPT
+   *
+   * @param message the user's reason for guessing the thief
+   * @param controller the controller to update the UI
+   * @throws ApiProxyException
+   */
   public void sendReason(String message, EndSceneController controller) throws ApiProxyException {
     // Creates a thread to Send the user's reason for guessing the thief to chatGPT
     Thread backgroundThread =
