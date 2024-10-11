@@ -151,10 +151,12 @@ public class CrimeSceneController {
     String rectangleIdentification = currentRectangle.getId();
     if (rectangleIdentification.equals("keypadEnter")) {
       if (keypadNumber1 > -1 && keypadNumber2 > -1) {
+        // convert the input to a number for comparison
         StringBuilder sb = new StringBuilder();
         sb.append(keypadNumber1);
         sb.append(keypadNumber2);
         int keypadNumber = Integer.parseInt(sb.toString());
+        // pass to the validation function
         validateKeypadNumber(keypadNumber);
       }
       return;
@@ -163,7 +165,7 @@ public class CrimeSceneController {
     char lastLetter = rectangleIdentification.charAt(rectangleIdentification.length() - 1);
     int input = Character.getNumericValue(lastLetter);
 
-    if (keypadNumber1 < 0) {
+    if (keypadNumber1 < 0) { // when open to input
       keypadNumber1 = input;
       keypadNumberDisplay1.setText(String.valueOf(input));
       stopKeypadFlash();
@@ -179,6 +181,7 @@ public class CrimeSceneController {
 
   @FXML
   private void validateKeypadNumber(int keypadNumber) {
+    // checking the guess and return corresponding result
     if (keypadNumber < successfulKeypadNumber) {
       setKeypadOutcome("ERR: KEY TOO LOW", false);
       TextToSpeech.speakLocally("error");
@@ -204,9 +207,10 @@ public class CrimeSceneController {
       unlockRectangle.setOpacity(1);
     }
     PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
-    pause.setOnFinished(
+    pause.setOnFinished( // pause for 1.5 sec and display the result
         event -> {
           if (correctGuess) {
+            // hide the keypad and show the log
             keypadPane.setVisible(false);
             keypadLogPane.setVisible(true);
             return;
@@ -222,6 +226,7 @@ public class CrimeSceneController {
   }
 
   private void paneTransition(Pane pane) {
+    // sldiing up the security pane
     cardTranslate.setNode(pane);
     cardTranslate.setDuration(Duration.millis(1000));
     cardTranslate.setByY(-750);
