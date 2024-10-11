@@ -23,8 +23,8 @@ The newspaper clue had an article on how Bruce's company is on the edge of colla
 The guest list clue has Bruce and Alfred's names on it but not Saul's. This raises suspicion on why Saul isn't on the list
  but if you question Saul about it you find out he is an old friend of the Owner and their relationship recently turned tense due to Saul discovering that the Sapphire belonged to his late father. Mr Hawthorne personally
  invited Saul to the Gala to clear up their tense relationship and any misunderstandings. This shows that Saul is unlikely to be the theft as the owner has mended the relationship.
-The security logs clue shows that the Sapphire was stolen at 2:30PM and if you question the suspects at that time. 
-You find that Bruce could have stolen the jewellery at this time as he claimed to use the bathroom but appeared to be going somewhere else.
+The security logs clue shows that the Sapphire was stolen at 2:30PM and if you question the suspects at that time.  
+You find that Bruce could have stolen the jewellery at this time as he claimed to use the bathroom but appeared to be going somewhere else. Bruces alibi does not add up.
 
 The Detective will give an explanation about the result of his investigation, and you need to tell him whether or not he is correct.
 Detective has determined that Bruce is the thief, and he will explain why to you.
