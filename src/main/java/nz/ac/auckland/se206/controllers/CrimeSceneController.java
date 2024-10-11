@@ -58,6 +58,10 @@ public class CrimeSceneController {
 
   private DraggableMaker draggableMaker = new DraggableMaker();
 
+  /**
+   * Initializes the crime scene view. Creates draggable nodes for the clues and starts the keypad
+   * flash animation.
+   */
   public void initialize() {
     // creating draggable nodes to make the clue interactive
     draggableMaker.makeDraggable(newsPaperPiece1);
@@ -72,6 +76,12 @@ public class CrimeSceneController {
     keypadNumber2 = -1;
   }
 
+  /**
+   * Handles the click event on the rectangle. Redirects to the appropriate interaction based on the
+   * rectangle clicked.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleRectangleClick(MouseEvent event) { // re-direct based on the rectangle clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();
@@ -90,31 +100,45 @@ public class CrimeSceneController {
     }
   }
 
+  /** Handles the interaction with the documents. Displays the documents pane. */
   private void handleDocumentsInteraction() {
     // Handle interaction with the guest list
     documentsPane.setVisible(true);
   }
 
+  /** Handles the interaction with the shelf. Displays the safe. */
   private void handleShelfInteraction() {
     // Handle interaction with the broken glass
     walletCluePane.setVisible(true);
   }
 
+  /** Handles the click on the sticky note. Sticky note pane is displayed. */
   @FXML
   private void openStickyNote() {
     stickyNotePane.setVisible(true);
   }
 
+  /** Handles the close button on the sticky note. Sticky note pane is hidden. */
   @FXML
   private void closeStickyNote() {
     stickyNotePane.setVisible(false);
   }
 
+  /**
+   * Handles the click event on the safe. Shows safe keypad.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleMetalPanel(MouseEvent event) {
     paneTransition(metalPanelPane);
   }
 
+  /**
+   * Handles number entry on the keypad. Flashes the keypad to indicate the input.
+   *
+   * @param number the number enetered
+   */
   @FXML
   private void startKeypadFlash(int number) {
     // flash the keypad to indicate the input
@@ -142,10 +166,17 @@ public class CrimeSceneController {
     keypadFlash.play();
   }
 
+  /** stops the keypad flash */
+  @FXML
   private void stopKeypadFlash() {
     keypadFlash.stop();
   }
 
+  /**
+   * Handles the click event on the safe. Shows safe keypad.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleKeypadClick(MouseEvent event) {
     // handle the input from the keypad
@@ -181,6 +212,11 @@ public class CrimeSceneController {
     }
   }
 
+  /**
+   * Validates the keypad number. Displays the outcome of the guess.
+   *
+   * @param keypadNumber the number entered
+   */
   @FXML
   private void validateKeypadNumber(int keypadNumber) {
     // checking the guess and return corresponding result
@@ -197,6 +233,12 @@ public class CrimeSceneController {
     }
   }
 
+  /**
+   * Sets the outcome of the keypad guess. Displays the result of the guess.
+   *
+   * @param text the text to display
+   * @param correctGuess whether the guess was correct
+   */
   @FXML
   private void setKeypadOutcome(String text, boolean correctGuess) {
     // set the outcome of the keypad guess
@@ -228,6 +270,11 @@ public class CrimeSceneController {
     pause.play();
   }
 
+  /**
+   * Handles the click event on the safe. Shows safe keypad.
+   *
+   * @param event the mouse event
+   */
   private void paneTransition(Pane pane) {
     // sldiing up the security pane
     cardTranslate.setNode(pane);
@@ -265,6 +312,11 @@ public class CrimeSceneController {
     walletClosedPane.setVisible(false);
   }
 
+  /**
+   * Handles the hover event on the rectangle. Highlights the clue when mouse hovers over it.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleRectangleHover(MouseEvent event) {
     // Highlights the clue when mouse hovers over it
@@ -287,6 +339,7 @@ public class CrimeSceneController {
     currentHover.setVisible(false);
   }
 
+  /** Handles the click event on the safe. Shows safe keypad. */
   @FXML
   private void onMouseLeave() {
     try {
@@ -309,13 +362,12 @@ public class CrimeSceneController {
                         closeStickyNote();
                       });
                 } catch (InterruptedException e) {
-                  // TODO Auto-generated catch block
                   e.printStackTrace();
                 }
               });
       closeClueThread.start();
     } catch (Exception e) { // in case interrupt casue error
-      // TODO: handle exception
+      e.printStackTrace();
     }
   }
 
@@ -325,7 +377,7 @@ public class CrimeSceneController {
       // "refresh" the clue pane
       closeClueThread.interrupt();
     } catch (Exception e) {
-      // TODO: handle exception
+      e.printStackTrace();
     }
   }
 }
