@@ -16,6 +16,10 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
+/**
+ * Controller class for the crime scene view. Handles user interactions within the crime scene and
+ * clues.
+ */
 public class CrimeSceneController {
 
   @FXML private Rectangle rectSafe;
@@ -120,7 +124,7 @@ public class CrimeSceneController {
 
   /** Handles the close button on the sticky note. Sticky note pane is hidden. */
   @FXML
-  private void closeStickyNote() {
+  private void onCloseStickyNote() {
     stickyNotePane.setVisible(false);
   }
 
@@ -147,13 +151,13 @@ public class CrimeSceneController {
             new KeyFrame(
                 Duration.seconds(0.75),
                 e -> {
-                  if (number == 1) {
+                  if (number == 1) { // if the number is 1 then set the opacity to 0
                     keypadUnderline1.setOpacity(0);
-                  } else if (number == 2) {
+                  } else if (number == 2) { // if the number is 2 then set the opacity to 0
                     keypadUnderline2.setOpacity(0);
                   }
                 }),
-            new KeyFrame(
+            new KeyFrame( // set the opacity to 1 after 1.5 sec
                 Duration.seconds(1.5),
                 e -> {
                   if (number == 1) {
@@ -166,7 +170,6 @@ public class CrimeSceneController {
     keypadFlash.play();
   }
 
-  /** stops the keypad flash */
   @FXML
   private void stopKeypadFlash() {
     keypadFlash.stop();
@@ -359,7 +362,7 @@ public class CrimeSceneController {
                         onCloseDocuments();
                         onCloseNewsPaper();
                         onCloseWallet();
-                        closeStickyNote();
+                        onCloseStickyNote();
                       });
                 } catch (InterruptedException e) {
                   // do nothing

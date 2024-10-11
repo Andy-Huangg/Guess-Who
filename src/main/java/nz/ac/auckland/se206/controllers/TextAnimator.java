@@ -5,15 +5,17 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
+/** Class to animate text in a TextArea. */
 public class TextAnimator implements Runnable {
-  @FXML private TextArea textOutput;
+
   private static boolean isRunning = false;
   private static int runningCount = 0;
+  @FXML private TextArea textOutput;
   private int animationTime = 30;
   private String text;
 
   /**
-   * Constructor for TextAnimator
+   * Constructor for TextAnimator.
    *
    * @param text the text to animate
    * @param textField the TextArea to output the text
@@ -23,25 +25,14 @@ public class TextAnimator implements Runnable {
     this.textOutput = textField;
   }
 
-  /**
-   * Get the running count
-   *
-   * @return the running count
-   */
   public static boolean getIsRunning() {
     return isRunning;
   }
 
-  /**
-   * Set the running count
-   *
-   * @param value the value to set
-   */
   public static void setRunningCount(int value) {
     runningCount = value;
   }
 
-  /** Start the animation */
   public void startAnimation() {
     while (isRunning) {
       try {
@@ -54,11 +45,7 @@ public class TextAnimator implements Runnable {
     thread.start();
   }
 
-  /**
-   * Get the running count
-   *
-   * @return the running count
-   */
+  /** Get the running count. */
   @Override
   public void run() {
     // increment running count

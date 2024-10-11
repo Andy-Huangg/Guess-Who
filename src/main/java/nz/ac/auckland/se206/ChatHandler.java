@@ -10,12 +10,13 @@ import nz.ac.auckland.se206.controllers.ChatSceneController;
 import nz.ac.auckland.se206.controllers.EndSceneController;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 
+/** Handles the chat logic between the user and chatGPT. */
 public class ChatHandler {
   private ChatCompletionRequest chatCompletionRequest;
   private String character;
 
   /**
-   * Constructor for ChatHandler
+   * Constructor for ChatHandler.
    *
    * @param character the character for the chat
    */
@@ -24,10 +25,10 @@ public class ChatHandler {
   }
 
   /**
-   * Set the character for the chat
+   * Set the character for the chat.
    *
    * @param character the character for the chat
-   * @throws InterruptedException
+   * @throws InterruptedException when the thread is interrupted
    */
   public void setCharacter(String character) throws InterruptedException {
 
@@ -59,11 +60,11 @@ public class ChatHandler {
   }
 
   /**
-   * Send the user's message to chatGPT
+   * Send the user's message to chatGPT.
    *
    * @param message the user's message
    * @param controller the controller to update the UI
-   * @throws ApiProxyException
+   * @throws ApiProxyException when there is an error with the API proxy
    */
   public void sendMessage(String message, ChatSceneController controller) throws ApiProxyException {
     Thread backgroundThread =
@@ -82,11 +83,11 @@ public class ChatHandler {
   }
 
   /**
-   * Send the user's reason for guessing the thief to chatGPT
+   * Send the user's reason for guessing the thief to chatGPT.
    *
    * @param message the user's reason for guessing the thief
    * @param controller the controller to update the UI
-   * @throws ApiProxyException
+   * @throws ApiProxyException when there is an error with the API proxy
    */
   public void sendReason(String message, EndSceneController controller) throws ApiProxyException {
     // Creates a thread to Send the user's reason for guessing the thief to chatGPT

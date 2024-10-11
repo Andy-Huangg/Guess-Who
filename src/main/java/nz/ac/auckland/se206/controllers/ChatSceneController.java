@@ -14,6 +14,10 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.ChatHandler;
 
+/**
+ * Controller class for the chat scene. Handles user interactions within the suspect scenes where
+ * the user can chat with the character.
+ */
 public abstract class ChatSceneController {
   public static boolean readyToSendMessage = true;
   @FXML protected TextArea txtChat;
@@ -26,7 +30,7 @@ public abstract class ChatSceneController {
   protected MediaPlayer mediaPlayer;
 
   /**
-   * Initializes the chat scene controller
+   * Initializes the chat scene controller.
    *
    * @param characterName the name of the character
    */
@@ -44,18 +48,16 @@ public abstract class ChatSceneController {
         });
   }
 
-  /** Enables the send button */
   public void enableSend() {
     btnSend.setDisable(false);
   }
 
-  /** Disables the send button */
   public void disableSend() {
     readyToSendMessage = false;
     btnSend.setDisable(true);
   }
 
-  /** Checks if the message is ready to send */
+  /** Checks if the message is ready to send. */
   public void checkForReadyToSend() {
     if (readyToSendMessage) {
       enableSend();
@@ -67,7 +69,7 @@ public abstract class ChatSceneController {
    * Sends a message to the chat
    *
    * @param event send message button pressed
-   * @throws ApiProxyException
+   * @throws ApiProxyException if an error occurs while sending the message
    */
   @FXML
   public void onSendMessage(ActionEvent event) throws ApiProxyException {
@@ -114,13 +116,13 @@ public abstract class ChatSceneController {
     checkerThread.start();
   }
 
-  /**
-   * Sets the interacted flag
-   *
-   * @param interacted the interacted flag
-   */
   protected abstract void setInteractedFlag(boolean interacted);
 
+  /**
+   * Plays the intro audio.
+   *
+   * @param audioFileName the name of the audio file
+   */
   public void playIntroAudio(String audioFileName) {
     String audioFilePath = "src/main/resources/sounds/" + audioFileName;
     Media media = new Media(Paths.get(audioFilePath).toUri().toString());
@@ -129,7 +131,7 @@ public abstract class ChatSceneController {
   }
 
   /**
-   * Appends a chat message to the chat
+   * Appends a chat message to the chat.
    *
    * @param msg the chat message
    */

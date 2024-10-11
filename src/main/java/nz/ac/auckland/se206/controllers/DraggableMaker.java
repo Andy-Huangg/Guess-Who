@@ -3,13 +3,14 @@ package nz.ac.auckland.se206.controllers;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 
+/** Make a node draggable within its parent container. */
 public class DraggableMaker {
 
   private double mouseAnchorX;
   private double mouseAnchorY;
 
   /**
-   * Make a node draggable
+   * Controls the dragging of a node when the mouse is pressed and dragged.
    *
    * @param node the node to make draggable
    */

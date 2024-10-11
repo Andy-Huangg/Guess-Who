@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
 
+/**
+ * Controller class for the music room view. Handles user interactions within the music room and
+ * Alfred.
+ */
 public class MusicRoomController extends ChatSceneController {
 
   @FXML private Rectangle rectAlfred;
@@ -14,9 +18,9 @@ public class MusicRoomController extends ChatSceneController {
   }
 
   /**
-   * Start the chat with Alfred
+   * Start the chat with Alfred.
    *
-   * @throws InterruptedException
+   * @throws InterruptedException when the thread is interrupted
    */
   @FXML
   private void startChat() throws InterruptedException {
@@ -37,7 +41,7 @@ public class MusicRoomController extends ChatSceneController {
   }
 
   /**
-   * Set the interacted flag
+   * Set the interacted flag.
    *
    * @param interacted the interacted flag
    */
