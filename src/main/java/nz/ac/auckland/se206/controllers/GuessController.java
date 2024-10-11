@@ -39,6 +39,9 @@ public class GuessController extends ChatSceneController {
   };
   private ImageView selectedImage;
 
+  /**
+   * Initializes the guess scene view. It will display the countdown timer and the suspect images.
+   */
   public void initialize() {
     playIntroAudio("guessstart.mp3");
     Thread timer =
@@ -96,6 +99,12 @@ public class GuessController extends ChatSceneController {
     stopTimer = true;
   }
 
+  /**
+   * Puts frame around selected suspect.
+   *
+   * @param event the suspect image clicked
+   * @throws IOException
+   */
   @FXML
   private void setSuspect(MouseEvent event) {
     // Get the ID of the selected image
@@ -119,6 +128,12 @@ public class GuessController extends ChatSceneController {
     selectedImage.setVisible(true);
   }
 
+  /**
+   * Handles the logic for guessing a suspect
+   *
+   * @param event the mouse event
+   * @throws IOException if the "src/main/resources/fxml/endScene.fxml" file is not found
+   */
   @FXML
   private void getSuspect(MouseEvent event) throws IOException {
     // Handles the logic for the selected suspect.
@@ -136,12 +151,24 @@ public class GuessController extends ChatSceneController {
     }
   }
 
+  /**
+   * Enables the reasoning pane for the user to input their reasoning for guessing the thief.
+   *
+   * @param id the suspect selected
+   */
   private void enableReasoningPane(String id) {
     suspectSelectedPane.setVisible(true);
     suspectSelected = id;
     suspectSelectedLabel.setText("Well done... Why do you think " + id + " is the thief?");
   }
 
+  /**
+   * Handles the submit button click event.
+   *
+   * @param event the action event triggered by clicking the submit button
+   * @throws ApiProxyException if there is an error with the API proxy
+   * @throws IOException if there is an I/O error
+   */
   @FXML
   private void onSubmit(ActionEvent event) throws ApiProxyException, IOException {
     // Submits the reason for guessing the thief.
@@ -161,14 +188,23 @@ public class GuessController extends ChatSceneController {
     ownerLabel.setText(responseList[rnd]);
   }
 
+  /**
+   * Appends the chat message to the chat text area.
+   *
+   * @param msg the chat message to be appended
+   */
   @Override
   public void appendChatMessage(ChatMessage msg) {
     Platform.runLater(() -> txtChat.appendText(msg.getContent() + "\n"));
   }
 
+  /**
+   * Sets the interacted flag for the guess scene.
+   *
+   * @param interacted the flag to be set
+   */
   @Override
   protected void setInteractedFlag(boolean interacted) {
-    // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'setInteractedFlag'");
   }
 }
