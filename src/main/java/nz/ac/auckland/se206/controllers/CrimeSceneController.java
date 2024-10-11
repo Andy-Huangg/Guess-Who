@@ -117,6 +117,7 @@ public class CrimeSceneController {
 
   @FXML
   private void startKeypadFlash(int number) {
+    // flash the keypad to indicate the input
     keypadFlash =
         new Timeline(
             new KeyFrame(
@@ -147,9 +148,10 @@ public class CrimeSceneController {
 
   @FXML
   private void handleKeypadClick(MouseEvent event) {
+    // handle the input from the keypad
     Rectangle currentRectangle = (Rectangle) event.getTarget();
     String rectangleIdentification = currentRectangle.getId();
-    if (rectangleIdentification.equals("keypadEnter")) {
+    if (rectangleIdentification.equals("keypadEnter")) { // when enter is clicked
       if (keypadNumber1 > -1 && keypadNumber2 > -1) {
         // convert the input to a number for comparison
         StringBuilder sb = new StringBuilder();
@@ -182,14 +184,14 @@ public class CrimeSceneController {
   @FXML
   private void validateKeypadNumber(int keypadNumber) {
     // checking the guess and return corresponding result
-    if (keypadNumber < successfulKeypadNumber) {
+    if (keypadNumber < successfulKeypadNumber) { // when the guess is too low
       setKeypadOutcome("ERR: KEY TOO LOW", false);
       TextToSpeech.speakLocally("error");
-    } else if (keypadNumber > successfulKeypadNumber) {
+    } else if (keypadNumber > successfulKeypadNumber) { // when the guess is too high
       setKeypadOutcome("ERR: KEY TOO HIGH", false);
       TextToSpeech.speakLocally("error");
     } else {
-      keypadNumberDisplayText.getStyleClass().add("success");
+      keypadNumberDisplayText.getStyleClass().add("success"); // when the guess is correct
       setKeypadOutcome("SUCCESS", true);
       TextToSpeech.speakLocally("success");
     }
@@ -197,6 +199,7 @@ public class CrimeSceneController {
 
   @FXML
   private void setKeypadOutcome(String text, boolean correctGuess) {
+    // set the outcome of the keypad guess
     keypadUnderline1.setOpacity(0);
     keypadUnderline2.setOpacity(0);
     keypadNumberDisplay1.setText("");
@@ -204,7 +207,7 @@ public class CrimeSceneController {
     stopKeypadFlash();
     keypadNumberDisplayText.setText(text);
     if (correctGuess) {
-      unlockRectangle.setOpacity(1);
+      unlockRectangle.setOpacity(1); // when guess is correct unlock the safe
     }
     PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
     pause.setOnFinished( // pause for 1.5 sec and display the result

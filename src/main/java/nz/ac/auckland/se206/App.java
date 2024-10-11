@@ -165,7 +165,7 @@ public class App extends Application {
     if (isAlfredInteracted()) {
       count++;
     }
-    return count;
+    return count; // return the number of suspects interacted
   }
 
   public static boolean isEnoughInteraction() {

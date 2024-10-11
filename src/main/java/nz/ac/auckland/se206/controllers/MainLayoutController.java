@@ -117,6 +117,7 @@ public class MainLayoutController {
 
   @FXML
   private void handleImageEntered(MouseEvent event) {
+    // Get the image that the mouse is hovering over
     ImageView currentImage = (ImageView) event.getTarget();
     String imageIdentification = currentImage.getId();
 
@@ -172,11 +173,7 @@ public class MainLayoutController {
   }
 
   public void displayTasks() {
-<<<<<<< HEAD
     // Display the number of clues and suspects interacted with so far
-=======
-    // Display the number of suspects and clues interacted with
->>>>>>> main
     boolean clueInteractedWith = App.isClueInteracted();
     if (clueInteractedWith) {
       clueCounter.setText("1/1"); // Only one clue interaction needed

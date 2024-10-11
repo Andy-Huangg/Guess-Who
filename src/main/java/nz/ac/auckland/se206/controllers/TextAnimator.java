@@ -27,10 +27,12 @@ public class TextAnimator implements Runnable {
 
   @Override
   public void run() {
+    // increment running count
     runningCount += 1;
     Task<Void> task =
         new Task<Void>() {
           protected Void call() throws Exception {
+            // animate text
             isRunning = true;
             for (int i = 1; i <= text.length(); i++) {
               int j = i;
@@ -51,6 +53,7 @@ public class TextAnimator implements Runnable {
           }
         };
 
+    // start the thread
     Thread backgroundThread = new Thread(task);
     backgroundThread.setDaemon(true);
     backgroundThread.start();
