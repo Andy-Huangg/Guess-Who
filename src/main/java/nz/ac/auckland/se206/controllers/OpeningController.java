@@ -335,7 +335,7 @@ public class OpeningController {
     // fade in the black screen
     FadeTransition temp = new FadeTransition();
     temp.setToValue(1);
-    temp.setDuration(Duration.millis(1300));
+    temp.setDuration(Duration.millis(1400));
     temp.setNode(coverRect);
     coverRect.setVisible(true);
     temp.play();
@@ -352,10 +352,10 @@ public class OpeningController {
     openingThread.interrupt(); // stop the animation thread
     // use timeline to schecule the transition
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
-    KeyFrame f3 = new KeyFrame(Duration.millis(250), e -> App.preloadMainLayout(coverRect));
+    KeyFrame f3 = new KeyFrame(Duration.millis(10), e -> App.preloadMainLayout(coverRect));
     KeyFrame f2 =
         new KeyFrame(
-            Duration.millis(1650),
+            Duration.millis(2000),
             e -> {
               try {
                 App.switchMainGame(coverRect);
