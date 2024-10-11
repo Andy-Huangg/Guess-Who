@@ -154,6 +154,7 @@ public class App extends Application {
   }
 
   public static int getSuspectsInteracted() {
+    // get the numbers or suspects interacted
     int count = 0;
     if (isBruceInteracted()) {
       count++;

@@ -36,11 +36,13 @@ public class TextAnimator implements Runnable {
               String character = text.substring(i - 1, i);
               Platform.runLater(
                   () -> {
+                    // append character by character
                     textOutput.appendText(character);
                     if (j == text.length() && runningCount == 2) {
                       ChatSceneController.readyToSendMessage = true;
                     }
                   });
+              // pause 30miliseconds for every character
               Thread.sleep(animationTime);
             }
             isRunning = false;
@@ -56,7 +58,7 @@ public class TextAnimator implements Runnable {
   public void startAnimation() {
     while (isRunning) {
       try {
-        Thread.sleep(5);
+        Thread.sleep(5); // pause a bit
       } catch (InterruptedException e) {
         e.printStackTrace();
       }

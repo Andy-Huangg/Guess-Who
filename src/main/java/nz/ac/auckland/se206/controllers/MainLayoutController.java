@@ -56,6 +56,7 @@ public class MainLayoutController {
   public void initialize() {
     startTimer();
     try {
+      // loading up the crimescene fxml file
       studyPane = FXMLLoader.load(getClass().getResource("/fxml/" + "crimescene" + ".fxml"));
     } catch (IOException e) {
       e.printStackTrace();
@@ -68,6 +69,7 @@ public class MainLayoutController {
     if (ChatSceneController.readyToSendMessage == false) {
       return;
     }
+    // separate thread to load the study room so the main thread doesn't freeze
     Thread thread =
         new Thread(
             () -> {
@@ -78,6 +80,7 @@ public class MainLayoutController {
                     studyImage.setOpacity(0.7);
                   });
             });
+    // closed thread when the application exits
     thread.setDaemon(true);
     thread.start();
   }
@@ -118,6 +121,7 @@ public class MainLayoutController {
     String imageIdentification = currentImage.getId();
 
     switch (imageIdentification) {
+      // Enlarge the text when the mouse hovers over the image
       case "studyImage":
         studyText.getStyleClass().add("enlarge");
         break;
@@ -141,6 +145,7 @@ public class MainLayoutController {
     String imageIdentification = currentImage.getId();
 
     switch (imageIdentification) {
+      // remove the enlarged text when the mouse leaves the image
       case "studyImage":
         studyText.getStyleClass().remove("enlarge");
         break;
@@ -166,6 +171,7 @@ public class MainLayoutController {
   }
 
   public void displayTasks() {
+    // Display the number of suspects and clues interacted with
     boolean clueInteractedWith = App.isClueInteracted();
     if (clueInteractedWith) {
       clueCounter.setText("1/1");
@@ -173,6 +179,7 @@ public class MainLayoutController {
     int suspectsInteractedWith = App.getSuspectsInteracted();
     suspectCounter.setText(suspectsInteractedWith + "/3");
 
+    // Display the guess button if all conditions are met
     if (clueInteractedWith && suspectsInteractedWith >= 3) {
       taskPane.setVisible(false);
       btnGuess.setVisible(true);
