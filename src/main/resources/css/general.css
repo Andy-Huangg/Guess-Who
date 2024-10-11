@@ -59,81 +59,85 @@
 #btnPlayAgain,
 #btnQuit {
   -fx-background-color: #3C3B3B;
-  /* Dark gray background to match the mansion theme */
   -fx-text-fill: white;
-  /* White text */
   -fx-border-color: #B0B0B0;
-  /* Subtle light gray border */
   -fx-border-width: 2px;
   -fx-font-family: "Palatino", serif;
-  /* Elegant font */
   -fx-font-size: 18px;
-  /* Slightly larger text for emphasis */
   -fx-padding: 12px 24px;
-  /* Extra padding for a larger button */
   -fx-border-radius: 8px;
   -fx-background-radius: 8px;
   -fx-cursor: hand;
-  /* Cursor changes to a hand when hovering */
 }
 
 
 #btnPlayAgain:hover,
 #btnQuit:hover {
   -fx-background-color: white;
-  /* Inverted background color */
   -fx-text-fill: #2C2A29;
-  /* Inverted text color */
   -fx-border-color: #2C2A29;
-  /* Inverted border color */
 }
 
 /* Click effect for the Play Again and Quit Game buttons */
 #btnPlayAgain:pressed,
 #btnQuit:pressed {
   -fx-background-color: #BBBBBB;
-  /* Darker background when pressed */
   -fx-border-color: #444444;
-  /* Lighter border when pressed */
 }
 
 
 /* Glow effect on hover */
 .image-view:hover {
   -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 1), 20, 0, 0, 0);
-  /* White glow effect */
   -fx-cursor: hand;
-  /* Hand cursor on hover */
 }
 
 /* Character name label above the chatbox */
 .characterName {
   -fx-background-color: transparent;
-  /* Transparent background to blend in */
   -fx-text-fill: white;
-  /* Gold text for elegance and clarity */
   -fx-font-family: "Palatino", serif;
-  /* Mansion-themed font */
   -fx-font-size: 32px;
-  /* Slightly larger font size to distinguish the name */
   -fx-font-weight: bold;
-  /* Bold to make the name stand out */
   -fx-padding: 5px 0px;
-  /* Some padding on top and bottom */
   -fx-text-alignment: center;
-  /* Center the text */
   -fx-border-color: transparent;
-  /* No border by default */
 }
 
 /* Optional shadow for the text to make it pop */
 .characterName {
   -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.75), 4, 0, 0, 2);
-  /* Adds a subtle shadow for depth */
 }
 
 /* Optional hover effect for interactivity */
 .characterName:hover {
   -fx-text-fill: #FFFFFF;
-  /* White text on hover for contrast */
+}
+
+#startButton {
+  -fx-background-color: #2C2A29;
+  -fx-text-fill: white;
+  -fx-border-color: white;
+  -fx-border-width: 2px;
+  -fx-font-family: "Georgia", serif;
+  -fx-font-size: 22px;
+  -fx-padding: 10px 20px;
+  -fx-background-radius: 10px;
+  -fx-border-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 3);
+  -fx-cursor: hand;
+  -fx-alignment: center;
+}
+
+#startButton:hover {
+  -fx-background-color: white;
+  -fx-text-fill: #2C2A29;
+  -fx-border-color: #2C2A29;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 3);
+}
+
+#startButton:pressed {
+  -fx-background-color: #D4AF37;
+  -fx-text-fill: white;
+  -fx-border-color: #D4AF37;
 }
