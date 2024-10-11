@@ -29,7 +29,7 @@ public class GuessController extends ChatSceneController {
 
   private String suspectSelected;
   private ChatHandler chatHandler = new ChatHandler("owner");
-  private int timeCount = 60;
+  private int timeCount = 20;
   private boolean stopTimer = false;
   private String[] responseList = {
     "Are you being serious right now? Me? Really?",
@@ -125,12 +125,14 @@ public class GuessController extends ChatSceneController {
     if (suspectSelected == null) {
       return;
     }
+
     if (suspectSelected.equals("Bruce")) {
       App.setWinner(true);
       enableReasoningPane("Bruce");
     } else {
       App.setWinner(false);
       App.openEndGameWindow(timeLabel);
+      stopTimer();
     }
   }
 
@@ -149,6 +151,7 @@ public class GuessController extends ChatSceneController {
     } else {
       App.setGuessReason("No reason given");
     }
+    stopTimer();
     App.openEndGameWindow(timeLabel);
   }
 

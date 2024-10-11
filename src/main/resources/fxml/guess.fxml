@@ -20,7 +20,7 @@
                   <Image url="@../images/owner.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="timeLabel" alignment="TOP_CENTER" layoutY="316.0" prefHeight="24.0" prefWidth="730.0" text="You have $ seconds remaining" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="timeLabel" alignment="TOP_CENTER" layoutY="316.0" prefHeight="24.0" prefWidth="730.0" styleClass="font" stylesheets="@../css/general.css" text="You have $ seconds remaining" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font>
@@ -55,19 +55,19 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label layoutX="120.0" layoutY="236.0" text="Bruce" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="120.0" layoutY="236.0" styleClass="font" stylesheets="@../css/general.css" text="Bruce" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label layoutX="342.0" layoutY="236.0" text="Alfred" textFill="WHITE">
+            <Label layoutX="342.0" layoutY="236.0" styleClass="font" stylesheets="@../css/general.css" text="Alfred" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label layoutX="572.0" layoutY="236.0" text="Saul" textFill="WHITE">
+            <Label layoutX="572.0" layoutY="236.0" styleClass="font" stylesheets="@../css/general.css" text="Saul" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label fx:id="ownerLabel" alignment="CENTER" layoutY="26.0" prefHeight="34.0" prefWidth="731.0" text="It's the moment of truth, detective. Tell me, who stole the jewllery?" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+            <Label fx:id="ownerLabel" alignment="CENTER" layoutY="26.0" prefHeight="34.0" prefWidth="731.0" styleClass="font" stylesheets="@../css/general.css" text="It's the moment of truth, detective. Tell me, who stole the jewllery?" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
                <font>
                   <Font size="22.0" />
                </font>
@@ -99,7 +99,7 @@
                         <Image url="@../images/woodtexture.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" layoutX="5.0" layoutY="3.0" prefHeight="34.0" prefWidth="725.0" text="Well done... Why do you think &lt;sus name&gt; is the thief?" textFill="WHITE">
+                  <Label fx:id="suspectSelectedLabel" alignment="CENTER" layoutX="5.0" layoutY="3.0" prefHeight="34.0" prefWidth="725.0" styleClass="font" stylesheets="@../css/general.css" text="Well done... Why do you think &lt;sus name&gt; is the thief?" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -108,7 +108,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button fx:id="submitButton" layoutX="260.0" layoutY="252.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="41.0" prefWidth="243.0" stylesheets="@../css/general.css" text="I Have Decided My Answer">
+                  <Button fx:id="submitButton" layoutX="246.0" layoutY="252.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="42.0" prefWidth="251.0" stylesheets="@../css/general.css" text="I Have Decided My Answer">
                      <font>
                         <Font size="14.0" />
                      </font></Button>

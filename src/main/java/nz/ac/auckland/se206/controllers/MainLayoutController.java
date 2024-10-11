@@ -266,7 +266,7 @@ public class MainLayoutController {
             () -> {
               try {
                 transitionToMain();
-                Thread.currentThread().sleep(4500);
+                Thread.sleep(4500);
               } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -278,7 +278,7 @@ public class MainLayoutController {
                     () -> {
                       int minutes = timeRemaining / 60;
                       int seconds = timeRemaining % 60;
-                      timerLabel.setText(String.format("%2d:%02d", minutes, seconds));
+                      timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
                       displayTasks();
 
                       // End interactions if time runs out
