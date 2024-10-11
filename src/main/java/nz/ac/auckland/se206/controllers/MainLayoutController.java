@@ -140,6 +140,7 @@ public class MainLayoutController {
     ImageView currentImage = (ImageView) event.getTarget();
     String imageIdentification = currentImage.getId();
 
+    // Remove the enlarge effect when the mouse exits the image
     switch (imageIdentification) {
       case "studyImage":
         studyText.getStyleClass().remove("enlarge");
@@ -166,12 +167,13 @@ public class MainLayoutController {
   }
 
   public void displayTasks() {
+    // Display the number of clues and suspects interacted with so far
     boolean clueInteractedWith = App.isClueInteracted();
     if (clueInteractedWith) {
-      clueCounter.setText("1/1");
+      clueCounter.setText("1/1"); // Only one clue interaction needed
     }
     int suspectsInteractedWith = App.getSuspectsInteracted();
-    suspectCounter.setText(suspectsInteractedWith + "/3");
+    suspectCounter.setText(suspectsInteractedWith + "/3"); // Three suspects to interact with
 
     if (clueInteractedWith && suspectsInteractedWith >= 3) {
       taskPane.setVisible(false);

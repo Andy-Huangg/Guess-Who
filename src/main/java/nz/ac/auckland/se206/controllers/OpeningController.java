@@ -158,6 +158,7 @@ public class OpeningController {
                 // transit to black screen
                 handleSkipClick(null);
               } catch (Exception e) {
+                e.printStackTrace();
               }
             });
   }
@@ -272,7 +273,7 @@ public class OpeningController {
   }
 
   @FXML
-  public void handleSkipClick(ActionEvent event) throws IOException {
+  private void handleSkipClick(ActionEvent event) throws IOException {
     openingThread.interrupt();
     KeyFrame f1 = new KeyFrame(Duration.millis(0), e -> endOpening());
     KeyFrame f3 = new KeyFrame(Duration.millis(250), e -> App.preloadMainLayout(coverRect));
@@ -283,7 +284,6 @@ public class OpeningController {
               try {
                 App.switchMainGame(coverRect);
               } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
               }
             });
@@ -299,7 +299,7 @@ public class OpeningController {
   }
 
   @FXML
-  public void handleStartClick(ActionEvent event) {
+  private void handleStartClick(ActionEvent event) {
     TranslateTransition temp1 = new TranslateTransition();
     temp1.setByX(-1000);
     temp1.setDuration(Duration.millis(500));

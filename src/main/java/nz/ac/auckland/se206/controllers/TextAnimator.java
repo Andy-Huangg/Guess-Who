@@ -2,14 +2,15 @@ package nz.ac.auckland.se206.controllers;
 
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
 public class TextAnimator implements Runnable {
+  @FXML private TextArea textOutput;
   private static boolean isRunning = false;
   private static int runningCount = 0;
-  private String text;
   private int animationTime = 30;
-  private TextArea textOutput;
+  private String text;
 
   public TextAnimator(String text, TextArea textField) {
     this.text = text;

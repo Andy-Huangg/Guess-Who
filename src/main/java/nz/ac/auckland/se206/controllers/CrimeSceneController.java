@@ -148,8 +148,8 @@ public class CrimeSceneController {
   @FXML
   private void handleKeypadClick(MouseEvent event) {
     Rectangle currentRectangle = (Rectangle) event.getTarget();
-    String rectangleID = currentRectangle.getId();
-    if (rectangleID.equals("keypadEnter")) {
+    String rectangleIdentification = currentRectangle.getId();
+    if (rectangleIdentification.equals("keypadEnter")) {
       if (keypadNumber1 > -1 && keypadNumber2 > -1) {
         StringBuilder sb = new StringBuilder();
         sb.append(keypadNumber1);
@@ -160,7 +160,7 @@ public class CrimeSceneController {
       return;
     }
     TextToSpeech.speakLocally("click");
-    char lastLetter = rectangleID.charAt(rectangleID.length() - 1);
+    char lastLetter = rectangleIdentification.charAt(rectangleIdentification.length() - 1);
     int input = Character.getNumericValue(lastLetter);
 
     if (keypadNumber1 < 0) {
