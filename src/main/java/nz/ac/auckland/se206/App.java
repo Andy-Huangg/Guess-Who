@@ -114,6 +114,7 @@ public class App extends Application {
    * @param event a rectangle in the current scene
    */
   public static void preloadMainLayout(Rectangle event) {
+    // Load the main layout in a separate thread to prevent the application from freezing
     new Thread(
             () -> {
               FXMLLoader temp = new FXMLLoader(App.class.getResource("/fxml/mainlayout.fxml"));
@@ -123,7 +124,7 @@ public class App extends Application {
                 e.printStackTrace();
               }
             })
-        .start();
+        .start(); // Start the thread
   }
 
   /**

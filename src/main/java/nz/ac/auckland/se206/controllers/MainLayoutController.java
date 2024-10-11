@@ -343,12 +343,11 @@ public class MainLayoutController {
     timerThread.start(); // Start the background thread
   }
 
-  /** Stops the countdown timer. */
   private void stopTimer() {
     stopTimer = true;
   }
 
-  /** Method to transition to the main screen */
+  /** Method to transition to the main screen. */
   public void transitionToMain() {
     coverRect.setVisible(true);
     FadeTransition temp = new FadeTransition();

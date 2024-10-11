@@ -70,6 +70,11 @@ public class TextToSpeech {
     backgroundThread.start();
   }
 
+  /**
+   * Speaks the given text locally using the specified audio file.
+   *
+   * @param fileName the name of the audio file
+   */
   public static void speakLocally(String fileName) {
     try {
       Media sound =

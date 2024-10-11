@@ -255,7 +255,7 @@ public class CrimeSceneController {
       unlockRectangle.setOpacity(1); // when guess is correct unlock the safe
     }
     PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
-    pause.setOnFinished( // pause for 1.5 sec and display the result
+    pause.setOnFinished(
         event -> {
           if (correctGuess) {
             // hide the keypad and show the log
