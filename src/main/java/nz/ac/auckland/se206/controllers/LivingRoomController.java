@@ -9,6 +9,11 @@ public class LivingRoomController extends ChatSceneController {
     startChat();
   }
 
+  /**
+   * Start the chat with Saul
+   *
+   * @throws InterruptedException
+   */
   private void startChat() throws InterruptedException {
     if (!App.isSaulInteracted()) { // if talked to saul for the first time
       playIntroAudio("Saul_intro.mp3");
@@ -25,6 +30,11 @@ public class LivingRoomController extends ChatSceneController {
     chatHandler.setCharacter("saul");
   }
 
+  /**
+   * Set the interacted flag
+   *
+   * @param interacted the interacted flag
+   */
   @Override
   protected void setInteractedFlag(boolean interacted) {
     App.setSaulInteracted(interacted);

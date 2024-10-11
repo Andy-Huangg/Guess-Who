@@ -64,6 +64,7 @@ public class MainLayoutController {
     loadStudy();
   }
 
+  /** Handles the study room button click event. */
   @FXML
   private void loadStudy() {
     if (ChatSceneController.readyToSendMessage == false) {
@@ -85,6 +86,7 @@ public class MainLayoutController {
     thread.start();
   }
 
+  /** Handles the garden room button click event. */
   @FXML
   public void loadGarden() {
     if (ChatSceneController.readyToSendMessage == false) {
@@ -95,6 +97,7 @@ public class MainLayoutController {
     gardenImage.setOpacity(0.7);
   }
 
+  /** Handles the living room button click event. */
   @FXML
   public void loadLivingRoom() {
     if (ChatSceneController.readyToSendMessage == false) {
@@ -105,6 +108,7 @@ public class MainLayoutController {
     livingroomImage.setOpacity(0.7);
   }
 
+  /** Handles the music room button click event. */
   @FXML
   public void loadMusicRoom() {
     if (ChatSceneController.readyToSendMessage == false) {
@@ -115,8 +119,15 @@ public class MainLayoutController {
     musicroomImage.setOpacity(0.7);
   }
 
+  /**
+   * Handles the mouse entered event on the images. Enlarges the text when the mouse hovers over the
+   * image.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleImageEntered(MouseEvent event) {
+    // Get the image that the mouse is hovering over
     ImageView currentImage = (ImageView) event.getTarget();
     String imageIdentification = currentImage.getId();
 
@@ -139,11 +150,18 @@ public class MainLayoutController {
     }
   }
 
+  /**
+   * Handles the mouse exited event on the images. Removes the enlarged text when the mouse leaves
+   * the image.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleImageExited(MouseEvent event) {
     ImageView currentImage = (ImageView) event.getTarget();
     String imageIdentification = currentImage.getId();
 
+    // Remove the enlarge effect when the mouse exits the image
     switch (imageIdentification) {
       // remove the enlarged text when the mouse leaves the image
       case "studyImage":
@@ -170,14 +188,18 @@ public class MainLayoutController {
     musicroomImage.setOpacity(1);
   }
 
+  /**
+   * Displays the number of tasks completed so far. If all tasks are completed, the guess button
+   * will be displayed.
+   */
   public void displayTasks() {
-    // Display the number of suspects and clues interacted with
+    // Display the number of clues and suspects interacted with so far
     boolean clueInteractedWith = App.isClueInteracted();
     if (clueInteractedWith) {
-      clueCounter.setText("1/1");
+      clueCounter.setText("1/1"); // Only one clue interaction needed
     }
     int suspectsInteractedWith = App.getSuspectsInteracted();
-    suspectCounter.setText(suspectsInteractedWith + "/3");
+    suspectCounter.setText(suspectsInteractedWith + "/3"); // Three suspects to interact with
 
     // Display the guess button if all conditions are met
     if (clueInteractedWith && suspectsInteractedWith >= 3) {
@@ -186,6 +208,11 @@ public class MainLayoutController {
     }
   }
 
+  /**
+   * Loads the FXML file specified by the parameter.
+   *
+   * @param fxmlFile the FXML file to load
+   */
   private void loadScene(String fxmlFile) {
     // Create a new background thread to load the FXML file
     Thread fxmlLoaderThread =
@@ -316,6 +343,7 @@ public class MainLayoutController {
     stopTimer = true;
   }
 
+  /* Method to transition to the main screen */
   public void transitionToMain() {
     coverRect.setVisible(true);
     FadeTransition temp = new FadeTransition();

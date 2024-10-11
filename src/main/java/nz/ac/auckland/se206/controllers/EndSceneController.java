@@ -65,14 +65,30 @@ public class EndSceneController {
     }
   }
 
+  /**
+   * Get the reason of the user's guess
+   *
+   * @param reason the reason of the user's guess
+   * @throws ApiProxyException
+   */
   private void getReason(String reason) throws ApiProxyException {
     chatHandler.sendReason(reason, this);
   }
 
+  /**
+   * Set the reason of the user's guess
+   *
+   * @param reason the reason of the user's guess
+   */
   public void setReason(String reason) {
     Platform.runLater(() -> labelReason.setText(reason));
   }
 
+  /**
+   * Play the end audio
+   *
+   * @param audioFileName the name of the audio file
+   */
   public void playEndAudio(String audioFileName) {
     String audioFilePath = "src/main/resources/sounds/" + audioFileName;
     Media media = new Media(Paths.get(audioFilePath).toUri().toString());
@@ -80,11 +96,18 @@ public class EndSceneController {
     mediaPlayer.play();
   }
 
+  /**
+   * Restart the game
+   *
+   * @param event the action event triggered by clicking the play again button
+   * @throws IOException if there is an I/O error
+   */
   @FXML
   private void onRestart(ActionEvent event) throws IOException {
     App.restartGame(labelResult); // Restart the game
   }
 
+  /** Exit the game */
   @FXML
   private void onQuit() {
     Platform.exit(); // This closes the application

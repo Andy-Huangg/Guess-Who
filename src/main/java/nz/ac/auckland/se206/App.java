@@ -122,6 +122,12 @@ public class App extends Application {
         .start();
   }
 
+  /**
+   * Switches the scene to the main game layout.
+   *
+   * @param event a rectangle in the current scene
+   * @throws IOException if the FXML file is not found
+   */
   public static void switchMainGame(Rectangle event) throws IOException {
     Stage stage = (Stage) event.getScene().getWindow();
     scene = new Scene(mainLayout);
@@ -165,7 +171,7 @@ public class App extends Application {
     if (isAlfredInteracted()) {
       count++;
     }
-    return count;
+    return count; // return the number of suspects interacted
   }
 
   public static boolean isEnoughInteraction() {
@@ -223,6 +229,11 @@ public class App extends Application {
     root.requestFocus();
   }
 
+  /**
+   * This method is invoked when the application is closed. It deallocates the synthesizer.
+   *
+   * @param event the window event
+   */
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
   }

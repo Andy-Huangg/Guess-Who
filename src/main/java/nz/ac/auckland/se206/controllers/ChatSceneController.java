@@ -25,7 +25,11 @@ public abstract class ChatSceneController {
   protected boolean isInteracted = false;
   protected MediaPlayer mediaPlayer;
 
-  // Common initialization logic
+  /**
+   * Initializes the chat scene controller
+   *
+   * @param characterName the name of the character
+   */
   public void initialize(String characterName) {
     chatHandler = new ChatHandler(characterName);
     txtInput.setOnKeyPressed(
@@ -40,15 +44,18 @@ public abstract class ChatSceneController {
         });
   }
 
+  /** Enables the send button */
   public void enableSend() {
     btnSend.setDisable(false);
   }
 
+  /** Disables the send button */
   public void disableSend() {
     readyToSendMessage = false;
     btnSend.setDisable(true);
   }
 
+  /** Checks if the message is ready to send */
   public void checkForReadyToSend() {
     if (readyToSendMessage) {
       enableSend();
@@ -56,6 +63,12 @@ public abstract class ChatSceneController {
     }
   }
 
+  /**
+   * Sends a message to the chat
+   *
+   * @param event send message button pressed
+   * @throws ApiProxyException
+   */
   @FXML
   public void onSendMessage(ActionEvent event) throws ApiProxyException {
     String message = txtInput.getText().trim();
@@ -101,7 +114,11 @@ public abstract class ChatSceneController {
     checkerThread.start();
   }
 
-  // Abstract method for subclass to implement setting interaction flag
+  /**
+   * Sets the interacted flag
+   *
+   * @param interacted the interacted flag
+   */
   protected abstract void setInteractedFlag(boolean interacted);
 
   public void playIntroAudio(String audioFileName) {
@@ -111,6 +128,11 @@ public abstract class ChatSceneController {
     mediaPlayer.play();
   }
 
+  /**
+   * Appends a chat message to the chat
+   *
+   * @param msg the chat message
+   */
   public void appendChatMessage(ChatMessage msg) {
     Platform.runLater(
         () -> {
